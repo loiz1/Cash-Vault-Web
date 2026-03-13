@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eliminar Cuenta - CashVault</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #e0e0e0;
+        }
+
+        .container {
+            max-width: 600px;
+            width: 90%;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .logo {
+            font-size: 48px;
+            margin-bottom: 8px;
+        }
+
+        h1 {
+            font-size: 28px;
+            color: #ffffff;
+            margin-bottom: 4px;
+        }
+
+        .app-name {
+            font-size: 14px;
+            color: #4fc3f7;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            font-size: 20px;
+            color: #ef5350;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 15px;
+            line-height: 1.7;
+            color: #b0b0b0;
+            margin-bottom: 16px;
+        }
+
+        .warning-box {
+            background: rgba(239, 83, 80, 0.1);
+            border: 1px solid rgba(239, 83, 80, 0.3);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 24px 0;
+        }
+
+        .warning-box p {
+            color: #ef9a9a;
+            margin-bottom: 0;
+            font-size: 14px;
+        }
+
+        .data-list {
+            text-align: left;
+            margin: 16px 0;
+            padding-left: 20px;
+        }
+
+        .data-list li {
+            color: #b0b0b0;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+
+        .delete-btn {
+            display: inline-block;
+            background: #ef5350;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 14px 36px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            margin-top: 24px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .delete-btn:hover {
+            background: #c62828;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(239, 83, 80, 0.4);
+        }
+
+        .footer {
+            margin-top: 32px;
+            font-size: 12px;
+            color: #666;
+        }
+
+        .footer a {
+            color: #4fc3f7;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">&#x1F4B0;</div>
+        <h1>CashVault</h1>
+        <p class="app-name">Finanzas Personales</p>
+
+        <h2>Solicitud de Eliminaci&oacute;n de Datos</h2>
+
+        <p>
+            Si deseas eliminar tu cuenta y todos los datos asociados a ella en CashVault,
+            puedes solicitar la eliminaci&oacute;n enviando un correo electr&oacute;nico con tu solicitud.
+        </p>
+
+        <div class="warning-box">
+            <p>
+                <strong>&#9888;&#65039; Atenci&oacute;n:</strong> Esta acci&oacute;n es irreversible.
+                Una vez procesada tu solicitud, se eliminar&aacute;n permanentemente todos tus datos,
+                incluyendo:
+            </p>
+        </div>
+
+        <ul class="data-list">
+            <li>Informaci&oacute;n de tu cuenta (correo electr&oacute;nico, perfil)</li>
+            <li>Historial de transacciones (ingresos y gastos)</li>
+            <li>Presupuestos y categor&iacute;as personalizadas</li>
+            <li>Metas de ahorro y su progreso</li>
+            <li>Miembros del hogar y datos asociados</li>
+        </ul>
+
+        <p>
+            Para procesar tu solicitud, incluye en el correo el
+            <strong>correo electr&oacute;nico asociado a tu cuenta</strong>
+            y el asunto &quot;Eliminar mi cuenta&quot;.
+            Tu solicitud ser&aacute; procesada en un plazo m&aacute;ximo de 7 d&iacute;as h&aacute;biles.
+        </p>
+
+        <a class="delete-btn"
+           href="mailto:astroseec@gmail.com?subject=Eliminar%20mi%20cuenta%20-%20CashVault&body=Hola%2C%0A%0ASolicito%20la%20eliminaci%C3%B3n%20de%20mi%20cuenta%20y%20todos%20mis%20datos%20en%20CashVault.%0A%0ACorreo%20asociado%20a%20mi%20cuenta%3A%20%5Bescribe%20tu%20correo%20aqu%C3%AD%5D%0A%0AGracias.">
+            Solicitar Eliminaci&oacute;n de Datos
+        </a>
+
+        <div class="footer">
+            <p>&copy; 2026 CashVault. Todos los derechos reservados.</p>
+        </div>
+    </div>
+</body>
+</html>

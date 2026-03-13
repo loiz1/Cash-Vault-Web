@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CashVault - Tu Asistente Financiero Personal</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            color: #e0e0e0;
+        }
+
+        /* ── Header / Hero ── */
+        .hero {
+            text-align: center;
+            padding: 80px 20px 50px;
+        }
+
+        .hero-logo {
+            font-size: 72px;
+            margin-bottom: 12px;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            color: #ffffff;
+            margin-bottom: 6px;
+        }
+
+        .hero .tagline {
+            font-size: 14px;
+            color: #4fc3f7;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+
+        .hero p {
+            max-width: 680px;
+            margin: 0 auto 36px;
+            font-size: 17px;
+            line-height: 1.8;
+            color: #b0b0b0;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 34px;
+            border-radius: 50px;
+            font-size: 15px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: #4fc3f7;
+            color: #0f3460;
+        }
+
+        .btn-primary:hover {
+            background: #039be5;
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(79, 195, 247, 0.35);
+        }
+
+        .btn-outline {
+            border: 1.5px solid rgba(255,255,255,0.25);
+            color: #e0e0e0;
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            border-color: #4fc3f7;
+            color: #4fc3f7;
+            transform: translateY(-2px);
+        }
+
+        /* ── Divider ── */
+        .divider {
+            width: 60px;
+            height: 3px;
+            background: #4fc3f7;
+            margin: 0 auto 50px;
+            border-radius: 2px;
+        }
+
+        /* ── Section base ── */
+        section {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 20px 60px;
+        }
+
+        section h2 {
+            text-align: center;
+            font-size: 28px;
+            color: #ffffff;
+            margin-bottom: 12px;
+        }
+
+        section > p.section-subtitle {
+            text-align: center;
+            color: #888;
+            font-size: 15px;
+            margin-bottom: 40px;
+        }
+
+        /* ── Features grid ── */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 30px 24px;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(79, 195, 247, 0.3);
+        }
+
+        .feature-icon {
+            font-size: 36px;
+            margin-bottom: 14px;
+        }
+
+        .feature-card h3 {
+            font-size: 18px;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            font-size: 14px;
+            line-height: 1.7;
+            color: #999;
+        }
+
+        /* ── How it works ── */
+        .steps {
+            display: flex;
+            gap: 32px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .step {
+            flex: 1 1 200px;
+            max-width: 260px;
+            text-align: center;
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(79, 195, 247, 0.15);
+            color: #4fc3f7;
+            font-size: 22px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            border: 2px solid rgba(79, 195, 247, 0.3);
+        }
+
+        .step h4 {
+            color: #fff;
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        .step p {
+            font-size: 13px;
+            color: #999;
+            line-height: 1.6;
+        }
+
+        /* ── Tech stack ── */
+        .tech-pills {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .pill {
+            background: rgba(255,255,255,0.07);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 50px;
+            padding: 10px 22px;
+            font-size: 14px;
+            color: #ccc;
+            transition: border-color 0.3s;
+        }
+
+        .pill:hover {
+            border-color: #4fc3f7;
+            color: #4fc3f7;
+        }
+
+        /* ── Footer ── */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid rgba(255,255,255,0.06);
+        }
+
+        footer p {
+            font-size: 13px;
+            color: #555;
+            margin-bottom: 8px;
+        }
+
+        footer .footer-links {
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        footer a {
+            color: #4fc3f7;
+            text-decoration: none;
+            font-size: 13px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ════ HERO ════ -->
+    <header class="hero">
+        <div class="hero-logo">&#x1F4B0;</div>
+        <h1>CashVault</h1>
+        <p class="tagline">Finanzas Personales</p>
+        <p>
+            Tu asistente financiero personal dise&ntilde;ado para ayudarte a tomar el control
+            de tus finanzas personales y familiares. Registra transacciones, establece presupuestos,
+            ahorra para tus metas y visualiza tu progreso con gr&aacute;ficos detallados y predicciones inteligentes.
+        </p>
+        <div class="cta-buttons">
+            <a class="btn btn-primary" href="#caracteristicas">Descubrir Funciones</a>
+            <a class="btn btn-outline" href="#como-funciona">C&oacute;mo Funciona</a>
+        </div>
+    </header>
+
+    <!-- ════ FEATURES ════ -->
+    <div class="divider"></div>
+    <section id="caracteristicas">
+        <h2>Caracter&iacute;sticas Principales</h2>
+        <p class="section-subtitle">Todo lo que necesitas para gestionar tu dinero en un solo lugar.</p>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">&#x1F4B5;</div>
+                <h3>Gesti&oacute;n de Transacciones</h3>
+                <p>Registra ingresos y gastos de manera r&aacute;pida. Categoriza cada movimiento, as&iacute;gnalo a un miembro del hogar y a&ntilde;ade notas. Busca y filtra por tipo, categor&iacute;a, persona o monto.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">&#x1F4CA;</div>
+                <h3>Dashboard Inteligente</h3>
+                <p>Visualiza tu balance total, ingresos, gastos y porcentaje de ahorro con indicadores claros. Navega entre meses para analizar tu historial financiero.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">&#x1F3AF;</div>
+                <h3>Presupuestos por Categor&iacute;a</h3>
+                <p>Define l&iacute;mites de gasto para cada categor&iacute;a y recibe alertas al acercarte o exceder tus presupuestos. Identifica &aacute;reas donde puedes optimizar.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">&#x1F3E0;</div>
+                <h3>Gesti&oacute;n del Hogar</h3>
+                <p>Administra finanzas compartidas con tu familia. Cada miembro registra sus movimientos y la app consolida todo con desgloses por persona.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">&#x1F4C8;</div>
+                <h3>Gr&aacute;ficos y Reportes</h3>
+                <p>Gr&aacute;ficos interactivos: distribuci&oacute;n de gastos por categor&iacute;a, comparaci&oacute;n ingresos vs gastos, y tendencias de ahorro a lo largo del tiempo.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">&#x1F52E;</div>
+                <h3>Predicciones de Ahorro</h3>
+                <p>Usando tus datos hist&oacute;ricos, la app predice cu&aacute;nto podr&iacute;as ahorrar al final del mes, ayud&aacute;ndote a tomar decisiones financieras informadas.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">&#x1F514;</div>
+                <h3>Pagos Recurrentes</h3>
+                <p>Configura recordatorios para pagos fijos: alquiler, servicios, suscripciones. Recibe notificaciones autom&aacute;ticas antes de cada vencimiento.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">&#x1F512;</div>
+                <h3>Cierre de Mes</h3>
+                <p>Bloquea la informaci&oacute;n de cada mes una vez cerrado. El sobrante del presupuesto se env&iacute;a autom&aacute;ticamente a tu ahorro fijo.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">&#x1F4BE;</div>
+                <h3>Metas de Ahorro</h3>
+                <p>Establece objetivos personalizados para emergencias, vacaciones o cualquier meta. Visualiza tu progreso y celebra cada logro alcanzado.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">&#x1F319;</div>
+                <h3>Modo Oscuro</h3>
+                <p>Interfaz adaptativa que se ajusta al tema de tu dispositivo. Experiencia visual c&oacute;moda tanto en modo claro como oscuro.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">&#x1F510;</div>
+                <h3>Seguridad con Firebase</h3>
+                <p>Autenticaci&oacute;n segura con Google. Tus datos se almacenan de forma protegida en la nube con la infraestructura de Firebase.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ════ HOW IT WORKS ════ -->
+    <div class="divider"></div>
+    <section id="como-funciona">
+        <h2>&iquest;C&oacute;mo Funciona?</h2>
+        <p class="section-subtitle">Empieza a controlar tus finanzas en tres sencillos pasos.</p>
+
+        <div class="steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h4>Crea tu Cuenta</h4>
+                <p>Inicia sesi&oacute;n r&aacute;pidamente con tu cuenta de Google. Configura tu perfil y los miembros de tu hogar.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h4>Registra tus Movimientos</h4>
+                <p>A&ntilde;ade ingresos y gastos, cat&eacute;gorizalos y define presupuestos mensuales por categor&iacute;a.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h4>Analiza y Ahorra</h4>
+                <p>Consulta gr&aacute;ficos, predicciones y reportes. Establece metas de ahorro y observa c&oacute;mo crece tu patrimonio.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ════ TECH ════ -->
+    <div class="divider"></div>
+    <section>
+        <h2>Tecnolog&iacute;as</h2>
+        <p class="section-subtitle">Construida con herramientas modernas y confiables.</p>
+
+        <div class="tech-pills">
+            <span class="pill">Flutter</span>
+            <span class="pill">Dart</span>
+            <span class="pill">Firebase Auth</span>
+            <span class="pill">Cloud Firestore</span>
+            <span class="pill">Firebase Cloud Messaging</span>
+            <span class="pill">Material Design 3</span>
+        </div>
+    </section>
+
+    <!-- ════ FOOTER ════ -->
+    <footer>
+        <p>&copy; 2026 CashVault. Todos los derechos reservados.</p>
+        <div class="footer-links">
+            <a href="delete-account.html">Eliminar mi Cuenta</a>
+        </div>
+    </footer>
+
+</body>
+</html>
