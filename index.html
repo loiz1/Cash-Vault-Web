@@ -237,21 +237,37 @@
             margin-bottom: 8px;
         }
 
-        footer .footer-links {
+        .footer-links {
             display: flex;
-            gap: 24px;
+            gap: 16px;
             justify-content: center;
             flex-wrap: wrap;
+            margin-top: 12px;
         }
 
-        footer a {
+        .footer-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: rgba(79, 195, 247, 0.1);
+            border: 1px solid rgba(79, 195, 247, 0.3);
+            border-radius: 8px;
             color: #4fc3f7;
             text-decoration: none;
             font-size: 13px;
+            transition: all 0.3s ease;
         }
 
-        footer a:hover {
-            text-decoration: underline;
+        .footer-btn:hover {
+            background: rgba(79, 195, 247, 0.2);
+            border-color: #4fc3f7;
+            text-decoration: none;
+            transform: translateY(-2px);
+        }
+
+        .footer-btn-icon {
+            font-size: 14px;
         }
     </style>
 </head>
@@ -393,10 +409,14 @@
     <footer>
         <p>&copy; 2026 CashVault. Todos los derechos reservados.</p>
         <div class="footer-links">
-            <a href="Politicies.html">Ver Politicas de Privacidad</a>
-        </div>
-        <div class="footer-links">
-            <a href="delete-account.html">Eliminar mi Cuenta</a>
+            <a href="Politica_Privacidad_CashVault.html" class="footer-btn">
+                <span class="footer-btn-icon">&#x1F512;</span>
+                Pol&iacute;ticas de Privacidad
+            </a>
+            <a href="delete-account.html" class="footer-btn">
+                <span class="footer-btn-icon">&#x1F5D1;</span>
+                Eliminar mi Cuenta
+            </a>
         </div>
     </footer>
 
