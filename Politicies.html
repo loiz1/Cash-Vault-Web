@@ -3,88 +3,194 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Política de Privacidad – CashVault (AppFinanzas)</title>
+    <title>Política de Privacidad – CashVault</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            color: #e0e0e0;
+            padding: 20px;
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: rgba(79, 195, 247, 0.1);
+            border: 1px solid rgba(79, 195, 247, 0.3);
+            border-radius: 8px;
+            color: #4fc3f7;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            margin-bottom: 30px;
+        }
+
+        .back-button:hover {
+            background: rgba(79, 195, 247, 0.2);
+            border-color: #4fc3f7;
+            transform: translateX(-4px);
+            text-decoration: none;
+        }
+
+        .back-button-icon {
+            font-size: 16px;
+        }
+
+        .container {
             max-width: 800px;
             margin: 0 auto;
-            padding: 40px 20px;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f5f5f5;
-        }
-        .container {
-            background: white;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
             padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
         }
+
         h1 {
-            color: #1a73e8;
-            border-bottom: 2px solid #1a73e8;
-            padding-bottom: 10px;
+            color: #ffffff;
+            font-size: 32px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
+
+        h1 .icon {
+            font-size: 36px;
+        }
+
+        .last-update {
+            color: #4fc3f7;
+            font-size: 14px;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
         h2 {
-            color: #202124;
+            color: #ffffff;
+            font-size: 22px;
             margin-top: 30px;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid rgba(79, 195, 247, 0.3);
         }
+
         h3 {
-            color: #5f6368;
+            color: #4fc3f7;
+            font-size: 16px;
+            margin-top: 20px;
+            margin-bottom: 10px;
         }
+
+        p {
+            line-height: 1.7;
+            color: #b0b0b0;
+            margin-bottom: 12px;
+        }
+
         ul, ol {
-            padding-left: 20px;
+            padding-left: 24px;
+            margin-bottom: 15px;
         }
+
         li {
             margin-bottom: 8px;
+            color: #b0b0b0;
+            line-height: 1.6;
         }
+
         .info-section {
-            background-color: #e8f0fe;
+            background: rgba(79, 195, 247, 0.1);
+            border: 1px solid rgba(79, 195, 247, 0.3);
             padding: 20px;
-            border-radius: 4px;
+            border-radius: 12px;
             margin: 20px 0;
         }
-        .last-update {
-            color: #5f6368;
-            font-style: italic;
+
+        .info-section strong {
+            color: #4fc3f7;
+        }
+
+        strong {
+            color: #ffffff;
+        }
+
+        .header-row {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 8px;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 24px 20px;
+            }
+            
+            h1 {
+                font-size: 24px;
+            }
+            
+            h2 {
+                font-size: 18px;
+            }
         }
     </style>
 </head>
 <body>
+    <a href="index.html" class="back-button">
+        <span class="back-button-icon">&#x2190;</span>
+        Volver al Inicio
+    </a>
+
     <div class="container">
-        <h1>Política de Privacidad – CashVault (AppFinanzas)</h1>
-        <p class="last-update">Última actualización: 13 de marzo de 2026</p>
+        <div class="header-row">
+            <span class="icon">&#x1F512;</span>
+            <h1>Pol&iacute;tica de Privacidad</h1>
+        </div>
+        <p class="last-update">&Uacute;ltima actualizaci&oacute;n: 13 de marzo de 2026</p>
 
-        <h2>Introducción</h2>
-        <p>CashVault es una aplicación de finanzas personales diseñada para ayudar a los usuarios a registrar y analizar sus ingresos, gastos, presupuestos y metas de ahorro. Esta Política de Privacidad describe cómo se recopila, utiliza, almacena y protège la información cuando utilizas la aplicación.</p>
-        <p><strong>Al usar CashVault aceptas las prácticas descritas en esta política.</strong></p>
+        <h2>Introducci&oacute;n</h2>
+        <p>CashVault es una aplicaci&oacute;n de finanzas personales dise&ntilde;ada para ayudar a los usuarios a registrar y analizar sus ingresos, gastos, presupuestos y metas de ahorro. Esta Pol&iacute;tica de Privacidad describe c&oacute;mo se recopila, utiliza, almacena y protege la informaci&oacute;n cuando utilizas la aplicaci&oacute;n.</p>
+        <p><strong>Al usar CashVault aceptas las pr&aacute;cticas descritas en esta pol&iacute;tica.</strong></p>
 
-        <h2>Información que recopilamos</h2>
+        <h2>Informaci&oacute;n que recopilamos</h2>
 
-        <h3>Información proporcionada por el usuario</h3>
-        <p>Cuando utilizas la aplicación podemos recopilar información que ingresas directamente, incluyendo:</p>
+        <h3>Informaci&oacute;n proporcionada por el usuario</h3>
+        <p>Cuando utilizas la aplicaci&oacute;n podemos recopilar informaci&oacute;n que ingresas directamente, incluyendo:</p>
         <ul>
-            <li>Dirección de correo electrónico utilizada para crear la cuenta.</li>
-            <li>Datos financieros que registras en la app (ingresos, gastos, categorías, presupuestos, metas de ahorro, notas de transacciones).</li>
-            <li>Información relacionada con miembros del hogar si decides utilizar la función de finanzas compartidas.</li>
+            <li>Direcci&oacute;n de correo electr&oacute;nico utilizada para crear la cuenta.</li>
+            <li>Datos financieros que registras en la app (ingresos, gastos, categor&iacute;as, presupuestos, metas de ahorro, notas de transacciones).</li>
+            <li>Informaci&oacute;n relacionada con miembros del hogar si decides utilizar la funci&oacute;n de finanzas compartidas.</li>
         </ul>
-        <p>Esta información se utiliza únicamente para el funcionamiento de la aplicación.</p>
+        <p>Esta informaci&oacute;n se utiliza &uacute;nicamente para el funcionamiento de la aplicaci&oacute;n.</p>
 
-        <h3>Información generada por el uso de la aplicación</h3>
-        <p>Podemos recopilar información técnica básica para mejorar el funcionamiento del servicio, como:</p>
+        <h3>Informaci&oacute;n generada por el uso de la aplicaci&oacute;n</h3>
+        <p>Podemos recopilar informaci&oacute;n t&eacute;cnica b&aacute;sica para mejorar el funcionamiento del servicio, como:</p>
         <ul>
             <li>Identificadores del dispositivo</li>
-            <li>Registros de uso de la aplicación</li>
-            <li>Información de rendimiento y errores</li>
+            <li>Registros de uso de la aplicaci&oacute;n</li>
+            <li>Informaci&oacute;n de rendimiento y errores</li>
         </ul>
-        <p>Esta información se utiliza para mejorar la estabilidad, seguridad y rendimiento de la app.</p>
+        <p>Esta informaci&oacute;n se utiliza para mejorar la estabilidad, seguridad y rendimiento de la app.</p>
 
-        <h2>Cómo usamos tu información</h2>
-        <p>La información recopilada se utiliza exclusivamente para:</p>
+        <h2>C&oacute;mo usamos tu informaci&oacute;n</h2>
+        <p>La informaci&oacute;n recopilada se utiliza exclusivamente para:</p>
         <ul>
             <li>Crear y administrar tu cuenta de usuario</li>
             <li>Guardar y sincronizar tus datos financieros</li>
-            <li>Mostrar estadísticas, reportes y gráficos dentro de la aplicación</li>
+            <li>Mostrar estad&iacute;sticas, reportes y gr&aacute;ficos dentro de la aplicaci&oacute;n</li>
             <li>Mejorar la experiencia del usuario</li>
             <li>Mantener la seguridad del servicio</li>
             <li>Enviar recordatorios o notificaciones configuradas por el usuario</li>
@@ -100,23 +206,23 @@
             <li>Cloud Firestore o Realtime Database para almacenar datos</li>
             <li>Firebase Cloud Messaging para notificaciones</li>
         </ul>
-        <p>Estos servicios aplican medidas de seguridad y cifrado estándar de la industria.</p>
+        <p>Estos servicios aplican medidas de seguridad y cifrado est&aacute;ndar de la industria.</p>
 
-        <h2>Seguridad de la información</h2>
-        <p>Se implementan medidas técnicas y organizativas para proteger la información del usuario contra accesos no autorizados, pérdida oalteración.</p>
+        <h2>Seguridad de la informaci&oacute;n</h2>
+        <p>Se implementan medidas t&eacute;cnicas y organizativas para proteger la informaci&oacute;n del usuario contra accesos no autorizados, p&eacute;rdida o alteraci&oacute;n.</p>
         <p>Esto incluye:</p>
         <ul>
-            <li>Autenticación segura mediante Firebase</li>
+            <li>Autenticaci&oacute;n segura mediante Firebase</li>
             <li>Conexiones cifradas (HTTPS)</li>
             <li>Control de acceso a los datos en la nube</li>
         </ul>
         <div class="info-section">
-            <strong>Nota de seguridad:</strong> Sin embargo, ningún sistema puede garantizar seguridad absoluta.
+            <strong>Nota de seguridad:</strong> Sin embargo, ning&uacute;n sistema puede garantizar seguridad absoluta.
         </div>
 
-        <h2>Compartición de datos</h2>
+        <h2>Compartici&oacute;n de datos</h2>
         <p>CashVault no vende ni alquila datos personales.</p>
-        <p>La información solo puede compartirse en los siguientes casos:</p>
+        <p>La informaci&oacute;n solo puede compartirse en los siguientes casos:</p>
         <ul>
             <li>Cuando sea requerido por ley o autoridades legales</li>
             <li>Con proveedores de infraestructura necesarios para operar la app (por ejemplo Google Firebase)</li>
@@ -128,22 +234,22 @@
         <ul>
             <li>Editar o eliminar transacciones dentro de la app</li>
             <li>Eliminar tu cuenta y datos asociados</li>
-            <li>Dejar de usar la aplicación en cualquier momento</li>
+            <li>Dejar de usar la aplicaci&oacute;n en cualquier momento</li>
         </ul>
         <div class="info-section">
-            <strong>Nota importante:</strong> Cuando eliminas tu cuenta, se eliminarán también los datos asociados almacenados en nuestros servicios.
+            <strong>Nota importante:</strong> Cuando eliminas tu cuenta, se eliminar&aacute;n tambi&eacute;n los datos asociados almacenados en nuestros servicios.
         </div>
 
         <h2>Privacidad de menores</h2>
-        <p>La aplicación no está dirigida a menores de 13 años. No recopilamos intencionalmente información personal de menores.</p>
-        <p>Si detectamos que se ha recopilado información de un menor sin consentimiento parental, tomaremos medidas para eliminarla.</p>
+        <p>La aplicaci&oacute;n no est&aacute; dirigida a menores de 13 a&ntilde;os. No recopilamos intencionalmente informaci&oacute;n personal de menores.</p>
+        <p>Si detectamos que se ha recopilado informaci&oacute;n de un menor sin consentimiento parental, tomaremos medidas para eliminarla.</p>
 
-        <h2>Cambios en esta política</h2>
-        <p>Esta Política de Privacidad puede actualizarse ocasionalmente para reflejar cambios en la aplicación o en requisitos legales.</p>
-        <p>Las actualizaciones se publicarán dentro de la aplicación o en la página oficial del proyecto.</p>
+        <h2>Cambios en esta pol&iacute;tica</h2>
+        <p>Esta Pol&iacute;tica de Privacidad puede actualizarse ocasionalmente para reflejar cambios en la aplicaci&oacute;n o en requisitos legales.</p>
+        <p>Las actualizaciones se publicar&aacute;n dentro de la aplicaci&oacute;n o en la p&aacute;gina oficial del proyecto.</p>
 
         <h2>Contacto</h2>
-        <p>Si tienes preguntas sobre esta Política de Privacidad puedes contactarnos a través del correo electrónico de soporte de la aplicación.</p>
+        <p>Si tienes preguntas sobre esta Pol&iacute;tica de Privacidad puedes contactarnos a trav&eacute;s del correo electr&oacute;nico de soporte de la aplicaci&oacute;n.</p>
     </div>
 </body>
 </html>
