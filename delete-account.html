@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eliminar Cuenta - CashVault</title>
+    <title>Eliminar Mi Cuenta – CashVault</title>
     <style>
         * {
             margin: 0;
@@ -15,162 +15,226 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
             min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             color: #e0e0e0;
+            padding: 20px;
         }
 
-        .container {
-            max-width: 600px;
-            width: 90%;
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 40px;
-            text-align: center;
-        }
-
-        .logo {
-            font-size: 48px;
-            margin-bottom: 8px;
-        }
-
-        h1 {
-            font-size: 28px;
-            color: #ffffff;
-            margin-bottom: 4px;
-        }
-
-        .app-name {
-            font-size: 14px;
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: rgba(79, 195, 247, 0.1);
+            border: 1px solid rgba(79, 195, 247, 0.3);
+            border-radius: 8px;
             color: #4fc3f7;
-            letter-spacing: 2px;
-            text-transform: uppercase;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
             margin-bottom: 30px;
         }
 
-        h2 {
-            font-size: 20px;
-            color: #ef5350;
-            margin-bottom: 20px;
+        .back-button:hover {
+            background: rgba(79, 195, 247, 0.2);
+            border-color: #4fc3f7;
+            transform: translateX(-4px);
+            text-decoration: none;
         }
 
-        p {
-            font-size: 15px;
-            line-height: 1.7;
-            color: #b0b0b0;
+        .back-button-icon {
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header-icon {
+            font-size: 48px;
+            display: block;
             margin-bottom: 16px;
         }
 
+        h1 {
+            color: #ffffff;
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            color: #b0b0b0;
+            font-size: 15px;
+        }
+
         .warning-box {
-            background: rgba(239, 83, 80, 0.1);
-            border: 1px solid rgba(239, 83, 80, 0.3);
+            background: rgba(244, 67, 54, 0.15);
+            border: 1px solid rgba(244, 67, 54, 0.4);
             border-radius: 12px;
-            padding: 20px;
+            padding: 24px;
             margin: 24px 0;
         }
 
+        .warning-box h2 {
+            color: #ef5350;
+            font-size: 18px;
+            margin-bottom: 12px;
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
         .warning-box p {
-            color: #ef9a9a;
-            margin-bottom: 0;
+            color: #ffcdd2;
             font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 0;
         }
 
-        .data-list {
-            text-align: left;
-            margin: 16px 0;
-            padding-left: 20px;
+        .info-box {
+            background: rgba(79, 195, 247, 0.1);
+            border: 1px solid rgba(79, 195, 247, 0.3);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
         }
 
-        .data-list li {
+        .info-box h3 {
+            color: #4fc3f7;
+            font-size: 16px;
+            margin-bottom: 12px;
+            margin-top: 0;
+        }
+
+        .info-box ul {
+            margin-bottom: 0;
+        }
+
+        .info-box li {
             color: #b0b0b0;
             font-size: 14px;
             margin-bottom: 8px;
         }
 
-        .delete-btn {
-            display: inline-block;
-            background: #ef5350;
+        .info-box li:last-child {
+            margin-bottom: 0;
+        }
+
+        .instructions {
+            margin-top: 30px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .instructions h3 {
             color: #ffffff;
-            text-decoration: none;
-            padding: 14px 36px;
-            border-radius: 50px;
             font-size: 16px;
-            font-weight: 600;
+            margin-bottom: 16px;
+            margin-top: 0;
+        }
+
+        .instructions ol {
+            padding-left: 24px;
+        }
+
+        .instructions li {
+            color: #b0b0b0;
+            font-size: 14px;
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+
+        .instructions li strong {
+            color: #ffffff;
+        }
+
+        .contact-note {
+            text-align: center;
+            color: #888;
+            font-size: 13px;
             margin-top: 24px;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .delete-btn:hover {
-            background: #c62828;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(239, 83, 80, 0.4);
-        }
-
-        .footer {
-            margin-top: 32px;
-            font-size: 12px;
-            color: #666;
-        }
-
-        .footer a {
-            color: #4fc3f7;
-            text-decoration: none;
-        }
-
-        .footer a:hover {
-            text-decoration: underline;
+        @media (max-width: 600px) {
+            .container {
+                padding: 24px 20px;
+            }
+            
+            h1 {
+                font-size: 22px;
+            }
+            
+            .header-icon {
+                font-size: 40px;
+            }
         }
     </style>
 </head>
 <body>
+    <a href="index.html" class="back-button">
+        <span class="back-button-icon">&#x2190;</span>
+        Volver al Inicio
+    </a>
+
     <div class="container">
-        <div class="logo">&#x1F4B0;</div>
-        <h1>CashVault</h1>
-        <p class="app-name">Finanzas Personales</p>
-
-        <h2>Solicitud de Eliminaci&oacute;n de Datos</h2>
-
-        <p>
-            Si deseas eliminar tu cuenta y todos los datos asociados a ella en CashVault,
-            puedes solicitar la eliminaci&oacute;n enviando un correo electr&oacute;nico con tu solicitud.
-        </p>
+        <div class="header">
+            <span class="header-icon">&#x1F5D1;</span>
+            <h1>Eliminar Mi Cuenta</h1>
+            <p class="subtitle">&iquest;Est&aacute;s seguro de que deseas eliminar tu cuenta de CashVault?</p>
+        </div>
 
         <div class="warning-box">
-            <p>
-                <strong>&#9888;&#65039; Atenci&oacute;n:</strong> Esta acci&oacute;n es irreversible.
-                Una vez procesada tu solicitud, se eliminar&aacute;n permanentemente todos tus datos,
-                incluyendo:
-            </p>
+            <h2>&#x26A0; Advertencia Importante</h2>
+            <p>Esta acci&oacute;n es irreversible. Una vez que elimines tu cuenta, todos tus datos ser&aacute;n eliminados de forma permanente y no podr&aacute;n ser recuperados.</p>
         </div>
 
-        <ul class="data-list">
-            <li>Informaci&oacute;n de tu cuenta (correo electr&oacute;nico, perfil)</li>
-            <li>Historial de transacciones (ingresos y gastos)</li>
-            <li>Presupuestos y categor&iacute;as personalizadas</li>
-            <li>Metas de ahorro y su progreso</li>
-            <li>Miembros del hogar y datos asociados</li>
-        </ul>
+        <div class="info-box">
+            <h3>&#x1F4CB; &iquest;Qu&eacute; se eliminar&aacute;?</h3>
+            <ul>
+                <li>Todos tus registros de transacciones (ingresos y gastos)</li>
+                <li>Presupuestos y categor&iacute;as configuradas</li>
+                <li>Metas de ahorro y progreso</li>
+                <li>Configuraciones de pagos recurrentes</li>
+                <li>Información de miembros del hogar</li>
+                <li>Historial de movimientos y reportes</li>
+            </ul>
+        </div>
 
-        <p>
-            Para procesar tu solicitud, incluye en el correo el
-            <strong>correo electr&oacute;nico asociado a tu cuenta</strong>
-            y el asunto &quot;Eliminar mi cuenta&quot;.
-            Tu solicitud ser&aacute; procesada en un plazo m&aacute;ximo de 7 d&iacute;as h&aacute;biles.
+        <div class="info-box">
+            <h3>&#x2705; &iquest;Qu&eacute; NO se ver&aacute; afectado?</h3>
+            <ul>
+                <li>Tu cuenta de Google (la autenticaci&oacute;n se revoca, no se elimina)</li>
+                <li>Cualquier otro servicio vinculado a tu cuenta de Google</li>
+            </ul>
+        </div>
+
+        <div class="instructions">
+            <h3>&#x1F4E4; C&oacute;mo eliminar tu cuenta desde la app:</h3>
+            <ol>
+                <li><strong>Abre la aplicaci&oacute;n CashVault</strong> en tu dispositivo m&oacute;vil</li>
+                <li><strong>Ve a Configuraci&oacute;n</strong> (icono de engranaje en la esquina superior)</li>
+                <li><strong>Despl&aacute;zate hacia abajo</strong> y busca la opci&oacute;n "Eliminar Cuenta"</li>
+                <li><strong>Confirma tu decisi&oacute;n</strong> ingresando tu correo electr&oacute;nico</li>
+                <li><strong>Finaliza</strong> presionando el bot&oacute;n de eliminaci&oacute;n definitiva</li>
+            </ol>
+        </div>
+
+        <p class="contact-note">
+            Si tienes alg&uacute;n problema para eliminar tu cuenta o necesitas asistencia adicional, 
+            por favor contacta a trav&eacute;s del correo electr&oacute;nico de soporte de la aplicaci&oacute;n.
         </p>
-
-        <a class="delete-btn"
-           href="mailto:astroseec@gmail.com?subject=Eliminar%20mi%20cuenta%20-%20CashVault&body=Hola%2C%0A%0ASolicito%20la%20eliminaci%C3%B3n%20de%20mi%20cuenta%20y%20todos%20mis%20datos%20en%20CashVault.%0A%0ACorreo%20asociado%20a%20mi%20cuenta%3A%20%5Bescribe%20tu%20correo%20aqu%C3%AD%5D%0A%0AGracias.">
-            Solicitar Eliminaci&oacute;n de Datos
-        </a>
-
-        <div class="footer">
-            <p>&copy; 2026 CashVault. Todos los derechos reservados.</p>
-        </div>
     </div>
 </body>
 </html>
