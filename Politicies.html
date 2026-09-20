@@ -3,268 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Política de Privacidad – CashVault</title>
+    <title>Políticas de Privacidad - AstroSeec</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-            min-height: 100vh;
-            color: #e0e0e0;
-            padding: 20px;
-        }
-
-        .back-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 12px 24px;
-            background: rgba(79, 195, 247, 0.1);
-            border: 1px solid rgba(79, 195, 247, 0.3);
-            border-radius: 8px;
-            color: #4fc3f7;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            margin-bottom: 30px;
-        }
-
-        .back-button:hover {
-            background: rgba(79, 195, 247, 0.2);
-            border-color: #4fc3f7;
-            transform: translateX(-4px);
-            text-decoration: none;
-        }
-
-        .back-button-icon {
-            font-size: 16px;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 16px;
-            padding: 40px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        h1 {
-            color: #ffffff;
-            font-size: 32px;
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        h1 .icon {
-            font-size: 36px;
-        }
-
-        .last-update {
-            color: #4fc3f7;
-            font-size: 14px;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        h2 {
-            color: #ffffff;
-            font-size: 22px;
-            margin-top: 30px;
-            margin-bottom: 15px;
-            padding-bottom: 8px;
-            border-bottom: 2px solid rgba(79, 195, 247, 0.3);
-        }
-
-        h3 {
-            color: #4fc3f7;
-            font-size: 16px;
-            margin-top: 20px;
-            margin-bottom: 10px;
-        }
-
-        p {
-            line-height: 1.7;
-            color: #b0b0b0;
-            margin-bottom: 12px;
-        }
-
-        ul, ol {
-            padding-left: 24px;
-            margin-bottom: 15px;
-        }
-
-        li {
-            margin-bottom: 8px;
-            color: #b0b0b0;
-            line-height: 1.6;
-        }
-
-        .info-section {
-            background: rgba(79, 195, 247, 0.1);
-            border: 1px solid rgba(79, 195, 247, 0.3);
-            padding: 20px;
-            border-radius: 12px;
-            margin: 20px 0;
-        }
-
-        .info-section strong {
-            color: #4fc3f7;
-        }
-
-        strong {
-            color: #ffffff;
-        }
-
-        .header-row {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            margin-bottom: 8px;
-        }
-
-        @media (max-width: 600px) {
-            .container {
-                padding: 24px 20px;
-            }
-            
-            h1 {
-                font-size: 24px;
-            }
-            
-            h2 {
-                font-size: 18px;
-            }
-        }
+        :root { --bg-color: #e5e0d8; --text-color: #0d1217; --accent: #2c3e50; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg-color); color: var(--text-color); margin: 0; padding: 20px; }
+        .container { max-width: 800px; margin: 0 auto; background: rgba(255,255,255,0.4); padding: 50px; border-radius: 30px; backdrop-filter: blur(10px); }
+        h1 { font-size: 2.5rem; margin-bottom: 20px; }
+        h2 { font-size: 1.5rem; margin-top: 30px; margin-bottom: 15px; }
+        p { line-height: 1.8; margin-bottom: 20px; }
+        ul { margin-bottom: 20px; padding-left: 20px; }
+        li { margin-bottom: 10px; }
+        a { color: var(--accent); }
     </style>
 </head>
 <body>
-    <a href="index.html" class="back-button">
-        <span class="back-button-icon">&#x2190;</span>
-        Volver al Inicio
-    </a>
-
     <div class="container">
-        <div class="header-row">
-            <span class="icon">&#x1F512;</span>
-            <h1>Pol&iacute;tica de Privacidad</h1>
-        </div>
-        <p class="last-update">&Uacute;ltima actualizaci&oacute;n: 12 de junio de 2026</p>
-
-        <h2>Introducci&oacute;n</h2>
-        <p>CashVault es una aplicaci&oacute;n de finanzas personales dise&ntilde;ada para ayudar a los usuarios a registrar y analizar sus ingresos, gastos, presupuestos y metas de ahorro. Esta Pol&iacute;tica de Privacidad describe c&oacute;mo se recopila, utiliza, almacena y protege la informaci&oacute;n cuando utilizas la aplicaci&oacute;n.</p>
-        <p><strong>Al usar CashVault aceptas las pr&aacute;cticas descritas en esta pol&iacute;tica.</strong></p>
-
-        <h2>Informaci&oacute;n que recopilamos</h2>
-
-        <h3>Informaci&oacute;n proporcionada por el usuario</h3>
-        <p>Cuando utilizas la aplicaci&oacute;n podemos recopilar informaci&oacute;n que ingresas directamente, incluyendo:</p>
-        <ul>
-            <li>Direcci&oacute;n de correo electr&oacute;nico utilizada para crear la cuenta.</li>
-            <li>Datos financieros que registras en la app (ingresos, gastos, categor&iacute;as, presupuestos, metas de ahorro, notas de transacciones).</li>
-            <li>Informaci&oacute;n relacionada con miembros del hogar si decides utilizar la funci&oacute;n de finanzas compartidas.</li>
-        </ul>
-        <p>Esta informaci&oacute;n se utiliza &uacute;nicamente para el funcionamiento de la aplicaci&oacute;n.</p>
-
-        <h3>Informaci&oacute;n generada por el uso de la aplicaci&oacute;n</h3>
-        <p>Podemos recopilar informaci&oacute;n t&eacute;cnica b&aacute;sica para mejorar el funcionamiento del servicio, como:</p>
-        <ul>
-            <li>Identificadores del dispositivo</li>
-            <li>Registros de uso de la aplicaci&oacute;n</li>
-            <li>Informaci&oacute;n de rendimiento y errores</li>
-        </ul>
-        <p>Esta informaci&oacute;n se utiliza para mejorar la estabilidad, seguridad y rendimiento de la app.</p>
-
-        <h2>C&oacute;mo usamos tu informaci&oacute;n</h2>
-        <p>La informaci&oacute;n recopilada se utiliza exclusivamente para:</p>
-        <ul>
-            <li>Crear y administrar tu cuenta de usuario</li>
-            <li>Guardar y sincronizar tus datos financieros</li>
-            <li>Mostrar estad&iacute;sticas, reportes y gr&aacute;ficos dentro de la aplicaci&oacute;n</li>
-            <li>Mejorar la experiencia del usuario</li>
-            <li>Mantener la seguridad del servicio</li>
-            <li>Enviar recordatorios o notificaciones configuradas por el usuario</li>
-        </ul>
-        <div class="info-section">
-            <strong>Nota importante:</strong> CashVault no vende ni comparte tus datos financieros con terceros con fines comerciales.
-        </div>
-
-        <h2>Almacenamiento de datos</h2>
-        <p>Los datos se almacenan utilizando servicios de infraestructura de Google Firebase, que pueden incluir:</p>
-        <ul>
-            <li>Firebase Authentication para gestionar cuentas de usuario</li>
-            <li>Cloud Firestore o Realtime Database para almacenar datos</li>
-            <li>Firebase Cloud Messaging para notificaciones</li>
-        </ul>
-        <p>Estos servicios aplican medidas de seguridad y cifrado est&aacute;ndar de la industria.</p>
-
-        <h2>Seguridad de la informaci&oacute;n</h2>
-        <p>Se implementan medidas t&eacute;cnicas y organizativas para proteger la informaci&oacute;n del usuario contra accesos no autorizados, p&eacute;rdida o alteraci&oacute;n.</p>
-        <p>Esto incluye:</p>
-        <ul>
-            <li>Autenticaci&oacute;n segura mediante Firebase</li>
-            <li>Conexiones cifradas (HTTPS)</li>
-            <li>Control de acceso a los datos en la nube</li>
-        </ul>
-        <div class="info-section">
-            <strong>Nota de seguridad:</strong> Sin embargo, ning&uacute;n sistema puede garantizar seguridad absoluta.
-        </div>
-
-        <h2>Compartici&oacute;n de datos</h2>
-        <p>CashVault no vende ni alquila datos personales.</p>
-        <p>La informaci&oacute;n solo puede compartirse en los siguientes casos:</p>
-        <ul>
-            <li>Cuando sea requerido por ley o autoridades legales</li>
-            <li>Con proveedores de infraestructura necesarios para operar la app (por ejemplo Google Firebase)</li>
-        </ul>
-
-        <h2>Publicidad (Google AdMob)</h2>
-        <p>CashVault muestra anuncios mediante Google AdMob para mantener la aplicaci&oacute;n gratuita. AdMob puede recopilar y utilizar:</p>
-        <ul>
-            <li>El identificador de publicidad del dispositivo (Advertising ID)</li>
-            <li>Informaci&oacute;n aproximada del dispositivo y de uso para mostrar y medir anuncios</li>
-        </ul>
-        <p>Si te encuentras en el Espacio Econ&oacute;mico Europeo o el Reino Unido, la aplicaci&oacute;n te solicitar&aacute; tu consentimiento mediante el formulario de Google antes de mostrar anuncios personalizados. Puedes cambiar tu decisi&oacute;n en cualquier momento desde <strong>Ajustes &rarr; Privacidad de anuncios</strong> dentro de la app.</p>
-        <p>Para m&aacute;s informaci&oacute;n consulta la <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Pol&iacute;tica de Privacidad de Google</a> y c&oacute;mo <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener">Google utiliza la informaci&oacute;n en publicidad</a>.</p>
-        <div class="info-section">
-            <strong>Nota importante:</strong> Tus datos financieros nunca se comparten con redes publicitarias.
-        </div>
-
-        <h2>Compras dentro de la aplicaci&oacute;n</h2>
-        <p>CashVault ofrece una compra &uacute;nica opcional para eliminar los anuncios. El pago es procesado en su totalidad por Google Play; la aplicaci&oacute;n no recopila ni almacena datos de tarjetas u otros medios de pago.</p>
-
-        <h2>Control de tus datos</h2>
-        <p>El usuario mantiene el control total sobre sus datos financieros.</p>
-        <p>Puedes:</p>
-        <ul>
-            <li>Editar o eliminar transacciones dentro de la app</li>
-            <li>Eliminar tu cuenta y datos asociados</li>
-            <li>Dejar de usar la aplicaci&oacute;n en cualquier momento</li>
-        </ul>
-        <div class="info-section">
-            <strong>Nota importante:</strong> Cuando eliminas tu cuenta, se eliminar&aacute;n tambi&eacute;n los datos asociados almacenados en nuestros servicios.
-        </div>
-
-        <h2>Privacidad de menores</h2>
-        <p>La aplicaci&oacute;n no est&aacute; dirigida a menores de 13 a&ntilde;os. No recopilamos intencionalmente informaci&oacute;n personal de menores.</p>
-        <p>Si detectamos que se ha recopilado informaci&oacute;n de un menor sin consentimiento parental, tomaremos medidas para eliminarla.</p>
-
-        <h2>Cambios en esta pol&iacute;tica</h2>
-        <p>Esta Pol&iacute;tica de Privacidad puede actualizarse ocasionalmente para reflejar cambios en la aplicaci&oacute;n o en requisitos legales.</p>
-        <p>Las actualizaciones se publicar&aacute;n dentro de la aplicaci&oacute;n o en la p&aacute;gina oficial del proyecto.</p>
-
-        <h2>Contacto</h2>
-        <p>Si tienes preguntas sobre esta Pol&iacute;tica de Privacidad puedes contactarnos al correo de soporte: <a href="mailto:astroseec@gmail.com">astroseec@gmail.com</a>.</p>
+        <h1>Política de Privacidad</h1>
+        <p>Tu privacidad es fundamental para nosotros en AstroSeec.</p>
+        <h2>Datos que recopilamos</h2>
+        <p>Solo recopilamos información necesaria para el funcionamiento de nuestras aplicaciones, como correos electrónicos (para cuentas) y datos generados por el uso de la app para mejorar la experiencia.</p>
+        <h2>Uso de datos</h2>
+        <p>No compartimos ni vendemos tu información con terceros con fines comerciales.</p>
+        <p>Para más detalles o dudas, contacta a: <a href="mailto:astroseec@gmail.com">astroseec@gmail.com</a></p>
+        <br>
+        <a href="index.html">← Volver al inicio</a>
     </div>
 </body>
 </html>
