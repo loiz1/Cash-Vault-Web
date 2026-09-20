@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#0e2622">
-    <meta name="description" content="AstroSeec diseña y desarrolla herramientas digitales independientes premium: simples, eficientes y seguras para tus finanzas, bienestar y organización diaria.">
-    <title>AstroSeec - Apps que simplifican tu vida</title>
+    <meta name="description" content="AstroSeec diseña y desarrolla herramientas digitales independientes: simples, eficientes y seguras para tus finanzas, bienestar y organización diaria.">
+    <title>AstroSeec - Soluciones móviles que simplifican tu vida</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -260,7 +260,7 @@
             letter-spacing: -0.02em;
             margin-bottom: 6px;
         }
-        .app-row p { font-size: 16.5px; line-height: 1.5; color: var(--ink-soft); }
+        .app-row p { font-size: 16.5px; line-height: 1.5; color: var(--ink-soft); max-width: 60ch; }
         .actions { display: flex; gap: 10px; flex-wrap: wrap; }
         .btn-play, .btn-info {
             display: inline-flex;
@@ -294,6 +294,17 @@
             line-height: 1.3;
             letter-spacing: -0.015em;
         }
+        .about-more {
+            margin-top: 28px;
+            max-width: 62ch;
+            font-family: var(--body);
+            font-weight: 400;
+            font-size: 17px;
+            line-height: 1.75;
+            letter-spacing: 0;
+            color: var(--ink-soft);
+        }
+        .about-more + .about-more { margin-top: 18px; }
         .values {
             margin-top: 64px;
             display: grid;
@@ -336,13 +347,17 @@
             padding-top: 26px;
             border-top: 1px solid var(--line-light);
             display: flex;
+            flex-wrap: wrap;
             justify-content: space-between;
             align-items: center;
-            gap: 16px;
+            gap: 16px 32px;
             font-size: 14px;
             color: var(--steel);
         }
         .foot .brand { font-size: 17px; }
+        .foot-links { display: flex; flex-wrap: wrap; gap: 8px 24px; }
+        .foot-links a { text-decoration: none; }
+        .foot-links a:hover { color: var(--paper); }
 
         @media (prefers-reduced-motion: reduce) {
             html { scroll-behavior: auto; }
@@ -371,14 +386,14 @@
 
     <header class="nav" id="nav">
         <div class="nav-in">
-            <a class="brand" href="#inicio" aria-label="Astroseec, inicio">
+            <a class="brand" href="#inicio" aria-label="AstroSeec, inicio">
                 <svg width="28" height="28" viewBox="0 0 48 48" fill="none" aria-hidden="true">
                     <circle cx="24" cy="24" r="19" stroke="#c8a24a" stroke-width="2.4"/>
                     <circle cx="24" cy="24" r="12.5" stroke="#c8a24a" stroke-opacity=".55" stroke-width="3.4" stroke-dasharray="1.2 4.3"/>
                     <path d="M24 24V9" stroke="#c8a24a" stroke-width="2.6" stroke-linecap="round"/>
                     <circle cx="24" cy="24" r="3.2" fill="#c8a24a"/>
                 </svg>
-                Astroseec
+                AstroSeec
             </a>
             <nav class="nav-links" aria-label="Principal">
                 <a href="#apps">Apps</a>
@@ -405,12 +420,12 @@
             <div class="hero-in">
                 <div>
                     <h1>Soluciones móviles que simplifican tu vida</h1>
-                    <p class="lede">Diseñamos y desarrollamos herramientas digitales independientes con un pilar inquebrantable: máxima simplicidad, rendimiento óptimo y privacidad absoluta en tu bolsillo.</p>
+                    <p class="lede">Diseñamos y desarrollamos herramientas digitales independientes con un objetivo: máxima simplicidad y rendimiento óptimo, siempre en tu bolsillo.</p>
                     <a class="btn-main" href="#apps">Ver apps</a>
                 </div>
 
                 <div class="phone-wrap">
-                    <div class="phone" aria-label="Apps de Astroseec en la pantalla de inicio de un móvil">
+                    <div class="phone" aria-label="Apps de AstroSeec en la pantalla de inicio de un móvil">
                         <div class="island"></div>
                         <div class="status" aria-hidden="true">
                             <span id="clock">9:41</span>
@@ -422,15 +437,15 @@
 
                         <div class="home-grid">
                             <a class="home-app" href="cashvault.html" style="--i:0; --tint:#efe3c2">
-                                <span class="home-tile"><img src="img/calculadora.png" alt=""></span>
+                                <span class="home-tile"><img src="assets/cashvault.jpeg" alt=""></span>
                                 Cash Vault
                             </a>
                             <a class="home-app" href="aquavida.html" style="--i:1; --tint:#cfe8ee">
-                                <span class="home-tile"><img src="img/vaso.png" alt=""></span>
+                                <span class="home-tile"><img src="assets/aquavida.png" alt=""></span>
                                 AquaVida
                             </a>
                             <a class="home-app" href="misnotas.html" style="--i:2; --tint:#ece6d8">
-                                <span class="home-tile"><img src="img/libro.png" alt=""></span>
+                                <span class="home-tile"><img src="assets/misnotas.png" alt=""></span>
                                 Mis Notas
                             </a>
                         </div>
@@ -451,10 +466,10 @@
                 <h2 class="title">Nuestras apps</h2>
                 <ul class="app-list">
                     <li class="app-row" style="--tint:#efe3c2">
-                        <div class="tile"><img src="img/calculadora.png" alt="Icono de Cash Vault"></div>
+                        <div class="tile"><img src="assets/cashvault.jpeg" alt="Icono de Cash Vault"></div>
                         <div>
                             <h3>Cash Vault</h3>
-                            <p>Tu asistente inteligente de finanzas personales y del hogar. Gestiona presupuestos por categorías, planifica metas con predicciones de ahorro basadas en tu historial y controla la economía familiar de forma compartida, segura y con integración de asistente IA.</p>
+                            <p>Tu asistente inteligente de finanzas personales y del hogar. Gestiona presupuestos por categorías, planifica metas con predicciones de ahorro basadas en tu historial y controla la economía familiar de forma compartida, con integración de asistente IA.</p>
                         </div>
                         <div class="actions">
                             <a class="btn-play" href="https://play.google.com/store/apps/details?id=com.cashvault.app" target="_blank" rel="noopener">
@@ -465,7 +480,7 @@
                         </div>
                     </li>
                     <li class="app-row" style="--tint:#cfe8ee">
-                        <div class="tile"><img src="img/vaso.png" alt="Icono de AquaVida"></div>
+                        <div class="tile"><img src="assets/aquavida.png" alt="Icono de AquaVida"></div>
                         <div>
                             <h3>AquaVida</h3>
                             <p>Crea hábitos saludables de hidratación diaria. Calcula metas personalizadas según tu peso y nivel de actividad física, visualiza tu progreso con un vaso animado interactivo, recibe recordatorios inteligentes y mantén tu racha de bienestar.</p>
@@ -479,10 +494,10 @@
                         </div>
                     </li>
                     <li class="app-row" style="--tint:#ece6d8">
-                        <div class="tile"><img src="img/libro.png" alt="Icono de Mis Notas"></div>
+                        <div class="tile"><img src="assets/misnotas.png" alt="Icono de Mis Notas"></div>
                         <div>
                             <h3>Mis Notas</h3>
-                            <p>Tu diario personal y registro emocional con diseño cálido de cuaderno. Registra tu estado de ánimo diario, colorea tu calendario mensual, añade fotos y resguarda tus memorias con protección por PIN y huella 100% local en tu dispositivo.</p>
+                            <p>Tu diario personal y registro emocional con diseño cálido de cuaderno. Registra tu estado de ánimo diario, colorea tu calendario mensual, añade fotos y protege tus memorias con PIN y huella.</p>
                         </div>
                         <div class="actions">
                             <a class="btn-play" href="https://play.google.com/store/apps/details?id=com.misnotasdiario.app" target="_blank" rel="noopener">
@@ -500,11 +515,11 @@
             <div class="wrap">
                 <div class="about-grid">
                     <h2 class="title">Sobre nosotros</h2>
-                    <p class="about-text">
-                        AstroSeec es un laboratorio independiente de desarrollo de software móvil liderado por Luis Ricardo Cortés López. Nos especializamos en la conceptualización, diseño y despliegue de experiencias de usuario premium utilizando tecnologías de vanguardia como Flutter, Dart y Firebase.
-                        <br><br>
-                        Creemos firmemente en el poder del software minimalista: aplicaciones con un propósito claro, libres de distracciones innecesarias y optimizadas hasta el último milisegundo para ofrecer la máxima velocidad. Nuestras soluciones están diseñadas para poner el control en tus manos, garantizando una seguridad de grado industrial y la protección absoluta de tu privacidad.
-                    </p>
+                    <div>
+                        <p class="about-text">AstroSeec es un laboratorio independiente de desarrollo de software móvil.</p>
+                        <p class="about-more">Nos especializamos en la conceptualización, diseño y despliegue de experiencias de usuario premium utilizando tecnologías de vanguardia como Flutter, Dart y Firebase.</p>
+                        <p class="about-more">Creemos firmemente en el poder del software minimalista: aplicaciones con un propósito claro, libres de distracciones innecesarias y optimizadas hasta el último milisegundo para ofrecer la máxima velocidad. Nuestras soluciones están diseñadas para poner el control en tus manos.</p>
+                    </div>
                 </div>
                 <div class="values" aria-hidden="true">
                     <span>Simples</span>
@@ -529,9 +544,13 @@
                         <path d="M24 24V9" stroke="#c8a24a" stroke-width="2.6" stroke-linecap="round"/>
                         <circle cx="24" cy="24" r="3.2" fill="#c8a24a"/>
                     </svg>
-                    Astroseec
+                    AstroSeec
                 </a>
-                <span>&copy; <span id="year">2026</span> Astroseec. Todos los derechos reservados.</span>
+                <span>&copy; <span id="year">2026</span> AstroSeec. Todos los derechos reservados.</span>
+                <nav class="foot-links" aria-label="Enlaces legales">
+                    <a href="Politicies.html">Política de privacidad</a>
+                    <a href="delete-account.html">Eliminar cuenta</a>
+                </nav>
             </div>
         </div>
     </footer>

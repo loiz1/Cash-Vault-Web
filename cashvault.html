@@ -182,6 +182,7 @@
             border: 1px solid var(--line);
             display: grid; place-items: center;
         }
+        .app-icon img { width: 44px; height: 44px; object-fit: contain; border-radius: 12px; }
 
         h1 {
             font-family: var(--display);
@@ -350,13 +351,8 @@
         </header>
 
         <div class="scroller" id="scroller" tabindex="0" aria-label="Contenido de Cash Vault">
-            <div class="app-icon" aria-hidden="true">
-                <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                    <circle cx="24" cy="24" r="19" stroke="#c8a24a" stroke-width="2"/>
-                    <circle cx="24" cy="24" r="13" stroke="#c8a24a" stroke-opacity=".55" stroke-width="3" stroke-dasharray="1.2 4.3"/>
-                    <path d="M24 24V9" stroke="#c8a24a" stroke-width="2.4" stroke-linecap="round"/>
-                    <circle cx="24" cy="24" r="3.2" fill="#c8a24a"/>
-                </svg>
+            <div class="app-icon">
+                <img src="assets/cashvault.jpeg" alt="Icono de Cash Vault">
             </div>
 
             <h1>Cash Vault</h1>
