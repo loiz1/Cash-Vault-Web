@@ -121,9 +121,9 @@
 
     <header class="hero">
         <nav class="nav">
-            <button class="nav-btn">Apps</button>
-            <button class="nav-btn">Nosotros</button>
-            <button class="nav-btn">Contacto</button>
+            <a href="#apps" class="nav-btn" style="text-decoration:none; color:inherit;">Apps</a>
+            <a href="#nosotros" class="nav-btn" style="text-decoration:none; color:inherit;">Nosotros</a>
+            <a href="#contacto" class="nav-btn" style="text-decoration:none; color:inherit;">Contacto</a>
         </nav>
 
         <h1 class="hero-title">ASTROSEEC</h1>
@@ -139,16 +139,16 @@
 
     <section class="apps-grid">
         <div class="app-card">
-            <div class="app-icon">&#x1F4B0;</div>
+            <div class="app-icon"><img src="img/calculadora.png" alt="Calculadora" style="width:60px; height:60px;"></div>
             <h3>Cash Vault</h3>
             <p>Finanzas personales simplificadas.</p>
             <div class="app-links">
-                <a class="btn-play" href="https://play.google.com/store/apps/details?id=com.misnotasdiario.app" target="_blank">Descargar en Play</a>
+                <a class="btn-play" href="https://play.google.com/store/apps/details?id=com.cashvault.app" target="_blank">Descargar en Play</a>
             </div>
         </div>
 
         <div class="app-card">
-            <div class="app-icon">&#x1F4A7;</div>
+            <div class="app-icon"><img src="img/vaso.png" alt="Vaso" style="width:60px; height:60px;"></div>
             <h3>AquaVida</h3>
             <p>Tu recordatorio de hidratación.</p>
             <div class="app-links">
@@ -157,13 +157,23 @@
         </div>
 
         <div class="app-card">
-            <div class="app-icon">&#x1F4D4;</div>
+            <div class="app-icon"><img src="img/libro.png" alt="Libro" style="width:60px; height:60px;"></div>
             <h3>Mis Notas</h3>
             <p>Tu diario privado y seguro.</p>
             <div class="app-links">
                 <a class="btn-play" href="https://play.google.com/store/apps/details?id=com.misnotasdiario.app" target="_blank">Descargar en Play</a>
             </div>
         </div>
+    </section>
+
+    <section id="nosotros" style="padding: 100px 5%; text-align:center;">
+        <h2 class="section-title">Sobre Nosotros</h2>
+        <p style="max-width: 600px; margin: 0 auto;">En Astroseec nos dedicamos a crear herramientas digitales simples, eficientes y seguras para mejorar tu calidad de vida.</p>
+    </section>
+
+    <section id="contacto" style="padding: 100px 5%; text-align:center; background: #dcd7cf;">
+        <h2 class="section-title">Contacto</h2>
+        <p>¿Tienes dudas o sugerencias? Escríbenos a: <a href="mailto:astroseec@gmail.com">astroseec@gmail.com</a></p>
     </section>
 
 </body>
