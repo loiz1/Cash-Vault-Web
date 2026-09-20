@@ -4,266 +4,167 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Astroseec — Apps que te hacen la vida más simple</title>
-    <meta name="description" content="Apps Android de Astroseec: Cash Vault (finanzas personales), AquaVida (hidratación) y Mis Notas (diario personal).">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #3498db;
-            --accent-color: #e74c3c;
-            --light-color: #ecf0f1;
-            --dark-color: #2c3e50;
-            --text-color: #333;
-            --text-light: #fff;
+            --bg-color: #e5e0d8;
+            --text-color: #0d1217;
+            --accent: #2c3e50;
+            --glass-bg: rgba(255, 255, 255, 0.2);
+            --glass-border: rgba(255, 255, 255, 0.3);
         }
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
             color: var(--text-color);
+            overflow-x: hidden;
             min-height: 100vh;
-            line-height: 1.6;
         }
+
+        /* Hero Container */
         .hero {
-            text-align: center;
-            padding: 100px 20px 60px;
-            background: linear-gradient(135deg, rgba(44, 62, 80, 0.9), rgba(52, 152, 219, 0.1));
-            border-radius: 20px 20px 0 0;
-            margin: 0 20px;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: linear-gradient(180deg, #d4cfc7 0%, #e5e0d8 100%);
         }
-        .hero-logo {
-            font-size: 80px;
-            color: var(--secondary-color);
-            margin-bottom: 20px;
-            animation: pulse 2s infinite;
+
+        /* Nav */
+        .nav {
+            position: absolute;
+            top: 30px;
+            display: flex;
+            gap: 20px;
+            z-index: 10;
         }
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-        .hero h1 {
-            font-size: 48px;
-            color: var(--text-light);
-            margin-bottom: 15px;
-            font-weight: 700;
-        }
-        .hero .tagline {
-            font-size: 16px;
-            color: var(--secondary-color);
-            letter-spacing: 2px;
+        .nav-btn {
+            padding: 8px 20px;
+            border-radius: 50px;
+            border: 1px solid rgba(0,0,0,0.1);
+            font-size: 12px;
             text-transform: uppercase;
-            margin-bottom: 25px;
+            letter-spacing: 1px;
+            font-weight: 600;
+            cursor: pointer;
+            background: transparent;
+        }
+
+        /* Title */
+        .hero-title {
+            font-size: clamp(5rem, 15vw, 12rem);
+            font-weight: 900;
+            letter-spacing: -0.05em;
+            line-height: 0.8;
+            color: var(--accent);
+            z-index: 1;
+        }
+
+        /* Glass Card */
+        .glass-card {
+            position: absolute;
+            left: 5%;
+            bottom: 10%;
+            width: 350px;
+            padding: 30px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            z-index: 5;
+        }
+        .glass-card h2 { font-size: 24px; margin-bottom: 15px; }
+        .glass-card p { font-size: 14px; line-height: 1.5; margin-bottom: 20px; opacity: 0.8; }
+        
+        .btn-shop {
+            background: var(--text-color);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
             font-weight: 600;
         }
-        .hero p {
-            max-width: 700px;
-            margin: 0 auto;
-            font-size: 18px;
-            color: #555;
-        }
-        .divider {
-            width: 80px;
-            height: 4px;
-            background: var(--secondary-color);
-            margin: 0 auto 60px;
-            border-radius: 2px;
-        }
-        section {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 60px 20px;
-        }
-        section h2 {
-            text-align: center;
-            font-size: 36px;
-            color: var(--text-light);
-            margin-bottom: 60px;
-            font-weight: 700;
-        }
+
+        /* Apps Grid */
+        .section-title { text-align: center; font-size: 40px; margin: 60px 0; }
         .apps-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
+            padding: 0 5% 100px;
         }
         .app-card {
             background: white;
-            border-radius: 20px;
-            padding: 35px 25px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            border: 1px solid rgba(0, 0, 0, 0.05);
-        }
-        .app-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-        }
-        .app-icon {
-            font-size: 60px;
-            color: var(--secondary-color);
-            margin-bottom: 20px;
-        }
-        .app-card h3 {
-            font-size: 24px;
-            color: var(--text-light);
-            margin-bottom: 10px;
-            font-weight: 700;
-        }
-        .app-card .category {
-            font-size: 14px;
-            color: var(--secondary-color);
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            margin-bottom: 15px;
-            font-weight: 600;
-        }
-        .app-card p {
-            font-size: 15px;
-            line-height: 1.6;
-            color: #666;
-            margin-bottom: 25px;
-        }
-        .app-links {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        .btn {
-            display: inline-block;
-            padding: 12px 25px;
-            border-radius: 50px;
-            font-size: 14px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-        }
-        .btn-primary {
-            background: var(--secondary-color);
-            color: white;
-        }
-        .btn-primary:hover {
-            background: #2980b9;
-            transform: translateY(-2px);
-        }
-        .btn-outline {
-            background: transparent;
-            color: var(--secondary-color);
-            border: 2px solid var(--secondary-color);
-        }
-        .btn-outline:hover {
-            background: var(--secondary-color);
-            color: white;
-            transform: translateY(-2px);
-        }
-        footer {
+            padding: 40px;
+            border-radius: 30px;
             text-align: center;
-            padding: 60px 20px;
-            background: var(--dark-color);
-            color: var(--text-light);
-            margin-top: 60px;
         }
-        footer p {
-            font-size: 16px;
-            margin-bottom: 20px;
-        }
-        footer .footer-links {
-            display: flex;
-            gap: 30px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        footer a {
-            color: var(--secondary-color);
+        .app-icon { font-size: 50px; margin-bottom: 20px; }
+        .app-card h3 { font-size: 24px; margin-bottom: 10px; }
+        .app-links { margin-top: 20px; }
+        .btn-play {
+            background: #000;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 10px;
             text-decoration: none;
-            font-size: 15px;
-            transition: color 0.3s ease;
-        }
-        footer a:hover {
-            text-decoration: underline;
-        }
-        @media (max-width: 768px) {
-            .hero {
-                padding: 80px 15px 40px;
-            }
-            .hero h1 {
-                font-size: 36px;
-            }
-            .hero-logo {
-                font-size: 60px;
-            }
+            font-size: 13px;
         }
     </style>
 </head>
 <body>
 
     <header class="hero">
-        <div class="hero-logo">&#x1F680;</div>
-        <h1>Astroseec</h1>
-        <p class="tagline">Apps Android</p>
-        <p>
-            Creamos aplicaciones simples y bonitas que te ayudan en tu día a día:
-            controlar tus finanzas, mantenerte hidratado y cuidar tu bienestar.
-        </p>
+        <nav class="nav">
+            <button class="nav-btn">Apps</button>
+            <button class="nav-btn">Nosotros</button>
+            <button class="nav-btn">Contacto</button>
+        </nav>
+
+        <h1 class="hero-title">ASTROSEEC</h1>
+
+        <div class="glass-card">
+            <h2>Apps que simplifican tu vida</h2>
+            <p>Descubre herramientas digitales diseñadas para mejorar tu bienestar, finanzas y organización diaria. Calidad y simplicidad en tu bolsillo.</p>
+            <a href="#apps" class="btn-shop">Ver Apps ↓</a>
+        </div>
     </header>
 
-    <div class="divider"></div>
+    <h2 class="section-title" id="apps">Nuestro Ecosistema</h2>
 
-    <section id="apps">
-        <h2>Nuestras Apps</h2>
-        <div class="apps-grid">
-
-            <div class="app-card">
-                <div class="app-icon">&#x1F4B0;</div>
-                <h3>Cash Vault</h3>
-                <p class="category">Finanzas personales</p>
-                <p>Tu asistente financiero personal y familiar: registra transacciones, define presupuestos, ahorra para tus metas y visualiza tu progreso con gráficos inteligentes.</p>
-                <div class="app-links">
-                    <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.misnotasdiario.app" target="_blank" rel="noopener">Google Play</a>
-                    <a class="btn btn-outline" href="cashvault.html">Más info</a>
-                </div>
+    <section class="apps-grid">
+        <div class="app-card">
+            <div class="app-icon">&#x1F4B0;</div>
+            <h3>Cash Vault</h3>
+            <p>Finanzas personales simplificadas.</p>
+            <div class="app-links">
+                <a class="btn-play" href="https://play.google.com/store/apps/details?id=com.misnotasdiario.app" target="_blank">Descargar en Play</a>
             </div>
+        </div>
 
-            <div class="app-card">
-                <div class="app-icon">&#x1F4A7;</div>
-                <h3>AquaVida</h3>
-                <p class="category">Salud · Hidratación</p>
-                <p>Registra el agua que bebes con un toque, alcanza tu meta diaria personalizada, mantén tu racha y recibe recordatorios para mantenerte hidratado.</p>
-                <div class="app-links">
-                    <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.aquavida.app" target="_blank" rel="noopener">Google Play</a>
-                    <a class="btn btn-outline" href="privacidad/aquavida.html">Privacidad</a>
-                </div>
+        <div class="app-card">
+            <div class="app-icon">&#x1F4A7;</div>
+            <h3>AquaVida</h3>
+            <p>Tu recordatorio de hidratación.</p>
+            <div class="app-links">
+                <a class="btn-play" href="https://play.google.com/store/apps/details?id=com.aquavida.app" target="_blank">Descargar en Play</a>
             </div>
+        </div>
 
-            <div class="app-card">
-                <div class="app-icon">&#x1F4D4;</div>
-                <h3>Mis Notas</h3>
-                <p class="category">Bienestar · Diario personal</p>
-                <p>Tu diario privado con estilo de cuaderno: registra tu estado de ánimo, escribe tus momentos, añade fotos y protégelo con PIN y huella. Todo queda solo en tu teléfono.</p>
-                <div class="app-links">
-                    <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.misnotasdiario.app" target="_blank" rel="noopener">Google Play</a>
-                    <a class="btn btn-outline" href="privacidad/misnotas.html">Privacidad</a>
-                </div>
+        <div class="app-card">
+            <div class="app-icon">&#x1F4D4;</div>
+            <h3>Mis Notas</h3>
+            <p>Tu diario privado y seguro.</p>
+            <div class="app-links">
+                <a class="btn-play" href="https://play.google.com/store/apps/details?id=com.misnotasdiario.app" target="_blank">Descargar en Play</a>
             </div>
-
         </div>
     </section>
-
-    <footer>
-        <p>&copy; 2026 Astroseec. Todos los derechos reservados. &middot; Contacto: <a href="mailto:astroseec@gmail.com">astroseec@gmail.com</a></p>
-        <div class="footer-links">
-            <a href="cashvault.html">Cash Vault</a>
-            <a href="Politicies.html">Privacidad Cash Vault</a>
-            <a href="privacidad/aquavida.html">Privacidad AquaVida</a>
-            <a href="privacidad/misnotas.html">Privacidad Mis Notas</a>
-            <a href="delete-account.html">Eliminar cuenta Cash Vault</a>
-        </div>
-    </footer>
 
 </body>
 </html>
