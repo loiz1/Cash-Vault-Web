@@ -2,93 +2,28 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="theme-color" content="#0e2622">
     <meta name="description" content="AstroSeec diseña y desarrolla herramientas digitales independientes: simples, eficientes y seguras para tus finanzas, bienestar y organización diaria.">
     <title>AstroSeec - Soluciones móviles que simplifican tu vida</title>
+
+    <link rel="icon" type="image/jpeg" href="LOGO_ASTROSEEC.jpeg">
+    <link rel="apple-touch-icon" href="LOGO_ASTROSEEC.jpeg">
+    <link rel="preload" as="image" href="LOGO_ASTROSEEC.jpeg">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="AstroSeec - Soluciones móviles que simplifican tu vida">
+    <meta property="og:description" content="Laboratorio independiente de apps móviles: simples, eficientes y seguras.">
+    <meta property="og:image" content="LOGO_ASTROSEEC.jpeg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="LOGO_ASTROSEEC.jpeg">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+
     <style>
-        :root {
-            --mineral: #eef1ee;
-            --vault: #0e2622;
-            --vault-deep: #081815;
-            --vault-raise: #153630;
-            --brass: #c8a24a;
-            --paper: #f1ece1;
-            --steel: #9fb0aa;
-            --soft: #c4d0ca;
-            --ink: #0e2622;
-            --ink-soft: #4a5c56;
-            --line-dark: rgba(14, 38, 34, 0.14);
-            --line-light: rgba(241, 236, 225, 0.14);
-            --display: 'Bricolage Grotesque', 'Segoe UI', system-ui, sans-serif;
-            --body: 'Inter', 'Segoe UI', system-ui, sans-serif;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; scroll-padding-top: 72px; }
-        body {
-            font-family: var(--body);
-            background: var(--mineral);
-            color: var(--ink);
-            -webkit-font-smoothing: antialiased;
-            overflow-x: hidden;
-        }
-        a { color: inherit; }
-        a:focus-visible, button:focus-visible { outline: 2px solid var(--brass); outline-offset: 3px; }
-
-        h1, h2, h3 { font-family: var(--display); }
-        .wrap { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
-
-        /* Navegación */
-        .nav {
-            position: fixed;
-            top: 0; left: 0; right: 0;
-            z-index: 50;
-            border-bottom: 1px solid transparent;
-            transition: background .3s, border-color .3s;
-        }
-        .nav.scrolled {
-            background: rgba(14, 38, 34, 0.88);
-            -webkit-backdrop-filter: blur(14px);
-            backdrop-filter: blur(14px);
-            border-bottom-color: var(--line-light);
-        }
-        .nav-in {
-            max-width: 1160px;
-            height: 72px;
-            margin: 0 auto;
-            padding: 0 24px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        .brand {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: var(--paper);
-            text-decoration: none;
-            font-family: var(--display);
-            font-weight: 700;
-            font-size: 21px;
-            letter-spacing: -0.02em;
-        }
-        .nav-links { display: flex; gap: 4px; }
-        .nav-links a {
-            color: var(--soft);
-            text-decoration: none;
-            font-size: 14.5px;
-            font-weight: 500;
-            padding: 10px 14px;
-            border-radius: 999px;
-            transition: color .2s, background .2s;
-        }
-        .nav-links a:hover { color: var(--paper); background: rgba(241, 236, 225, 0.08); }
-
-        /* Hero */
+        /* ---- Hero ---- */
         .hero {
             position: relative;
             min-height: 100vh;
@@ -108,7 +43,7 @@
             pointer-events: none;
             z-index: 1;
         }
-        .rings svg { width: 100%; height: auto; display: block; }
+        .rings svg { width: 100%; height: auto; }
         .rings .rotor { transform-origin: 50% 50%; transform-box: view-box; will-change: transform; }
 
         .hero-in {
@@ -117,7 +52,7 @@
             width: 100%;
             max-width: 1160px;
             margin: 0 auto;
-            padding: 120px 24px 80px;
+            padding: 120px 24px 90px;
             display: grid;
             grid-template-columns: 1.1fr 0.9fr;
             gap: 48px;
@@ -137,49 +72,21 @@
             line-height: 1.6;
             color: var(--soft);
         }
-        .btn-main {
-            display: inline-block;
-            padding: 16px 28px;
-            background: var(--brass);
-            color: var(--vault-deep);
-            font-weight: 600;
-            font-size: 15px;
-            text-decoration: none;
-            border-radius: 14px;
-            transition: filter .2s, transform .2s;
-        }
-        .btn-main:hover { filter: brightness(1.08); }
-        .btn-main:active { transform: scale(.98); }
-
-        /* Móvil del hero */
-        .phone-wrap { justify-self: center; }
-        .phone {
-            position: relative;
-            width: 300px;
-            height: 620px;
-            border: 9px solid #1a1d1f;
-            border-radius: 50px;
-            background: linear-gradient(170deg, #1d4f45 0%, #0d2925 55%, #081815 100%);
-            box-shadow: 0 0 0 2px #3b4144, 0 50px 90px -25px rgba(0, 0, 0, 0.6), 0 12px 30px rgba(0, 0, 0, 0.3);
-            overflow: hidden;
-        }
-        .island {
-            position: absolute;
-            top: 9px; left: 50%;
-            transform: translateX(-50%);
-            width: 88px; height: 25px;
-            background: #000;
-            border-radius: 18px;
-        }
-        .status {
+        .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+        .hero-meta {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 26px 0 28px;
-            font-size: 12.5px;
-            font-weight: 600;
+            flex-wrap: wrap;
+            gap: 10px 28px;
+            margin-top: 40px;
+            padding-top: 26px;
+            border-top: 1px solid var(--line-light);
+            font-size: 13.5px;
+            color: var(--steel);
         }
-        .status .icons { display: flex; gap: 5px; align-items: center; }
+        .hero-meta b { color: var(--paper); font-weight: 600; }
+
+        /* ---- Pantalla de inicio del móvil ---- */
+        .phone-wrap { justify-self: center; }
         .home-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -199,94 +106,55 @@
             animation: pop .6s cubic-bezier(.2, .9, .3, 1.2) both;
             animation-delay: calc(var(--i) * 110ms + 300ms);
         }
-        .home-tile {
+        .home-app .app-tile {
             width: 62px; height: 62px;
-            border-radius: 18px;
-            display: grid;
-            place-items: center;
-            background: var(--tint);
             box-shadow: 0 8px 18px -8px rgba(0, 0, 0, 0.5);
             transition: transform .2s;
         }
-        .home-tile img { width: 36px; height: 36px; object-fit: contain; }
-        .home-app:hover .home-tile { transform: translateY(-4px); }
-        .screen-dial {
-            position: absolute;
-            left: 50%; bottom: -120px;
-            width: 380px;
-            transform: translateX(-50%);
-            opacity: .9;
-        }
-        .home-bar {
-            position: absolute;
-            bottom: 8px; left: 50%;
-            transform: translateX(-50%);
-            width: 118px; height: 5px;
-            border-radius: 3px;
-            background: rgba(241, 236, 225, .6);
-        }
+        .home-app:hover .app-tile { transform: translateY(-4px); }
         @keyframes pop { from { opacity: 0; transform: translateY(14px) scale(.8); } to { opacity: 1; transform: none; } }
 
-        /* Apps */
-        .apps { padding: 120px 0 100px; }
-        h2.title {
-            font-weight: 800;
-            font-size: clamp(2.1rem, 4.2vw, 3.2rem);
-            line-height: 1.05;
-            letter-spacing: -0.03em;
-        }
-        .app-list { margin-top: 48px; list-style: none; }
+        /* ---- Listado de apps ---- */
+        .app-list { margin-top: 48px; }
         .app-row {
             display: grid;
             grid-template-columns: 92px 1fr auto;
             gap: 30px;
             align-items: center;
-            padding: 30px 0;
+            padding: 32px 0;
             border-top: 1px solid var(--line-dark);
         }
-        .app-row:last-child { border-bottom: 1px solid var(--line-dark); }
-        .tile {
+        .app-list li:last-child { border-bottom: 1px solid var(--line-dark); }
+        .app-row .app-tile {
             width: 92px; height: 92px;
-            border-radius: 26px;
-            display: grid;
-            place-items: center;
-            background: var(--tint);
             border: 1px solid var(--line-dark);
         }
-        .tile img { width: 50px; height: 50px; object-fit: contain; }
         .app-row h3 {
             font-weight: 700;
             font-size: 28px;
             letter-spacing: -0.02em;
+            margin-bottom: 8px;
+        }
+        .app-kicker {
+            display: block;
             margin-bottom: 6px;
-        }
-        .app-row p { font-size: 16.5px; line-height: 1.5; color: var(--ink-soft); max-width: 60ch; }
-        .actions { display: flex; gap: 10px; flex-wrap: wrap; }
-        .btn-play, .btn-info {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 13px 20px;
-            border-radius: 12px;
-            font-size: 14px;
+            font-size: 12.5px;
             font-weight: 600;
-            text-decoration: none;
-            transition: background .2s, color .2s, transform .2s;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--brass);
         }
-        .btn-play { background: var(--vault); color: var(--paper); border: 1px solid var(--vault); }
-        .btn-play:hover { background: var(--vault-raise); }
-        .btn-info { background: transparent; color: var(--ink); border: 1px solid rgba(14, 38, 34, 0.35); }
-        .btn-info:hover { background: var(--vault); color: var(--paper); }
-        .btn-play:active, .btn-info:active { transform: scale(.98); }
+        .app-row p { font-size: 16.5px; line-height: 1.55; color: var(--ink-soft); max-width: 58ch; }
+        .actions { display: flex; gap: 10px; flex-wrap: wrap; }
 
-        /* Nosotros */
-        .about { padding: 40px 0 120px; }
+        /* ---- Nosotros ---- */
         .about-grid {
             display: grid;
             grid-template-columns: 0.8fr 1.2fr;
             gap: 48px;
             align-items: start;
         }
+        .about-side .logo-badge { margin-top: 34px; }
         .about-text {
             font-family: var(--display);
             font-weight: 600;
@@ -295,13 +163,10 @@
             letter-spacing: -0.015em;
         }
         .about-more {
-            margin-top: 28px;
+            margin-top: 26px;
             max-width: 62ch;
-            font-family: var(--body);
-            font-weight: 400;
             font-size: 17px;
             line-height: 1.75;
-            letter-spacing: 0;
             color: var(--ink-soft);
         }
         .about-more + .about-more { margin-top: 18px; }
@@ -309,8 +174,10 @@
             margin-top: 64px;
             display: grid;
             grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
         }
         .values span {
+            display: block;
             padding: 22px 0 0;
             border-top: 1px solid var(--line-dark);
             font-family: var(--display);
@@ -320,75 +187,30 @@
         }
         .values span:nth-child(2) { border-top-color: var(--brass); }
 
-        /* Contacto */
-        .contact {
-            background: var(--vault);
-            color: var(--paper);
-            padding: 110px 0 40px;
-        }
-        .contact p { margin-top: 20px; font-size: 18px; color: var(--soft); }
-        .mail {
-            display: inline-block;
-            margin-top: 12px;
-            font-family: var(--display);
-            font-weight: 700;
-            font-size: clamp(1.5rem, 4.4vw, 3.2rem);
-            letter-spacing: -0.03em;
-            color: var(--paper);
-            text-decoration: none;
-            border-bottom: 3px solid var(--brass);
-            padding-bottom: 4px;
-            word-break: break-all;
-            transition: color .2s;
-        }
-        .mail:hover { color: var(--brass); }
-        .foot {
-            margin-top: 100px;
-            padding-top: 26px;
-            border-top: 1px solid var(--line-light);
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
-            gap: 16px 32px;
-            font-size: 14px;
-            color: var(--steel);
-        }
-        .foot .brand { font-size: 17px; }
-        .foot-links { display: flex; flex-wrap: wrap; gap: 8px 24px; }
-        .foot-links a { text-decoration: none; }
-        .foot-links a:hover { color: var(--paper); }
-
-        @media (prefers-reduced-motion: reduce) {
-            html { scroll-behavior: auto; }
-            .home-app { animation: none; }
-            .nav, .btn-main, .btn-play, .btn-info, .home-tile { transition: none; }
-        }
-
         @media (max-width: 900px) {
             .hero-in { grid-template-columns: 1fr; gap: 56px; padding-top: 112px; }
             .rings { right: -55%; top: 62%; }
             .about-grid { grid-template-columns: 1fr; gap: 24px; }
+            .about-side .logo-badge { max-width: 190px; margin-top: 26px; }
         }
-
         @media (max-width: 680px) {
             .app-row { grid-template-columns: 72px 1fr; gap: 18px; align-items: start; }
-            .tile { width: 72px; height: 72px; border-radius: 20px; }
-            .tile img { width: 40px; height: 40px; }
+            .app-row .app-tile { width: 72px; height: 72px; }
             .actions { grid-column: 1 / -1; }
             .app-row h3 { font-size: 24px; }
-            .values { margin-top: 44px; }
-            .foot { flex-direction: column; align-items: flex-start; }
+            .values { margin-top: 44px; grid-template-columns: 1fr; gap: 0; }
+            .hero-actions .btn { flex: 1 1 100%; }
         }
     </style>
 </head>
 <body>
+    <a class="skip" href="#apps">Saltar al contenido</a>
 
-    <header class="nav" id="nav">
+    <header class="nav">
         <div class="nav-in">
             <a class="brand" href="#inicio" aria-label="AstroSeec, inicio">
-                <img src="LOGO ASTROSEEC.jpeg" alt="Logo AstroSeec" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover;">
-                AstroSeec
+                <span class="mark"><img src="LOGO_ASTROSEEC.jpeg" alt="" width="38" height="38"></span>
+                <span class="brand-name">AstroSeec</span>
             </a>
             <nav class="nav-links" aria-label="Principal">
                 <a href="#apps">Apps</a>
@@ -416,31 +238,40 @@
                 <div>
                     <h1>Soluciones móviles que simplifican tu vida</h1>
                     <p class="lede">Diseñamos y desarrollamos herramientas digitales independientes con un objetivo: máxima simplicidad y rendimiento óptimo, siempre en tu bolsillo.</p>
-                    <a class="btn-main" href="#apps">Ver apps</a>
+                    <div class="hero-actions">
+                        <a class="btn btn-brass" href="#apps">Ver apps</a>
+                        <a class="btn btn-ghost" href="#nosotros">Sobre AstroSeec</a>
+                    </div>
+                    <p class="hero-meta">
+                        <span><b>3</b> apps en Google Play</span>
+                        <span>Hechas con <b>Flutter</b></span>
+                        <span>Sin venta de datos a terceros</span>
+                    </p>
                 </div>
 
                 <div class="phone-wrap">
-                    <div class="phone" aria-label="Apps de AstroSeec en la pantalla de inicio de un móvil">
-                        <div class="island"></div>
+                    <div class="device" aria-label="Apps de AstroSeec en la pantalla de inicio de un móvil">
+                        <div class="punch" aria-hidden="true"></div>
                         <div class="status" aria-hidden="true">
-                            <span id="clock">9:41</span>
+                            <span data-clock>9:41</span>
                             <span class="icons">
-                                <svg width="17" height="11" viewBox="0 0 18 12" fill="currentColor"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5" width="3" height="7" rx="1"/><rect x="10" y="2.5" width="3" height="9.5" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg>
-                                <svg width="24" height="11" viewBox="0 0 26 12" fill="none"><rect x=".5" y=".5" width="22" height="11" rx="3.5" stroke="currentColor" opacity=".55"/><rect x="2" y="2" width="16" height="8" rx="2" fill="currentColor"/><rect x="24" y="4" width="2" height="4" rx="1" fill="currentColor" opacity=".55"/></svg>
+                                <svg width="13" height="11" viewBox="0 0 14 12" fill="currentColor"><path d="M7 11.5 13.5 3.2A10.4 10.4 0 0 0 .5 3.2L7 11.5z"/></svg>
+                                <svg width="12" height="11" viewBox="0 0 13 12" fill="currentColor"><path d="M11.5.5v11H9.8V.5h1.7zM7.6 3.4v8.1H5.9V3.4h1.7zM3.7 6.4v5.1H2V6.4h1.7z"/></svg>
+                                <svg width="11" height="12" viewBox="0 0 12 14" fill="none"><rect x=".6" y="2" width="10.8" height="11.4" rx="2.6" stroke="currentColor" stroke-width="1.2"/><rect x="2.1" y="4.6" width="7.8" height="7.3" rx="1.4" fill="currentColor"/><rect x="3.6" y="0" width="4.8" height="1.8" rx=".9" fill="currentColor"/></svg>
                             </span>
                         </div>
 
                         <div class="home-grid">
                             <a class="home-app" href="cashvault.html" style="--i:0; --tint:#efe3c2">
-                                <span class="home-tile"><img src="assets/cashvault.jpeg" alt=""></span>
+                                <span class="app-tile"><img src="assets/cashvault.jpeg" alt=""></span>
                                 Cash Vault
                             </a>
                             <a class="home-app" href="aquavida.html" style="--i:1; --tint:#cfe8ee">
-                                <span class="home-tile"><img src="assets/aquavida.png" alt=""></span>
+                                <span class="app-tile"><img src="assets/aquavida.png" alt=""></span>
                                 AquaVida
                             </a>
                             <a class="home-app" href="misnotas.html" style="--i:2; --tint:#ece6d8">
-                                <span class="home-tile"><img src="assets/misnotas.png" alt=""></span>
+                                <span class="app-tile"><img src="assets/misnotas.png" alt=""></span>
                                 Mis Notas
                             </a>
                         </div>
@@ -456,67 +287,87 @@
             </div>
         </section>
 
-        <section class="apps" id="apps">
+        <section class="section" id="apps">
             <div class="wrap">
-                <h2 class="title">Nuestras apps</h2>
+                <div data-reveal>
+                    <p class="eyebrow">Nuestras apps</p>
+                    <h2 class="title">Tres herramientas, un mismo criterio</h2>
+                    <p class="subtitle">Cada app resuelve un problema concreto y nada más: sin funciones de relleno y sin pedirte más datos de los necesarios.</p>
+                </div>
+
                 <ul class="app-list">
-                    <li class="app-row" style="--tint:#efe3c2">
-                        <div class="tile"><img src="assets/cashvault.jpeg" alt="Icono de Cash Vault"></div>
-                        <div>
-                            <h3>Cash Vault</h3>
-                            <p>Tu asistente inteligente de finanzas personales y del hogar. Gestiona presupuestos por categorías, planifica metas con predicciones de ahorro basadas en tu historial y controla la economía familiar de forma compartida, con integración de asistente IA.</p>
-                        </div>
-                        <div class="actions">
-                            <a class="btn-play" href="https://play.google.com/store/apps/details?id=com.cashvault.app" target="_blank" rel="noopener">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 3.5v17a1 1 0 001.5.86l14-8.5a1 1 0 000-1.72l-14-8.5A1 1 0 006 3.5z"/></svg>
-                                Google Play
-                            </a>
-                            <a class="btn-info" href="cashvault.html">Más info</a>
-                        </div>
-                    </li>
-                    <li class="app-row" style="--tint:#cfe8ee">
-                        <div class="tile"><img src="assets/aquavida.png" alt="Icono de AquaVida"></div>
-                        <div>
-                            <h3>AquaVida</h3>
-                            <p>Crea hábitos saludables de hidratación diaria. Calcula metas personalizadas según tu peso y nivel de actividad física, visualiza tu progreso con un vaso animado interactivo, recibe recordatorios inteligentes y mantén tu racha de bienestar.</p>
-                        </div>
-                        <div class="actions">
-                            <a class="btn-play" href="https://play.google.com/store/apps/details?id=com.aquavida.app" target="_blank" rel="noopener">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 3.5v17a1 1 0 001.5.86l14-8.5a1 1 0 000-1.72l-14-8.5A1 1 0 006 3.5z"/></svg>
-                                Google Play
-                            </a>
-                            <a class="btn-info" href="aquavida.html">Más info</a>
+                    <li style="--tint:#efe3c2" data-reveal>
+                        <div class="app-row">
+                            <span class="app-tile"><img src="assets/cashvault.jpeg" alt="Icono de Cash Vault"></span>
+                            <div>
+                                <span class="app-kicker">Finanzas</span>
+                                <h3>Cash Vault</h3>
+                                <p>Tu asistente inteligente de finanzas personales y del hogar. Gestiona presupuestos por categorías, planifica metas con predicciones de ahorro basadas en tu historial y controla la economía familiar de forma compartida.</p>
+                            </div>
+                            <div class="actions">
+                                <a class="btn btn-dark btn-sm" href="https://play.google.com/store/apps/details?id=com.cashvault.app" target="_blank" rel="noopener">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 3.5v17a1 1 0 001.5.86l14-8.5a1 1 0 000-1.72l-14-8.5A1 1 0 006 3.5z"/></svg>
+                                    Google Play
+                                </a>
+                                <a class="btn btn-outline btn-sm" href="cashvault.html">Más info</a>
+                            </div>
                         </div>
                     </li>
-                    <li class="app-row" style="--tint:#ece6d8">
-                        <div class="tile"><img src="assets/misnotas.png" alt="Icono de Mis Notas"></div>
-                        <div>
-                            <h3>Mis Notas</h3>
-                            <p>Tu diario personal y registro emocional con diseño cálido de cuaderno. Registra tu estado de ánimo diario, colorea tu calendario mensual, añade fotos y protege tus memorias con PIN y huella.</p>
+                    <li style="--tint:#cfe8ee" data-reveal>
+                        <div class="app-row">
+                            <span class="app-tile"><img src="assets/aquavida.png" alt="Icono de AquaVida"></span>
+                            <div>
+                                <span class="app-kicker">Bienestar</span>
+                                <h3>AquaVida</h3>
+                                <p>Crea hábitos saludables de hidratación diaria. Calcula metas personalizadas según tu peso y nivel de actividad física, visualiza tu progreso con un vaso animado interactivo y recibe recordatorios inteligentes.</p>
+                            </div>
+                            <div class="actions">
+                                <a class="btn btn-dark btn-sm" href="https://play.google.com/store/apps/details?id=com.aquavida.app" target="_blank" rel="noopener">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 3.5v17a1 1 0 001.5.86l14-8.5a1 1 0 000-1.72l-14-8.5A1 1 0 006 3.5z"/></svg>
+                                    Google Play
+                                </a>
+                                <a class="btn btn-outline btn-sm" href="aquavida.html">Más info</a>
+                            </div>
                         </div>
-                        <div class="actions">
-                            <a class="btn-play" href="https://play.google.com/store/apps/details?id=com.misnotasdiario.app" target="_blank" rel="noopener">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 3.5v17a1 1 0 001.5.86l14-8.5a1 1 0 000-1.72l-14-8.5A1 1 0 006 3.5z"/></svg>
-                                Google Play
-                            </a>
-                            <a class="btn-info" href="misnotas.html">Más info</a>
+                    </li>
+                    <li style="--tint:#ece6d8" data-reveal>
+                        <div class="app-row">
+                            <span class="app-tile"><img src="assets/misnotas.png" alt="Icono de Mis Notas"></span>
+                            <div>
+                                <span class="app-kicker">Diario personal</span>
+                                <h3>Mis Notas</h3>
+                                <p>Tu diario personal y registro emocional con diseño cálido de cuaderno. Registra tu estado de ánimo diario, colorea tu calendario mensual, añade fotos y protege tus memorias con PIN y huella.</p>
+                            </div>
+                            <div class="actions">
+                                <a class="btn btn-dark btn-sm" href="https://play.google.com/store/apps/details?id=com.misnotasdiario.app" target="_blank" rel="noopener">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 3.5v17a1 1 0 001.5.86l14-8.5a1 1 0 000-1.72l-14-8.5A1 1 0 006 3.5z"/></svg>
+                                    Google Play
+                                </a>
+                                <a class="btn btn-outline btn-sm" href="misnotas.html">Más info</a>
+                            </div>
                         </div>
                     </li>
                 </ul>
             </div>
         </section>
 
-        <section class="about" id="nosotros">
+        <section class="section" id="nosotros" style="padding-top: 0">
             <div class="wrap">
                 <div class="about-grid">
-                    <h2 class="title">Sobre nosotros</h2>
-                    <div>
+                    <div class="about-side" data-reveal>
+                        <p class="eyebrow">Sobre nosotros</p>
+                        <h2 class="title">Un laboratorio independiente</h2>
+                        <figure class="logo-badge">
+                            <img src="LOGO_ASTROSEEC.jpeg" alt="Logotipo de AstroSeec: un astronauta trabajando frente a un panel de seguridad">
+                        </figure>
+                    </div>
+                    <div data-reveal style="--d:120ms">
                         <p class="about-text">AstroSeec es un laboratorio independiente de desarrollo de software móvil.</p>
                         <p class="about-more">Nos especializamos en la conceptualización, diseño y despliegue de experiencias de usuario premium utilizando tecnologías de vanguardia como Flutter, Dart y Firebase.</p>
                         <p class="about-more">Creemos firmemente en el poder del software minimalista: aplicaciones con un propósito claro, libres de distracciones innecesarias y optimizadas hasta el último milisegundo para ofrecer la máxima velocidad. Nuestras soluciones están diseñadas para poner el control en tus manos.</p>
                     </div>
                 </div>
-                <div class="values" aria-hidden="true">
+                <div class="values" aria-hidden="true" data-reveal>
                     <span>Simples</span>
                     <span>Eficientes</span>
                     <span>Seguras</span>
@@ -527,14 +378,15 @@
 
     <footer class="contact" id="contacto">
         <div class="wrap">
-            <h2 class="title">Contacto</h2>
-            <p>¿Tienes dudas o sugerencias? Escríbenos a:</p>
+            <p class="eyebrow">Contacto</p>
+            <h2 class="title">¿Hablamos?</h2>
+            <p>¿Tienes dudas, una incidencia o una sugerencia? Escríbenos a:</p>
             <a class="mail" href="mailto:astroseec@gmail.com">astroseec@gmail.com</a>
 
             <div class="foot">
                 <a class="brand" href="#inicio">
-                    <img src="LOGO ASTROSEEC.jpeg" alt="Logo AstroSeec" style="width: 26px; height: 26px; border-radius: 50%; object-fit: cover;">
-                    AstroSeec
+                    <span class="mark"><img src="LOGO_ASTROSEEC.jpeg" alt="" width="30" height="30"></span>
+                    <span class="brand-name">AstroSeec</span>
                 </a>
                 <span>&copy; <span id="year">2026</span> AstroSeec. Todos los derechos reservados.</span>
                 <nav class="foot-links" aria-label="Enlaces legales">
@@ -545,34 +397,6 @@
         </div>
     </footer>
 
-    <script>
-        (function () {
-            var nav = document.getElementById('nav');
-            var rotor = document.getElementById('rotor');
-            var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-            var ticking = false;
-
-            function update() {
-                var y = window.scrollY || document.documentElement.scrollTop;
-                nav.classList.toggle('scrolled', y > 16);
-                if (!reduce) rotor.style.transform = 'rotate(' + (y * 0.08).toFixed(2) + 'deg)';
-                ticking = false;
-            }
-            window.addEventListener('scroll', function () {
-                if (!ticking) { ticking = true; requestAnimationFrame(update); }
-            }, { passive: true });
-            update();
-
-            document.getElementById('year').textContent = new Date().getFullYear();
-
-            var clock = document.getElementById('clock');
-            function tick() {
-                var d = new Date();
-                clock.textContent = d.getHours() + ':' + String(d.getMinutes()).padStart(2, '0');
-            }
-            tick();
-            setInterval(tick, 30000);
-        })();
-    </script>
+    <script src="main.js" defer></script>
 </body>
 </html>

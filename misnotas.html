@@ -4,507 +4,289 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="theme-color" content="#0e2622">
-    <meta name="description" content="Mis Notas: diario personal con diseño cálido estilo cuaderno, estado de ánimo diario y protección con PIN y huella.">
-    <title>Mis Notas - Astroseec</title>
+    <meta name="description" content="Mis Notas: tu diario privado con estado de ánimo diario, calendario coloreado, fotos en las entradas y bloqueo con PIN y huella.">
+    <title>Mis Notas - AstroSeec</title>
+
+    <link rel="icon" type="image/jpeg" href="LOGO_ASTROSEEC.jpeg">
+    <link rel="apple-touch-icon" href="LOGO_ASTROSEEC.jpeg">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Mis Notas - AstroSeec">
+    <meta property="og:description" content="Tu diario privado y seguro, con diseño cálido de cuaderno.">
+    <meta property="og:image" content="assets/misnotas.png">
+    <meta name="twitter:card" content="summary_large_image">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --mineral: #dde4e0;
-            --vault: #0e2622;
-            --vault-deep: #081815;
-            --vault-raise: #153630;
-            --brass: #c8a24a;
-            --paper: #f1ece1;
-            --steel: #9fb0aa;
-            --soft: #c4d0ca;
-            --line: rgba(241, 236, 225, 0.12);
-            --tint: #ece6d8;
-            --accent: #c8a24a;
-            --display: 'Bricolage Grotesque', 'Segoe UI', system-ui, sans-serif;
-            --body: 'Inter', 'Segoe UI', system-ui, sans-serif;
-        }
-
-        * { box-sizing: border-box; }
-        html, body { height: 100%; }
-
-        body {
-            margin: 0;
-            display: grid;
-            place-items: center;
-            background: var(--mineral);
-            font-family: var(--body);
-            color: var(--paper);
-            overflow: hidden;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        /* Dial de fondo: gira con el scroll del móvil */
-        .dial {
-            position: fixed;
-            inset: 0;
-            display: grid;
-            place-items: center;
-            pointer-events: none;
-        }
-        .dial svg { width: min(135vh, 1150px); height: auto; overflow: visible; }
-        .dial .rotor { transform-origin: 50% 50%; transform-box: view-box; will-change: transform; }
-
-        /* Móvil */
-        .phone {
-            position: relative;
-            width: min(380px, 92vw);
-            height: min(800px, 94dvh);
-            background: var(--vault);
-            border: 10px solid #1a1d1f;
-            border-radius: 56px;
-            box-shadow:
-                0 0 0 2px #3b4144,
-                0 50px 90px -25px rgba(8, 24, 21, 0.6),
-                0 12px 30px rgba(8, 24, 21, 0.28);
-            overflow: hidden;
-            isolation: isolate;
-        }
-
-        .island {
-            position: absolute;
-            top: 10px; left: 50%;
-            transform: translateX(-50%);
-            width: 98px; height: 28px;
-            background: #000;
-            border-radius: 20px;
-            z-index: 6;
-        }
-
-        .chrome {
-            --p: 0;
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            z-index: 5;
-            background: rgba(14, 38, 34, 0.9);
-            -webkit-backdrop-filter: blur(14px);
-            backdrop-filter: blur(14px);
-            border-bottom: 1px solid transparent;
-            transition: border-color .25s;
-        }
-        .chrome.scrolled { border-bottom-color: var(--line); }
-
-        .status {
-            height: 50px;
-            padding: 8px 28px 0 32px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            font-size: 13px;
-            font-weight: 600;
-            letter-spacing: .01em;
-        }
-        .status .icons { display: flex; gap: 6px; align-items: center; }
-
-        .nav {
-            position: relative;
-            height: 44px;
-            padding: 0 16px;
-            display: flex;
-            align-items: center;
-        }
-        .back {
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-            padding: 8px 10px 8px 4px;
-            margin-left: -4px;
-            color: var(--paper);
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 500;
-            border-radius: 10px;
-        }
-        .nav-title {
-            position: absolute;
-            left: 50%; top: 50%;
-            transform: translate(-50%, -50%);
-            font-family: var(--display);
-            font-weight: 700;
-            font-size: 16px;
-            opacity: 0;
-            transition: opacity .25s;
-            pointer-events: none;
-        }
-        .chrome.title-on .nav-title { opacity: 1; }
-
-        .progress {
-            position: absolute;
-            left: 0; bottom: -1px;
-            height: 2px;
-            width: 100%;
-            background: var(--brass);
-            transform-origin: left center;
-            transform: scaleX(var(--p));
-        }
-
-        /* Zona con scroll */
-        .scroller {
-            position: absolute;
-            inset: 0;
-            overflow-y: auto;
-            overflow-x: hidden;
-            padding: 106px 22px 64px;
-            scrollbar-width: none;
-            overscroll-behavior: contain;
-            -webkit-overflow-scrolling: touch;
-        }
-        .scroller::-webkit-scrollbar { display: none; }
-        .scroller:focus-visible { outline: 2px solid var(--brass); outline-offset: -4px; border-radius: 44px; }
-
-        .fade {
-            position: absolute;
-            left: 0; right: 0; bottom: 0;
-            height: 46px;
-            background: linear-gradient(to top, var(--vault), transparent);
-            z-index: 4;
-            pointer-events: none;
-        }
-        .home-bar {
-            position: absolute;
-            bottom: 8px; left: 50%;
-            transform: translateX(-50%);
-            width: 128px; height: 5px;
-            border-radius: 3px;
-            background: rgba(241, 236, 225, .6);
-            z-index: 6;
-        }
-
-        /* Contenido */
-        .app-icon {
-            width: 76px; height: 76px;
-            border-radius: 22px;
-            background: var(--tint);
-            border: 1px solid var(--line);
-            display: grid; place-items: center;
-        }
-        .app-icon img { width: 44px; height: 44px; object-fit: contain; }
-
-        h1 {
-            font-family: var(--display);
-            font-weight: 800;
-            font-size: 46px;
-            line-height: 1;
-            letter-spacing: -0.035em;
-            margin: 22px 0 12px;
-        }
-        h2 {
-            font-family: var(--display);
-            font-weight: 700;
-            font-size: 24px;
-            line-height: 1.15;
-            letter-spacing: -0.02em;
-            margin: 0 0 12px;
-        }
-        h3 {
-            font-family: var(--display);
-            font-weight: 700;
-            font-size: 17px;
-            line-height: 1.2;
-            margin: 0 0 4px;
-        }
-        p { margin: 0; }
-
-        .lead { font-size: 16px; line-height: 1.55; color: var(--soft); }
-        .text { font-size: 15px; line-height: 1.6; color: var(--soft); }
-
-        .cta {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 24px;
-            padding: 15px 20px;
-            background: var(--brass);
-            color: var(--vault-deep);
-            font-weight: 600;
-            font-size: 15px;
-            text-decoration: none;
-            border-radius: 16px;
-            transition: filter .2s, transform .2s;
-        }
-        .cta:hover { filter: brightness(1.08); }
-        .cta:active { transform: scale(.98); }
-        .cta:focus-visible, .back:focus-visible, dd a:focus-visible { outline: 2px solid var(--paper); outline-offset: 3px; }
-
-        .hint {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-            margin-top: 16px;
-            font-size: 12.5px;
-            color: var(--steel);
-            transition: opacity .3s;
-        }
-        .hint.gone { opacity: 0; }
-
-        /* Visual decorativo */
-        .visual {
-            margin-top: 30px;
-            padding: 18px 18px 16px;
-            background: var(--vault-raise);
-            border: 1px solid var(--line);
-            border-radius: 24px;
-        }
-        .visual-label { font-size: 13px; color: var(--steel); margin-bottom: 14px; }
-        .bars { display: flex; align-items: flex-end; gap: 9px; height: 96px; }
-        .bars span {
-            flex: 1;
-            height: var(--h);
-            background: #2a5a4f;
-            border-radius: 6px 6px 3px 3px;
-            transform-origin: bottom;
-            animation: grow .7s cubic-bezier(.2, .8, .2, 1) both;
-            animation-delay: calc(var(--i) * 70ms + 250ms);
-        }
-        .bars span:last-child { background: var(--accent); }
-        .days { display: flex; gap: 9px; margin-top: 8px; }
-        .days span { flex: 1; text-align: center; font-size: 11px; color: var(--steel); }
-        @keyframes grow { from { transform: scaleY(0); } to { transform: scaleY(1); } }
-
-        .cal { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; }
-        .cal span {
-            aspect-ratio: 1;
-            border-radius: 7px;
-            background: var(--c);
-            animation: pop .5s cubic-bezier(.2, .9, .3, 1.1) both;
-            animation-delay: calc(var(--i) * 18ms + 250ms);
-        }
-        .cal span.empty { background: transparent; border: 1px dashed var(--line); }
-        @keyframes pop { from { opacity: 0; transform: scale(.6); } to { opacity: 1; transform: none; } }
-
-        section { margin-top: 44px; }
-
-        .features { list-style: none; margin: 0; padding: 0; }
-        .features li {
-            display: grid;
-            grid-template-columns: 44px 1fr;
-            gap: 14px;
-            padding: 18px 0;
-            border-top: 1px solid var(--line);
-        }
-        .features li:last-child { border-bottom: 1px solid var(--line); }
-        .f-icon {
-            width: 44px; height: 44px;
-            border-radius: 14px;
-            background: var(--vault-raise);
-            color: var(--brass);
-            display: grid; place-items: center;
-        }
-        .features p { font-size: 14.5px; line-height: 1.5; color: var(--soft); }
-
-        dl { margin: 0; }
-        .spec { padding: 14px 0; border-top: 1px solid var(--line); }
-        .spec:last-child { border-bottom: 1px solid var(--line); }
-        dt { font-size: 13px; color: var(--steel); margin-bottom: 3px; }
-        dd { margin: 0; font-size: 15px; line-height: 1.45; overflow-wrap: anywhere; }
-        dd a { color: var(--brass); text-underline-offset: 3px; }
-
-        .end { margin-top: 44px; padding-bottom: 12px; }
-        .end .cta { margin-top: 18px; }
-
-        @media (prefers-reduced-motion: reduce) {
-            .bars span, .cal span { animation: none; }
-            .progress, .nav-title, .chrome, .hint { transition: none; }
-        }
-
-        /* Pantallas pequeñas: el móvil ocupa toda la pantalla */
-        @media (max-width: 520px) {
-            .dial, .island, .status, .home-bar, .fade { display: none; }
-            .phone {
-                width: 100vw;
-                height: 100dvh;
-                border: 0;
-                border-radius: 0;
-                box-shadow: none;
-            }
-            .chrome { padding-top: env(safe-area-inset-top); }
-            .scroller { padding: calc(64px + env(safe-area-inset-top)) 22px calc(40px + env(safe-area-inset-bottom)); }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Dial de bóveda -->
-    <div class="dial" aria-hidden="true">
-        <svg viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">
-            <g class="rotor" id="rotor">
-                <circle cx="500" cy="500" r="480" fill="none" stroke="#0e2622" stroke-opacity=".22" stroke-width="14" stroke-dasharray="2 14.755"/>
-                <circle cx="500" cy="500" r="446" fill="none" stroke="#0e2622" stroke-opacity=".3" stroke-width="1.5"/>
-                <circle cx="500" cy="500" r="425" fill="none" stroke="#0e2622" stroke-opacity=".16" stroke-width="10" stroke-dasharray="3 19.51"/>
-                <circle cx="500" cy="500" r="380" fill="none" stroke="#c8a24a" stroke-opacity=".55" stroke-width="1.5"/>
-                <circle cx="500" cy="500" r="352" fill="none" stroke="#0e2622" stroke-opacity=".14" stroke-width="1.5"/>
-            </g>
-            <polygon points="500,10 488,-14 512,-14" fill="#c8a24a" transform="translate(0 24)"/>
-        </svg>
-    </div>
+    <a class="skip" href="#contenido">Saltar al contenido</a>
 
-    <main class="phone">
-        <div class="island"></div>
-
-        <header class="chrome" id="chrome">
-            <div class="status" aria-hidden="true">
-                <span id="clock">9:41</span>
-                <span class="icons">
-                    <svg width="18" height="12" viewBox="0 0 18 12" fill="currentColor"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5" width="3" height="7" rx="1"/><rect x="10" y="2.5" width="3" height="9.5" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg>
-                    <svg width="26" height="12" viewBox="0 0 26 12" fill="none"><rect x=".5" y=".5" width="22" height="11" rx="3.5" stroke="currentColor" opacity=".55"/><rect x="2" y="2" width="16" height="8" rx="2" fill="currentColor"/><rect x="24" y="4" width="2" height="4" rx="1" fill="currentColor" opacity=".55"/></svg>
-                </span>
-            </div>
-            <nav class="nav">
-                <a class="back" href="index.html">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg>
-                    Volver
-                </a>
-                <span class="nav-title">Mis Notas</span>
-            </nav>
-            <div class="progress"></div>
-        </header>
-
-        <div class="scroller" id="scroller" tabindex="0" aria-label="Contenido de Mis Notas">
-            <div class="app-icon"><img src="assets/misnotas.png" alt="Icono de Mis Notas"></div>
-
-            <h1>Mis Notas</h1>
-            <p class="lead">Tu diario privado y seguro, con un diseño cálido estilo cuaderno.</p>
-
-            <a class="cta" href="https://play.google.com/store/apps/details?id=com.misnotasdiario.app" target="_blank" rel="noopener">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 3.5v17a1 1 0 001.5.86l14-8.5a1 1 0 000-1.72l-14-8.5A1 1 0 006 3.5z"/></svg>
-                Descargar en Play Store
+    <header class="nav">
+        <div class="nav-in">
+            <a class="brand" href="index.html" aria-label="AstroSeec, inicio">
+                <span class="mark"><img src="LOGO_ASTROSEEC.jpeg" alt="" width="38" height="38"></span>
+                <span class="brand-name">AstroSeec</span>
             </a>
-            <div class="hint" id="hint">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
-                Desliza para ver más
+            <nav class="nav-links" aria-label="Principal">
+                <a href="index.html#apps" aria-current="page">Apps</a>
+                <a href="index.html#nosotros">Nosotros</a>
+                <a href="#contacto">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="app-hero">
+            <div class="rings-bg" aria-hidden="true">
+                <svg viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">
+                    <g class="rotor" id="rotor">
+                        <circle cx="500" cy="500" r="480" fill="none" stroke="#f1ece1" stroke-opacity=".1" stroke-width="14" stroke-dasharray="2 14.755"/>
+                        <circle cx="500" cy="500" r="446" fill="none" stroke="#f1ece1" stroke-opacity=".12" stroke-width="1.5"/>
+                        <circle cx="500" cy="500" r="380" fill="none" stroke="#c8a24a" stroke-opacity=".5" stroke-width="1.5"/>
+                        <circle cx="500" cy="500" r="352" fill="none" stroke="#f1ece1" stroke-opacity=".08" stroke-width="1.5"/>
+                    </g>
+                </svg>
             </div>
 
-            <div class="visual" aria-hidden="true">
-                <div class="visual-label">Calendario del mes</div>
-                <div class="cal"><span style="--c:#6fb7c9; --i:0"></span><span style="--c:#2a5a4f; --i:1"></span><span style="--c:#d28b7b; --i:2"></span><span style="--c:#c8a24a; --i:3"></span><span style="--c:#c8a24a; --i:4"></span><span style="--c:#c8a24a; --i:5"></span><span style="--c:#7a8f88; --i:6"></span><span style="--c:#2a5a4f; --i:7"></span><span style="--c:#c8a24a; --i:8"></span><span style="--c:#6fb7c9; --i:9"></span><span style="--c:#2a5a4f; --i:10"></span><span style="--c:#c8a24a; --i:11"></span><span style="--c:#2a5a4f; --i:12"></span><span style="--c:#2a5a4f; --i:13"></span><span style="--c:#c8a24a; --i:14"></span><span style="--c:#c8a24a; --i:15"></span><span style="--c:#d28b7b; --i:16"></span><span style="--c:#d28b7b; --i:17"></span><span style="--c:#c8a24a; --i:18"></span><span style="--c:#2a5a4f; --i:19"></span><span style="--c:#c8a24a; --i:20"></span><span style="--c:#2a5a4f; --i:21"></span><span style="--c:#d28b7b; --i:22"></span><span style="--c:#c8a24a; --i:23"></span><span style="--c:#7a8f88; --i:24"></span><span style="--c:#2a5a4f; --i:25"></span><span style="--c:#c8a24a; --i:26"></span><span style="--c:#2a5a4f; --i:27"></span><span style="--c:#c8a24a; --i:28"></span><span class="empty" style="--i:29"></span><span class="empty" style="--i:30"></span><span class="empty" style="--i:31"></span><span class="empty" style="--i:32"></span><span class="empty" style="--i:33"></span><span class="empty" style="--i:34"></span></div>
+            <div class="wrap app-hero-in">
+                <div>
+                    <a class="crumbs" href="index.html#apps">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+                        Todas las apps
+                    </a>
+
+                    <div class="app-id" style="--tint:#ece6d8">
+                        <span class="app-tile"><img src="assets/misnotas.png" alt="Icono de Mis Notas"></span>
+                        <div>
+                            <span class="app-kicker">Diario personal</span>
+                            <h1>Mis Notas</h1>
+                        </div>
+                    </div>
+
+                    <p class="app-lead">Tu diario privado y seguro, con un diseño cálido estilo cuaderno. Escribe cómo ha ido el día, colorea tu mes y protege lo que escribes con PIN y huella.</p>
+
+                    <div class="app-actions">
+                        <a class="btn btn-brass" href="https://play.google.com/store/apps/details?id=com.misnotasdiario.app" target="_blank" rel="noopener">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 3.5v17a1 1 0 001.5.86l14-8.5a1 1 0 000-1.72l-14-8.5A1 1 0 006 3.5z"/></svg>
+                            Descargar en Google Play
+                        </a>
+                        <a class="btn btn-ghost" href="#funciones">Ver funciones</a>
+                    </div>
+
+                    <div class="chips">
+                        <span class="chip">Android</span>
+                        <span class="chip">Gratis</span>
+                        <span class="chip">Español e inglés</span>
+                        <span class="chip">PIN y huella</span>
+                    </div>
+                </div>
+
+                <div class="device" role="img" aria-label="Pantalla de Mis Notas con el calendario del mes coloreado por estado de ánimo">
+                    <div class="punch" aria-hidden="true"></div>
+                    <div class="status" aria-hidden="true">
+                        <span data-clock>9:41</span>
+                        <span class="icons">
+                            <svg width="13" height="11" viewBox="0 0 14 12" fill="currentColor"><path d="M7 11.5 13.5 3.2A10.4 10.4 0 0 0 .5 3.2L7 11.5z"/></svg>
+                            <svg width="12" height="11" viewBox="0 0 13 12" fill="currentColor"><path d="M11.5.5v11H9.8V.5h1.7zM7.6 3.4v8.1H5.9V3.4h1.7zM3.7 6.4v5.1H2V6.4h1.7z"/></svg>
+                            <svg width="11" height="12" viewBox="0 0 12 14" fill="none"><rect x=".6" y="2" width="10.8" height="11.4" rx="2.6" stroke="currentColor" stroke-width="1.2"/><rect x="2.1" y="4.6" width="7.8" height="7.3" rx="1.4" fill="currentColor"/><rect x="3.6" y="0" width="4.8" height="1.8" rx=".9" fill="currentColor"/></svg>
+                        </span>
+                    </div>
+
+                    <div class="screen" aria-hidden="true">
+                        <div class="screen-head">
+                            <strong>Mi diario</strong>
+                            <span>Septiembre</span>
+                        </div>
+
+                        <div class="panel">
+                            <div class="panel-label">Calendario del mes</div>
+                            <div class="cal">
+                                <span style="--c:#6fb7c9; --i:0"></span><span style="--c:#2a5a4f; --i:1"></span><span style="--c:#d28b7b; --i:2"></span><span style="--c:#c8a24a; --i:3"></span><span style="--c:#c8a24a; --i:4"></span><span style="--c:#c8a24a; --i:5"></span><span style="--c:#7a8f88; --i:6"></span>
+                                <span style="--c:#2a5a4f; --i:7"></span><span style="--c:#c8a24a; --i:8"></span><span style="--c:#6fb7c9; --i:9"></span><span style="--c:#2a5a4f; --i:10"></span><span style="--c:#c8a24a; --i:11"></span><span style="--c:#2a5a4f; --i:12"></span><span style="--c:#2a5a4f; --i:13"></span>
+                                <span style="--c:#c8a24a; --i:14"></span><span style="--c:#c8a24a; --i:15"></span><span style="--c:#d28b7b; --i:16"></span><span style="--c:#d28b7b; --i:17"></span><span style="--c:#c8a24a; --i:18"></span><span style="--c:#2a5a4f; --i:19"></span><span style="--c:#c8a24a; --i:20"></span>
+                                <span style="--c:#2a5a4f; --i:21"></span><span style="--c:#d28b7b; --i:22"></span><span style="--c:#c8a24a; --i:23"></span><span style="--c:#7a8f88; --i:24"></span><span style="--c:#2a5a4f; --i:25"></span><span style="--c:#c8a24a; --i:26"></span><span style="--c:#2a5a4f; --i:27"></span>
+                                <span style="--c:#c8a24a; --i:28"></span><span class="empty" style="--i:29"></span><span class="empty" style="--i:30"></span><span class="empty" style="--i:31"></span><span class="empty" style="--i:32"></span><span class="empty" style="--i:33"></span><span class="empty" style="--i:34"></span>
+                            </div>
+                        </div>
+
+                        <div class="panel">
+                            <div class="panel-label">Entrada de hoy</div>
+                            <div class="panel-figure" style="font-size: 20px">Un buen día</div>
+                            <div class="panel-note">Terminé el proyecto y salí a caminar al atardecer…</div>
+                        </div>
+
+                        <div class="panel rows">
+                            <div class="row">
+                                <span class="row-main"><i class="dot" style="--c:#c8a24a"></i><span>Ánimo registrado</span></span>
+                                <b>Contento</b>
+                            </div>
+                            <div class="row">
+                                <span class="row-main"><i class="dot" style="--c:#6fb7c9"></i><span>Fotos añadidas</span></span>
+                                <b>2 de 3</b>
+                            </div>
+                        </div>
+
+                        <div class="panel rows">
+                            <div class="row">
+                                <span class="row-main"><i class="dot" style="--c:#2a5a4f"></i><span>19 sep · Tranquilo</span></span>
+                                <b>4 líneas</b>
+                            </div>
+                            <div class="row">
+                                <span class="row-main"><i class="dot" style="--c:#d28b7b"></i><span>17 sep · Cansado</span></span>
+                                <b>2 líneas</b>
+                            </div>
+                            <div class="row">
+                                <span class="row-main"><i class="dot" style="--c:#6fb7c9"></i><span>16 sep · Tranquilo</span></span>
+                                <b>6 líneas</b>
+                            </div>
+                            <div class="row">
+                                <span class="row-main"><i class="dot" style="--c:#c8a24a"></i><span>15 sep · Contento</span></span>
+                                <b>3 líneas</b>
+                            </div>
+                        </div>
+
+                        <div class="panel">
+                            <div class="panel-label">Este mes</div>
+                            <div class="panel-figure">18 entradas</div>
+                            <div class="panel-note">El ánimo más frecuente: contento (9 días).</div>
+                        </div>
+                    </div>
+                    <div class="screen-fade" aria-hidden="true"></div>
+                    <div class="home-bar"></div>
+                </div>
             </div>
+        </section>
 
-            <section>
-                <h2>¿Para qué sirve?</h2>
-                <p class="text">Tu diario privado y seguro. Escribe tus pensamientos, organiza tus momentos y protege tu intimidad con acceso biométrico o PIN. Simple, seguro y siempre contigo.</p>
-            </section>
+        <section class="section" id="contenido">
+            <div class="wrap">
+                <div class="narrow" data-reveal>
+                    <p class="eyebrow">Para qué sirve</p>
+                    <h2 class="title">Un cuaderno privado que cabe en el bolsillo</h2>
+                    <p class="subtitle">Escribe tus pensamientos, organiza tus momentos y protege tu intimidad con acceso biométrico o PIN. Simple, seguro y siempre contigo.</p>
+                </div>
+            </div>
+        </section>
 
-            <section>
-                <h2>Funciones clave</h2>
-                <ul class="features">
-                    <li>
-                        <span class="f-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h11a3 3 0 013 3v13H8a3 3 0 01-3-3z"/><path d="M5 17a3 3 0 013-3h11"/></svg></span>
-                        <div>
-                            <h3>Diario estilo cuaderno</h3>
-                            <p>Un diario personal con un diseño cálido, como un cuaderno.</p>
-                        </div>
-                    </li>
-                    <li>
-                        <span class="f-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8.5 14.5a4 4 0 007 0"/><path d="M9 9.5h.01M15 9.5h.01"/></svg></span>
-                        <div>
-                            <h3>Estado de ánimo diario</h3>
-                            <p>Registra cómo te sientes cada día.</p>
-                        </div>
-                    </li>
-                    <li>
-                        <span class="f-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="3"/><path d="M4 10h16M9 3v4M15 3v4"/></svg></span>
-                        <div>
-                            <h3>Calendario del mes</h3>
-                            <p>Un calendario mensual coloreado según tu estado de ánimo.</p>
-                        </div>
-                    </li>
-                    <li>
-                        <span class="f-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="3"/><path d="M8 11V8a4 4 0 018 0v3"/></svg></span>
-                        <div>
-                            <h3>PIN y huella</h3>
-                            <p>Protege tu diario con un PIN y tu huella digital.</p>
-                        </div>
-                    </li>
-                    <li>
-                        <span class="f-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="14" rx="3"/><circle cx="9" cy="10" r="1.5"/><path d="M4 16l5-4 4 3 3-2 4 3"/></svg></span>
-                        <div>
-                            <h3>Fotos en tus entradas</h3>
-                            <p>Añade hasta 3 fotos por entrada.</p>
-                        </div>
-                    </li>
-                    <li>
-                        <span class="f-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 019.5 4 8 8 0 1020 14.5z"/></svg></span>
-                        <div>
-                            <h3>Modo claro y oscuro</h3>
-                            <p>Disponible en español e inglés.</p>
-                        </div>
-                    </li>
-                </ul>
-            </section>
+        <section class="section" id="funciones" style="padding-top: 0">
+            <div class="wrap">
+                <div data-reveal>
+                    <p class="eyebrow">Funciones clave</p>
+                    <h2 class="title">Lo que puedes hacer</h2>
+                </div>
 
-            <section>
-                <h2>Ficha técnica</h2>
-                <dl>
-                    <div class="spec"><dt>Desarrollador</dt><dd>AstroSec (Luis Ricardo Cortés López)</dd></div>
+                <div class="grid-cards" style="margin-top: 42px">
+                    <article class="card" data-reveal>
+                        <span class="card-icon" aria-hidden="true">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h11l3 3v13H5z"/><path d="M8.5 9h7M8.5 13h7M8.5 17h4"/></svg>
+                        </span>
+                        <h3>Diario estilo cuaderno</h3>
+                        <p>Un diario personal con diseño cálido, pensado para que apetezca escribir cada día.</p>
+                    </article>
+                    <article class="card" data-reveal style="--d:80ms">
+                        <span class="card-icon" aria-hidden="true">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8.5 14.2a4.5 4.5 0 007 0"/><path d="M9 9.5h.01M15 9.5h.01"/></svg>
+                        </span>
+                        <h3>Estado de ánimo diario</h3>
+                        <p>Registra cómo te sientes cada día y observa cómo evoluciona con el tiempo.</p>
+                    </article>
+                    <article class="card" data-reveal style="--d:160ms">
+                        <span class="card-icon" aria-hidden="true">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17M8 3.5v3M16 3.5v3"/></svg>
+                        </span>
+                        <h3>Calendario del mes</h3>
+                        <p>Tu mes coloreado según el ánimo de cada día, para ver el conjunto de un vistazo.</p>
+                    </article>
+                    <article class="card" data-reveal style="--d:240ms">
+                        <span class="card-icon" aria-hidden="true">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="10" rx="2.5"/><path d="M8 10V7a4 4 0 018 0v3"/></svg>
+                        </span>
+                        <h3>PIN y huella</h3>
+                        <p>Bloquea el diario con un PIN y tu huella digital para que nadie más pueda abrirlo.</p>
+                    </article>
+                    <article class="card" data-reveal style="--d:320ms">
+                        <span class="card-icon" aria-hidden="true">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5.5" width="17" height="13" rx="2.5"/><path d="M3.5 15l4.2-4.2 4 4 2.6-2.6 6.2 6.2"/><circle cx="15" cy="9.5" r="1.4"/></svg>
+                        </span>
+                        <h3>Fotos en tus entradas</h3>
+                        <p>Añade hasta tres fotos por entrada para acompañar lo que escribes.</p>
+                    </article>
+                    <article class="card" data-reveal style="--d:400ms">
+                        <span class="card-icon" aria-hidden="true">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M19.1 4.9l-1.8 1.8M6.7 17.3l-1.8 1.8"/></svg>
+                        </span>
+                        <h3>Modo claro y oscuro</h3>
+                        <p>Se adapta al tema de tu móvil y está disponible en español e inglés.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" style="padding-top: 0">
+            <div class="wrap">
+                <div data-reveal>
+                    <p class="eyebrow">Ficha técnica</p>
+                    <h2 class="title">Detalles</h2>
+                </div>
+                <dl class="specs" style="margin-top: 38px" data-reveal>
+                    <div class="spec"><dt>Desarrollador</dt><dd>AstroSeec</dd></div>
                     <div class="spec"><dt>Categoría</dt><dd>Productividad</dd></div>
                     <div class="spec"><dt>Idiomas</dt><dd>Español e inglés</dd></div>
                     <div class="spec"><dt>Clasificación</dt><dd>Apta desde los 3 años</dd></div>
                     <div class="spec"><dt>Anuncios</dt><dd>Contiene anuncios</dd></div>
                     <div class="spec"><dt>Datos</dt><dd>No se recopilan datos ni se comparten con terceros, según la ficha de Google Play.</dd></div>
-                    <div class="spec"><dt>Política de privacidad</dt><dd><a href="https://cash-vault-web.vercel.app/privacidad/misnotas.html" target="_blank" rel="noopener">Ver política de privacidad</a></dd></div>
+                    <div class="spec"><dt>Privacidad</dt><dd><a href="Politicies.html">Ver política de privacidad</a></dd></div>
                     <div class="spec"><dt>Contacto</dt><dd><a href="mailto:astroseec@gmail.com">astroseec@gmail.com</a></dd></div>
                 </dl>
-            </section>
+            </div>
+        </section>
 
-            <div class="end">
-                <h2>Descárgala hoy</h2>
-                <p class="text">Escribe, organiza tus momentos y mantén tu diario protegido con PIN y huella.</p>
-                <a class="cta" href="https://play.google.com/store/apps/details?id=com.misnotasdiario.app" target="_blank" rel="noopener">
+        <section class="band section-tight">
+            <div class="wrap cta-band" data-reveal>
+                <figure class="logo-badge">
+                    <img src="LOGO_ASTROSEEC.jpeg" alt="Logotipo de AstroSeec">
+                </figure>
+                <div>
+                    <h2>Descárgala hoy</h2>
+                    <p>Escribe, organiza tus momentos y mantén tu diario protegido con PIN y huella.</p>
+                </div>
+                <a class="btn btn-brass" href="https://play.google.com/store/apps/details?id=com.misnotasdiario.app" target="_blank" rel="noopener">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 3.5v17a1 1 0 001.5.86l14-8.5a1 1 0 000-1.72l-14-8.5A1 1 0 006 3.5z"/></svg>
-                    Descargar en Play Store
+                    Descargar en Google Play
                 </a>
             </div>
-        </div>
-
-        <div class="fade"></div>
-        <div class="home-bar"></div>
+        </section>
     </main>
 
-    <script>
-        (function () {
-            var scroller = document.getElementById('scroller');
-            var chrome = document.getElementById('chrome');
-            var rotor = document.getElementById('rotor');
-            var hint = document.getElementById('hint');
-            var clock = document.getElementById('clock');
-            var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-            var ticking = false;
+    <footer class="contact" id="contacto">
+        <div class="wrap">
+            <p class="eyebrow">Contacto</p>
+            <h2 class="title">¿Hablamos?</h2>
+            <p>¿Tienes dudas, una incidencia o una sugerencia? Escríbenos a:</p>
+            <a class="mail" href="mailto:astroseec@gmail.com">astroseec@gmail.com</a>
 
-            function update() {
-                var max = scroller.scrollHeight - scroller.clientHeight;
-                var p = max > 0 ? scroller.scrollTop / max : 0;
-                chrome.style.setProperty('--p', p.toFixed(4));
-                chrome.classList.toggle('scrolled', scroller.scrollTop > 8);
-                chrome.classList.toggle('title-on', scroller.scrollTop > 110);
-                hint.classList.toggle('gone', scroller.scrollTop > 24);
-                if (!reduce) rotor.style.transform = 'rotate(' + (p * 300).toFixed(2) + 'deg)';
-                ticking = false;
-            }
+            <div class="foot">
+                <a class="brand" href="index.html">
+                    <span class="mark"><img src="LOGO_ASTROSEEC.jpeg" alt="" width="30" height="30"></span>
+                    <span class="brand-name">AstroSeec</span>
+                </a>
+                <span>&copy; <span id="year">2026</span> AstroSeec. Todos los derechos reservados.</span>
+                <nav class="foot-links" aria-label="Enlaces legales">
+                    <a href="Politicies.html">Política de privacidad</a>
+                    <a href="delete-account.html">Eliminar cuenta</a>
+                </nav>
+            </div>
+        </div>
+    </footer>
 
-            scroller.addEventListener('scroll', function () {
-                if (!ticking) { ticking = true; requestAnimationFrame(update); }
-            }, { passive: true });
+    <script src="main.js" defer></script>
 
-            // La rueda del ratón desplaza el móvil aunque el cursor esté fuera de él
-            document.addEventListener('wheel', function (e) {
-                if (!scroller.contains(e.target)) scroller.scrollTop += e.deltaY;
-            }, { passive: true });
-
-            function tick() {
-                var d = new Date();
-                clock.textContent = d.getHours() + ':' + String(d.getMinutes()).padStart(2, '0');
-            }
-            tick();
-            setInterval(tick, 30000);
-            update();
-        })();
-    </script>
+    <a class="app-next" href="cashvault.html" aria-label="Ir a la siguiente app: Cash Vault">
+        <span class="arrow-circle" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>
+        </span>
+        <span class="label"><small>Siguiente app</small><b>Cash Vault</b></span>
+    </a>
 </body>
 </html>

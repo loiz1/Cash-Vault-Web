@@ -2,414 +2,151 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#060a1b">
-    <meta name="description" content="Política de privacidad de Astroseec: qué datos recopilamos y cómo los usamos.">
-    <title>Política de privacidad - Astroseec</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#0e2622">
+    <meta name="description" content="Política de privacidad de AstroSeec: qué datos recopilamos en nuestras aplicaciones, para qué los usamos y cómo puedes eliminarlos.">
+    <title>Política de privacidad - AstroSeec</title>
+
+    <link rel="icon" type="image/jpeg" href="LOGO_ASTROSEEC.jpeg">
+    <link rel="apple-touch-icon" href="LOGO_ASTROSEEC.jpeg">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Política de privacidad - AstroSeec">
+    <meta property="og:image" content="LOGO_ASTROSEEC.jpeg">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --night: #060a1b;
-            --night-2: #0d1533;
-            --moon: #e9ecf6;
-            --moon-soft: #aab2cc;
-            --gold: #d4ad55;
-            --line: rgba(233, 236, 246, 0.14);
-            --serif: 'Instrument Serif', Georgia, 'Times New Roman', serif;
-            --sans: 'Inter', 'Segoe UI', system-ui, sans-serif;
-            --gutter: 68px;
-            --lx: 19px;
-        }
-
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; }
-
-        body {
-            min-height: 100vh;
-            font-family: var(--sans);
-            color: var(--moon);
-            background:
-                radial-gradient(60% 50% at 88% 0%, rgba(70, 84, 170, 0.3), transparent 70%),
-                radial-gradient(50% 40% at 0% 100%, rgba(212, 173, 85, 0.09), transparent 70%),
-                linear-gradient(180deg, #060a1b 0%, #0a1129 100%);
-            background-attachment: fixed;
-            -webkit-font-smoothing: antialiased;
-            overflow-x: hidden;
-        }
-
-        #sky { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; }
-
-        a { color: inherit; }
-        a:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; border-radius: 4px; }
-
-        .wrap { position: relative; z-index: 1; max-width: 1100px; margin: 0 auto; padding: 0 24px; }
-
-        /* Cabecera */
-        .top {
-            position: sticky;
-            top: 0;
-            z-index: 20;
-            background: rgba(6, 10, 27, 0.72);
-            -webkit-backdrop-filter: blur(14px);
-            backdrop-filter: blur(14px);
-            border-bottom: 1px solid var(--line);
-        }
-        .top-in {
-            max-width: 1100px;
-            height: 68px;
-            margin: 0 auto;
-            padding: 0 24px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        .brand {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            text-decoration: none;
-            font-family: var(--serif);
-            font-size: 26px;
-            letter-spacing: 0.005em;
-        }
-        .back {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            padding: 9px 14px;
-            border: 1px solid var(--line);
-            border-radius: 999px;
-            color: var(--moon-soft);
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 500;
-            transition: color .2s, border-color .2s;
-        }
-        .back:hover { color: var(--moon); border-color: rgba(233, 236, 246, 0.4); }
-
-        /* Portada */
-        .hero { padding: 110px 0 90px; min-height: 62vh; display: flex; align-items: center; }
-        h1 {
-            font-family: var(--serif);
-            font-weight: 400;
-            font-size: clamp(3.2rem, 8.2vw, 6.4rem);
-            line-height: 0.97;
-            letter-spacing: -0.012em;
-            max-width: 10ch;
-        }
-        .lede {
-            margin-top: 28px;
-            max-width: 44ch;
-            font-size: 20px;
-            line-height: 1.55;
-            color: var(--moon-soft);
-        }
-        .orbits {
-            position: fixed;
-            top: 50%;
-            right: -4vw;
-            width: min(84vh, 720px);
-            transform: translateY(-50%);
-            z-index: 0;
-            pointer-events: none;
-        }
-        .orbits svg { width: 100%; height: auto; display: block; overflow: visible; }
-
-        /* Constelación de contenido */
-        .doc {
-            position: relative;
-            max-width: 780px;
-            padding-left: var(--gutter);
-            margin-bottom: 120px;
-        }
-        .doc::before {
-            content: "";
-            position: absolute;
-            left: var(--lx);
-            top: 0; bottom: 0;
-            width: 1px;
-            background: var(--line);
-        }
-        .fill {
-            position: absolute;
-            left: calc(var(--lx) - 0.5px);
-            top: 0;
-            width: 2px;
-            height: 0;
-            background: linear-gradient(to bottom, var(--gold), rgba(212, 173, 85, 0.5));
-            border-radius: 2px;
-        }
-
-        .entry { position: relative; padding-bottom: 60px; }
-        .entry:last-child { padding-bottom: 0; }
-
-        .node {
-            position: absolute;
-            left: calc(var(--lx) - 12px - var(--gutter));
-            top: 7px;
-            width: 24px; height: 24px;
-            color: rgba(233, 236, 246, 0.3);
-            transition: color .5s, transform .5s;
-        }
-        .node.lit { color: var(--gold); transform: scale(1.12) rotate(45deg); }
-
-        h2 {
-            font-family: var(--serif);
-            font-weight: 400;
-            font-size: clamp(1.9rem, 3.6vw, 2.5rem);
-            line-height: 1.1;
-            margin-bottom: 16px;
-        }
-        .entry p {
-            font-size: 17px;
-            line-height: 1.75;
-            color: var(--moon-soft);
-            max-width: 62ch;
-        }
-        .entry p + p { margin-top: 16px; }
-        .entry a:not(.btn) {
-            color: var(--moon);
-            text-decoration-color: var(--gold);
-            text-decoration-thickness: 2px;
-            text-underline-offset: 4px;
-        }
-        .entry a:not(.btn):hover { color: var(--gold); }
-
-        .btn {
-            display: inline-block;
-            margin-top: 26px;
-            padding: 15px 26px;
-            background: var(--gold);
-            color: #14100a;
-            font-weight: 600;
-            font-size: 15px;
-            text-decoration: none;
-            border-radius: 12px;
-            transition: filter .2s, transform .2s;
-            overflow-wrap: anywhere;
-        }
-        .btn:hover { filter: brightness(1.1); }
-        .btn:active { transform: scale(.98); }
-
-        /* Pie */
-        .foot {
-            position: relative;
-            z-index: 1;
-            border-top: 1px solid var(--line);
-            background: rgba(6, 10, 27, 0.6);
-        }
-        .foot-in {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 32px 24px 40px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px 40px;
-            align-items: center;
-            justify-content: space-between;
-            font-size: 14px;
-            color: var(--moon-soft);
-        }
-        .foot-links { display: flex; flex-wrap: wrap; gap: 8px 24px; }
-        .foot-links a { text-decoration: none; }
-        .foot-links a:hover, .foot-links a[aria-current="page"] { color: var(--moon); }
-        .foot-links a[aria-current="page"] { text-decoration: underline; text-decoration-color: var(--gold); text-underline-offset: 5px; }
-
-        @media (prefers-reduced-motion: reduce) {
-            html { scroll-behavior: auto; }
-            .node, .back, .btn { transition: none; }
-        }
-
-        @media (max-width: 860px) {
-            .hero { padding: 72px 0 56px; min-height: 0; }
-            .orbits { left: 50%; right: auto; transform: translate(-50%, -50%); width: min(120vw, 560px); opacity: .5; }
-        }
-        @media (max-width: 560px) {
-            :root { --gutter: 48px; --lx: 13px; }
-            .entry { padding-bottom: 48px; }
-            .entry p { font-size: 16px; }
-            .lede { font-size: 18px; }
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <canvas id="sky" aria-hidden="true"></canvas>
+    <a class="skip" href="#contenido">Saltar al contenido</a>
 
-    <div class="orbits" aria-hidden="true">
-        <svg id="orbits" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-                <radialGradient id="core" cx="50%" cy="50%" r="50%">
-                    <stop offset="0" stop-color="#d4ad55" stop-opacity=".55"/>
-                    <stop offset="1" stop-color="#d4ad55" stop-opacity="0"/>
-                </radialGradient>
-            </defs>
-            <circle cx="250" cy="250" r="70" fill="url(#core)"/>
-            <g transform="translate(250 250) rotate(-20)">
-                <ellipse rx="92" ry="34" fill="none" stroke="#e9ecf6" stroke-opacity=".22" stroke-width="1.2"/>
-                <circle r="5" fill="#e9ecf6">
-                    <animateMotion dur="16s" repeatCount="indefinite" path="M-92,0 a92,34 0 1,0 184,0 a92,34 0 1,0 -184,0"/>
-                </circle>
-            </g>
-            <g transform="translate(250 250) rotate(28)">
-                <ellipse rx="152" ry="58" fill="none" stroke="#e9ecf6" stroke-opacity=".18" stroke-width="1.2"/>
-                <circle r="7" fill="#d4ad55">
-                    <animateMotion dur="30s" repeatCount="indefinite" path="M-152,0 a152,58 0 1,0 304,0 a152,58 0 1,0 -304,0"/>
-                </circle>
-            </g>
-            <g transform="translate(250 250) rotate(-7)">
-                <ellipse rx="212" ry="84" fill="none" stroke="#e9ecf6" stroke-opacity=".13" stroke-width="1.2" stroke-dasharray="2 7"/>
-                <circle r="4" fill="#aab2cc">
-                    <animateMotion dur="48s" repeatCount="indefinite" path="M-212,0 a212,84 0 1,0 424,0 a212,84 0 1,0 -424,0"/>
-                </circle>
-            </g>
-            <path d="M250 218l6.4 25.6L282 250l-25.6 6.4L250 282l-6.4-25.6L218 250l25.6-6.4z" fill="#d4ad55"/>
-        </svg>
-    </div>
-
-    <header class="top">
-        <div class="top-in">
-            <a class="brand" href="index.html" aria-label="Astroseec, inicio">
-                <img src="LOGO ASTROSEEC.jpeg" alt="Logo AstroSeec" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover;">
-                Astroseec
+    <header class="nav">
+        <div class="nav-in">
+            <a class="brand" href="index.html" aria-label="AstroSeec, inicio">
+                <span class="mark"><img src="LOGO_ASTROSEEC.jpeg" alt="" width="38" height="38"></span>
+                <span class="brand-name">AstroSeec</span>
             </a>
-            <a class="back" href="index.html">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
-                Volver al inicio
-            </a>
+            <nav class="nav-links" aria-label="Principal">
+                <a href="index.html#apps">Apps</a>
+                <a href="index.html#nosotros">Nosotros</a>
+                <a href="index.html#contacto">Contacto</a>
+            </nav>
         </div>
     </header>
 
-    <main class="wrap">
-        <section class="hero">
-            <div>
+    <main>
+        <section class="page-hero">
+            <div class="wrap">
+                <a class="crumbs" href="index.html">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+                    Volver al inicio
+                </a>
                 <h1>Política de privacidad</h1>
-                <p class="lede">Tu privacidad es fundamental para nosotros en Astroseec.</p>
+                <p class="lede">Tu privacidad es fundamental para nosotros. Aquí explicamos qué datos tratan las aplicaciones de AstroSeec, para qué se usan y cómo puedes eliminarlos.</p>
+                <p class="updated">Última actualización: septiembre de 2026</p>
             </div>
         </section>
 
-        <div class="doc" id="doc">
-            <div class="fill" id="fill"></div>
-            <article class="entry">
-                <span class="node" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#070c20"/><path d="M12 3l1.9 7.1L21 12l-7.1 1.9L12 21l-1.9-7.1L3 12l7.1-1.9z" fill="currentColor"/></svg></span>
-                <h2>Datos que recopilamos</h2>
-                <p>Solo recopilamos información necesaria para el funcionamiento de nuestras aplicaciones, como correos electrónicos (para cuentas) y datos generados por el uso de la app para mejorar la experiencia.</p>
-            </article>
-            <article class="entry">
-                <span class="node" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#070c20"/><path d="M12 3l1.9 7.1L21 12l-7.1 1.9L12 21l-1.9-7.1L3 12l7.1-1.9z" fill="currentColor"/></svg></span>
-                <h2>Uso de datos</h2>
-                <p>No compartimos ni vendemos tu información con terceros con fines comerciales.</p>
-            </article>
-            <article class="entry">
-                <span class="node" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#070c20"/><path d="M12 3l1.9 7.1L21 12l-7.1 1.9L12 21l-1.9-7.1L3 12l7.1-1.9z" fill="currentColor"/></svg></span>
-                <h2>Contacto</h2>
-                <p>Para más detalles o dudas, contacta a: <a href="mailto:astroseec@gmail.com">astroseec@gmail.com</a></p>
-            </article>
-        </div>
+        <section class="section" id="contenido">
+            <div class="wrap">
+                <div class="doc">
+                    <article class="doc-item" data-reveal>
+                        <span class="doc-num" aria-hidden="true">1</span>
+                        <div>
+                            <h2>Quiénes somos</h2>
+                            <p>AstroSeec es un estudio independiente de desarrollo de aplicaciones móviles, responsable de las apps Cash Vault, AquaVida y Mis Notas. Puedes contactarnos en cualquier momento escribiendo a <a href="mailto:astroseec@gmail.com">astroseec@gmail.com</a>.</p>
+                        </div>
+                    </article>
+
+                    <article class="doc-item" data-reveal>
+                        <span class="doc-num" aria-hidden="true">2</span>
+                        <div>
+                            <h2>Datos que recopilamos</h2>
+                            <p>Solo recopilamos la información necesaria para que nuestras aplicaciones funcionen:</p>
+                            <ul>
+                                <li>Correo electrónico, cuando la app requiere crear una cuenta.</li>
+                                <li>Los datos que tú introduces en la app (por ejemplo, tus movimientos en Cash Vault o tus entradas en Mis Notas).</li>
+                                <li>Datos técnicos de uso, que nos sirven para detectar errores y mejorar la experiencia.</li>
+                            </ul>
+                            <p>Cada aplicación declara su tratamiento concreto en la sección «Seguridad de los datos» de su ficha de Google Play.</p>
+                        </div>
+                    </article>
+
+                    <article class="doc-item" data-reveal>
+                        <span class="doc-num" aria-hidden="true">3</span>
+                        <div>
+                            <h2>Uso de los datos</h2>
+                            <p>Usamos la información exclusivamente para prestar el servicio: mostrarte tu contenido, sincronizarlo si has iniciado sesión, y corregir fallos. No vendemos ni compartimos tu información con terceros con fines comerciales.</p>
+                        </div>
+                    </article>
+
+                    <article class="doc-item" data-reveal>
+                        <span class="doc-num" aria-hidden="true">4</span>
+                        <div>
+                            <h2>Seguridad</h2>
+                            <p>Los datos se almacenan cifrados y el acceso está restringido. Algunas apps te permiten además proteger el contenido en el propio dispositivo con PIN o huella digital.</p>
+                        </div>
+                    </article>
+
+                    <article class="doc-item" data-reveal>
+                        <span class="doc-num" aria-hidden="true">5</span>
+                        <div>
+                            <h2>Publicidad</h2>
+                            <p>Algunas de nuestras aplicaciones gratuitas muestran anuncios servidos por proveedores externos. Puedes consultar qué datos trata cada app en su ficha de Google Play, en el apartado de seguridad de los datos.</p>
+                        </div>
+                    </article>
+
+                    <article class="doc-item" data-reveal>
+                        <span class="doc-num" aria-hidden="true">6</span>
+                        <div>
+                            <h2>Eliminación de tus datos</h2>
+                            <p>Puedes solicitar la eliminación de tu cuenta y de todos los datos asociados cuando quieras. Procesamos las solicitudes en un plazo de 48 horas.</p>
+                            <a class="btn btn-outline btn-sm" href="delete-account.html">Cómo eliminar tu cuenta</a>
+                        </div>
+                    </article>
+
+                    <article class="doc-item" data-reveal>
+                        <span class="doc-num" aria-hidden="true">7</span>
+                        <div>
+                            <h2>Cambios en esta política</h2>
+                            <p>Si actualizamos esta política, publicaremos la nueva versión en esta misma página y modificaremos la fecha de última actualización.</p>
+                        </div>
+                    </article>
+
+                    <article class="doc-item" data-reveal>
+                        <span class="doc-num" aria-hidden="true">8</span>
+                        <div>
+                            <h2>Contacto</h2>
+                            <p>Para cualquier duda sobre privacidad o para ejercer tus derechos sobre tus datos, escríbenos a <a href="mailto:astroseec@gmail.com">astroseec@gmail.com</a> y te responderemos lo antes posible.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <footer class="foot">
-        <div class="foot-in">
-            <span>&copy; <span id="year">2026</span> Astroseec. Todos los derechos reservados.</span>
-            <nav class="foot-links" aria-label="Enlaces legales">
-                <a href="Politicies.html" aria-current="page">Política de privacidad</a>
-                <a href="delete-account.html">Eliminar cuenta</a>
-                <a href="mailto:astroseec@gmail.com">astroseec@gmail.com</a>
-            </nav>
+    <footer class="contact" id="contacto">
+        <div class="wrap">
+            <p class="eyebrow">Contacto</p>
+            <h2 class="title">¿Hablamos?</h2>
+            <p>¿Tienes dudas sobre tus datos o sobre alguna de nuestras apps? Escríbenos a:</p>
+            <a class="mail" href="mailto:astroseec@gmail.com">astroseec@gmail.com</a>
+
+            <div class="foot">
+                <a class="brand" href="index.html">
+                    <span class="mark"><img src="LOGO_ASTROSEEC.jpeg" alt="" width="30" height="30"></span>
+                    <span class="brand-name">AstroSeec</span>
+                </a>
+                <span>&copy; <span id="year">2026</span> AstroSeec. Todos los derechos reservados.</span>
+                <nav class="foot-links" aria-label="Enlaces legales">
+                    <a href="Politicies.html" aria-current="page">Política de privacidad</a>
+                    <a href="delete-account.html">Eliminar cuenta</a>
+                </nav>
+            </div>
         </div>
     </footer>
 
-    <script>
-        (function () {
-            var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-            /* Cielo estrellado con paralaje: las estrellas se mueven más lento que el texto */
-            var canvas = document.getElementById('sky');
-            var ctx = canvas.getContext('2d');
-            var stars = [], W = 0, H = 0;
-            function rng(seed) {
-                return function () {
-                    seed |= 0; seed = seed + 0x6D2B79F5 | 0;
-                    var t = Math.imul(seed ^ seed >>> 15, 1 | seed);
-                    t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
-                    return ((t ^ t >>> 14) >>> 0) / 4294967296;
-                };
-            }
-            function build() {
-                var dpr = window.devicePixelRatio || 1;
-                W = window.innerWidth; H = window.innerHeight;
-                canvas.width = W * dpr; canvas.height = H * dpr;
-                ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-                var rand = rng(42);
-                var n = Math.round(W * H / 6500);
-                var depth = [0.05, 0.12, 0.25];
-                stars = [];
-                for (var i = 0; i < n; i++) {
-                    var big = rand() > 0.93;
-                    var layer = big ? 2 : (rand() > 0.55 ? 1 : 0);
-                    stars.push({
-                        x: rand() * W,
-                        y: rand() * H,
-                        r: big ? 1.2 + rand() * 0.7 : 0.4 + rand() * 0.7,
-                        a: 0.25 + rand() * 0.6,
-                        gold: rand() < 0.12,
-                        k: depth[layer]
-                    });
-                }
-            }
-            function paint() {
-                var sy = reduce ? 0 : (window.scrollY || document.documentElement.scrollTop);
-                ctx.clearRect(0, 0, W, H);
-                for (var i = 0; i < stars.length; i++) {
-                    var s = stars[i];
-                    var y = (((s.y - sy * s.k) % H) + H) % H;
-                    ctx.globalAlpha = s.a;
-                    ctx.fillStyle = s.gold ? '#d4ad55' : '#e9ecf6';
-                    ctx.beginPath();
-                    ctx.arc(s.x, y, s.r, 0, 6.2832);
-                    ctx.fill();
-                }
-                ctx.globalAlpha = 1;
-            }
-            var resizeTimer;
-            window.addEventListener('resize', function () {
-                clearTimeout(resizeTimer);
-                resizeTimer = setTimeout(function () { build(); paint(); }, 150);
-            });
-            build();
-            paint();
-
-            /* Órbitas: se pausan si el usuario prefiere menos movimiento */
-            if (reduce) {
-                var svg = document.getElementById('orbits');
-                if (svg && svg.pauseAnimations) svg.pauseAnimations();
-            }
-
-            /* Constelación: la línea se rellena y las estrellas se encienden al bajar */
-            var doc = document.getElementById('doc');
-            var fill = document.getElementById('fill');
-            var nodes = Array.prototype.slice.call(document.querySelectorAll('.node'));
-            var ticking = false;
-            function update() {
-                paint();
-                var vh = window.innerHeight;
-                var r = doc.getBoundingClientRect();
-                var y = Math.max(0, Math.min(r.height, vh * 0.62 - r.top));
-                fill.style.height = y + 'px';
-                nodes.forEach(function (n) {
-                    n.classList.toggle('lit', n.getBoundingClientRect().top + 12 < vh * 0.62);
-                });
-                ticking = false;
-            }
-            window.addEventListener('scroll', function () {
-                if (!ticking) { ticking = true; requestAnimationFrame(update); }
-            }, { passive: true });
-            window.addEventListener('resize', update);
-            update();
-
-            document.getElementById('year').textContent = new Date().getFullYear();
-        })();
-    </script>
+    <script src="main.js" defer></script>
 </body>
 </html>
