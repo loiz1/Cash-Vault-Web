@@ -128,6 +128,14 @@
                 mailtoFallback();
             }
         });
+
+        // llegar desde otras páginas con ?form=1 abre el formulario
+        if (location.search.indexOf('form=1') !== -1) openForm(true);
+    } else if (document.querySelector('.btn-form-open')) {
+        // páginas sin móvil: los botones de contacto llevan al formulario del index
+        document.querySelectorAll('.btn-form-open').forEach(function (btn) {
+            btn.addEventListener('click', function () { location.href = 'index.html?form=1'; });
+        });
     }
 
     /* Aparición progresiva de los bloques */

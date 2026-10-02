@@ -68,3 +68,7 @@ html[data-theme="088"] .note { background: rgba(45, 27, 61, .35); color: #f0dccc
 html[data-theme="088"] .note b { color: #fbeee0; }
 html[data-theme="088"] .mail:hover { color: #f3d49c; }
 html[data-theme="088"] .mark { box-shadow: 0 0 0 1px rgba(227, 183, 120, .9), 0 2px 30px rgba(255, 190, 120, .35); }
+
+/* Fichas de app y páginas legales */
+html[data-theme="088"] .app-hero,
+html[data-theme="088"] .page-hero { background: transparent; }

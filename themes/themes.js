@@ -7,7 +7,6 @@
    ============================================================ */
 (function () {
     'use strict';
-    if (!document.querySelector('.hero')) return; // solo la página principal
 
     var KEY = 'astroseec_tema_v2';
     var OLD_KEY = 'astroseec_disenos_v1'; // decisions de la fase de revisión
@@ -19,6 +18,8 @@
         { id: '091', name: 'Día alpino' }
     ];
     var REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var heroSection = document.querySelector('.hero, .app-hero, .page-hero');
+    if (!heroSection) return; // sin zona hero no hay efectos ni selector
 
     /* ---------- estado ---------- */
     var DEFAULT_THEME = '018'; // Diorama de papel
@@ -44,7 +45,7 @@
     /* ---------- efectos firma (funciones de cada demo) ---------- */
     var fxHostEl = null;
     function fxHost() {
-        var hero = document.querySelector('.hero');
+        var hero = heroSection;
         if (!hero) return null;
         if (!fxHostEl || !fxHostEl.isConnected) {
             fxHostEl = hero.querySelector(':scope > .theme-fx');

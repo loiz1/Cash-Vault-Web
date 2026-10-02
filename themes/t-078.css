@@ -53,3 +53,9 @@ html[data-theme="078"] .app-kicker { color: #b0562f; }
 html[data-theme="078"] .mail { border-bottom-color: #e76f51; }
 html[data-theme="078"] .mark { box-shadow: 0 0 0 1px rgba(233, 196, 106, .9), 0 4px 14px -6px rgba(40, 30, 20, .8); }
 html[data-theme="078"] .doc-item li::before { background: #e76f51; }
+
+/* Fichas de app y páginas legales */
+html[data-theme="078"] .app-hero,
+html[data-theme="078"] .page-hero { background: radial-gradient(90% 75% at 78% 42%, #4a423c 0%, #2f2a26 55%, #221e1b 100%); }
+html[data-theme="078"] .app-hero::after,
+html[data-theme="078"] .page-hero::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(130% 100% at 50% 40%, transparent 55%, rgba(20, 14, 8, .35) 100%); }

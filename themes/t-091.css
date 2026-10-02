@@ -64,3 +64,7 @@ html[data-theme="091"] .mail { border-bottom-color: #ffd6a5; }
 html[data-theme="091"] .mail:hover { color: #ffd6a5; }
 html[data-theme="091"] .mark { box-shadow: 0 0 0 1px rgba(255, 214, 165, .85), 0 2px 8px rgba(0, 0, 0, .4); }
 html[data-theme="091"] .doc-num { border-color: #ffd6a5; color: #ffd6a5; }
+
+/* Fichas de app y páginas legales */
+html[data-theme="091"] .app-hero,
+html[data-theme="091"] .page-hero { background: radial-gradient(90% 75% at 78% 42%, #171d40 0%, #0d1233 55%, #03050f 100%); }

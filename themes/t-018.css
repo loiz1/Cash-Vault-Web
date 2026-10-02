@@ -53,3 +53,7 @@ html[data-theme="018"] .app-row { }
 html[data-theme="018"] .app-list li { }
 html[data-theme="018"] .mail { border-bottom-style: dashed; }
 html[data-theme="018"] .app-kicker { font-variant: small-caps; letter-spacing: .2em; }
+
+/* Fichas de app y páginas legales */
+html[data-theme="018"] .app-hero,
+html[data-theme="018"] .page-hero { background: radial-gradient(120% 75% at 70% 22%, #3d6a68 0%, #274e52 48%, #1c3739 100%); }
