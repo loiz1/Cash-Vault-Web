@@ -460,6 +460,37 @@ h1, h2, h3 { font-family: var(--display); letter-spacing: -0.03em; line-height: 
 }
 .device-form .df-note.ok { color: #8fd3ad; }
 
+/* Diorama de papel: fondo del móvil del index (en todos los estilos) */
+.diorama-frame {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    z-index: 1;
+    background: #f3e8d2;
+}
+.device .home-grid, .device .status { position: relative; z-index: 3; }
+/* etiquetas de iconos como plaquitas de papel (legibles día y noche) */
+.device .home-app {
+    color: #3b2b1d;
+    background: rgba(248, 239, 219, .88);
+    padding: 2px 8px 3px;
+    border-radius: 8px;
+    box-shadow: 0 1px 2px rgba(58, 38, 18, .25);
+    text-shadow: none;
+}
+.device .status { color: #4a3421; }
+.device .home-bar { background: rgba(59, 43, 29, .5); }
+/* modo noche del diorama */
+.device.diorama-night .home-app {
+    color: #2a2644;
+    background: rgba(231, 225, 239, .9);
+    box-shadow: 0 1px 2px rgba(2, 2, 20, .45);
+}
+.device.diorama-night .status { color: #e8e4f5; }
+.device.diorama-night .home-bar { background: rgba(232, 228, 245, .5); }
+
 /* Formulario de eliminación de datos (delete-account) */
 .del-form { display: flex; flex-direction: column; gap: 14px; margin-top: 22px; max-width: 460px; }
 .del-form label { display: flex; flex-direction: column; gap: 6px; }

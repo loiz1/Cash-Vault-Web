@@ -128,6 +128,14 @@
 
         // llegar desde otras páginas con ?form=1 abre el formulario
         if (location.search.indexOf('form=1') !== -1) openForm(true);
+
+        // el diorama del móvil avisa: chip Contáctanos y toggle día/noche
+        window.addEventListener('message', function (ev) {
+            if (ev.origin !== location.origin) return;
+            if (ev.data === 'diorama:contacto') openForm(true);
+            else if (ev.data === 'diorama:noche') device.classList.add('diorama-night');
+            else if (ev.data === 'diorama:dia') device.classList.remove('diorama-night');
+        });
     }
 
     /* Formulario de eliminación de datos (delete-account.html) */
