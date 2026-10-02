@@ -199,6 +199,7 @@ h1, h2, h3 { font-family: var(--display); letter-spacing: -0.03em; line-height: 
 .btn-dark:hover { background: var(--vault-raise); }
 .btn-outline { color: var(--ink); border-color: rgba(14, 38, 34, 0.35); }
 .btn-outline:hover { background: var(--vault); color: var(--paper); border-color: var(--vault); }
+.btn.soon { pointer-events: none; cursor: default; border-style: dashed; color: var(--steel); border-color: rgba(14, 38, 34, 0.22); font-size: 12.5px; letter-spacing: .04em; }
 .btn-ghost { color: var(--paper); border-color: var(--line-light); }
 .btn-ghost:hover { background: rgba(241, 236, 225, 0.08); border-color: var(--soft); }
 .btn-sm { padding: 12px 18px; font-size: 14px; }
