@@ -1,168 +1,43 @@
 /* ============================================================
-   AstroSeec — Revisión de diseños (temas de Demos Webs)
-   Barra superior con toggle por diseño + check aprobar/descartar.
-   Este archivo solo define la barra y las capas de efectos;
-   los colores de cada diseño viven en themes/t-<id>.css
+   AstroSeec — Cambio de diseño
+   Estilo del botón toggle en la navegación y de las capas de
+   efectos; los colores de cada diseño viven en themes/t-<id>.css
    ============================================================ */
 
-:root { --rvz-h: 96px; }
-
-/* ---- Barra de revisión ---- */
-.rvz-bar {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    background: rgba(16, 18, 22, 0.94);
-    -webkit-backdrop-filter: blur(14px);
-    backdrop-filter: blur(14px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-    color: #f2f2f0;
-    font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
-    box-shadow: 0 12px 30px -18px rgba(0, 0, 0, .8);
-}
-.rvz-head {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 8px 16px 0;
-    font-size: 12px;
-}
-.rvz-head strong {
-    font-size: 12.5px;
-    font-weight: 700;
-    letter-spacing: .1em;
-    text-transform: uppercase;
-}
-.rvz-hint { color: #9aa0a8; font-size: 11.5px; }
-.rvz-summary {
-    margin-left: auto;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: #9aa0a8;
-    font-size: 11.5px;
-    white-space: nowrap;
-}
-.rvz-summary b.ok { color: #7ddc9a; }
-.rvz-summary b.no { color: #ff9d8f; }
-.rvz-reset {
-    border: 1px solid rgba(255, 255, 255, .2);
-    background: transparent;
-    color: #cfd3d8;
-    font-size: 11px;
-    padding: 4px 10px;
-    border-radius: 999px;
-    cursor: pointer;
-}
-.rvz-reset:hover { background: rgba(255, 255, 255, .1); }
-.rvz-min {
-    border: 1px solid rgba(255, 255, 255, .2);
-    background: transparent;
-    color: #f2f2f0;
-    width: 24px; height: 24px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 13px;
-    line-height: 1;
-    flex: none;
-}
-.rvz-min:hover { background: rgba(255, 255, 255, .12); }
-
-.rvz-chips {
-    display: flex;
-    gap: 8px;
-    padding: 8px 16px 10px;
-    overflow-x: auto;
-    scrollbar-width: thin;
-}
-.rvz-chip {
-    flex: none;
-    display: grid;
-    grid-template-columns: auto 1fr;
-    align-items: center;
-    gap: 2px 10px;
-    padding: 7px 10px 8px;
-    border: 1px solid rgba(255, 255, 255, .14);
-    border-radius: 14px;
-    background: rgba(255, 255, 255, .04);
-    cursor: default;
-    transition: border-color .2s, background .2s, opacity .2s;
-}
-.rvz-chip.active { border-color: #c8a24a; background: rgba(200, 162, 74, .12); }
-.rvz-chip.ok { border-color: rgba(125, 220, 154, .65); }
-.rvz-chip.no { opacity: .55; }
-.rvz-chip.no .rvz-name { text-decoration: line-through; }
-
-.rvz-switch { position: relative; display: inline-block; width: 34px; height: 20px; }
-.rvz-switch input { opacity: 0; width: 0; height: 0; }
-.rvz-switch span {
-    position: absolute;
-    inset: 0;
-    border-radius: 999px;
-    background: rgba(255, 255, 255, .18);
-    transition: background .2s;
-}
-.rvz-switch span::before {
-    content: "";
-    position: absolute;
-    left: 3px; top: 3px;
-    width: 14px; height: 14px;
-    border-radius: 50%;
-    background: #fff;
-    transition: transform .2s;
-}
-.rvz-switch input:checked + span { background: #c8a24a; }
-.rvz-switch input:checked + span::before { transform: translateX(14px); }
-.rvz-switch input:focus-visible + span { outline: 2px solid #e0bd6b; outline-offset: 2px; }
-
-.rvz-name {
-    font-size: 12px;
-    font-weight: 600;
-    white-space: nowrap;
-    align-self: center;
-}
-.rvz-verdict { font-size: 10.5px; line-height: 1; align-self: center; }
-.rvz-chip.ok .rvz-verdict { color: #7ddc9a; }
-.rvz-chip.no .rvz-verdict { color: #ff9d8f; }
-
-.rvz-actions { grid-column: 2; display: flex; gap: 6px; margin-top: 2px; }
-.rvz-actions button {
-    width: 26px; height: 22px;
-    border-radius: 7px;
-    border: 1px solid rgba(255, 255, 255, .18);
-    background: transparent;
-    color: #cfd3d8;
-    font-size: 12px;
-    line-height: 1;
-    cursor: pointer;
-    transition: background .15s, color .15s, border-color .15s;
-}
-.rvz-actions .rvz-ok:hover, .rvz-chip.ok .rvz-ok { background: rgba(125, 220, 154, .18); color: #7ddc9a; border-color: rgba(125, 220, 154, .6); }
-.rvz-actions .rvz-no:hover, .rvz-chip.no .rvz-no { background: rgba(255, 157, 143, .16); color: #ff9d8f; border-color: rgba(255, 157, 143, .55); }
-
-/* Pestaña flotante cuando la barra está plegada */
-.rvz-tab {
-    position: fixed;
-    top: 14px; left: 14px;
-    z-index: 100;
-    display: none;
+/* ---- Botón en la navegación (junto a Contacto) ---- */
+.rvz-nav-btn {
+    display: inline-flex;
     align-items: center;
     gap: 8px;
-    padding: 9px 14px;
-    border: 1px solid rgba(255, 255, 255, .25);
+    padding: 10px 16px;
+    border: 1px solid var(--line-light);
     border-radius: 999px;
-    background: rgba(16, 18, 22, .92);
-    color: #f2f2f0;
-    font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
-    font-size: 12.5px;
-    font-weight: 600;
+    background: transparent;
+    color: var(--soft);
+    font-family: var(--body);
+    font-size: 14px;
+    font-weight: 500;
+    white-space: nowrap;
     cursor: pointer;
-    box-shadow: 0 10px 24px -12px rgba(0, 0, 0, .7);
+    transition: color .2s, background .2s, border-color .2s, transform .2s;
 }
-.rvz-tab.show { display: inline-flex; }
+.rvz-nav-btn svg { flex: none; }
+.rvz-nav-btn:hover {
+    color: var(--paper);
+    background: rgba(241, 236, 225, 0.08);
+    transform: translateY(-1px);
+}
+.rvz-nav-btn:active { transform: scale(.97); }
+.rvz-nav-btn.on { border-color: var(--brass); color: var(--paper); }
+.rvz-nav-btn:focus-visible { outline: 2px solid var(--brass); outline-offset: 3px; }
 
-/* La barra abierta empuja la navegación del sitio */
-body.rvz-open .nav { top: var(--rvz-h); }
+@media (max-width: 760px) {
+    .rvz-nav-btn { padding: 10px 12px; font-size: 13.5px; }
+}
+@media (max-width: 480px) {
+    .rvz-nav-btn span { display: none; } /* solo el dado, como la marca */
+    .rvz-nav-btn { padding: 9px 11px; }
+}
 
 /* ---- Capas de efectos por tema (las activa themes.js) ---- */
 .theme-fx {
@@ -179,7 +54,7 @@ body.rvz-open .nav { top: var(--rvz-h); }
     pointer-events: none;
     mix-blend-mode: multiply;
 }
-.fx-star, .fx-mote, .fx-dust {
+.fx-star, .fx-mote {
     position: absolute;
     border-radius: 50%;
     pointer-events: none;
@@ -199,46 +74,6 @@ body.rvz-open .nav { top: var(--rvz-h); }
     to { transform: translate(var(--dx, 30px), -72vh); opacity: 0; }
 }
 
-.fx-dust {
-    width: 3px; height: 3px;
-    background: rgba(255, 236, 200, .8);
-    mix-blend-mode: screen;
-    animation: rvzDrift 9s linear infinite;
-}
-@keyframes rvzDrift {
-    from { transform: translate(0, 0); opacity: 0; }
-    25%, 75% { opacity: .8; }
-    to { transform: translate(26px, 140px); opacity: 0; }
-}
-
-.fx-vitral {
-    position: absolute;
-    inset: 0;
-    mix-blend-mode: screen;
-    background: radial-gradient(circle at 50% 28%, rgba(255, 246, 220, .38), rgba(255, 220, 160, .14) 40%, transparent 70%);
-    animation: rvzBreath 7s ease-in-out infinite;
-}
-@keyframes rvzBreath { 0%, 100% { opacity: .8; } 50% { opacity: 1; } }
-
-.fx-sun {
-    position: absolute;
-    width: 46vmin; height: 46vmin;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(255, 226, 170, .9) 0 16%, rgba(255, 196, 130, .4) 26%, rgba(255, 170, 110, 0) 68%);
-    animation: rvzArc 26s ease-in-out infinite alternate;
-}
-@keyframes rvzArc {
-    from { transform: translate(-18vw, 6vh); }
-    to { transform: translate(30vw, -4vh); }
-}
-
-.fx-blob { position: absolute; border-radius: 50%; filter: blur(46px); }
-.fx-blob.b1 { width: 54vmin; height: 54vmin; left: -16vmin; top: -14vmin; background: radial-gradient(circle, rgba(255, 179, 198, .55), transparent 68%); animation: rvzBlob 11s ease-in-out infinite alternate; }
-.fx-blob.b2 { width: 48vmin; height: 48vmin; right: -14vmin; top: 4vmin; background: radial-gradient(circle, rgba(184, 242, 230, .6), transparent 68%); animation: rvzBlob 13s ease-in-out infinite alternate-reverse; }
-.fx-blob.b3 { width: 40vmin; height: 40vmin; left: 24%; bottom: -16vmin; background: radial-gradient(circle, rgba(255, 229, 165, .5), transparent 68%); animation: rvzBlob 15s ease-in-out infinite alternate; }
-.fx-blob.b4 { width: 36vmin; height: 36vmin; right: 22%; bottom: -10vmin; background: radial-gradient(circle, rgba(170, 183, 255, .45), transparent 68%); animation: rvzBlob 12s ease-in-out infinite alternate-reverse; }
-@keyframes rvzBlob { from { transform: translate(0, 0) scale(1); } to { transform: translate(4vmin, -3vmin) scale(1.12); } }
-
 .fx-sky {
     position: absolute;
     inset: 0;
@@ -251,21 +86,8 @@ body.rvz-open .nav { top: var(--rvz-h); }
     100% { opacity: .05; }
 }
 
-.fx-amb { position: absolute; inset: 0; animation: rvzAmb 9s ease-in-out infinite alternate; }
-.fx-amb.warm { background: radial-gradient(ellipse 70% 60% at 12% 108%, rgba(221, 161, 94, .5), transparent 70%), radial-gradient(ellipse 50% 45% at 95% 100%, rgba(188, 108, 37, .25), transparent 70%); }
-.fx-amb.green { background: radial-gradient(ellipse 60% 55% at 88% 0%, rgba(96, 108, 56, .4), transparent 70%); animation-delay: -4.5s; }
-@keyframes rvzAmb { from { opacity: .1; } to { opacity: .9; } }
-
 .theme-fx canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
 
-@media (max-width: 640px) {
-    :root { --rvz-h: 132px; }
-    .rvz-hint { display: none; }
-    .rvz-summary span.rvz-sum-text { display: none; }
-}
-
 @media (prefers-reduced-motion: reduce) {
-    .fx-star, .fx-mote, .fx-dust, .fx-vitral, .fx-sun, .fx-blob, .fx-sky, .fx-amb {
-        animation: none !important;
-    }
+    .fx-star, .fx-mote, .fx-sky { animation: none !important; }
 }

@@ -1,44 +1,43 @@
 /* ============================================================
-   AstroSeec — Revisión de diseños
-   Barra superior: un toggle por diseño (de Demos Webs) y un
-   check ✓/✗ para aprobar o descartar. Las decisiones y el tema
-   activo se guardan en localStorage. Solo cambia el diseño,
-   nunca la información de la página.
+   AstroSeec — Cambio de diseño
+   Botón toggle en la navegación (junto a «Contacto»): cada clic
+   aplica un diseño aleatorio de los aprobados; doble clic vuelve
+   al diseño original. El tema activo se guarda en localStorage.
+   Solo cambia el diseño, nunca la información de la página.
    ============================================================ */
 (function () {
     'use strict';
     if (!document.querySelector('.hero')) return; // solo la página principal
 
-    var KEY = 'astroseec_disenos_v1';
+    var KEY = 'astroseec_tema_v2';
+    var OLD_KEY = 'astroseec_disenos_v1'; // decisions de la fase de revisión
     var THEMES = [
         { id: '018', name: 'Diorama de papel' },
-        { id: '025', name: 'Ciudad isométrica', fonts: 'Quicksand:wght@500;600;700' },
-        { id: '028', name: 'Tabla periódica' },
-        { id: '045', name: 'Vitral gótico', fonts: 'Cinzel:wght@400;600' },
-        { id: '046', name: 'Jardín de hábitos', fonts: 'Nunito:wght@400;600;700;800' },
-        { id: '048', name: 'Claymorphism', fonts: 'Nunito:wght@600;700;800;900' },
         { id: '061', name: 'Luciérnagas', fonts: 'Cormorant+Garamond:ital,wght@0,400;1,300;1,500' },
-        { id: '076', name: 'Control de misión' },
         { id: '078', name: 'Árbol fractal', fonts: 'Cormorant+Garamond:ital,wght@0,500;1,400;1,500' },
         { id: '088', name: 'Reloj de arena' },
-        { id: '091', name: 'Día alpino' },
-        { id: '092', name: 'Mezclador de ambientes' }
+        { id: '091', name: 'Día alpino' }
     ];
     var REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     /* ---------- estado ---------- */
-    var S = { active: null, ok: [], no: [], closed: false };
+    var S = { active: null };
     try {
-        var saved = JSON.parse(localStorage.getItem(KEY) || '{}');
-        if (saved && typeof saved === 'object') {
-            S.active = THEMES.some(function (t) { return t.id === saved.active; }) ? saved.active : null;
-            S.ok = Array.isArray(saved.ok) ? saved.ok.filter(validId) : [];
-            S.no = Array.isArray(saved.no) ? saved.no.filter(validId) : [];
-            S.closed = !!saved.closed;
+        var saved = JSON.parse(localStorage.getItem(KEY) || 'null');
+        if (saved && THEMES.some(function (t) { return t.id === saved.active; })) {
+            S.active = saved.active;
+        } else {
+            // migrar el tema activo de la fase de revisión si sirve
+            var old = JSON.parse(localStorage.getItem(OLD_KEY) || 'null');
+            if (old && THEMES.some(function (t) { return t.id === old.active; })) S.active = old.active;
+            localStorage.removeItem(OLD_KEY);
+            save();
         }
     } catch (e) { /* estado por defecto */ }
-    function validId(id) { return THEMES.some(function (t) { return t.id === id; }); }
     function save() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) { } }
+    function themeById(id) {
+        return THEMES.filter(function (t) { return t.id === id; })[0] || null;
+    }
 
     /* ---------- efectos firma (funciones de cada demo) ---------- */
     var fxHostEl = null;
@@ -84,15 +83,6 @@
             h.appendChild(m);
         }
     }
-    function fxDust(n) {
-        var h = fxHost(); if (!h) return;
-        for (var i = 0; i < n; i++) {
-            var d = document.createElement('i');
-            d.className = 'fx-dust';
-            d.style.cssText = 'left:' + rnd(10, 90) + '%;top:' + rnd(10, 80) + '%;animation-delay:-' + rnd(0, 9) + 's;animation-duration:' + rnd(7, 12) + 's';
-            h.appendChild(d);
-        }
-    }
     function fxGrain(opacity) {
         var svg = "<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>";
         var g = document.createElement('div');
@@ -107,12 +97,12 @@
         h.appendChild(d);
         return d;
     }
-    function fxCanvas(draw, opts) {
+    function fxCanvas(draw) {
         var h = fxHost(); if (!h || REDUCED) return;
         var canvas = document.createElement('canvas');
         h.appendChild(canvas);
         var ctx = canvas.getContext('2d');
-        var raf = 0, W = 0, H = 0, t0 = performance.now();
+        var raf = 0, W = 0, H = 0, last = performance.now(), t0 = last;
         function size() {
             var r = h.getBoundingClientRect();
             W = canvas.width = Math.max(1, r.width);
@@ -121,7 +111,9 @@
         size();
         window.addEventListener('resize', size);
         function loop(now) {
-            draw(ctx, W, H, (now - t0) / 1000);
+            var dt = Math.min(.05, (now - last) / 1000);
+            last = now;
+            draw(ctx, W, H, (now - t0) / 1000, dt);
             raf = requestAnimationFrame(loop);
         }
         raf = requestAnimationFrame(loop);
@@ -130,7 +122,6 @@
             window.removeEventListener('resize', size);
             canvas.remove();
         });
-        if (opts && opts.init) opts.init(W, H);
     }
 
     // Luciérnagas (061): sprite radial aditivo + parpadeo suave
@@ -176,8 +167,7 @@
             };
         }
         for (var i = 0; i < N; i++) leaves.push(spawn(true));
-        fxCanvas(function (ctx, W, H, t, dtIn) {
-            var dt = Math.min(.05, dtIn || .016);
+        fxCanvas(function (ctx, W, H, t, dt) {
             ctx.clearRect(0, 0, W, H);
             leaves.forEach(function (p, idx) {
                 p.y += p.vy * dt;
@@ -201,23 +191,16 @@
 
     var FX_BY_THEME = {
         '018': function () { fxGrain(.09); },
-        '025': function () { fxStars(46); fxAdd('fx-sky'); },
-        '028': function () { /* grid y glow van en el CSS del tema */ },
-        '045': function () { fxAdd('fx-vitral'); fxDust(14); },
-        '046': function () { fxAdd('fx-sun'); },
-        '048': function () { ['b1', 'b2', 'b3', 'b4'].forEach(function (b) { fxAdd('fx-blob ' + b); }); },
         '061': function () { fxFireflies(); },
-        '076': function () { /* HUD y grid van en el CSS del tema */ },
         '078': function () { fxGrain(.08); fxLeaves(); },
         '088': function () { fxStars(40); fxMotes(12); },
-        '091': function () { fxAdd('fx-sky'); fxStars(30); },
-        '092': function () { fxGrain(.06); fxAdd('fx-amb warm'); fxAdd('fx-amb green'); }
+        '091': function () { fxAdd('fx-sky'); fxStars(30); }
     };
 
     /* ---------- carga de CSS y fuentes por tema ---------- */
     var loaded = {};
     function ensureAssets(id) {
-        var t = THEMES.filter(function (x) { return x.id === id; })[0];
+        var t = themeById(id);
         if (!t) return;
         if (!loaded['css' + id]) {
             var link = document.createElement('link');
@@ -235,6 +218,40 @@
         }
     }
 
+    /* ---------- botón toggle en la navegación ---------- */
+    var btn, btnLabel;
+    var DICE_SVG = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="8.2" cy="8.2" r="1.15" fill="currentColor" stroke="none"/><circle cx="15.8" cy="15.8" r="1.15" fill="currentColor" stroke="none"/><circle cx="15.8" cy="8.2" r="1.15" fill="currentColor" stroke="none"/><circle cx="8.2" cy="15.8" r="1.15" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1.15" fill="currentColor" stroke="none"/></svg>';
+
+    function buildButton() {
+        var nav = document.querySelector('.nav-links');
+        if (!nav) return;
+        btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'rvz-nav-btn';
+        btn.title = 'Cambiar a un diseño aleatorio · doble clic: diseño original';
+        btn.setAttribute('aria-label', 'Cambiar diseño de la web');
+        btn.innerHTML = DICE_SVG + '<span></span>';
+        btnLabel = btn.querySelector('span');
+        btn.addEventListener('click', function () {
+            applyTheme(randomId());
+        });
+        btn.addEventListener('dblclick', function (e) {
+            e.preventDefault();
+            applyTheme(null);
+        });
+        nav.appendChild(btn);
+    }
+    function randomId() {
+        var pool = THEMES.filter(function (t) { return t.id !== S.active; });
+        return pool[(Math.random() * pool.length) | 0].id;
+    }
+    function refreshButton() {
+        if (!btnLabel) return;
+        var t = themeById(S.active);
+        btn.classList.toggle('on', !!t);
+        btnLabel.textContent = t ? t.name : 'Diseño';
+    }
+
     function applyTheme(id) {
         clearFx();
         if (id) {
@@ -246,99 +263,9 @@
         }
         S.active = id;
         save();
-        refreshChips();
+        refreshButton();
     }
 
-    /* ---------- barra ---------- */
-    var bar, tab, chips = {};
-    function buildBar() {
-        bar = document.createElement('div');
-        bar.className = 'rvz-bar';
-        bar.id = 'rvzBar';
-        var chipsHtml = THEMES.map(function (t) {
-            return '<div class="rvz-chip" data-id="' + t.id + '">' +
-                '<label class="rvz-switch" title="Ver este diseño"><input type="checkbox" data-id="' + t.id + '" aria-label="Activar diseño ' + t.name + '"><span></span></label>' +
-                '<span class="rvz-name">' + t.name + '</span>' +
-                '<span class="rvz-verdict"></span>' +
-                '<div class="rvz-actions">' +
-                '<button type="button" class="rvz-ok" data-id="' + t.id + '" title="Aprobar diseño">✓</button>' +
-                '<button type="button" class="rvz-no" data-id="' + t.id + '" title="Descartar diseño">✗</button>' +
-                '</div></div>';
-        }).join('');
-        bar.innerHTML =
-            '<div class="rvz-head"><strong>Revisión de diseños</strong>' +
-            '<span class="rvz-hint">Activa un diseño con el switch · debajo, apríbalo ✓ o descártalo ✗</span>' +
-            '<div class="rvz-summary"><span class="rvz-sum-text" id="rvzSum"></span>' +
-            '<button type="button" class="rvz-reset" id="rvzReset">Restablecer</button>' +
-            '<button type="button" class="rvz-min" id="rvzMin" title="Ocultar barra">–</button></div></div>' +
-            '<div class="rvz-chips">' + chipsHtml + '</div>';
-
-        tab = document.createElement('button');
-        tab.type = 'button';
-        tab.className = 'rvz-tab';
-        tab.innerHTML = '🎨 <span>Diseños</span>';
-        tab.addEventListener('click', function () { setClosed(false); });
-
-        document.body.appendChild(bar);
-        document.body.appendChild(tab);
-
-        bar.querySelectorAll('.rvz-switch input').forEach(function (inp) {
-            inp.addEventListener('change', function () {
-                var id = inp.getAttribute('data-id');
-                if (inp.checked) {
-                    applyTheme(id);
-                } else if (S.active === id) {
-                    applyTheme(null); // volver al diseño original
-                } else {
-                    refreshChips();
-                }
-            });
-        });
-        bar.querySelectorAll('.rvz-actions button').forEach(function (btn) {
-            btn.addEventListener('click', function () {
-                var id = btn.getAttribute('data-id');
-                var kind = btn.classList.contains('rvz-ok') ? 'ok' : 'no';
-                S[kind] = S[kind].indexOf(id) >= 0 ? S[kind].filter(function (x) { return x !== id; }) : S[kind].concat([id]);
-                var other = kind === 'ok' ? 'no' : 'ok';
-                S[other] = S[other].filter(function (x) { return x !== id; });
-                save();
-                refreshChips();
-            });
-        });
-        bar.querySelector('#rvzReset').addEventListener('click', function () {
-            S.ok = []; S.no = []; save(); refreshChips();
-        });
-        bar.querySelector('#rvzMin').addEventListener('click', function () { setClosed(true); });
-    }
-
-    function setClosed(closed) {
-        S.closed = closed;
-        save();
-        bar.style.display = closed ? 'none' : '';
-        tab.classList.toggle('show', closed);
-        document.body.classList.toggle('rvz-open', !closed);
-    }
-
-    function refreshChips() {
-        THEMES.forEach(function (t) {
-            var chip = chips[t.id];
-            if (!chip) return;
-            var isActive = S.active === t.id;
-            chip.classList.toggle('active', isActive);
-            chip.classList.toggle('ok', S.ok.indexOf(t.id) >= 0);
-            chip.classList.toggle('no', S.no.indexOf(t.id) >= 0);
-            chip.querySelector('.rvz-switch input').checked = isActive;
-            chip.querySelector('.rvz-verdict').textContent =
-                S.ok.indexOf(t.id) >= 0 ? '✓ aprobado' : (S.no.indexOf(t.id) >= 0 ? '✗ descartado' : '');
-        });
-        var sum = document.getElementById('rvzSum');
-        if (sum) {
-            sum.innerHTML = 'Aprobados: <b class="ok">' + S.ok.length + '</b> · Descartados: <b class="no">' + S.no.length + '</b>';
-        }
-    }
-
-    buildBar();
-    THEMES.forEach(function (t) { chips[t.id] = bar.querySelector('.rvz-chip[data-id="' + t.id + '"]'); });
-    if (S.active) applyTheme(S.active); else refreshChips();
-    setClosed(S.closed);
+    buildButton();
+    if (S.active) applyTheme(S.active); else refreshButton();
 })();
