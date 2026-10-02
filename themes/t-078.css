@@ -1,0 +1,55 @@
+/* 078 — Árbol fractal: papel envejecido cálido, serif itálica de cuento,
+   terracota y ámbar, grano de papel y hojas cayendo en canvas. */
+html[data-theme="078"] {
+    --mineral: #f3e3cf;
+    --card: #fffcf6;
+    --vault: #2f2a26;
+    --vault-deep: #221e1b;
+    --vault-raise: #463f39;
+    --brass: #e76f51;
+    --brass-lit: #f4886b;
+    --paper: #fbf5ec;
+    --steel: #b3a694;
+    --soft: #e0d4c2;
+    --ink: #2f2a26;
+    --ink-soft: #6d6259;
+    --line-dark: rgba(47, 42, 38, 0.18);
+    --line-light: rgba(251, 245, 236, 0.18);
+    --display: 'Cormorant Garamond', Garamond, Baskerville, 'Book Antiqua', serif;
+    --body: 'Avenir Next', 'Segoe UI', Arial, sans-serif;
+}
+html[data-theme="078"] .title, html[data-theme="078"] h1 { font-style: italic; font-weight: 500; }
+html[data-theme="078"] .eyebrow { letter-spacing: .3em; }
+html[data-theme="078"] .app-kicker { letter-spacing: .22em; }
+html[data-theme="078"] .hero {
+    background: radial-gradient(90% 75% at 78% 42%, #4a423c 0%, #2f2a26 55%, #221e1b 100%);
+}
+html[data-theme="078"] .hero::after {
+    content: "";
+    position: absolute; inset: 0;
+    pointer-events: none;
+    background: radial-gradient(130% 100% at 50% 40%, transparent 55%, rgba(20, 14, 8, .35) 100%);
+}
+html[data-theme="078"] .nav.scrolled { background: rgba(34, 30, 27, .92); }
+html[data-theme="078"] .device {
+    background: linear-gradient(170deg, #463f39 0%, #332d28 55%, #221e1b 100%);
+    border-color: #171310;
+    box-shadow: 0 0 0 2px #57493c, 0 10px 40px rgba(40, 30, 20, .35), 0 12px 30px rgba(40, 30, 20, .25);
+}
+html[data-theme="078"] .rings circle { stroke: #fbf5ec; }
+html[data-theme="078"] .rings circle[stroke="#c8a24a"] { stroke: #e9c46a; }
+html[data-theme="078"] .screen-dial circle { stroke: #fbf5ec; }
+html[data-theme="078"] .screen-dial circle[stroke="#c8a24a"] { stroke: #e9c46a; }
+html[data-theme="078"] .bars span { background: #b98c5f; }
+html[data-theme="078"] .btn { border-radius: 999px; }
+html[data-theme="078"] .btn-brass { color: #fff7ef; }
+html[data-theme="078"] .btn-outline { border-color: rgba(47, 42, 38, .4); }
+html[data-theme="078"] .btn-outline:hover { background: #e76f51; border-color: #e76f51; }
+html[data-theme="078"] .card {
+    box-shadow: 0 10px 40px rgba(40, 30, 20, .16), inset 0 0 0 1px rgba(255, 255, 255, .6);
+}
+html[data-theme="078"] .card:hover { border-color: rgba(231, 111, 81, .55); }
+html[data-theme="078"] .app-kicker { color: #b0562f; }
+html[data-theme="078"] .mail { border-bottom-color: #e76f51; }
+html[data-theme="078"] .mark { box-shadow: 0 0 0 1px rgba(233, 196, 106, .9), 0 4px 14px -6px rgba(40, 30, 20, .8); }
+html[data-theme="078"] .doc-item li::before { background: #e76f51; }

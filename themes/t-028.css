@@ -1,0 +1,60 @@
+/* 028 — Tabla periódica: laboratorio nocturno #0d1117, retícula técnica,
+   acento dorado neón y glows por interacción. Tema oscuro completo. */
+html[data-theme="028"] {
+    --mineral: #0d1117;
+    --card: #141b26;
+    --vault: #111721;
+    --vault-deep: #0a0e13;
+    --vault-raise: #1a2230;
+    --brass: #ffd43b;
+    --brass-lit: #ffe066;
+    --paper: #e6edf3;
+    --steel: #8b98a8;
+    --soft: #b8c2ce;
+    --ink: #e6edf3;
+    --ink-soft: #8b98a8;
+    --line-dark: rgba(230, 237, 243, 0.1);
+    --line-light: rgba(230, 237, 243, 0.1);
+    --display: 'Futura', 'Century Gothic', 'Avenir Next', 'Trebuchet MS', sans-serif;
+    --body: 'Avenir Next', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+}
+html[data-theme="028"] body {
+    background-image:
+        linear-gradient(rgba(230, 237, 243, .028) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(230, 237, 243, .028) 1px, transparent 1px);
+    background-size: 36px 36px;
+}
+html[data-theme="028"] .brand { letter-spacing: .2em; text-transform: uppercase; font-weight: 600; font-size: 18px; }
+html[data-theme="028"] .hero {
+    background:
+        radial-gradient(ellipse 60% 40% at 50% -10%, rgba(255, 212, 59, .1), transparent 70%),
+        radial-gradient(90% 75% at 78% 42%, #131a25 0%, #0d1117 60%, #0a0e13 100%);
+}
+html[data-theme="028"] .nav.scrolled { background: rgba(13, 17, 23, .92); }
+html[data-theme="028"] .device {
+    background: linear-gradient(170deg, #1a2230 0%, #111721 55%, #0a0e13 100%);
+    border-color: #05070a;
+    box-shadow: 0 0 0 2px #2a3442, 0 50px 90px -25px rgba(0, 0, 0, .8), 0 12px 30px rgba(0, 0, 0, .5);
+}
+html[data-theme="028"] .rings circle { stroke: #e6edf3; }
+html[data-theme="028"] .rings circle[stroke="#c8a24a"] { stroke: #ffd43b; }
+html[data-theme="028"] .screen-dial circle { stroke: #e6edf3; }
+html[data-theme="028"] .screen-dial circle[stroke="#c8a24a"] { stroke: #ffd43b; }
+html[data-theme="028"] .bars span { background: #2c3a4e; }
+html[data-theme="028"] .btn-brass { color: #0d1117; }
+html[data-theme="028"] .btn-dark { background: #e6edf3; color: #0d1117; border-color: #e6edf3; }
+html[data-theme="028"] .btn-dark:hover { background: #fff; }
+html[data-theme="028"] .btn-outline { color: #e6edf3; border-color: rgba(230, 237, 243, .35); }
+html[data-theme="028"] .btn-outline:hover { background: #ffd43b; color: #0d1117; border-color: #ffd43b; }
+html[data-theme="028"] .btn.soon { color: #8b98a8; border-color: rgba(230, 237, 243, .2); }
+html[data-theme="028"] .app-tile { box-shadow: 0 0 0 1px rgba(230, 237, 243, .12); transition: box-shadow .25s, transform .25s; }
+html[data-theme="028"] .app-row:hover .app-tile {
+    box-shadow: 0 0 0 1px rgba(255, 212, 59, .9), 0 0 22px rgba(255, 212, 59, .4), 0 10px 24px -8px rgba(0, 0, 0, .8);
+    transform: translateY(-2px);
+}
+html[data-theme="028"] .card { box-shadow: inset 0 1px 0 rgba(255, 255, 255, .05); }
+html[data-theme="028"] .card:hover { border-color: rgba(255, 212, 59, .8); box-shadow: 0 0 22px rgba(255, 212, 59, .25), inset 0 1px 0 rgba(255, 255, 255, .05); }
+html[data-theme="028"] .doc-num { border-radius: 8px; }
+html[data-theme="028"] .mark { box-shadow: 0 0 0 1px rgba(255, 212, 59, .8), 0 4px 14px -6px rgba(0, 0, 0, .8); }
+html[data-theme="028"] .mail:hover { color: #ffd43b; }
+html[data-theme="028"] .app-kicker { font-family: 'SF Mono', 'Cascadia Mono', Consolas, monospace; letter-spacing: .14em; }

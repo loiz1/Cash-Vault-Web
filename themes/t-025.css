@@ -1,0 +1,54 @@
+/* 025 — Ciudad isométrica: cielo nocturno kawaii con estrellas, cuerpo
+   azul cielo pálido, tarjetas crema muy redondeadas y acento sol. */
+html[data-theme="025"] {
+    --mineral: #bfe3f2;
+    --card: #fffaf3;
+    --vault: #1f2a4f;
+    --vault-deep: #141c3a;
+    --vault-raise: #2c3a66;
+    --brass: #ffc86b;
+    --brass-lit: #ffd68f;
+    --paper: #fffaf3;
+    --steel: #b9c3e8;
+    --soft: #dbe4fb;
+    --ink: #4a4063;
+    --ink-soft: #6f6689;
+    --line-dark: rgba(74, 64, 99, 0.14);
+    --line-light: rgba(255, 250, 243, 0.18);
+    --r-sm: 14px;
+    --r: 22px;
+    --r-lg: 26px;
+    --display: 'Quicksand', 'SF Pro Rounded', 'Nunito', 'Varela Round', 'Trebuchet MS', sans-serif;
+    --body: 'Quicksand', 'SF Pro Rounded', 'Nunito', 'Varela Round', 'Trebuchet MS', sans-serif;
+}
+html[data-theme="025"] .hero {
+    background: linear-gradient(180deg, #1f2a4f 0%, #2c3a66 55%, #3d4f7c 100%);
+}
+html[data-theme="025"] .nav.scrolled { background: rgba(31, 42, 79, .9); }
+html[data-theme="025"] .device {
+    background: linear-gradient(170deg, #2c3a66 0%, #223055 55%, #141c3a 100%);
+    border-color: #23283b;
+    box-shadow: 0 0 0 2px #4a4063, 0 50px 90px -25px rgba(31, 42, 79, .55), 0 12px 30px rgba(31, 42, 79, .3);
+}
+html[data-theme="025"] .rings circle { stroke: #fffaf3; }
+html[data-theme="025"] .rings circle[stroke="#c8a24a"] { stroke: #ffc86b; }
+html[data-theme="025"] .screen-dial circle { stroke: #fffaf3; }
+html[data-theme="025"] .screen-dial circle[stroke="#c8a24a"] { stroke: #ffc86b; }
+html[data-theme="025"] .bars span { background: #5d6fb0; }
+html[data-theme="025"] .btn { border-radius: 999px; font-weight: 700; }
+html[data-theme="025"] .btn-brass { color: #4a4063; }
+html[data-theme="025"] .btn:hover { transform: translateY(-2px); }
+html[data-theme="025"] .btn:active { transform: scale(.97); }
+html[data-theme="025"] .home-app:hover .app-tile,
+html[data-theme="025"] .app-row:hover .app-tile { animation: t025pop .5s cubic-bezier(.3, 1.8, .5, 1); }
+@keyframes t025pop {
+    0% { transform: scale(1); }
+    35% { transform: scale(1.08, .94); }
+    100% { transform: scale(1); }
+}
+html[data-theme="025"] .card {
+    box-shadow: 0 10px 28px -12px rgba(74, 64, 99, .35), inset 0 2px 0 rgba(255, 255, 255, .7);
+}
+html[data-theme="025"] .mark { box-shadow: 0 0 0 1px rgba(255, 200, 107, .9), 0 4px 14px -6px rgba(20, 28, 58, .8); }
+html[data-theme="025"] .mail { border-bottom-width: 4px; border-bottom-style: dashed; }
+html[data-theme="025"] .app-kicker { color: #e0885f; }

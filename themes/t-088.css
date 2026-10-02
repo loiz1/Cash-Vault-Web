@@ -1,0 +1,70 @@
+/* 088 — Reloj de arena: atardecer violeta→ámbar en toda la página,
+   serif clásica con versalitas, estrellas y motas doradas. */
+html[data-theme="088"] {
+    --mineral: #6e3a55;
+    --card: rgba(45, 27, 61, 0.32);
+    --vault: rgba(61, 33, 66, 0.55);
+    --vault-deep: #3e2244;
+    --vault-raise: #5a3456;
+    --brass: #e3b778;
+    --brass-lit: #f3d49c;
+    --paper: #fbeee0;
+    --steel: #d9bfae;
+    --soft: #f0dccc;
+    --ink: #fbeee0;
+    --ink-soft: #e5cfc2;
+    --line-dark: rgba(251, 238, 224, 0.22);
+    --line-light: rgba(251, 238, 224, 0.2);
+    --display: 'Hoefler Text', Georgia, 'Iowan Old Style', 'Palatino Linotype', serif;
+    --body: 'Iowan Old Style', 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
+}
+html[data-theme="088"] body {
+    background: linear-gradient(180deg, #2d1b3d 0%, #3f2449 26%, #6e3a55 50%, #a8595a 72%, #d98d62 88%, #e9a877 100%) fixed;
+}
+html[data-theme="088"] .eyebrow,
+html[data-theme="088"] .app-kicker { font-variant: small-caps; text-transform: lowercase; letter-spacing: .2em; }
+html[data-theme="088"] .brand { letter-spacing: .3em; text-transform: uppercase; font-weight: 400; }
+html[data-theme="088"] .hero { background: transparent; }
+html[data-theme="088"] .section { background: transparent; }
+html[data-theme="088"] .nav.scrolled {
+    background: rgba(45, 27, 61, .72);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+}
+html[data-theme="088"] .device {
+    background: linear-gradient(170deg, #5a3456 0%, #46304e 55%, #3e2244 100%);
+    border-color: #2c1830;
+    box-shadow: 0 0 0 2px #7c5560, 0 50px 90px -25px rgba(30, 12, 36, .65), 0 12px 30px rgba(30, 12, 36, .4);
+}
+html[data-theme="088"] .rings circle { stroke: #fbeee0; }
+html[data-theme="088"] .rings circle[stroke="#c8a24a"] { stroke: #e3b778; }
+html[data-theme="088"] .screen-dial circle { stroke: #fbeee0; }
+html[data-theme="088"] .screen-dial circle[stroke="#c8a24a"] { stroke: #e3b778; }
+html[data-theme="088"] .bars span { background: #8a5a70; }
+html[data-theme="088"] .btn { border-radius: 999px; }
+html[data-theme="088"] .btn-brass {
+    background: linear-gradient(180deg, #f3d49c, #dcac64);
+    color: #2d1b3d;
+    box-shadow: 0 10px 26px -10px rgba(120, 60, 20, .8), inset 0 1px 0 rgba(255, 255, 255, .6);
+}
+html[data-theme="088"] .btn-dark { background: rgba(45, 27, 61, .5); border-color: rgba(251, 238, 224, .3); }
+html[data-theme="088"] .btn-outline { color: #fbeee0; border-color: rgba(251, 238, 224, .4); }
+html[data-theme="088"] .btn-outline:hover { background: #e3b778; border-color: #e3b778; color: #2d1b3d; }
+html[data-theme="088"] .btn.soon { color: #d9bfae; border-color: rgba(251, 238, 224, .3); }
+html[data-theme="088"] .card {
+    border: 1px solid rgba(201, 162, 39, .45);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+}
+html[data-theme="088"] .card:hover { border-color: #e3b778; }
+html[data-theme="088"] .contact {
+    background: rgba(40, 20, 46, .72);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+}
+html[data-theme="088"] .app-row p { color: #f0dccc; }
+html[data-theme="088"] .doc-item p, html[data-theme="088"] .doc-item li { color: #f0dccc; }
+html[data-theme="088"] .note { background: rgba(45, 27, 61, .35); color: #f0dccc; -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+html[data-theme="088"] .note b { color: #fbeee0; }
+html[data-theme="088"] .mail:hover { color: #f3d49c; }
+html[data-theme="088"] .mark { box-shadow: 0 0 0 1px rgba(227, 183, 120, .9), 0 2px 30px rgba(255, 190, 120, .35); }

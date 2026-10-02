@@ -1,0 +1,55 @@
+/* 018 — Diorama de papel: crema artesanal, serif de libro ilustrado,
+   bordes punteados y grano de papel. info sin cambios, solo diseño. */
+html[data-theme="018"] {
+    --mineral: #f3e8d2;
+    --card: #f8efdb;
+    --vault: #274e52;
+    --vault-deep: #1c3739;
+    --vault-raise: #31595c;
+    --brass: #d9a45b;
+    --brass-lit: #c8642d;
+    --paper: #f8efdb;
+    --steel: #a9bdb1;
+    --soft: #d8e2d5;
+    --ink: #3b2b1d;
+    --ink-soft: #5b4632;
+    --line-dark: rgba(122, 78, 40, 0.32);
+    --line-light: rgba(248, 239, 219, 0.22);
+    --display: 'Iowan Old Style', 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
+    --body: 'Iowan Old Style', 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
+}
+html[data-theme="018"] h1, html[data-theme="018"] h2, html[data-theme="018"] h3 { letter-spacing: -0.005em; }
+html[data-theme="018"] .eyebrow { letter-spacing: .24em; }
+html[data-theme="018"] .hero {
+    background: radial-gradient(120% 75% at 70% 22%, #3d6a68 0%, #274e52 48%, #1c3739 100%);
+}
+html[data-theme="018"] .hero::after {
+    content: "";
+    position: absolute; inset: 0;
+    pointer-events: none;
+    box-shadow: inset 0 0 16vmin rgba(28, 20, 10, .35);
+}
+html[data-theme="018"] .nav.scrolled { background: rgba(28, 55, 57, .93); }
+html[data-theme="018"] .device {
+    background: linear-gradient(170deg, #31595c 0%, #24494c 55%, #1c3739 100%);
+    border-color: #3a2e22;
+    box-shadow: 0 0 0 2px #57452f, 0 50px 90px -25px rgba(40, 28, 12, .6), 0 12px 30px rgba(40, 28, 12, .3);
+}
+html[data-theme="018"] .rings circle { stroke: #f8efdb; }
+html[data-theme="018"] .rings circle[stroke="#c8a24a"] { stroke: #d9a45b; }
+html[data-theme="018"] .screen-dial circle { stroke: #f8efdb; }
+html[data-theme="018"] .screen-dial circle[stroke="#c8a24a"] { stroke: #d9a45b; }
+html[data-theme="018"] .bars span { background: #4e7a6e; }
+html[data-theme="018"] .btn { border-radius: 4px; }
+html[data-theme="018"] .btn-outline { border-color: rgba(59, 43, 29, .45); }
+html[data-theme="018"] .btn-outline:hover { border-style: dashed; }
+html[data-theme="018"] .btn:hover { transform: translateY(-2px) rotate(-.6deg); }
+html[data-theme="018"] .mark { box-shadow: 0 0 0 1px rgba(217, 164, 91, .9), 0 4px 14px -6px rgba(20, 14, 6, .8); }
+html[data-theme="018"] .card,
+html[data-theme="018"] .note { border-style: dashed; }
+html[data-theme="018"] .doc-item,
+html[data-theme="018"] .doc-item:last-of-type { border-top-style: dashed; }
+html[data-theme="018"] .app-row { }
+html[data-theme="018"] .app-list li { }
+html[data-theme="018"] .mail { border-bottom-style: dashed; }
+html[data-theme="018"] .app-kicker { font-variant: small-caps; letter-spacing: .2em; }

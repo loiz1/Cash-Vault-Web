@@ -1,0 +1,55 @@
+/* 046 — Jardín de hábitos: invernadero salvia, sol #f2c14e, arcilla,
+   Nunito redondeada, píldoras y halo solar en el hero. */
+html[data-theme="046"] {
+    --mineral: #f4f6f0;
+    --card: #fbfcf8;
+    --vault: #2f4f3a;
+    --vault-deep: #264231;
+    --vault-raise: #3c5f4a;
+    --brass: #f2c14e;
+    --brass-lit: #f7d06b;
+    --paper: #f4f6f0;
+    --steel: #a7bfa8;
+    --soft: #d7e2d3;
+    --ink: #2f4f3a;
+    --ink-soft: #5d7564;
+    --line-dark: rgba(47, 79, 58, 0.14);
+    --line-light: rgba(244, 246, 240, 0.18);
+    --r-sm: 14px;
+    --r: 20px;
+    --r-lg: 24px;
+    --display: 'Nunito', 'SF Pro Rounded', ui-rounded, 'Segoe UI', sans-serif;
+    --body: 'Nunito', 'SF Pro Rounded', ui-rounded, 'Segoe UI', sans-serif;
+}
+html[data-theme="046"] body {
+    background-image:
+        radial-gradient(900px 500px at 88% -8%, rgba(242, 193, 78, .14), transparent 60%),
+        radial-gradient(900px 600px at -10% 20%, rgba(156, 181, 154, .16), transparent 60%);
+}
+html[data-theme="046"] .hero {
+    background: radial-gradient(90% 75% at 78% 42%, #3c6a50 0%, #2f4f3a 55%, #264231 100%);
+}
+html[data-theme="046"] .nav.scrolled { background: rgba(47, 79, 58, .92); }
+html[data-theme="046"] .device {
+    background: linear-gradient(170deg, #3c5f4a 0%, #2f4f3a 55%, #264231 100%);
+    border-color: #24312a;
+    box-shadow: 0 0 0 2px #4d6152, 0 18px 40px -22px rgba(47, 79, 58, .55), 0 12px 30px rgba(47, 79, 58, .25);
+}
+html[data-theme="046"] .rings circle { stroke: #f4f6f0; }
+html[data-theme="046"] .rings circle[stroke="#c8a24a"] { stroke: #f2c14e; }
+html[data-theme="046"] .screen-dial circle { stroke: #f4f6f0; }
+html[data-theme="046"] .screen-dial circle[stroke="#c8a24a"] { stroke: #f2c14e; }
+html[data-theme="046"] .bars span { background: #5f8a64; }
+html[data-theme="046"] .btn { border-radius: 999px; font-weight: 700; }
+html[data-theme="046"] .btn-brass { color: #2f4f3a; }
+html[data-theme="046"] .btn:hover { transform: translateY(-2px); }
+html[data-theme="046"] .btn-outline:hover { background: #d98e73; border-color: #d98e73; }
+html[data-theme="046"] .card {
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .8), 0 18px 40px -22px rgba(47, 79, 58, .35), 0 2px 6px -2px rgba(47, 79, 58, .12);
+}
+html[data-theme="046"] .card:hover { border-color: rgba(217, 142, 115, .6); }
+html[data-theme="046"] .app-kicker { color: #c2765c; }
+html[data-theme="046"] .mail:hover { color: #d98e73; }
+html[data-theme="046"] .mark { box-shadow: 0 0 0 1px rgba(242, 193, 78, .9), 0 4px 14px -6px rgba(20, 40, 28, .8); }
+html[data-theme="046"] .home-app:hover .app-tile { animation: t046sway 1.4s ease-in-out infinite alternate; }
+@keyframes t046sway { from { transform: rotate(-3deg); } to { transform: rotate(3deg); } }

@@ -1,0 +1,78 @@
+/* 076 — Centro de control de misión: consola NASA-punk #0e1116,
+   retícula blueprint, naranja misión, esquinas HUD y parpadeo steps(). */
+html[data-theme="076"] {
+    --mineral: #0e1116;
+    --card: #12161d;
+    --vault: #10141a;
+    --vault-deep: #0a0d11;
+    --vault-raise: #181d26;
+    --brass: #ffb000;
+    --brass-lit: #ffc63d;
+    --paper: #e8e6e3;
+    --steel: #8b8f96;
+    --soft: #b6bac0;
+    --ink: #e8e6e3;
+    --ink-soft: #8b8f96;
+    --line-dark: rgba(232, 230, 227, 0.1);
+    --line-light: rgba(232, 230, 227, 0.12);
+    --display: 'Bahnschrift', 'DIN Condensed', 'Roboto Condensed', 'Arial Narrow', sans-serif;
+    --body: 'Bahnschrift', 'Segoe UI', Arial, sans-serif;
+}
+html[data-theme="076"] body {
+    background-image:
+        linear-gradient(rgba(78, 225, 255, .028) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(78, 225, 255, .028) 1px, transparent 1px);
+    background-size: 24px 24px;
+}
+html[data-theme="076"] h1, html[data-theme="076"] h2, html[data-theme="076"] h3 {
+    letter-spacing: .04em;
+    text-transform: uppercase;
+}
+html[data-theme="076"] .brand { letter-spacing: .22em; text-transform: uppercase; font-weight: 700; font-size: 18px; }
+html[data-theme="076"] .eyebrow { letter-spacing: .2em; }
+html[data-theme="076"] .app-kicker,
+html[data-theme="076"] .panel-label,
+html[data-theme="076"] .chip { font-family: 'Consolas', 'SF Mono', Menlo, monospace; letter-spacing: .12em; }
+html[data-theme="076"] .hero {
+    background: radial-gradient(60% 45% at 50% -8%, rgba(255, 107, 26, .1), transparent 65%), #0e1116;
+}
+html[data-theme="076"] .nav.scrolled { background: rgba(10, 13, 17, .93); }
+html[data-theme="076"] .device {
+    background: linear-gradient(170deg, #181d26 0%, #10141a 55%, #0a0d11 100%);
+    border-color: #05070a;
+    box-shadow: 0 0 0 2px #2c313a, 0 50px 90px -25px rgba(0, 0, 0, .8), 0 12px 30px rgba(0, 0, 0, .5);
+}
+html[data-theme="076"] .rings circle { stroke: #e8e6e3; }
+html[data-theme="076"] .rings circle[stroke="#c8a24a"] { stroke: #ff6b1a; }
+html[data-theme="076"] .screen-dial circle { stroke: #e8e6e3; }
+html[data-theme="076"] .screen-dial circle[stroke="#c8a24a"] { stroke: #ff6b1a; }
+html[data-theme="076"] .bars span { background: #3c86a0; }
+html[data-theme="076"] .bars span.hi { box-shadow: 0 0 8px rgba(78, 225, 255, .6); }
+html[data-theme="076"] .btn { border-radius: 6px; }
+html[data-theme="076"] .btn-brass { color: #1a1200; }
+html[data-theme="076"] .btn-dark { background: #1a2028; border-color: rgba(232, 230, 227, .25); }
+html[data-theme="076"] .btn-outline { color: #e8e6e3; border-color: rgba(232, 230, 227, .3); }
+html[data-theme="076"] .btn-outline:hover { background: #ff6b1a; border-color: #ff6b1a; }
+html[data-theme="076"] .card { position: relative; }
+html[data-theme="076"] .card::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    pointer-events: none;
+    background:
+        linear-gradient(#ff6b1a, #ff6b1a) top left / 14px 2px no-repeat,
+        linear-gradient(#ff6b1a, #ff6b1a) top left / 2px 14px no-repeat,
+        linear-gradient(#ff6b1a, #ff6b1a) top right / 14px 2px no-repeat,
+        linear-gradient(#ff6b1a, #ff6b1a) top right / 2px 14px no-repeat;
+    opacity: 0;
+    transition: opacity .2s;
+}
+html[data-theme="076"] .card:hover::before { opacity: 1; }
+html[data-theme="076"] .app-row { position: relative; }
+html[data-theme="076"] .doc-num { border-radius: 4px; border-color: #ff6b1a; color: #ff6b1a; }
+html[data-theme="076"] .doc-item li::before { border-radius: 0; }
+html[data-theme="076"] .mail { border-bottom-color: #ff6b1a; }
+html[data-theme="076"] .mail:hover { color: #ff6b1a; }
+html[data-theme="076"] .mark { box-shadow: 0 0 0 1px rgba(255, 176, 0, .8), 0 0 14px -2px rgba(255, 107, 26, .5); }
+html[data-theme="076"] .eyebrow::before { border-radius: 0; animation: t076blink 1.2s steps(1) infinite; }
+@keyframes t076blink { 50% { opacity: .15; } }
