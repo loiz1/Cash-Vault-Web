@@ -37,7 +37,17 @@
     }
 
     /* Formulario "Desarrolla tu app" dentro del móvil (solo index) */
-    var WEB3FORMS_KEY = '7375938a-c17c-4f2a-89b5-24203072b9da'; // access key de web3forms.com (servicio gratuito, cuenta astroseec@gmail.com)
+    var WEB3FORMS_KEY = '7375938a-c17c-4f2a-89b5-24203072b9da'; // form contacto (web3forms, astroseec@gmail.com)
+    var WEB3FORMS_DELETE_KEY = 'd3f904bd-5938-4b60-93b0-66729754ab85'; // form eliminación de datos
+    function w3fSend(payload, ok, fail) {
+        fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify(payload)
+        }).then(function (res) { return res.json().catch(function () { return {}; }); })
+            .then(function (data) { if (data && data.success) ok(); else fail(); })
+            .catch(fail);
+    }
     var device = document.querySelector('.device');
     var deviceForm = document.getElementById('deviceForm');
     var formApp = document.getElementById('formApp');
@@ -65,27 +75,6 @@
         document.addEventListener('keydown', function (e) {
             if (e.key === 'Escape' && !deviceForm.hidden) closeForm();
         });
-
-        var sendByWeb3Forms = function (d, ok, fail) {
-            fetch('https://api.web3forms.com/submit', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-                body: JSON.stringify({
-                    access_key: WEB3FORMS_KEY,
-                    subject: 'Solicitud de desarrollo de app — ' + d.nombre,
-                    from_name: 'Web AstroSeec',
-                    nombre: d.nombre,
-                    telefono: d.telefono,
-                    correo: d.correo,
-                    mensaje: d.mensaje
-                })
-            }).then(function (res) { return res.json().catch(function () { return {}; }); })
-                .then(function (data) {
-                    if (data && data.success) ok();
-                    else fail();
-                })
-                .catch(fail);
-        };
 
         formApp.addEventListener('submit', function (e) {
             e.preventDefault();
@@ -121,9 +110,17 @@
                 noteEl.textContent = 'Enviando…';
             }
             if (WEB3FORMS_KEY) {
-                sendByWeb3Forms(d,
-                    function () { show(true, '¡Gracias, ' + firstName + '! Tu solicitud fue enviada; te responderemos muy pronto.'); },
-                    mailtoFallback);
+                w3fSend({
+                    access_key: WEB3FORMS_KEY,
+                    subject: 'Solicitud de desarrollo de app — ' + d.nombre,
+                    from_name: 'Web AstroSeec',
+                    nombre: d.nombre,
+                    telefono: d.telefono,
+                    correo: d.correo,
+                    mensaje: d.mensaje
+                },
+                function () { show(true, '¡Gracias, ' + firstName + '! Tu solicitud fue enviada; te responderemos muy pronto.'); },
+                mailtoFallback);
             } else {
                 mailtoFallback();
             }
@@ -131,6 +128,51 @@
 
         // llegar desde otras páginas con ?form=1 abre el formulario
         if (location.search.indexOf('form=1') !== -1) openForm(true);
+    }
+
+    /* Formulario de eliminación de datos (delete-account.html) */
+    var delForm = document.getElementById('formDelete');
+    if (delForm) {
+        var delNote = delForm.querySelector('.df-note');
+        delForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            if (!delForm.checkValidity()) { delForm.reportValidity(); return; }
+            var d = Object.fromEntries(new FormData(delForm).entries());
+            var btnSend = delForm.querySelector('button[type="submit"]');
+            var show = function (ok, text) {
+                btnSend.disabled = false;
+                if (delNote) {
+                    delNote.hidden = false;
+                    delNote.classList.toggle('ok', ok);
+                    delNote.textContent = text;
+                }
+                if (ok) delForm.reset();
+            };
+            var mailtoFallback = function () {
+                var subject = encodeURIComponent('Solicitud de eliminación de datos — ' + d.aplicacion);
+                var NL = String.fromCharCode(10);
+                var body = encodeURIComponent('Aplicación: ' + d.aplicacion + NL + 'Correo registrado: ' + d.correo + NL + NL + 'Detalles:' + NL + (d.detalles || ''));
+                window.location.href = 'mailto:astroseec@gmail.com?subject=' + subject + '&body=' + body;
+                show(true, 'Se abrió tu correo con la solicitud lista para enviar.');
+            };
+
+            btnSend.disabled = true;
+            if (delNote) {
+                delNote.hidden = false;
+                delNote.classList.remove('ok');
+                delNote.textContent = 'Enviando…';
+            }
+            w3fSend({
+                access_key: WEB3FORMS_DELETE_KEY,
+                subject: 'Solicitud de eliminación de datos — ' + d.aplicacion + ' (' + d.correo + ')',
+                from_name: 'Web AstroSeec',
+                aplicacion: d.aplicacion,
+                correo: d.correo,
+                detalles: d.detalles || ''
+            },
+            function () { show(true, 'Solicitud recibida. Eliminaremos tu cuenta y tus datos en un máximo de 48 horas y te confirmaremos por correo.'); },
+            mailtoFallback);
+        });
     } else if (document.querySelector('.btn-form-open')) {
         // páginas sin móvil: los botones de contacto llevan al formulario del index
         document.querySelectorAll('.btn-form-open').forEach(function (btn) {

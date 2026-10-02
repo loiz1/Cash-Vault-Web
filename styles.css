@@ -460,6 +460,33 @@ h1, h2, h3 { font-family: var(--display); letter-spacing: -0.03em; line-height: 
 }
 .device-form .df-note.ok { color: #8fd3ad; }
 
+/* Formulario de eliminación de datos (delete-account) */
+.del-form { display: flex; flex-direction: column; gap: 14px; margin-top: 22px; max-width: 460px; }
+.del-form label { display: flex; flex-direction: column; gap: 6px; }
+.del-form label span {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+}
+.del-form input, .del-form select, .del-form textarea {
+    width: 100%;
+    padding: 12px 14px;
+    background: var(--card);
+    border: 1px solid var(--line-dark);
+    border-radius: 12px;
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 15px;
+    transition: border-color .2s;
+}
+.del-form textarea { resize: vertical; min-height: 76px; }
+.del-form select { appearance: auto; }
+.del-form :is(input, select, textarea):focus { outline: none; border-color: var(--brass); }
+.del-form .df-note { font-size: 14px; line-height: 1.5; color: var(--ink-soft); }
+.del-form .df-note.ok { color: #3f8f63; }
+
 /* CTA del formulario en el pie de página */
 .cta-form {
     margin-top: 34px;
