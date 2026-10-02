@@ -37,7 +37,7 @@
     }
 
     /* Formulario "Desarrolla tu app" dentro del móvil (solo index) */
-    var WEB3FORMS_KEY = ''; // access key de web3forms.com (servicio gratuito)
+    var WEB3FORMS_KEY = '7375938a-c17c-4f2a-89b5-24203072b9da'; // access key de web3forms.com (servicio gratuito, cuenta astroseec@gmail.com)
     var device = document.querySelector('.device');
     var deviceForm = document.getElementById('deviceForm');
     var formApp = document.getElementById('formApp');
