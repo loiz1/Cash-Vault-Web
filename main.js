@@ -37,11 +37,15 @@
     }
 
     /* Formulario "Desarrolla tu app" dentro del móvil (solo index) */
+    var WEB3FORMS_KEY = ''; // access key de web3forms.com (servicio gratuito)
     var device = document.querySelector('.device');
     var deviceForm = document.getElementById('deviceForm');
     var formApp = document.getElementById('formApp');
     if (device && deviceForm && formApp) {
         var noteEl = formApp.querySelector('.df-note');
+        // por defecto, el móvil muestra los iconos
+        device.classList.remove('form-mode');
+        deviceForm.hidden = true;
         var openForm = function (scroll) {
             device.classList.add('form-mode');
             deviceForm.hidden = false;
@@ -62,24 +66,67 @@
             if (e.key === 'Escape' && !deviceForm.hidden) closeForm();
         });
 
+        var sendByWeb3Forms = function (d, ok, fail) {
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                body: JSON.stringify({
+                    access_key: WEB3FORMS_KEY,
+                    subject: 'Solicitud de desarrollo de app — ' + d.nombre,
+                    from_name: 'Web AstroSeec',
+                    nombre: d.nombre,
+                    telefono: d.telefono,
+                    correo: d.correo,
+                    mensaje: d.mensaje
+                })
+            }).then(function (res) { return res.json().catch(function () { return {}; }); })
+                .then(function (data) {
+                    if (data && data.success) ok();
+                    else fail();
+                })
+                .catch(fail);
+        };
+
         formApp.addEventListener('submit', function (e) {
             e.preventDefault();
             if (!formApp.checkValidity()) { formApp.reportValidity(); return; }
             var d = Object.fromEntries(new FormData(formApp).entries());
-            var subject = encodeURIComponent('Solicitud de desarrollo de app — ' + d.nombre);
-            var body = encodeURIComponent(
-                'Nombre: ' + d.nombre + '\n' +
-                'Teléfono: ' + d.telefono + '\n' +
-                'Correo: ' + d.correo + '\n\n' +
-                'Mensaje:\n' + d.mensaje
-            );
-            window.location.href = 'mailto:astroseec@gmail.com?subject=' + subject + '&body=' + body;
+            var btnSend = formApp.querySelector('.df-send');
+            var firstName = d.nombre.split(' ')[0];
+            var show = function (ok, text) {
+                btnSend.disabled = false;
+                if (noteEl) {
+                    noteEl.hidden = false;
+                    noteEl.classList.toggle('ok', ok);
+                    noteEl.textContent = text;
+                }
+                if (ok) formApp.reset();
+            };
+            var mailtoFallback = function () {
+                var subject = encodeURIComponent('Solicitud de desarrollo de app — ' + d.nombre);
+                var body = encodeURIComponent(
+                    'Nombre: ' + d.nombre + '\n' +
+                    'Teléfono: ' + d.telefono + '\n' +
+                    'Correo: ' + d.correo + '\n\n' +
+                    'Mensaje:\n' + d.mensaje
+                );
+                window.location.href = 'mailto:astroseec@gmail.com?subject=' + subject + '&body=' + body;
+                show(true, '¡Gracias, ' + firstName + '! Se abrió tu correo con la solicitud lista para enviar.');
+            };
+
+            btnSend.disabled = true;
             if (noteEl) {
                 noteEl.hidden = false;
-                noteEl.classList.add('ok');
-                noteEl.textContent = '¡Gracias, ' + d.nombre.split(' ')[0] + '! Se abrió tu correo con la solicitud lista para enviar.';
+                noteEl.classList.remove('ok');
+                noteEl.textContent = 'Enviando…';
             }
-            formApp.reset();
+            if (WEB3FORMS_KEY) {
+                sendByWeb3Forms(d,
+                    function () { show(true, '¡Gracias, ' + firstName + '! Tu solicitud fue enviada; te responderemos muy pronto.'); },
+                    mailtoFallback);
+            } else {
+                mailtoFallback();
+            }
         });
     }
 

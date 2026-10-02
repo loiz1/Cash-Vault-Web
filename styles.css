@@ -382,6 +382,7 @@ h1, h2, h3 { font-family: var(--display); letter-spacing: -0.03em; line-height: 
     backdrop-filter: blur(6px);
 }
 .device-form::-webkit-scrollbar { display: none; }
+.device-form[hidden] { display: none; }
 .device.form-mode .home-grid,
 .device.form-mode .screen-dial { display: none; }
 .device.form-mode .device-form { animation: dfIn .45s cubic-bezier(.2, .8, .2, 1) both; }
