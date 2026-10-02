@@ -21,17 +21,19 @@
     var REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     /* ---------- estado ---------- */
-    var S = { active: null };
+    var DEFAULT_THEME = '018'; // Diorama de papel
+    var S = { active: DEFAULT_THEME };
     try {
-        var saved = JSON.parse(localStorage.getItem(KEY) || 'null');
-        if (saved && THEMES.some(function (t) { return t.id === saved.active; })) {
-            S.active = saved.active;
-        } else {
-            // migrar el tema activo de la fase de revisión si sirve
+        var raw = localStorage.getItem(KEY);
+        if (raw === null) {
+            // primera visita: diseño por defecto
             var old = JSON.parse(localStorage.getItem(OLD_KEY) || 'null');
             if (old && THEMES.some(function (t) { return t.id === old.active; })) S.active = old.active;
             localStorage.removeItem(OLD_KEY);
             save();
+        } else {
+            var saved = JSON.parse(raw);
+            S.active = saved && THEMES.some(function (t) { return t.id === saved.active; }) ? saved.active : null;
         }
     } catch (e) { /* estado por defecto */ }
     function save() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) { } }
@@ -249,7 +251,10 @@
         if (!btnLabel) return;
         var t = themeById(S.active);
         btn.classList.toggle('on', !!t);
-        btnLabel.textContent = t ? t.name : 'Diseño';
+        btnLabel.textContent = 'Cambiar Diseño';
+        btn.title = t
+            ? 'Diseño actual: ' + t.name + ' · clic para otro aleatorio · doble clic: diseño original'
+            : 'Diseño original · clic para un diseño aleatorio';
     }
 
     function applyTheme(id) {

@@ -36,6 +36,53 @@
         setInterval(tick, 30000);
     }
 
+    /* Formulario "Desarrolla tu app" dentro del móvil (solo index) */
+    var device = document.querySelector('.device');
+    var deviceForm = document.getElementById('deviceForm');
+    var formApp = document.getElementById('formApp');
+    if (device && deviceForm && formApp) {
+        var noteEl = formApp.querySelector('.df-note');
+        var openForm = function (scroll) {
+            device.classList.add('form-mode');
+            deviceForm.hidden = false;
+            if (scroll) device.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' });
+            var first = formApp.querySelector('input');
+            if (first && !scroll) first.focus();
+        };
+        var closeForm = function () {
+            device.classList.remove('form-mode');
+            deviceForm.hidden = true;
+            if (noteEl) noteEl.hidden = true;
+        };
+        document.querySelectorAll('.btn-form-open').forEach(function (btn) {
+            btn.addEventListener('click', function () { openForm(true); });
+        });
+        deviceForm.querySelector('.df-close').addEventListener('click', closeForm);
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && !deviceForm.hidden) closeForm();
+        });
+
+        formApp.addEventListener('submit', function (e) {
+            e.preventDefault();
+            if (!formApp.checkValidity()) { formApp.reportValidity(); return; }
+            var d = Object.fromEntries(new FormData(formApp).entries());
+            var subject = encodeURIComponent('Solicitud de desarrollo de app — ' + d.nombre);
+            var body = encodeURIComponent(
+                'Nombre: ' + d.nombre + '\n' +
+                'Teléfono: ' + d.telefono + '\n' +
+                'Correo: ' + d.correo + '\n\n' +
+                'Mensaje:\n' + d.mensaje
+            );
+            window.location.href = 'mailto:astroseec@gmail.com?subject=' + subject + '&body=' + body;
+            if (noteEl) {
+                noteEl.hidden = false;
+                noteEl.classList.add('ok');
+                noteEl.textContent = '¡Gracias, ' + d.nombre.split(' ')[0] + '! Se abrió tu correo con la solicitud lista para enviar.';
+            }
+            formApp.reset();
+        });
+    }
+
     /* Aparición progresiva de los bloques */
     var targets = document.querySelectorAll('[data-reveal]');
     if (!targets.length) return;

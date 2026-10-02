@@ -183,6 +183,7 @@ h1, h2, h3 { font-family: var(--display); letter-spacing: -0.03em; line-height: 
     justify-content: center;
     gap: 9px;
     padding: 15px 26px;
+    background: transparent;
     border: 1px solid transparent;
     border-radius: 14px;
     font-family: var(--body);
@@ -363,6 +364,108 @@ h1, h2, h3 { font-family: var(--display); letter-spacing: -0.03em; line-height: 
     opacity: .9;
     pointer-events: none;
 }
+
+/* ----------------------------------------------------------
+   Formulario de contacto dentro del móvil (solo index)
+   ---------------------------------------------------------- */
+.device-form {
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    padding: 46px 18px 26px;
+    overflow-y: auto;
+    scrollbar-width: none;
+    background: linear-gradient(180deg, rgba(8, 24, 21, .96) 0%, rgba(8, 24, 21, .88) 100%);
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+}
+.device-form::-webkit-scrollbar { display: none; }
+.device.form-mode .home-grid,
+.device.form-mode .screen-dial { display: none; }
+.device.form-mode .device-form { animation: dfIn .45s cubic-bezier(.2, .8, .2, 1) both; }
+@keyframes dfIn { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+
+.df-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+.df-head strong {
+    font-family: var(--display);
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--paper);
+}
+.df-close {
+    flex: none;
+    width: 28px; height: 28px;
+    border: 1px solid var(--line-light);
+    border-radius: 50%;
+    background: transparent;
+    color: var(--soft);
+    font-size: 16px;
+    line-height: 1;
+    cursor: pointer;
+    transition: background .2s, color .2s;
+}
+.df-close:hover { background: rgba(241, 236, 225, .1); color: var(--paper); }
+
+.device-form form { display: flex; flex-direction: column; gap: 11px; }
+.device-form label {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.device-form label span {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--steel);
+}
+.device-form input,
+.device-form textarea {
+    width: 100%;
+    padding: 10px 12px;
+    background: rgba(241, 236, 225, .07);
+    border: 1px solid var(--line-light);
+    border-radius: 12px;
+    color: var(--paper);
+    font-family: var(--body);
+    font-size: 13.5px;
+    transition: border-color .2s, background .2s;
+}
+.device-form textarea { resize: vertical; min-height: 84px; }
+.device-form input::placeholder,
+.device-form textarea::placeholder { color: var(--steel); opacity: .75; }
+.device-form input:focus,
+.device-form textarea:focus {
+    outline: none;
+    border-color: var(--brass);
+    background: rgba(241, 236, 225, .1);
+}
+.device-form .df-send { margin-top: 4px; justify-content: center; }
+.device-form .df-note {
+    margin-top: 2px;
+    font-size: 12px;
+    line-height: 1.5;
+    color: var(--soft);
+    text-align: center;
+}
+.device-form .df-note.ok { color: #8fd3ad; }
+
+/* CTA del formulario en el pie de página */
+.cta-form {
+    margin-top: 34px;
+    font-size: 17px;
+    color: var(--soft);
+}
+.contact .btn-form-open { margin-top: 14px; }
 
 /* Iconos de app: circulares, con recorte del marco oscuro del PNG */
 .app-tile {

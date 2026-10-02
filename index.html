@@ -74,17 +74,6 @@
             color: var(--soft);
         }
         .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
-        .hero-meta {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px 28px;
-            margin-top: 40px;
-            padding-top: 26px;
-            border-top: 1px solid var(--line-light);
-            font-size: 13.5px;
-            color: var(--steel);
-        }
-        .hero-meta b { color: var(--paper); font-weight: 600; }
 
         /* ---- Pantalla de inicio del móvil ---- */
         .phone-wrap { justify-self: center; }
@@ -237,18 +226,13 @@
 
             <div class="hero-in">
                 <div>
-                    <h1>Soluciones móviles que simplifican tu vida</h1>
-                    <p class="lede">Diseñamos y desarrollamos herramientas digitales independientes con un objetivo: máxima simplicidad y rendimiento óptimo, siempre en tu bolsillo.</p>
+                    <h1>Apps que se adaptan a tus necesidades</h1>
+                    <p class="lede">Diseñamos apps para todo tipo de equipos: desde apps para el control de tus finanzas y juegos móviles, hasta apps que te ayudan a crecer como persona.</p>
                     <div class="hero-actions">
                         <a class="btn btn-brass" href="#apps">Ver apps</a>
                         <a class="btn btn-ghost" href="#nosotros">Sobre AstroSeec</a>
+                        <button class="btn btn-ghost btn-form-open" type="button">Desarrolla tu app</button>
                     </div>
-                    <p class="hero-meta">
-                        <span><b>8</b> apps desarrolladas</span>
-                        <span><b>3</b> ya en Google Play</span>
-                        <span>Hechas con <b>Flutter</b> y Kotlin</span>
-                        <span>Sin venta de datos a terceros</span>
-                    </p>
                 </div>
 
                 <div class="phone-wrap">
@@ -290,6 +274,33 @@
                             </a>
                         </div>
 
+                        <div class="device-form" id="deviceForm" hidden>
+                            <div class="df-head">
+                                <strong>Cuéntanos tu idea</strong>
+                                <button type="button" class="df-close" aria-label="Volver a la pantalla de apps">&times;</button>
+                            </div>
+                            <form id="formApp" novalidate>
+                                <label>
+                                    <span>Nombre</span>
+                                    <input name="nombre" type="text" autocomplete="name" required>
+                                </label>
+                                <label>
+                                    <span>Teléfono</span>
+                                    <input name="telefono" type="tel" autocomplete="tel" placeholder="+57 300 000 0000" required>
+                                </label>
+                                <label>
+                                    <span>Correo</span>
+                                    <input name="correo" type="email" autocomplete="email" placeholder="tucorreo@ejemplo.com" required>
+                                </label>
+                                <label>
+                                    <span>Mensaje</span>
+                                    <textarea name="mensaje" rows="4" placeholder="Cuéntanos qué app tienes en mente…" required></textarea>
+                                </label>
+                                <button class="btn btn-brass btn-sm df-send" type="submit">Enviar</button>
+                                <p class="df-note" hidden></p>
+                            </form>
+                        </div>
+
                         <svg class="screen-dial" viewBox="0 0 400 400" fill="none" aria-hidden="true">
                             <circle cx="200" cy="200" r="190" stroke="#c8a24a" stroke-opacity=".35" stroke-width="1.5"/>
                             <circle cx="200" cy="200" r="168" stroke="#f1ece1" stroke-opacity=".14" stroke-width="8" stroke-dasharray="1.5 9.5"/>
@@ -305,8 +316,6 @@
             <div class="wrap">
                 <div data-reveal>
                     <p class="eyebrow">Nuestras apps</p>
-                    <h2 class="title">Ocho herramientas, un mismo criterio</h2>
-                    <p class="subtitle">Cada app resuelve un problema concreto y nada más: sin funciones de relleno y sin pedirte más datos de los necesarios.</p>
                 </div>
 
                 <ul class="app-list">
@@ -435,15 +444,13 @@
                 <div class="about-grid">
                     <div class="about-side" data-reveal>
                         <p class="eyebrow">Sobre nosotros</p>
-                        <h2 class="title">Un equipo independiente</h2>
                         <figure class="logo-badge">
                             <img src="LOGO_ASTROSEEC.jpeg" alt="Logotipo de AstroSeec: un astronauta trabajando frente a un panel de seguridad">
                         </figure>
                     </div>
                     <div data-reveal style="--d:120ms">
-                        <p class="about-text">AstroSeec es un equipo independiente de desarrollo de software móvil.</p>
-                        <p class="about-more">Nos especializamos en la conceptualización, diseño y despliegue de experiencias de usuario premium utilizando tecnologías de vanguardia como Flutter, Dart y Firebase.</p>
-                        <p class="about-more">Creemos firmemente en el poder del software minimalista: aplicaciones con un propósito claro, libres de distracciones innecesarias y optimizadas hasta el último milisegundo para ofrecer la máxima velocidad. Nuestras soluciones están diseñadas para poner el control en tus manos.</p>
+                        <p class="about-text">Somos un equipo de desarrollo de apps de la ciudad de Bogotá.</p>
+                        <p class="about-more">Trabajamos codo a codo con nuestros clientes: escuchamos su idea, priorizamos lo que de verdad necesita y la convertimos en una app lista para el mundo. Nuestro compromiso es entregar un trabajo que no solo cumpla lo esperado, sino que haga felices a quienes lo usan.</p>
                     </div>
                 </div>
                 <div class="values" aria-hidden="true" data-reveal>
@@ -461,6 +468,11 @@
             <h2 class="title">¿Hablamos?</h2>
             <p>¿Tienes dudas, una incidencia o una sugerencia? Escríbenos a:</p>
             <a class="mail" href="mailto:astroseec@gmail.com">astroseec@gmail.com</a>
+            <p class="cta-form">¿Tienes una idea de app? Cuéntanosla hoy mismo:</p>
+            <button class="btn btn-brass btn-form-open" type="button">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 3.5v17a1 1 0 001.5.86l14-8.5a1 1 0 000-1.72l-14-8.5A1 1 0 006 3.5z"/></svg>
+                Quiero desarrollar mi app
+            </button>
 
             <div class="foot">
                 <a class="brand" href="#inicio">
