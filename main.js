@@ -188,6 +188,54 @@
         });
     }
 
+    /* Formulario de servicios de ciberseguridad (servicios.html) */
+    var cyberForm = document.getElementById('formCyber');
+    if (cyberForm) {
+        var cyberNote = cyberForm.querySelector('.df-note');
+        cyberForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            if (!cyberForm.checkValidity()) { cyberForm.reportValidity(); return; }
+            var d = Object.fromEntries(new FormData(cyberForm).entries());
+            var btnCyber = cyberForm.querySelector('button[type="submit"]');
+            var firstName = (d.nombre || '').split(' ')[0];
+            var showCyber = function (ok, text) {
+                btnCyber.disabled = false;
+                if (cyberNote) {
+                    cyberNote.hidden = false;
+                    cyberNote.classList.toggle('ok', ok);
+                    cyberNote.textContent = text;
+                }
+                if (ok) cyberForm.reset();
+            };
+            var mailtoCyber = function () {
+                var subject = encodeURIComponent('Consulta de servicios de ciberseguridad — ' + d.nombre);
+                var NL = String.fromCharCode(10);
+                var body = encodeURIComponent('Nombre: ' + d.nombre + NL + 'Correo: ' + d.correo + NL + 'Teléfono: ' + (d.telefono || '-') + NL + 'Servicio: ' + d.servicio + NL + NL + 'Mensaje:' + NL + d.mensaje);
+                window.location.href = 'mailto:astroseec@gmail.com?subject=' + subject + '&body=' + body;
+                showCyber(true, 'Se abrió tu correo con la consulta lista para enviar.');
+            };
+
+            btnCyber.disabled = true;
+            if (cyberNote) {
+                cyberNote.hidden = false;
+                cyberNote.classList.remove('ok');
+                cyberNote.textContent = 'Enviando…';
+            }
+            w3fSend({
+                access_key: WEB3FORMS_KEY,
+                subject: 'Consulta de servicios de ciberseguridad — ' + d.nombre,
+                from_name: 'Web AstroSeec',
+                nombre: d.nombre,
+                correo: d.correo,
+                telefono: d.telefono || '',
+                servicio: d.servicio,
+                mensaje: d.mensaje
+            },
+            function () { showCyber(true, '¡Gracias, ' + firstName + '! Tu consulta fue enviada; te responderemos muy pronto.'); },
+            mailtoCyber);
+        });
+    }
+
     /* Aparición progresiva de los bloques */
     var targets = document.querySelectorAll('[data-reveal]');
     if (!targets.length) return;
