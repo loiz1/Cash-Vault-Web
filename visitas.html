@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="theme-color" content="#0e2622">
+    <meta name="description" content="Registro interno de visitas del sitio de AstroSeec.">
+    <title>Registro de visitas · AstroSeec</title>
+
+    <link rel="icon" type="image/jpeg" href="LOGO_ASTROSEEC.jpeg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="themes/themes.css">
+    <script defer src="/_vercel/insights/script.js"></script>
+    <meta name="google-site-verification" content="3AgqNUMNFEMQFWHNADAPRXRTiRzyWdpGQ23AVqAGW4A" />
+    <style>
+        .vis-bar { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between; margin: 18px 0 4px; }
+        .vis-bar .total { font-weight: 700; color: var(--ink-soft); font-size: 14px; }
+        .vis-key { display: flex; gap: 10px; align-items: flex-end; flex-wrap: wrap; }
+        .vis-key label { display: flex; flex-direction: column; gap: 6px; flex: 1; min-width: 240px; }
+        .vis-key label span { font-size: 11px; font-weight: 700; color: var(--ink-soft); text-transform: uppercase; letter-spacing: .07em; }
+        .vis-key input { padding: 10px 14px; border-radius: 12px; border: 1.5px solid var(--line-strong, rgba(74,64,99,.3)); background: var(--paper); font: inherit; color: var(--ink); }
+        .vis-key input:focus { outline: none; border-color: var(--brass); }
+        .table-scroll { overflow-x: auto; border-radius: 16px; border: 1px solid rgba(74,64,99,.14); background: var(--paper); margin-top: 18px; }
+        table.vis { border-collapse: collapse; width: 100%; font-size: 13px; min-width: 860px; }
+        table.vis th { text-align: left; font-size: 10.5px; text-transform: uppercase; letter-spacing: .07em; color: var(--ink-soft); padding: 12px 14px; border-bottom: 2px solid rgba(74,64,99,.18); white-space: nowrap; }
+        table.vis td { padding: 9px 14px; border-bottom: 1px solid rgba(74,64,99,.09); vertical-align: top; }
+        table.vis tr:last-child td { border-bottom: 0; }
+        table.vis td.ip { font-family: ui-monospace, Consolas, monospace; font-weight: 600; white-space: nowrap; }
+        table.vis td .sub { color: var(--ink-soft); font-size: 11.5px; display: block; }
+        .vis-empty { padding: 40px 10px; text-align: center; color: var(--ink-soft); }
+        .vis-err { color: #a5423c; font-weight: 600; font-size: 14px; margin-top: 14px; }
+        .del-form.inline { flex-direction: row; align-items: center; }
+    </style>
+</head>
+<body>
+    <a class="skip" href="#contenido">Saltar al contenido</a>
+
+    <header class="nav">
+        <div class="nav-in">
+            <a class="brand" href="index.html" aria-label="AstroSeec, inicio">
+                <span class="mark"><img src="LOGO_ASTROSEEC.jpeg" alt="" width="38" height="38"></span>
+                <span class="brand-name">AstroSeec</span>
+            </a>
+            <nav class="nav-links" aria-label="Principal">
+                <a href="index.html#apps">Apps</a>
+                <a href="index.html#nosotros">Nosotros</a>
+                <a href="servicios.html">Otros Servicios</a>
+                <a href="index.html?form=1">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-hero">
+            <div class="wrap">
+                <a class="crumbs" href="index.html">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+                    Uso interno
+                </a>
+                <h1>Registro de visitas</h1>
+                <p class="lede">Datos de quienes visitan el sitio: IP, ubicación aproximada, dispositivo, página y referente. Uso interno de seguridad y estadística.</p>
+            </div>
+        </section>
+
+        <section class="section-tight" id="contenido">
+            <div class="wrap">
+                <div class="vis-key">
+                    <label>
+                        <span>Clave del registro</span>
+                        <input id="keyInput" type="password" placeholder="Clave de consulta" autocomplete="off">
+                    </label>
+                    <button class="btn btn-dark" id="loadBtn" type="button">Ver registro</button>
+                    <button class="btn btn-outline" id="purgeBtn" type="button" title="Elimina entradas de más de 12 meses">Purgar &gt; 12 meses</button>
+                </div>
+                <p class="vis-err" id="visErr" hidden></p>
+                <div class="vis-bar">
+                    <span class="total" id="visTotal"></span>
+                </div>
+                <div class="table-scroll">
+                    <table class="vis" id="visTable" hidden>
+                        <thead>
+                            <tr>
+                                <th>Fecha · hora</th>
+                                <th>IP</th>
+                                <th>Ubicación</th>
+                                <th>Página</th>
+                                <th>Dispositivo</th>
+                                <th>Referente</th>
+                                <th>Visitante</th>
+                            </tr>
+                        </thead>
+                        <tbody id="visBody"></tbody>
+                    </table>
+                    <div class="vis-empty" id="visEmpty" hidden>Escribe la clave y pulsa «Ver registro».</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="contact" id="contacto">
+        <div class="wrap">
+            <p class="eyebrow">Contacto</p>
+            <h2 class="title">¿Hablamos?</h2>
+            <p class="cta-form">¿Dudas, una incidencia o una idea de app? Cuéntanosla hoy mismo:</p>
+            <a class="btn btn-brass" href="index.html?form=1">Quiero desarrollar mi app</a>
+
+            <div class="foot">
+                <a class="brand" href="index.html">
+                    <span class="mark"><img src="LOGO_ASTROSEEC.jpeg" alt="" width="30" height="30"></span>
+                    <span class="brand-name">AstroSeec</span>
+                </a>
+                <span>&copy; <span id="year">2026</span> AstroSeec. Todos los derechos reservados.</span>
+                <nav class="foot-links" aria-label="Enlaces legales">
+                    <a href="servicios.html">Otros Servicios</a>
+                    <a href="Politicies.html">Política de privacidad</a>
+                    <a href="delete-account.html">Eliminar cuenta</a>
+                </nav>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js" defer></script>
+    <script src="themes/themes.js" defer></script>
+    <script>
+    (function () {
+        'use strict';
+        var KEY_STORE = 'astro-visitas-key';
+        var keyInput = document.getElementById('keyInput');
+        var errEl = document.getElementById('visErr');
+        var totalEl = document.getElementById('visTotal');
+        var tableEl = document.getElementById('visTable');
+        var bodyEl = document.getElementById('visBody');
+        var emptyEl = document.getElementById('visEmpty');
+        try { keyInput.value = sessionStorage.getItem(KEY_STORE) || ''; } catch (e) {}
+
+        function esc(s) { return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
+        function uaCorta(ua) {
+            if (!ua) return '—';
+            var so = /Android/i.test(ua) ? 'Android' : /iPhone|iPad/i.test(ua) ? 'iOS' : /Windows/i.test(ua) ? 'Windows' : /Mac OS/i.test(ua) ? 'macOS' : /Linux/i.test(ua) ? 'Linux' : '?';
+            var nav = /Edg\//i.test(ua) ? 'Edge' : /OPR\//i.test(ua) ? 'Opera' : /Chrome\//i.test(ua) ? 'Chrome' : /Safari\//i.test(ua) ? 'Safari' : /Firefox\//i.test(ua) ? 'Firefox' : '?';
+            var bot = /bot|spider|crawl|curl|uptime|monitor/i.test(ua) ? ' · bot' : '';
+            return nav + ' · ' + so + bot;
+        }
+        function refCorto(r) {
+            if (!r) return '—';
+            try { return new URL(r).hostname.replace(/^www\./, ''); } catch (e) { return String(r).slice(0, 40); }
+        }
+        function fila(it) {
+            var f = (it.ts || '').replace('T', ' ').replace(/\.\d+Z$/, ' UTC');
+            var loc = (it.pais || '—') + (it.ciudad ? ' · ' + it.ciudad : '');
+            return '<tr><td>' + esc(f) + '</td><td class="ip">' + esc(it.ip) + '</td><td>' + esc(loc) +
+                '</td><td>' + esc(it.pagina || '—') + '</td><td>' + esc(uaCorta(it.ua)) +
+                '</td><td>' + esc(refCorto(it.ref)) + '</td><td><span class="sub">' + esc((it.id || '—').slice(0, 14)) +
+                '</span><span class="sub">' + esc(it.pantalla || '') + '</span></td></tr>';
+        }
+        function setError(msg) {
+            errEl.textContent = msg; errEl.hidden = !msg;
+            if (msg) { tableEl.hidden = true; emptyEl.hidden = false; emptyEl.textContent = msg; }
+        }
+        function cargar() {
+            var k = keyInput.value.trim();
+            if (!k) { setError('Escribe la clave del registro.'); return; }
+            try { sessionStorage.setItem(KEY_STORE, k); } catch (e) {}
+            errEl.hidden = true;
+            emptyEl.hidden = false; emptyEl.textContent = 'Cargando…';
+            tableEl.hidden = true;
+            fetch('/api/visit?k=' + encodeURIComponent(k))
+                .then(function (r) { return r.json().catch(function () { return {}; }); })
+                .then(function (data) {
+                    if (data && data.error) { setError(data.error === 'clave inválida' ? 'Clave incorrecta.' : ('Error: ' + data.error)); return; }
+                    var items = (data && data.items) || [];
+                    totalEl.textContent = items.length + ' visitas registradas' + (data.total > items.length ? ' (de ' + data.total + ') ' : '') + ' · más recientes primero';
+                    bodyEl.innerHTML = items.map(fila).join('');
+                    tableEl.hidden = items.length === 0;
+                    emptyEl.hidden = items.length > 0;
+                    emptyEl.textContent = items.length === 0 ? 'Aún no hay visitas registradas.' : '';
+                })
+                .catch(function () { setError('No se pudo cargar el registro. Intenta de nuevo.'); });
+        }
+        document.getElementById('loadBtn').addEventListener('click', cargar);
+        keyInput.addEventListener('keydown', function (e) { if (e.key === 'Enter') cargar(); });
+        document.getElementById('purgeBtn').addEventListener('click', function () {
+            var k = keyInput.value.trim();
+            if (!k) { setError('Escribe la clave del registro.'); return; }
+            if (!confirm('Esto elimina permanentemente las entradas con más de 12 meses. ¿Continuar?')) return;
+            fetch('/api/visit?k=' + encodeURIComponent(k) + '&purgar=1')
+                .then(function (r) { return r.json(); })
+                .then(function (d) { totalEl.textContent = 'Purga completa: ' + (d.purgadas || 0) + ' entradas eliminadas.'; })
+                .catch(function () { setError('No se pudo purgar.'); });
+        });
+    })();
+    </script>
+</body>
+</html>

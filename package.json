@@ -1,0 +1,7 @@
+{
+  "name": "astroseec-web",
+  "private": true,
+  "dependencies": {
+    "@vercel/blob": "^1.1.0"
+  }
+}
