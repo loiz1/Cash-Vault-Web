@@ -2,7 +2,7 @@
    POST /api/visit            → registra una visita (beacon desde el sitio)
    GET  /api/visit?k=CLAVE    → lista el registro (requiere VISIT_LOG_KEY)
    GET  /api/visit?k=CLAVE&purgar=1 → borra entradas de más de 12 meses */
-const { put, list, del, getDownloadUrl } = require('@vercel/blob');
+const { put, list, del, get } = require('@vercel/blob');
 
 const KEY = process.env.VISIT_LOG_KEY || '';
 const MESES_REGISTRO = 12;
@@ -52,23 +52,6 @@ module.exports = async (req, res) => {
 
   const { blobs } = await list({ prefix: 'visitas/', limit: 1000 });
 
-  /* debug temporal (solo con clave) */
-  if (url.searchParams.get('debug') === '1') {
-    const muestra = [];
-    for (const blob of blobs.slice(0, 2)) {
-      try {
-        const r = await fetch(blob.downloadUrl || getDownloadUrl(blob.url));
-        const t = await r.text();
-        muestra.push({ pathname: blob.pathname, status: r.status, dlPrefix: (blob.downloadUrl || '').slice(0, 60), body: t.slice(0, 120) });
-      } catch (e) {
-        muestra.push({ pathname: blob.pathname, error: e.message });
-      }
-    }
-    res.setHeader('Content-Type', 'application/json; charset=utf-8');
-    res.end(JSON.stringify({ total: blobs.length, muestra }, null, 2));
-    return;
-  }
-
   if (url.searchParams.get('purgar') === '1') {
     const limite = Date.now() - MESES_REGISTRO * 30 * 24 * 3600 * 1000;
     let borradas = 0;
@@ -88,8 +71,11 @@ module.exports = async (req, res) => {
   const items = [];
   for (const blob of orden) {
     try {
-      const r = await fetch(blob.downloadUrl || getDownloadUrl(blob.url));
-      if (r.ok) items.push(await r.json());
+      const r = await get(blob.pathname, { access: 'private' });
+      if (r && r.stream) {
+        const txt = await new Response(r.stream).text();
+        items.push(JSON.parse(txt));
+      }
     } catch (e) { /* salta entradas ilegibles */ }
   }
   res.setHeader('Content-Type', 'application/json; charset=utf-8');
