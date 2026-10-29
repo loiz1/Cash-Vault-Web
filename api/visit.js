@@ -19,6 +19,16 @@ function readBody(req) {
 const clean = (v, n) => String(v || '').slice(0, n);
 
 module.exports = async (req, res) => {
+  /* CORS: la página de consulta puede abrirse también en local (127.0.0.1) */
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  if (req.method === 'OPTIONS') {
+    res.statusCode = 204;
+    res.end();
+    return;
+  }
+
   /* —— registro —— */
   if (req.method === 'POST') {
     const b = await readBody(req);

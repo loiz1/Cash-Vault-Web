@@ -3,6 +3,7 @@
 (function () {
     'use strict';
     try {
+        var base = /localhost|127\.0\.0\.1/.test(location.hostname) ? 'https://astroseec-web.vercel.app' : '';
         var d = {
             pagina: (location.pathname.split('/').pop() || 'index'),
             ref: document.referrer || '',
@@ -20,9 +21,9 @@
 
         var body = JSON.stringify(d);
         if (navigator.sendBeacon) {
-            navigator.sendBeacon('/api/visit', new Blob([body], { type: 'application/json' }));
+            navigator.sendBeacon(base + '/api/visit', new Blob([body], { type: 'application/json' }));
         } else {
-            fetch('/api/visit', { method: 'POST', body: body, headers: { 'Content-Type': 'application/json' }, keepalive: true });
+            fetch(base + '/api/visit', { method: 'POST', body: body, headers: { 'Content-Type': 'application/json' }, keepalive: true });
         }
     } catch (e) { /* silencio */ }
 })();

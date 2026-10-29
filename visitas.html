@@ -129,6 +129,7 @@
     (function () {
         'use strict';
         var KEY_STORE = 'astro-visitas-key';
+        var API = /localhost|127\.0\.0\.1/.test(location.hostname) ? 'https://astroseec-web.vercel.app' : '';
         var keyInput = document.getElementById('keyInput');
         var errEl = document.getElementById('visErr');
         var totalEl = document.getElementById('visTotal');
@@ -168,7 +169,7 @@
             errEl.hidden = true;
             emptyEl.hidden = false; emptyEl.textContent = 'Cargando…';
             tableEl.hidden = true;
-            fetch('/api/visit?k=' + encodeURIComponent(k))
+            fetch(API + '/api/visit?k=' + encodeURIComponent(k))
                 .then(function (r) { return r.json().catch(function () { return {}; }); })
                 .then(function (data) {
                     if (data && data.error) { setError(data.error === 'clave inválida' ? 'Clave incorrecta.' : ('Error: ' + data.error)); return; }
@@ -187,7 +188,7 @@
             var k = keyInput.value.trim();
             if (!k) { setError('Escribe la clave del registro.'); return; }
             if (!confirm('Esto elimina permanentemente las entradas con más de 12 meses. ¿Continuar?')) return;
-            fetch('/api/visit?k=' + encodeURIComponent(k) + '&purgar=1')
+            fetch(API + '/api/visit?k=' + encodeURIComponent(k) + '&purgar=1')
                 .then(function (r) { return r.json(); })
                 .then(function (d) { totalEl.textContent = 'Purga completa: ' + (d.purgadas || 0) + ' entradas eliminadas.'; })
                 .catch(function () { setError('No se pudo purgar.'); });
