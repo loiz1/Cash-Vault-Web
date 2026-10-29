@@ -71,7 +71,7 @@ module.exports = async (req, res) => {
   const items = [];
   for (const blob of orden) {
     try {
-      const r = await fetch(getDownloadUrl(blob.pathname));
+      const r = await fetch(getDownloadUrl(blob.url));
       if (r.ok) items.push(await r.json());
     } catch (e) { /* salta entradas ilegibles */ }
   }
