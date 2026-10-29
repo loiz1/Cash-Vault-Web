@@ -2,7 +2,7 @@
    POST /api/visit            → registra una visita (beacon desde el sitio)
    GET  /api/visit?k=CLAVE    → lista el registro (requiere VISIT_LOG_KEY)
    GET  /api/visit?k=CLAVE&purgar=1 → borra entradas de más de 12 meses */
-const { put, list, del } = require('@vercel/blob');
+const { put, list, del, getDownloadUrl } = require('@vercel/blob');
 
 const KEY = process.env.VISIT_LOG_KEY || '';
 const MESES_REGISTRO = 12;
@@ -71,7 +71,7 @@ module.exports = async (req, res) => {
   const items = [];
   for (const blob of orden) {
     try {
-      const r = await fetch(blob.url);
+      const r = await fetch(getDownloadUrl(blob.pathname));
       if (r.ok) items.push(await r.json());
     } catch (e) { /* salta entradas ilegibles */ }
   }
