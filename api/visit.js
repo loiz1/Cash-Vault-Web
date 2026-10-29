@@ -52,6 +52,23 @@ module.exports = async (req, res) => {
 
   const { blobs } = await list({ prefix: 'visitas/', limit: 1000 });
 
+  /* debug temporal (solo con clave) */
+  if (url.searchParams.get('debug') === '1') {
+    const muestra = [];
+    for (const blob of blobs.slice(0, 2)) {
+      try {
+        const r = await fetch(blob.downloadUrl || getDownloadUrl(blob.url));
+        const t = await r.text();
+        muestra.push({ pathname: blob.pathname, status: r.status, dlPrefix: (blob.downloadUrl || '').slice(0, 60), body: t.slice(0, 120) });
+      } catch (e) {
+        muestra.push({ pathname: blob.pathname, error: e.message });
+      }
+    }
+    res.setHeader('Content-Type', 'application/json; charset=utf-8');
+    res.end(JSON.stringify({ total: blobs.length, muestra }, null, 2));
+    return;
+  }
+
   if (url.searchParams.get('purgar') === '1') {
     const limite = Date.now() - MESES_REGISTRO * 30 * 24 * 3600 * 1000;
     let borradas = 0;
