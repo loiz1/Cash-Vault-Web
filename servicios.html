@@ -11,7 +11,7 @@
     <link rel="apple-touch-icon" href="LOGO_ASTROSEEC.jpeg">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Servicios de Ciberseguridad - AstroSeec">
-    <meta property="og:description" content="Auditorías de hacking ético, reparación de vulnerabilidades web, hardening y gobernanza de seguridad. Atención directa con el ingeniero a cargo.">
+    <meta property="og:description" content="Auditorías de hacking ético, reparación de vulnerabilidades web, hardening y gobernanza de seguridad. Luis Ricardo López, ingeniero en sistemas con especialización en ciberseguridad.">
     <meta property="og:image" content="LOGO_ASTROSEEC.jpeg">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,6 +19,41 @@
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="themes/themes.css">
+    <style>
+        /* Hero a dos columnas: texto + formulario de primera */
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.05fr 0.95fr;
+            gap: 48px;
+            align-items: center;
+            width: 100%;
+            max-width: 1160px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        .hero-card {
+            background: var(--paper);
+            border-radius: 24px;
+            padding: 28px 26px 24px;
+            box-shadow: 0 40px 80px -35px rgba(0, 0, 0, .6);
+        }
+        .hero-card h2 { margin: 0 0 4px; color: #3b2b1d; font-size: 21px; font-weight: 800; letter-spacing: -.01em; }
+        .hero-card .hero-card-sub { margin: 0; color: #85734f; font-size: 13.5px; line-height: 1.5; }
+        .hero-card .del-form { max-width: none; margin-top: 16px; }
+        /* Perfil: descripción centrada junto al logo */
+        .perfil-grid {
+            display: grid;
+            grid-template-columns: minmax(220px, 300px) 1fr;
+            gap: 56px;
+            align-items: center;
+        }
+        .perfil-grid .about-side { justify-self: center; text-align: center; }
+        .perfil-grid .logo-badge { margin: 18px auto 0; }
+        @media (max-width: 920px) {
+            .hero-grid { grid-template-columns: 1fr; gap: 36px; }
+            .perfil-grid { grid-template-columns: 1fr; gap: 26px; }
+        }
+    </style>
     <script defer src="/_vercel/insights/script.js"></script>
     <meta name="google-site-verification" content="3AgqNUMNFEMQFWHNADAPRXRTiRzyWdpGQ23AVqAGW4A" />
 </head>
@@ -41,15 +76,52 @@
     </header>
 
     <main>
-        <section class="page-hero">
-            <div class="wrap">
-                <a class="crumbs" href="index.html">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
-                    Volver al inicio
-                </a>
-                <h1>Ciberseguridad para tu sitio web y tu negocio</h1>
-                <p class="lede">Auditorías de hacking ético, análisis y reparación de vulnerabilidades, hardening y gobernanza de seguridad. Atención directa con el ingeniero a cargo, sin intermediarios.</p>
-                <p class="updated">Luis Ricardo López · Ingeniero en Sistemas, esp. Ciberseguridad</p>
+        <section class="page-hero" id="cotizar">
+            <div class="hero-grid">
+                <div>
+                    <a class="crumbs" href="index.html">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+                        Volver al inicio
+                    </a>
+                    <h1>Ciberseguridad para tu sitio web y tu negocio</h1>
+                    <p class="lede">Auditorías de hacking ético, análisis y reparación de vulnerabilidades, hardening y gobernanza de seguridad.</p>
+                </div>
+                <div class="hero-card" data-reveal>
+                    <h2>Cuéntame qué necesitas proteger</h2>
+                    <p class="hero-card-sub">Te respondo con un alcance y un presupuesto claros, sin compromiso.</p>
+                    <form id="formCyber" class="del-form" novalidate>
+                        <label>
+                            <span>Nombre</span>
+                            <input name="nombre" type="text" autocomplete="name" placeholder="Tu nombre" required>
+                        </label>
+                        <label>
+                            <span>Correo</span>
+                            <input name="correo" type="email" autocomplete="email" placeholder="tucorreo@ejemplo.com" required>
+                        </label>
+                        <label>
+                            <span>Teléfono (opcional)</span>
+                            <input name="telefono" type="tel" autocomplete="tel" placeholder="+57 300 000 0000">
+                        </label>
+                        <label>
+                            <span>Servicio de interés</span>
+                            <select name="servicio" required>
+                                <option value="" disabled selected>Elige un servicio</option>
+                                <option>Auditoría de hacking ético web</option>
+                                <option>Análisis y reparación de vulnerabilidades</option>
+                                <option>Hardening y puesta a punto</option>
+                                <option>Gobernanza de seguridad</option>
+                                <option>Desarrollo seguro</option>
+                                <option>Aún no lo sé — necesito un diagnóstico</option>
+                            </select>
+                        </label>
+                        <label>
+                            <span>Mensaje</span>
+                            <textarea name="mensaje" rows="4" placeholder="Cuéntame sobre tu sitio o sistema: qué es, qué te preocupa y qué necesitas…" required></textarea>
+                        </label>
+                        <button class="btn btn-brass" type="submit">Enviar consulta</button>
+                        <p class="df-note" hidden></p>
+                    </form>
+                </div>
             </div>
         </section>
 
@@ -143,7 +215,7 @@
 
         <section class="section" id="perfil" style="padding-top: 0">
             <div class="wrap">
-                <div class="about-grid">
+                <div class="perfil-grid">
                     <div class="about-side" data-reveal>
                         <p class="eyebrow">Quién hace el trabajo</p>
                         <figure class="logo-badge">
@@ -162,58 +234,6 @@
                 </div>
             </div>
         </section>
-
-        <section class="section" id="contenido" style="padding-top: 0">
-            <div class="wrap">
-                <div data-reveal>
-                    <p class="eyebrow">Empecemos</p>
-                </div>
-                <div class="doc">
-                    <article class="doc-item" data-reveal>
-                        <span class="doc-num" aria-hidden="true">
-                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.4-2.9 8.2-7 10-4.1-1.8-7-5.6-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg>
-                        </span>
-                        <div>
-                            <h2>Cuéntame qué necesitas proteger</h2>
-                            <p>Te respondo con un alcance y un presupuesto claros, sin compromiso.</p>
-                            <form id="formCyber" class="del-form" novalidate>
-                                <label>
-                                    <span>Nombre</span>
-                                    <input name="nombre" type="text" autocomplete="name" placeholder="Tu nombre" required>
-                                </label>
-                                <label>
-                                    <span>Correo</span>
-                                    <input name="correo" type="email" autocomplete="email" placeholder="tucorreo@ejemplo.com" required>
-                                </label>
-                                <label>
-                                    <span>Teléfono (opcional)</span>
-                                    <input name="telefono" type="tel" autocomplete="tel" placeholder="+57 300 000 0000">
-                                </label>
-                                <label>
-                                    <span>Servicio de interés</span>
-                                    <select name="servicio" required>
-                                        <option value="" disabled selected>Elige un servicio</option>
-                                        <option>Auditoría de hacking ético web</option>
-                                        <option>Análisis y reparación de vulnerabilidades</option>
-                                        <option>Hardening y puesta a punto</option>
-                                        <option>Gobernanza de seguridad</option>
-                                        <option>Desarrollo seguro</option>
-                                        <option>Aún no lo sé — necesito un diagnóstico</option>
-                                    </select>
-                                </label>
-                                <label>
-                                    <span>Mensaje</span>
-                                    <textarea name="mensaje" rows="4" placeholder="Cuéntame sobre tu sitio o sistema: qué es, qué te preocupa y qué necesitas…" required></textarea>
-                                </label>
-                                <button class="btn btn-brass" type="submit">Enviar consulta</button>
-                                <p class="df-note" hidden></p>
-                            </form>
-                            <p class="note" style="margin-top: 18px">¿Prefieres el correo directo? Escríbenos a <a href="mailto:astroseec@gmail.com">astroseec@gmail.com</a> con el asunto "Ciberseguridad".</p>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
     </main>
 
     <footer class="contact" id="contacto">
@@ -221,7 +241,7 @@
             <p class="eyebrow">Contacto</p>
             <h2 class="title">¿Hablamos?</h2>
             <p class="cta-form">Auditoría, reparación o gobernanza: cuéntanos tu caso hoy mismo:</p>
-            <a class="btn btn-brass" href="#contenido">Solicitar una auditoría</a>
+            <a class="btn btn-brass" href="#cotizar">Solicitar una auditoría</a>
 
             <div class="foot">
                 <a class="brand" href="index.html">
