@@ -21,9 +21,18 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="themes/themes.css">
     <style>
-        /* Capturas de la ficha dentro del móvil */
-        .screen .shot { margin: 0 0 2px; border-radius: 14px; overflow: hidden; background: rgba(0, 0, 0, .25); }
-        .screen .shot img { display: block; width: 100%; height: auto; }
+        /* Capturas de la ficha dentro del móvil, en carrusel */
+        .phone-carousel { position: relative; overflow: hidden; border-radius: 14px; background: rgba(0, 0, 0, .25); }
+        .car-track { display: flex; transition: transform .45s cubic-bezier(.3, .8, .3, 1); }
+        .car-track .shot { flex: 0 0 100%; margin: 0; border-radius: 0; overflow: hidden; background: rgba(0, 0, 0, .25); }
+        .car-track .shot img { display: block; width: 100%; height: auto; }
+        .car-btn { position: absolute; top: 50%; transform: translateY(-50%); width: 30px; height: 30px; border-radius: 50%; border: 0; background: rgba(14, 38, 34, .6); color: #f1ece1; font-size: 18px; line-height: 1; cursor: pointer; }
+        .car-btn:hover { background: rgba(14, 38, 34, .85); }
+        .car-prev { left: 8px; }
+        .car-next { right: 8px; }
+        .car-dots { position: absolute; bottom: 8px; left: 0; right: 0; display: flex; justify-content: center; gap: 6px; }
+        .car-dot { width: 7px; height: 7px; border-radius: 50%; background: rgba(241, 236, 225, .4); }
+        .car-dot.on { background: var(--brass-lit); }
         /* Tabla de compras acorde al diseño del sitio */
         .compras-card { background: var(--paper); border-radius: 18px; border: 1px solid rgba(74, 64, 99, .14); overflow-x: auto; margin-top: 34px; box-shadow: 0 22px 44px -30px rgba(14, 38, 34, .45); }
         table.compras { border-collapse: collapse; width: 100%; font-size: 14px; min-width: 640px; }
@@ -116,13 +125,17 @@
                     <div class="screen" aria-hidden="true">
                         <div class="screen-head">
                             <strong>Fruit Duels</strong>
-                            <span>Fichas de Play Store</span>
+                            <span>Capturas de la ficha</span>
                         </div>
-                        <figure class="shot"><img src="assets/fruitduels-s1.jpg" alt="Captura de la ficha de Fruit Duels 1" loading="lazy"></figure>
-                        <figure class="shot"><img src="assets/fruitduels-s2.jpg" alt="Captura de la ficha de Fruit Duels 2" loading="lazy"></figure>
-                        <figure class="shot"><img src="assets/fruitduels-s3.jpg" alt="Captura de la ficha de Fruit Duels 3" loading="lazy"></figure>
-                        <figure class="shot"><img src="assets/fruitduels-s4.jpg" alt="Captura de la ficha de Fruit Duels 4" loading="lazy"></figure>
-                        <figure class="shot"><img src="assets/fruitduels-s5.jpg" alt="Captura de la ficha de Fruit Duels 5" loading="lazy"></figure>
+                        <div class="phone-carousel" data-carousel>
+                            <div class="car-track">
+                                <figure class="shot"><img src="assets/fruitduels-s1.jpg" alt="Captura de la ficha de Fruit Duels 1"></figure>
+                                <figure class="shot"><img src="assets/fruitduels-s2.jpg" alt="Captura de la ficha de Fruit Duels 2"></figure>
+                                <figure class="shot"><img src="assets/fruitduels-s3.jpg" alt="Captura de la ficha de Fruit Duels 3"></figure>
+                                <figure class="shot"><img src="assets/fruitduels-s4.jpg" alt="Captura de la ficha de Fruit Duels 4"></figure>
+                                <figure class="shot"><img src="assets/fruitduels-s5.jpg" alt="Captura de la ficha de Fruit Duels 5"></figure>
+                            </div>
+                        </div>
                     </div>
                     <div class="screen-fade" aria-hidden="true"></div>
                     <div class="home-bar"></div>
@@ -204,28 +217,17 @@
                 <div class="compras-card" data-reveal>
                     <table class="compras">
                         <thead>
-                            <tr><th>Producto</th><th>Tipo</th><th>Qué obtienes</th><th>Precio de referencia</th></tr>
+                            <tr><th>Producto</th><th>Tipo</th><th>Qué obtienes</th><th>Precio</th></tr>
                         </thead>
                         <tbody>
                             <tr><td>Puñado de monedas</td><td>Consumible</td><td>1.000 monedas</td><td>Se muestra en la app</td></tr>
                             <tr><td>Bolsa de monedas</td><td>Consumible</td><td>5.000 monedas</td><td>Se muestra en la app</td></tr>
                             <tr><td>Cofre de monedas</td><td>Consumible</td><td>12.000 monedas</td><td>Se muestra en la app</td></tr>
                             <tr><td>Baúl de monedas</td><td>Consumible</td><td>30.000 monedas</td><td>Se muestra en la app</td></tr>
-                            <tr><td>Pack de bienvenida</td><td>Oferta · 24 h de booster</td><td>2.000 monedas + skin</td><td>US$ 1,49</td></tr>
-                            <tr><td>Pack arsenal</td><td>Oferta · 48 h de booster</td><td>2.500 monedas</td><td>US$ 1,99</td></tr>
-                            <tr><td>Pack segunda oportunidad</td><td>Oferta</td><td>2.400 monedas</td><td>US$ 1,99</td></tr>
-                            <tr><td>Pack rescate</td><td>Oferta</td><td>1.000 monedas</td><td>US$ 0,99</td></tr>
-                            <tr><td>Pack regreso</td><td>Oferta · 48 h de booster</td><td>2.500 monedas</td><td>US$ 1,99</td></tr>
-                            <tr><td>Pack semana doble</td><td>Oferta · 7 días de booster</td><td>1.500 monedas</td><td>US$ 2,99</td></tr>
-                            <tr><td>Pack ambiente</td><td>Oferta</td><td>2.500 monedas + fondo medianoche</td><td>US$ 2,99</td></tr>
-                            <tr><td>Pack cofre diario</td><td>Oferta · 30 días</td><td>Cofre diario de monedas</td><td>US$ 4,99</td></tr>
-                            <tr><td>Pack coleccionista</td><td>Oferta</td><td>7.400 monedas + skins Gemas y Mágicas</td><td>US$ 6,99</td></tr>
-                            <tr><td>Pack maratón</td><td>Oferta</td><td>22.000 monedas + skins Planetas y Animales</td><td>US$ 19,99</td></tr>
-                            <tr><td>Pase de Frutas (premium)</td><td>Pase de temporada</td><td>Pista premium del pase con recompensas extra</td><td>Se muestra en la app</td></tr>
                         </tbody>
                     </table>
                 </div>
-                <p class="note" data-reveal><strong>Las monedas y artículos de Fruit Duels se adquieren con dinero real a través de Google Play</strong>, se usan dentro de la aplicación y no se pueden canjear por dinero en efectivo. El precio final se muestra siempre en Google Play antes de confirmar el pago, en tu moneda local, y puedes revisar tus compras en <a href="https://play.google.com/store/account/orders" target="_blank" rel="noopener">play.google.com/store/account</a>.</p>
+                <p class="note" data-reveal><strong>Las monedas de Fruit Duels se adquieren con dinero real a través de Google Play</strong>, se usan dentro de la aplicación y no se pueden canjear por dinero en efectivo. El precio final se muestra siempre en Google Play antes de confirmar el pago, en tu moneda local, y puedes revisar tus compras en <a href="https://play.google.com/store/account/orders" target="_blank" rel="noopener">play.google.com/store/account</a>. Las recompensas del diario, los premios de la liga y la pista gratuita del Pase de Frutas se consiguen solo jugando.</p>
             </div>
         </section>
 

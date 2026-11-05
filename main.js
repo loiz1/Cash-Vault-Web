@@ -236,6 +236,43 @@
         });
     }
 
+    /* Carruseles con controles: cualquier bloque data-carousel con .car-track */
+    document.querySelectorAll('[data-carousel]').forEach(function (c) {
+        var track = c.querySelector('.car-track');
+        if (!track || track.children.length < 2) return;
+        var i = 0;
+        var n = track.children.length;
+        var prev = document.createElement('button');
+        prev.type = 'button';
+        prev.className = 'car-btn car-prev';
+        prev.setAttribute('aria-label', 'Anterior');
+        prev.textContent = '‹';
+        var next = document.createElement('button');
+        next.type = 'button';
+        next.className = 'car-btn car-next';
+        next.setAttribute('aria-label', 'Siguiente');
+        next.textContent = '›';
+        var dots = document.createElement('div');
+        dots.className = 'car-dots';
+        for (var d = 0; d < n; d++) {
+            var dot = document.createElement('span');
+            dot.className = 'car-dot';
+            dots.appendChild(dot);
+        }
+        var go = function (k) {
+            i = (k + n) % n;
+            track.style.transform = 'translateX(-' + (i * 100) + '%)';
+            var dt = dots.children;
+            for (var j = 0; j < dt.length; j++) dt[j].classList.toggle('on', j === i);
+        };
+        prev.addEventListener('click', function () { go(i - 1); });
+        next.addEventListener('click', function () { go(i + 1); });
+        c.appendChild(prev);
+        c.appendChild(next);
+        c.appendChild(dots);
+        go(0);
+    });
+
     /* Aparición progresiva de los bloques */
     var targets = document.querySelectorAll('[data-reveal]');
     if (!targets.length) return;
