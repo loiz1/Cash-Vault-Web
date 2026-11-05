@@ -20,6 +20,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="themes/themes.css">
+    <style>
+        /* Capturas de la ficha dentro del móvil */
+        .screen .shot { margin: 0 0 2px; border-radius: 14px; overflow: hidden; background: rgba(0, 0, 0, .25); }
+        .screen .shot img { display: block; width: 100%; height: auto; }
+        /* Tabla de compras acorde al diseño del sitio */
+        .compras-card { background: var(--paper); border-radius: 18px; border: 1px solid rgba(74, 64, 99, .14); overflow-x: auto; margin-top: 34px; box-shadow: 0 22px 44px -30px rgba(14, 38, 34, .45); }
+        table.compras { border-collapse: collapse; width: 100%; font-size: 14px; min-width: 640px; }
+        table.compras th { text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: .07em; color: #85734f; padding: 14px 16px; border-bottom: 2px solid rgba(200, 162, 74, .45); white-space: nowrap; background: rgba(200, 162, 74, .08); }
+        table.compras td { padding: 12px 16px; border-bottom: 1px solid rgba(74, 64, 99, .1); vertical-align: top; }
+        table.compras tbody tr:nth-child(even) td { background: rgba(200, 162, 74, .05); }
+        table.compras tbody tr:last-child td { border-bottom: 0; }
+        table.compras td:first-child { font-weight: 700; color: var(--ink); }
+        table.compras td:last-child { white-space: nowrap; font-weight: 600; }
+    </style>
     <script defer src="/_vercel/insights/script.js"></script>
     <meta name="google-site-verification" content="3AgqNUMNFEMQFWHNADAPRXRTiRzyWdpGQ23AVqAGW4A" />
 </head>
@@ -69,7 +83,7 @@
                         </div>
                     </div>
 
-                    <p class="app-lead">Duelos entre frutas con una liga que escalar: fusiona para crecer, llena tu hucha de monedas, abre el diario de recompensas cada día y hazte con el Pase de Frutas de la temporada.</p>
+                    <p class="app-lead">Fruit Duels es un juego casual de fusión de frutas con partidas individuales y duelos, progresión por niveles, liga con clasificación, monedas virtuales, tienda de artículos cosméticos y de juego, recompensas diarias, boosters y un pase de temporada. El servicio se presta "tal cual", en continua evolución, y puede incorporar novedades, ajustes o retiros de funcionalidades para mejorar la experiencia.</p>
 
                     <div class="app-actions">
                         <a class="btn btn-brass" href="https://play.google.com/store/apps/details?id=com.astroseec.fruitduels" target="_blank" rel="noopener">
@@ -84,7 +98,7 @@
                         <span class="chip">Android</span>
                         <span class="chip">Gratis con compras opcionales</span>
                         <span class="chip">Español</span>
-                        <span class="chip">Sin anuncios entre partidas</span>
+                        <span class="chip">Recompensas opcionales por video</span>
                     </div>
                 </div>
 
@@ -102,50 +116,13 @@
                     <div class="screen" aria-hidden="true">
                         <div class="screen-head">
                             <strong>Fruit Duels</strong>
-                            <span>Nivel 23</span>
+                            <span>Fichas de Play Store</span>
                         </div>
-
-                        <div class="panel">
-                            <div class="panel-label">Monedas</div>
-                            <div class="panel-figure">12.450 🪙</div>
-                            <div class="panel-note">Ganadas esta semana: 2.300 · Recompensa del día lista</div>
-                        </div>
-
-                        <div class="panel rows">
-                            <div class="row">
-                                <span class="row-main"><i class="dot" style="--c:#c8a24a"></i><span>Pase de Frutas · Nivel 14/30</span></span>
-                                <b>62%</b>
-                            </div>
-                            <div class="row">
-                                <span class="row-main"><i class="dot" style="--c:#6fb7c9"></i><span>Diario de recompensas</span></span>
-                                <b>Día 12/24</b>
-                            </div>
-                            <div class="row">
-                                <span class="row-main"><i class="dot" style="--c:#f4978e"></i><span>Booster ×2 activo</span></span>
-                                <b>4 h</b>
-                            </div>
-                        </div>
-
-                        <div class="panel rows">
-                            <div class="row">
-                                <span class="row-main"><i class="dot" style="--c:#cdb4db"></i><span>Bomba</span></span>
-                                <b>200 🪙</b>
-                            </div>
-                            <div class="row">
-                                <span class="row-main"><i class="dot" style="--c:#cdb4db"></i><span>Imán</span></span>
-                                <b>240 🪙</b>
-                            </div>
-                            <div class="row">
-                                <span class="row-main"><i class="dot" style="--c:#cdb4db"></i><span>Comodín</span></span>
-                                <b>400 🪙</b>
-                            </div>
-                        </div>
-
-                        <div class="panel">
-                            <div class="panel-label">Liga</div>
-                            <div class="panel-figure">Oro III</div>
-                            <div class="panel-note">Puesto 8 de 50 · Faltan 400 puntos para subir.</div>
-                        </div>
+                        <figure class="shot"><img src="assets/fruitduels-s1.jpg" alt="Captura de la ficha de Fruit Duels 1" loading="lazy"></figure>
+                        <figure class="shot"><img src="assets/fruitduels-s2.jpg" alt="Captura de la ficha de Fruit Duels 2" loading="lazy"></figure>
+                        <figure class="shot"><img src="assets/fruitduels-s3.jpg" alt="Captura de la ficha de Fruit Duels 3" loading="lazy"></figure>
+                        <figure class="shot"><img src="assets/fruitduels-s4.jpg" alt="Captura de la ficha de Fruit Duels 4" loading="lazy"></figure>
+                        <figure class="shot"><img src="assets/fruitduels-s5.jpg" alt="Captura de la ficha de Fruit Duels 5" loading="lazy"></figure>
                     </div>
                     <div class="screen-fade" aria-hidden="true"></div>
                     <div class="home-bar"></div>
@@ -224,24 +201,31 @@
                     <h2 class="title">Productos opcionales</h2>
                     <p class="subtitle">El juego es gratuito. Las compras son opcionales y se procesan de forma segura a través de Google Play: el precio se muestra siempre en la app antes de confirmar el pago y se cobra en tu método de pago de Google Play.</p>
                 </div>
-                <div class="table-scroll" data-reveal>
-                    <table class="vis">
+                <div class="compras-card" data-reveal>
+                    <table class="compras">
                         <thead>
-                            <tr><th>Producto</th><th>Tipo</th><th>Qué obtienes</th></tr>
+                            <tr><th>Producto</th><th>Tipo</th><th>Qué obtienes</th><th>Precio de referencia</th></tr>
                         </thead>
                         <tbody>
-                            <tr><td>Puñado de monedas</td><td>Consumible</td><td>1.000 monedas</td></tr>
-                            <tr><td>Bolsa de monedas</td><td>Consumible</td><td>5.000 monedas</td></tr>
-                            <tr><td>Cofre de monedas</td><td>Consumible</td><td>12.000 monedas</td></tr>
-                            <tr><td>Baúl de monedas</td><td>Consumible</td><td>30.000 monedas</td></tr>
-                            <tr><td>Packs de oferta</td><td>Consumible</td><td>Monedas, boosters y skins con descuento</td></tr>
-                            <tr><td>Quitar anuncios</td><td>No consumible</td><td>Elimina la publicidad del juego de forma permanente</td></tr>
-                            <tr><td>Pase de Frutas (premium)</td><td>No consumible · temporada</td><td>Pista premium del pase con recompensas extra durante la temporada</td></tr>
-                            <tr><td>Booster de monedas +50%</td><td>Consumible</td><td>Duplica las monedas ganadas durante la vigencia indicada</td></tr>
+                            <tr><td>Puñado de monedas</td><td>Consumible</td><td>1.000 monedas</td><td>Se muestra en la app</td></tr>
+                            <tr><td>Bolsa de monedas</td><td>Consumible</td><td>5.000 monedas</td><td>Se muestra en la app</td></tr>
+                            <tr><td>Cofre de monedas</td><td>Consumible</td><td>12.000 monedas</td><td>Se muestra en la app</td></tr>
+                            <tr><td>Baúl de monedas</td><td>Consumible</td><td>30.000 monedas</td><td>Se muestra en la app</td></tr>
+                            <tr><td>Pack de bienvenida</td><td>Oferta · 24 h de booster</td><td>2.000 monedas + skin</td><td>US$ 1,49</td></tr>
+                            <tr><td>Pack arsenal</td><td>Oferta · 48 h de booster</td><td>2.500 monedas</td><td>US$ 1,99</td></tr>
+                            <tr><td>Pack segunda oportunidad</td><td>Oferta</td><td>2.400 monedas</td><td>US$ 1,99</td></tr>
+                            <tr><td>Pack rescate</td><td>Oferta</td><td>1.000 monedas</td><td>US$ 0,99</td></tr>
+                            <tr><td>Pack regreso</td><td>Oferta · 48 h de booster</td><td>2.500 monedas</td><td>US$ 1,99</td></tr>
+                            <tr><td>Pack semana doble</td><td>Oferta · 7 días de booster</td><td>1.500 monedas</td><td>US$ 2,99</td></tr>
+                            <tr><td>Pack ambiente</td><td>Oferta</td><td>2.500 monedas + fondo medianoche</td><td>US$ 2,99</td></tr>
+                            <tr><td>Pack cofre diario</td><td>Oferta · 30 días</td><td>Cofre diario de monedas</td><td>US$ 4,99</td></tr>
+                            <tr><td>Pack coleccionista</td><td>Oferta</td><td>7.400 monedas + skins Gemas y Mágicas</td><td>US$ 6,99</td></tr>
+                            <tr><td>Pack maratón</td><td>Oferta</td><td>22.000 monedas + skins Planetas y Animales</td><td>US$ 19,99</td></tr>
+                            <tr><td>Pase de Frutas (premium)</td><td>Pase de temporada</td><td>Pista premium del pase con recompensas extra</td><td>Se muestra en la app</td></tr>
                         </tbody>
                     </table>
                 </div>
-                <p class="note" data-reveal>Las monedas y artículos de Fruit Duels son contenidos virtuales del juego: no tienen valor monetario real, no se pueden canjear por dinero y solo se usan dentro de la aplicación. Las suscripciones y compras se gestionan desde tu cuenta de Google Play y puedes revisarlas en <a href="https://play.google.com/store/account/orders" target="_blank" rel="noopener">play.google.com/store/account</a>.</p>
+                <p class="note" data-reveal><strong>Las monedas y artículos de Fruit Duels se adquieren con dinero real a través de Google Play</strong>, se usan dentro de la aplicación y no se pueden canjear por dinero en efectivo. El precio final se muestra siempre en Google Play antes de confirmar el pago, en tu moneda local, y puedes revisar tus compras en <a href="https://play.google.com/store/account/orders" target="_blank" rel="noopener">play.google.com/store/account</a>.</p>
             </div>
         </section>
 
@@ -269,7 +253,7 @@
                             <p>El prestador del servicio y responsable del App es:</p>
                             <ul>
                                 <li><strong>Marca comercial:</strong> AstroSeec</li>
-                                <li><strong>Titular:</strong> Luis Ricardo López, ingeniero en sistemas</li>
+                                <li><strong>Titular:</strong> Luis Ricardo López</li>
                                 <li><strong>Ubicación:</strong> Bogotá D.C., Colombia</li>
                                 <li><strong>Correo de contacto:</strong> <a href="mailto:astroseec@gmail.com">astroseec@gmail.com</a></li>
                             </ul>
@@ -291,7 +275,7 @@
                             <h2>Compras dentro de la aplicación</h2>
                             <ul>
                                 <li>Las compras de monedas, artículos, boosters, el pase premium y la opción de quitar anuncios se procesan exclusivamente a través de <strong>Google Play Billing</strong>. El precio vigente se muestra en la App antes de confirmar el pago y la transacción se factura a través de tu cuenta de Google Play.</li>
-                                <li>Las monedas y artículos adquiridos son una <strong>licencia limitada, no exclusiva y revocable</strong> para usarlos dentro del juego: no tienen valor monetario real, no son canjeables por dinero, bienes ni servicios, y no son transferibles entre usuarios.</li>
+                                <li>Las monedas y artículos se adquieren <strong>con dinero real a través de Google Play</strong> y se conceden como una <strong>licencia limitada, no exclusiva y revocable</strong> para usarlos dentro del juego: son contenidos virtuales de uso exclusivo en la aplicación, no se pueden canjear por dinero en efectivo, bienes ni servicios, y no son transferibles entre usuarios.</li>
                                 <li>Las compras no son reembolsables, salvo lo exigido por la ley aplicable o lo previsto en las <a href="https://support.google.com/googleplay/answer/2479634" target="_blank" rel="noopener">políticas de reembolso de Google Play</a>, que prevalecen para la gestión de pagos y reembolsos.</li>
                                 <li>Los boosters y el pase premium tienen la <strong>vigencia temporal</strong> indicada en la App en el momento de la compra (por ejemplo, horas de booster o la duración de la temporada del pase).</li>
                                 <li>La obtención de monedas o ventajas mediante medios no autorizados (exploits, modificaciones de la App o ingeniería inversa) está prohibida y puede llevar a la suspensión del acceso al servicio.</li>
