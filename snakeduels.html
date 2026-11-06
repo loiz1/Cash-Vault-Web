@@ -19,6 +19,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="themes/themes.css">
+    <style>
+        .compras-card { background: var(--paper); border-radius: 18px; border: 1px solid rgba(74, 64, 99, .14); overflow-x: auto; margin-top: 34px; box-shadow: 0 22px 44px -30px rgba(14, 38, 34, .45); }
+        table.compras { border-collapse: collapse; width: 100%; font-size: 14px; min-width: 640px; }
+        table.compras th { text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: .07em; color: #85734f; padding: 14px 16px; border-bottom: 2px solid rgba(200, 162, 74, .45); white-space: nowrap; background: rgba(200, 162, 74, .08); }
+        table.compras td { padding: 12px 16px; border-bottom: 1px solid rgba(74, 64, 99, .1); vertical-align: top; }
+        table.compras tbody tr:nth-child(even) td { background: rgba(200, 162, 74, .05); }
+        table.compras tbody tr:last-child td { border-bottom: 0; }
+        table.compras td:first-child { font-weight: 700; color: var(--ink); font-family: ui-monospace, Consolas, monospace; }
+        table.compras td:last-child { white-space: nowrap; font-weight: 600; }
+    </style>
     <script defer src="/_vercel/insights/script.js"></script>
     <meta name="google-site-verification" content="3AgqNUMNFEMQFWHNADAPRXRTiRzyWdpGQ23AVqAGW4A" />
 </head>
@@ -61,7 +71,7 @@
                 </div>
                 <div class="chips">
                     <span class="chip">Android</span>
-                    <span class="chip">Gratis</span>
+                    <span class="chip">Gratis con compras opcionales</span>
                     <span class="chip">Español</span>
                     <span class="chip">Ranking global</span>
                 </div>
@@ -120,7 +130,33 @@
                     </article>
                 </div>
 
-                <p class="note" data-reveal><strong>Sin compras reales:</strong> el oro se gana solo jugando (puntaje × 5 por partida) y toda la tienda funciona con oro. El progreso y el ranking se guardan en la nube con Firebase.</p>
+                </div>
+        </section>
+
+        <section class="section-tight" id="compras" style="padding-top: 0">
+            <div class="wrap">
+                <div data-reveal>
+                    <p class="eyebrow">Compras dentro de la app</p>
+                    <h2 class="title">Productos opcionales</h2>
+                    <p class="subtitle">Las monedas se adquieren con dinero real a través de Google Play y se usan dentro del juego para la tienda de cosméticos. El precio final se muestra siempre en Google Play antes de confirmar el pago, en tu moneda local, y puedes revisar tus compras en <a href="https://play.google.com/store/account/orders" target="_blank" rel="noopener">play.google.com/store/account</a>.</p>
+                </div>
+                <div class="compras-card" data-reveal>
+                    <table class="compras">
+                        <thead>
+                            <tr><th>Producto</th><th>Tipo</th><th>Qué obtienes</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>sd_monedas_600</td><td>Consumible</td><td>600 monedas</td></tr>
+                            <tr><td>sd_monedas_1500</td><td>Consumible</td><td>1.500 monedas</td></tr>
+                            <tr><td>sd_monedas_3500</td><td>Consumible</td><td>3.500 monedas</td></tr>
+                            <tr><td>sd_monedas_8500</td><td>Consumible</td><td>8.500 monedas</td></tr>
+                            <tr><td>sd_pase_vibora</td><td>No consumible (producto duradero)</td><td>Pase de temporada</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="note" data-reveal>El oro también se gana solo jugando (puntaje × 5 por partida) y toda la tienda de cosméticos funciona con oro. El progreso y el ranking se guardan en la nube con Firebase.</p>
+            </div>
+        </section>
             </div>
         </section>
     </main>
