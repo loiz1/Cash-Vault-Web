@@ -1,155 +1,22 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="theme-color" content="#0e2622">
-    <meta name="description" content="Impostor Duels: el juego social de deducción ambientado en el oeste, para jugar en un mismo dispositivo. Palabra secreta, discusión, votación, modo solo con bots y trofeos.">
-    <title>Impostor Duels - AstroSeec</title>
-
-    <link rel="icon" type="image/jpeg" href="LOGO_ASTROSEEC.jpeg">
-    <link rel="apple-touch-icon" href="LOGO_ASTROSEEC.jpeg">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Impostor Duels - AstroSeec">
-    <meta property="og:description" content="El juego social de deducción del oeste: palabra secreta, discusión, votación y modo solo con bots.">
-    <meta property="og:image" content="assets/impostorduels.png">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="themes/themes.css">
-    <script defer src="/_vercel/insights/script.js"></script>
-    <meta name="google-site-verification" content="3AgqNUMNFEMQFWHNADAPRXRTiRzyWdpGQ23AVqAGW4A" />
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#29150e">
+  <meta name="description" content="Impostor Duels: reúne a tu pandilla, descubre la palabra secreta y desenmascara al impostor. Juega con amigos, contra bots o en la misma red Wi-Fi.">
+  <title>Impostor Duels — AstroSeec</title><link rel="icon" href="assets/impostorduels.png" type="image/png"><link rel="apple-touch-icon" href="assets/impostorduels.png">
+  <meta property="og:type" content="website"><meta property="og:title" content="Impostor Duels — AstroSeec"><meta property="og:description" content="Una palabra secreta. Una mesa llena de sospechas. ¿Quién es el impostor?"><meta property="og:image" content="assets/impostorduels/logo.webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Rye&family=Nunito+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/game-pages.css"><link rel="stylesheet" href="assets/impostorduels.css"><meta name="google-site-verification" content="3AgqNUMNFEMQFWHNADAPRXRTiRzyWdpGQ23AVqAGW4A"><script defer src="/_vercel/insights/script.js"></script>
 </head>
-<body>
-    <a class="skip" href="#contenido">Saltar al contenido</a>
-
-    <header class="nav">
-        <div class="nav-in">
-            <a class="brand" href="index.html" aria-label="AstroSeec, inicio">
-                <span class="mark"><img src="LOGO_ASTROSEEC.jpeg" alt="" width="38" height="38"></span>
-                <span class="brand-name">AstroSeec</span>
-            </a>
-            <nav class="nav-links" aria-label="Principal">
-                <a href="index.html#apps" aria-current="page">Apps</a>
-                <a href="index.html#nosotros">Nosotros</a>
-                <a href="servicios.html">Otros Servicios</a>
-                <a href="index.html?form=1">Contacto</a>
-            </nav>
-        </div>
-    </header>
-
-    <main>
-        <section class="page-hero">
-            <div class="wrap">
-                <a class="crumbs" href="index.html#apps">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
-                    Todas las apps
-                </a>
-                <div class="app-id" style="--tint:#e6d9bf">
-                    <span class="app-tile"><img src="assets/impostorduels.png" alt="Icono de Impostor Duels"></span>
-                    <div>
-                        <span class="app-kicker">Juego · Fiesta</span>
-                        <h1>Impostor Duels</h1>
-                    </div>
-                </div>
-                <p class="lede">El juego social de deducción con ambientación del oeste, para jugar en un mismo dispositivo: recibe tu palabra secreta, describe sin delatarte y desenmascara al impostor antes de que se cuele entre vosotros. Con categorías para rato largo y modo solo contra bots.</p>
-                <div class="app-actions">
-                    <span class="btn btn-outline">Próximamente en Google Play</span>
-                    <a class="btn btn-ghost" href="#funciones">Ver funciones</a>
-                </div>
-                <div class="chips">
-                    <span class="chip">Android</span>
-                    <span class="chip">Gratis</span>
-                    <span class="chip">Español</span>
-                    <span class="chip">Para jugar con amigos</span>
-                </div>
-            </div>
-        </section>
-
-        <section class="section" id="funciones">
-            <div class="wrap">
-                <div data-reveal>
-                    <p class="eyebrow">Funciones clave</p>
-                    <h2 class="title">Lo que puedes hacer</h2>
-                </div>
-
-                <div class="grid-cards" style="margin-top: 42px">
-                    <article class="card" data-reveal>
-                        <span class="card-icon" aria-hidden="true">
-                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6-10-6-10-6z"/><circle cx="12" cy="12" r="2.6"/></svg>
-                        </span>
-                        <h3>Palabra secreta y roles</h3>
-                        <p>Cada jugador recibe su palabra (o la del impostor) y empieza la mentira elegante.</p>
-                    </article>
-                    <article class="card" data-reveal style="--d:80ms">
-                        <span class="card-icon" aria-hidden="true">
-                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 01-12.3 7.6L3 21l1.9-5.7A8.5 8.5 0 1121 11.5z"/><path d="M8 10h8M8 13h5"/></svg>
-                        </span>
-                        <h3>Discusión y votación</h3>
-                        <p>Ronda de acusaciones con voting guiado y eliminación por mayoría.</p>
-                    </article>
-                    <article class="card" data-reveal style="--d:160ms">
-                        <span class="card-icon" aria-hidden="true">
-                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h6l-1 8 9-12h-6z"/></svg>
-                        </span>
-                        <h3>Modo solo con bots</h3>
-                        <p>Juega partidas tú contra la máquina: bots con personalidad que discuten y votan.</p>
-                    </article>
-                    <article class="card" data-reveal style="--d:240ms">
-                        <span class="card-icon" aria-hidden="true">
-                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
-                        </span>
-                        <h3>Categorías amplias</h3>
-                        <p>Paquetes de palabras y categorías en español para renovar cada partida.</p>
-                    </article>
-                    <article class="card" data-reveal style="--d:320ms">
-                        <span class="card-icon" aria-hidden="true">
-                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="5"/><path d="M8.5 13.5L7 21l5-3 5 3-1.5-7.5"/></svg>
-                        </span>
-                        <h3>Clasificación, logros y trofeos</h3>
-                        <p>Tu historial, estadísticas, logros desbloqueables y trofeos que cuentan tu camino.</p>
-                    </article>
-                    <article class="card" data-reveal style="--d:400ms">
-                        <span class="card-icon" aria-hidden="true">
-                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l-1.5 7.5a4.5 4.5 0 01-9 0z"/><path d="M12 13v8M8 21h8"/></svg>
-                        </span>
-                        <h3>Tienda y pase de temporada</h3>
-                        <p>Gana estrellas ★ en tus partidas para marcos, temas de mesa, títulos y más.</p>
-                    </article>
-                </div>
-
-                <p class="note" data-reveal><strong>Sin compras reales:</strong> las estrellas ★ se ganan jugando (cofre diario, logros y misiones semanales) y se usan en la tienda. El cofre diario suma 50 ★ + 25 ★ por racha y las misiones semanales pagan hasta 250 ★.</p>
-            </div>
-        </section>
-    </main>
-
-    <footer class="contact" id="contacto">
-        <div class="wrap">
-            <p class="eyebrow">Contacto</p>
-            <h2 class="title">¿Hablamos?</h2>
-            <p class="cta-form">¿Dudas sobre Impostor Duels, una incidencia o una idea? Escríbenos:</p>
-            <a class="btn btn-brass" href="mailto:astroseec@gmail.com?subject=Impostor%20Duels">Escribir a AstroSeec</a>
-
-            <div class="foot">
-                <a class="brand" href="index.html">
-                    <span class="mark"><img src="LOGO_ASTROSEEC.jpeg" alt="" width="30" height="30"></span>
-                    <span class="brand-name">AstroSeec</span>
-                </a>
-                <span>&copy; <span id="year">2026</span> AstroSeec. Todos los derechos reservados.</span>
-                <nav class="foot-links" aria-label="Enlaces legales">
-                    <a href="index.html#apps">Apps</a>
-                    <a href="servicios.html">Otros Servicios</a>
-                    <a href="Politicies.html">Política de privacidad</a>
-                    <a href="delete-account.html">Eliminar cuenta</a>
-                </nav>
-            </div>
-        </div>
-    </footer>
-
-    <script src="main.js" defer></script>
-    <script src="themes/themes.js" defer></script>
-    <script src="visit.js" defer></script>
-</body>
-</html>
+<body class="game-page impostor-page"><a class="skip" href="#contenido">Saltar al contenido</a>
+<header class="game-nav"><div class="shell nav-inner"><a class="studio" href="index.html"><img src="LOGO_ASTROSEEC.jpeg" width="32" height="32" alt=""><span>AstroSeec<span class="studio-label">JUEGOS</span></span></a><nav class="impostor-nav" aria-label="Navegación"><a href="#como-jugar">Cómo jugar</a><a href="#modos">Modos</a><a href="#progreso">Premios</a><a href="index.html#apps">Todas las apps ↗</a></nav></div></header>
+<main id="contenido" tabindex="-1">
+  <section class="western-hero"><div class="shell western-hero-grid"><div class="western-copy"><p class="western-kicker"><span aria-hidden="true">★</span> Un juego de deducción para tu pandilla</p><h1>Una palabra.<br>Muchos sospechosos.<br><em>Un impostor.</em></h1><p>En esta mesa todos tienen algo que decir. Escucha las pistas, cuida las tuyas y descubre quién intenta pasar desapercibido.</p><div class="hero-actions"><a class="button button-gold" href="https://play.google.com/store/apps/details?id=com.astroseec.impostorduels" target="_blank" rel="noopener"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M5 3.5v17a1 1 0 0 0 1.5.86l14-8.5a1 1 0 0 0 0-1.72l-14-8.5A1 1 0 0 0 5 3.5Z"/></svg>Descargar en Google Play <span aria-hidden="true">↗</span></a><a class="western-link" href="#como-jugar">Descubre cómo jugar ↓</a></div><p class="hero-small">Android · Juego de palabras y deducción</p></div><div class="western-art"><img src="assets/impostorduels/logo.webp" alt="Arte del logo de Impostors Duels con un sombrero de vaquero" width="1400" height="933" fetchpriority="high"><span>BIENVENIDO A LA MESA</span></div></div><div class="western-bottom" aria-hidden="true">★ &nbsp; PISTAS &nbsp; · &nbsp; SOSPECHAS &nbsp; · &nbsp; VOTACIÓN &nbsp; ★</div></section>
+  <nav class="western-subnav" aria-label="En esta página"><div class="shell"><a href="#como-jugar">Las reglas</a><a href="#modos">Tu mesa</a><a href="#progreso">Premios y tienda</a><a href="#contacto">Soporte</a></div></nav>
+  <section class="western-section" id="como-jugar"><div class="shell"><div class="western-heading"><div><p class="western-kicker">EL MISTERIO EMPIEZA AQUÍ</p><h2>Una palabra puede<br>delatarte.</h2></div><p>Reúne a la pandilla, elige una categoría y presta atención: el impostor no juega con la misma información que los demás.</p></div><div class="clue-grid"><article><span>01</span><img src="assets/impostorduels/cards.svg" width="52" height="52" alt=""><h3>Recibe tu palabra</h3><p>Cada jugador consulta su palabra en secreto. Los impostores reciben una diferente.</p></article><article><span>02</span><img src="assets/impostorduels/eye.svg" width="52" height="52" alt=""><h3>Da una pista</h3><p>Por turnos, comparte una pista relacionada y escucha con atención lo que dicen los demás.</p></article><article><span>03</span><img src="assets/impostorduels/mask.svg" width="52" height="52" alt=""><h3>Vota al sospechoso</h3><p>Discute, elige en quién confiar y vota para descubrir a quien se esconde entre ustedes.</p></article></div></div></section>
+  <section class="western-section western-modes" id="modos"><div class="shell"><div class="western-heading"><div><p class="western-kicker">ELIGE TU PARTIDA</p><h2>Tres formas de<br>sentarse a la mesa.</h2></div><p>En grupo o en solitario, siempre hay una historia por descubrir.</p></div><div class="mode-list"><article><div class="mode-number">01</div><div><p class="mode-label">LA PANDILLA COMPLETA</p><h3>Con amigos</h3><p>Jueguen juntos pasando un mismo móvil. Cada persona mira su rol y su palabra en privado.</p></div><img src="assets/impostorduels/posse.svg" width="72" height="72" alt=""></article><article><div class="mode-number">02</div><div><p class="mode-label">TÚ CONTRA LA MESA</p><h3>En solitario</h3><p>Enfréntate a bots que dan pistas, sospechan y votan. Descubre si logras engañarlos.</p></div><img src="assets/impostorduels/mask.svg" width="72" height="72" alt=""></article><article><div class="mode-number">03</div><div><p class="mode-label">CADA QUIEN CON SU MÓVIL</p><h3>Mesa en Wi-Fi</h3><p>Crea una mesa y comparte el código para jugar con amigos conectados a la misma red Wi-Fi o zona compartida.</p></div><img src="assets/impostorduels/cards.svg" width="72" height="72" alt=""></article></div></div></section>
+  <section class="western-section" id="progreso"><div class="shell bounty-grid"><div><p class="western-kicker">UNA MESA LLENA DE HISTORIAS</p><h2>Hazte un nombre<br>en el oeste.</h2><p>Personaliza tu experiencia, descubre categorías y sigue tu progreso entre partida y partida.</p><div class="bounty-list"><div><img src="assets/impostorduels/star_badge.svg" width="42" height="42" alt=""><p><strong>Logros y trofeos</strong><br>Consulta tus estadísticas, clasificación y premios.</p></div><div><img src="assets/impostorduels/chest.svg" width="42" height="42" alt=""><p><strong>Tienda y recompensas</strong><br>Gana monedas jugando y descubre marcos, temas y artículos.</p></div></div></div><div class="wanted-card"><p>SE BUSCA</p><h3>LA PANDILLA</h3><div class="wanted-avatars"><img src="assets/impostorduels/jugador1.png" alt="" width="128" height="128" loading="lazy"><img src="assets/impostorduels/jugador3.png" alt="" width="128" height="128" loading="lazy"><img src="assets/impostorduels/jugador8.png" alt="" width="128" height="128" loading="lazy"><img src="assets/impostorduels/jugador10.png" alt="" width="128" height="128" loading="lazy"></div><p>¿QUIÉN ESCONDE EL SECRETO?</p><span>★ &nbsp; REÚNE A TUS AMIGOS &nbsp; ★</span></div></div></section>
+  <section class="western-cta"><div class="shell"><div><p class="western-kicker">LA MESA ESTÁ LISTA</p><h2>Que empiece el duelo.</h2><p>Descubre quién sabe mentir mejor.</p></div><a class="button button-gold" href="https://play.google.com/store/apps/details?id=com.astroseec.impostorduels" target="_blank" rel="noopener">Disponible en Google Play <span aria-hidden="true">↗</span></a></div></section>
+</main>
+<footer class="western-footer" id="contacto"><div class="shell"><div class="footer-top"><a class="studio" href="index.html"><img src="LOGO_ASTROSEEC.jpeg" width="32" height="32" alt=""><span>AstroSeec</span></a><p>¿Dudas sobre Impostor Duels?</p><a href="mailto:astroseec@gmail.com?subject=Impostor%20Duels">Escríbenos ↗</a></div><div class="footer-bottom"><span>© <span id="year">2026</span> AstroSeec</span><nav aria-label="Enlaces del sitio"><a href="index.html#apps">Todas las apps</a><a href="fruitduels.html">Fruit Duels</a><a href="snakeduels.html">Snake Duels</a><a href="Politicies.html">Privacidad</a><a href="delete-account.html">Eliminar cuenta</a></nav></div></div></footer>
+<script src="assets/game-pages.js" defer></script><script src="visit.js" defer></script></body></html>

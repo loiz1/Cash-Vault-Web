@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+<defs>
+<linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="#F5CE7B"/><stop offset="0.55" stop-color="#E0A44E"/><stop offset="1" stop-color="#B67B28"/>
+</linearGradient>
+<linearGradient id="parch" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="#F6E8C8"/><stop offset="1" stop-color="#E3C79A"/>
+</linearGradient>
+<linearGradient id="wood" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="#8A5A32"/><stop offset="1" stop-color="#5C3A1E"/>
+</linearGradient>
+<linearGradient id="steel" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="#D9D4C8"/><stop offset="1" stop-color="#9B9384"/>
+</linearGradient>
+<linearGradient id="red" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="#C4504A"/><stop offset="1" stop-color="#8E2F28"/>
+</linearGradient>
+</defs>
+<g transform="rotate(-10 26 34)"><rect x="14" y="16" width="22" height="32" rx="4" fill="url(#parch)" stroke="#3B2314" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/></g>
+<g transform="rotate(9 40 32)"><rect x="29" y="14" width="23" height="34" rx="4" fill="url(#gold)" stroke="#3B2314" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M40.5 22 L44 30 L52.5 30.6 L46 36 L48 44 L40.5 39.5 L33 44 L35 36 L28.5 30.6 L37 30 Z" fill="#8E2F28" stroke="#3B2314" stroke-width="2"/>
+<circle cx="33.5" cy="19.5" r="1.6" fill="#8E2F28" stroke="none"/><circle cx="47.5" cy="43" r="1.6" fill="#8E2F28" stroke="none"/></g>
+</svg>

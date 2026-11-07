@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+<defs>
+<linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="#F5CE7B"/><stop offset="0.55" stop-color="#E0A44E"/><stop offset="1" stop-color="#B67B28"/>
+</linearGradient>
+<linearGradient id="parch" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="#F6E8C8"/><stop offset="1" stop-color="#E3C79A"/>
+</linearGradient>
+<linearGradient id="wood" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="#8A5A32"/><stop offset="1" stop-color="#5C3A1E"/>
+</linearGradient>
+<linearGradient id="steel" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="#D9D4C8"/><stop offset="1" stop-color="#9B9384"/>
+</linearGradient>
+<linearGradient id="red" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0" stop-color="#C4504A"/><stop offset="1" stop-color="#8E2F28"/>
+</linearGradient>
+</defs>
+<path d="M6 25 C13 16 23 14.5 32 19 C41 14.5 51 16 58 25 C58 34 49 40.5 40.5 38.5 C36.5 37.5 34 35 32 32.5 C30 35 27.5 37.5 23.5 38.5 C15 40.5 6 34 6 25 Z" fill="#2E2432" stroke="#151017" stroke-width="2.5" stroke-linejoin="round"/>
+<ellipse cx="21.5" cy="27.5" rx="6.5" ry="4.5" fill="#F6E8C8" stroke="#151017" stroke-width="2"/>
+<ellipse cx="42.5" cy="27.5" rx="6.5" ry="4.5" fill="#F6E8C8" stroke="#151017" stroke-width="2"/>
+<circle cx="22.5" cy="28" r="1.8" fill="#151017" stroke="none"/>
+<circle cx="41.5" cy="28" r="1.8" fill="#151017" stroke="none"/>
+</svg>
