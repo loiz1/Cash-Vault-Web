@@ -14,6 +14,7 @@
                 var source = button.querySelector('img');
                 portrait.src = source.getAttribute('src');
                 portrait.alt = button.dataset.name + ', mascota Fruti Salvaje';
+                portrait.dataset.tier = button.dataset.pet;
                 caption.querySelector('span').textContent = 'FRUTI SALVAJE · ' + button.dataset.pet + ' / 12';
                 caption.querySelector('h3').textContent = button.dataset.name;
                 choices.forEach(function (choice) {
