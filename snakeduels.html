@@ -1,194 +1,85 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="theme-color" content="#0e2622">
-    <meta name="description" content="Snake Duels: duelos de serpientes estilo arena .io. Crece comiendo frutas, rodea a tus rivales, gana oro y desbloquea skins, arenas y rastros.">
-    <title>Snake Duels - AstroSeec</title>
-
-    <link rel="icon" type="image/jpeg" href="LOGO_ASTROSEEC.jpeg">
-    <link rel="apple-touch-icon" href="LOGO_ASTROSEEC.jpeg">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Snake Duels - AstroSeec">
-    <meta property="og:description" content="Duelos de serpientes estilo arena .io con skins, arenas, logros y ranking global.">
-    <meta property="og:image" content="assets/snakeduels.png">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="themes/themes.css">
-    <style>
-        .compras-card { background: var(--paper); border-radius: 18px; border: 1px solid rgba(74, 64, 99, .14); overflow-x: auto; margin-top: 34px; box-shadow: 0 22px 44px -30px rgba(14, 38, 34, .45); }
-        table.compras { border-collapse: collapse; width: 100%; font-size: 14px; min-width: 640px; }
-        table.compras th { text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: .07em; color: #85734f; padding: 14px 16px; border-bottom: 2px solid rgba(200, 162, 74, .45); white-space: nowrap; background: rgba(200, 162, 74, .08); }
-        table.compras td { padding: 12px 16px; border-bottom: 1px solid rgba(74, 64, 99, .1); vertical-align: top; }
-        table.compras tbody tr:nth-child(even) td { background: rgba(200, 162, 74, .05); }
-        table.compras tbody tr:last-child td { border-bottom: 0; }
-        table.compras td:first-child { font-weight: 700; color: var(--ink); font-family: ui-monospace, Consolas, monospace; }
-        table.compras td:last-child { white-space: nowrap; font-weight: 600; }
-    </style>
-    <script defer src="/_vercel/insights/script.js"></script>
-    <meta name="google-site-verification" content="3AgqNUMNFEMQFWHNADAPRXRTiRzyWdpGQ23AVqAGW4A" />
-</head>
-<body>
-    <a class="skip" href="#contenido">Saltar al contenido</a>
-
-    <header class="nav">
-        <div class="nav-in">
-            <a class="brand" href="index.html" aria-label="AstroSeec, inicio">
-                <span class="mark"><img src="LOGO_ASTROSEEC.jpeg" alt="" width="38" height="38"></span>
-                <span class="brand-name">AstroSeec</span>
-            </a>
-            <nav class="nav-links" aria-label="Principal">
-                <a href="index.html#apps" aria-current="page">Apps</a>
-                <a href="index.html#nosotros">Nosotros</a>
-                <a href="servicios.html">Otros Servicios</a>
-                <a href="index.html?form=1">Contacto</a>
-            </nav>
-        </div>
-    </header>
-
-    <main>
-        <section class="page-hero">
-            <div class="wrap">
-                <a class="crumbs" href="index.html#apps">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
-                    Todas las apps
-                </a>
-                <div class="app-id" style="--tint:#e3dcf3">
-                    <span class="app-tile"><img src="assets/snakeduels.png" alt="Icono de Snake Duels"></span>
-                    <div>
-                        <span class="app-kicker">Juego · Arcade</span>
-                        <h1>Snake Duels</h1>
-                    </div>
-                </div>
-                <p class="lede">Duelos de serpientes estilo arena .io: crece comiendo frutas, rodea a tus rivales y sé el último en pie. Gana oro con tu puntaje, desbloquea skins y temas, y escala el ranking global.</p>
-                <div class="app-actions">
-                    <a class="btn btn-brass" href="https://play.google.com/store/apps/details?id=com.astroseec.snakeduels" target="_blank" rel="noopener">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 3.5v17a1 1 0 001.5.86l14-8.5a1 1 0 000-1.72l-14-8.5A1 1 0 006 3.5z"/></svg>
-                        Google Play
-                    </a>
-                    <a class="btn btn-ghost" href="#funciones">Ver funciones</a>
-                </div>
-                <div class="chips">
-                    <span class="chip">Android</span>
-                    <span class="chip">Gratis con compras opcionales</span>
-                    <span class="chip">Español</span>
-                    <span class="chip">Ranking global</span>
-                </div>
-            </div>
-        </section>
-
-        <section class="section" id="funciones">
-            <div class="wrap">
-                <div data-reveal>
-                    <p class="eyebrow">Funciones clave</p>
-                    <h2 class="title">Lo que puedes hacer</h2>
-                </div>
-
-                <div class="grid-cards" style="margin-top: 42px">
-                    <article class="card" data-reveal>
-                        <span class="card-icon" aria-hidden="true">
-                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6c4 0 5 4 9 4s5-2 7-2M4 12c4 0 5 4 9 4s5-2 7-2M4 18c4 0 5-4 9-4"/></svg>
-                        </span>
-                        <h3>Arena .io</h3>
-                        <p>Partidas rápidas en arena: crece comiendo frutas y haz que los demás choquen contigo.</p>
-                    </article>
-                    <article class="card" data-reveal style="--d:80ms">
-                        <span class="card-icon" aria-hidden="true">
-                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.5"/><circle cx="13" cy="18" r="1.5"/><circle cx="16.5" cy="15.5" r="1.5"/><path d="M12 3a7 7 0 00-7 7c0 3 2 5 4 7l1.5-2"/></svg>
-                        </span>
-                        <h3>Oro por puntaje</h3>
-                        <p>Cada partida te paga oro según tu puntaje para gastar en la tienda.</p>
-                    </article>
-                    <article class="card" data-reveal style="--d:160ms">
-                        <span class="card-icon" aria-hidden="true">
-                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h10"/><circle cx="20" cy="7" r="1.2"/><circle cx="20" cy="12" r="1.2"/></svg>
-                        </span>
-                        <h3>Tienda de cosméticos</h3>
-                        <p>Skins para tu serpiente, temas de arena, rastros y frutas especiales.</p>
-                    </article>
-                    <article class="card" data-reveal style="--d:240ms">
-                        <span class="card-icon" aria-hidden="true">
-                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16"/><path d="M7 16l3-6 3 3 4-8"/></svg>
-                        </span>
-                        <h3>Ranking global</h3>
-                        <p>Compite por el podio con una clasificación mundial guardada en la nube.</p>
-                    </article>
-                    <article class="card" data-reveal style="--d:320ms">
-                        <span class="card-icon" aria-hidden="true">
-                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="5"/><path d="M8.5 13.5L7 21l5-3 5 3-1.5-7.5"/></svg>
-                        </span>
-                        <h3>Logros</h3>
-                        <p>Retos que premian cómo juegas, no solo cuánto ganas.</p>
-                    </article>
-                    <article class="card" data-reveal style="--d:400ms">
-                        <span class="card-icon" aria-hidden="true">
-                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2-5 3 10 3-7 2 2h4"/></svg>
-                        </span>
-                        <h3>Estadísticas</h3>
-                        <p>Tu historial de partidas y progreso, siempre a mano para mejorar.</p>
-                    </article>
-                </div>
-
-                </div>
-        </section>
-
-        <section class="section-tight" id="compras" style="padding-top: 0">
-            <div class="wrap">
-                <div data-reveal>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#123e28">
+  <title>Snake Duels — AstroSeec</title>
+  <meta name="description" content="Entra en la selva de Snake Duels: arena de serpientes, modo Clásico, Captura la bandera, rangos y cosméticos. Descárgalo para Android.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Snake Duels — AstroSeec">
+  <meta property="og:description" content="Entra en la selva de Snake Duels: arena de serpientes, modo Clásico, Captura la bandera, rangos y cosméticos. Descárgalo para Android.">
+  <meta property="og:image" content="assets/snakeduels.png">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" type="image/png" href="assets/snakeduels.png">
+  <link rel="apple-touch-icon" href="assets/snakeduels.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@600;700&amp;family=Nunito+Sans:wght@400;600;700;800;900&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/game-pages.css">
+  <script defer src="/_vercel/insights/script.js"></script>
+  <meta name="google-site-verification" content="3AgqNUMNFEMQFWHNADAPRXRTiRzyWdpGQ23AVqAGW4A">
+</head><body class="game-page snake-page"><a class="skip" href="#contenido">Saltar al contenido</a>
+<header class="game-nav"><div class="shell nav-inner">
+  <a class="studio" href="index.html" aria-label="AstroSeec, inicio"><img src="LOGO_ASTROSEEC.jpeg" width="32" height="32" alt=""><span>AstroSeec<span class="studio-label">JUEGOS</span></span></a>
+  <nav class="game-switch" aria-label="Nuestros juegos">
+    <a href="snakeduels.html" aria-current="page"><img src="assets/snakeduels.png" width="24" height="24" alt="">Snake Duels</a>
+    <a href="fruitduels.html" ><img src="assets/fruitduels.png" width="24" height="24" alt="">Fruit Duels</a>
+  </nav>
+  <a class="nav-back" href="index.html#apps">Todas las apps <span aria-hidden="true">↗</span></a>
+</div></header><main id="contenido" tabindex="-1"><section class="game-hero snake-hero"><div class="shell hero-grid">
+  <div class="hero-copy"><p class="eyebrow"><span class="status-dot"></span> Snake Duels · Arcade de serpientes</p>
+    <h1>La selva tiene<br>un nuevo <em>rival.</em></h1>
+    <p class="hero-description">Crece, rodea y conquista la arena. Entra en una selva de serpientes, captura la bandera y encuentra tu camino hasta la cima.</p>
+    <div class="hero-actions"><a class="button button-gold" href="https://play.google.com/store/apps/details?id=com.astroseec.snakeduels" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M5 3.5v17a1 1 0 0 0 1.5.86l14-8.5a1 1 0 0 0 0-1.72l-14-8.5A1 1 0 0 0 5 3.5Z"/></svg><span>Descargar gratis</span><span aria-hidden="true">↗</span></a><a class="text-link" href="#modos">Explora el juego <span aria-hidden="true">↓</span></a></div>
+    <p class="download-note">Android · Compras opcionales dentro de la app</p>
+    <div class="hero-facts"><div><strong>2</strong><span>modos de juego</span></div><div><strong>22</strong><span>rangos por conquistar</span></div><div><strong>Tu estilo</strong><span>skins, arenas y rastros</span></div></div>
+  </div>
+  <div class="hero-art snake-art" aria-label="Arte de Snake Duels: dos serpientes entre hojas de la selva" role="img">
+    <img src="assets/snakeduels/jungle.webp" alt="" class="scene-bg" width="941" height="1672" fetchpriority="high" decoding="async">
+    <span class="art-kicker">BIENVENIDO A LA ARENA</span>
+    <img src="assets/snakeduels/logo.webp" alt="" class="game-logo" width="1200" height="600" fetchpriority="high" decoding="async">
+    <div class="snake-duo"><img src="assets/snakeduels/green-snake.webp" alt="" class="snake-green" width="350" height="175" fetchpriority="high" decoding="async"><span>VS</span><img src="assets/snakeduels/orange-snake.webp" alt="" class="snake-orange" width="350" height="175" fetchpriority="high" decoding="async"></div>
+    <span class="art-caption">Una selva. Dos rivales. Tu próxima victoria.</span>
+  </div>
+</div></section>
+<nav class="section-nav" aria-label="En esta página"><div class="shell"><a href="#modos">Modos de juego</a><a href="#funciones">Tu progreso</a><a href="#rangos">Rangos</a><a href="#compras">Compras</a><a href="#contacto">Soporte</a></div></nav><section class="section" id="modos"><div class="shell">
+  <div class="section-heading"><div><p class="eyebrow">Elige cómo conquistar la selva</p><h2>Dos formas de jugar.<br>El mismo instinto de ganar.</h2></div><p>Una buena maniobra puede cambiar la partida. Encuentra tu modo y entra en acción.</p></div>
+  <div class="mode-grid">
+    <article class="mode-card"><img src="assets/snakeduels/classic.webp" alt="Serpientes rivales en la arena de la selva" class="" width="512" height="512" loading="lazy" decoding="async"><div class="mode-copy"><span class="number">01 / SUPERVIVENCIA</span><h3>Clásico</h3><p>Come frutas para crecer, rodea a tus rivales y consigue que choquen contigo. Cuanto más creces, más espacio dominas.</p><span class="mode-tag">Crece · Esquiva · Domina</span></div></article>
+    <article class="mode-card"><img src="assets/snakeduels/capture.webp" alt="Serpientes roja y azul con sus banderas" class="" width="512" height="512" loading="lazy" decoding="async"><div class="mode-copy"><span class="number">02 / ESTRATEGIA</span><h3>Captura la bandera</h3><p>La arena cambia de objetivo: ve por la bandera y encuentra el momento de avanzar. Movimiento y estrategia en cada recorrido.</p><span class="mode-tag">Muévete · Captura · Conquista</span></div></article>
+  </div>
+</div></section><section class="section progress-section" id="funciones"><div class="shell progress-grid"><div class="progress-intro"><p class="eyebrow">Más allá de una partida</p><h2>Pequeña al empezar.<br><em>Imparable al crecer.</em></h2><p>Tu historia en la arena continúa con cada logro, cada cosmético y cada nuevo rango.</p><img src="assets/snakeduels/coins.webp" alt="Cofre de monedas de Snake Duels" class="treasure" width="170" height="180" loading="lazy" decoding="async"></div><div class="feature-list"><article class="feature-row"><img src="assets/snakeduels/shop.webp" alt="" class="" width="180" height="180" loading="lazy" decoding="async"><div><h3>Hazla tuya</h3><p>Dale personalidad a tu serpiente con skins, temas de arena, rastros y frutas especiales.</p></div></article><article class="feature-row"><img src="assets/snakeduels/rankings.webp" alt="" class="" width="180" height="180" loading="lazy" decoding="async"><div><h3>Busca tu lugar en la cima</h3><p>Mejora tu puntaje y sigue tu posición en la clasificación.</p></div></article><article class="feature-row"><img src="assets/snakeduels/achievements.webp" alt="" class="" width="180" height="180" loading="lazy" decoding="async"><div><h3>Cada reto cuenta</h3><p>Desbloquea logros, consulta tus estadísticas y observa cómo mejora tu juego.</p></div></article><article class="feature-row"><img src="assets/snakeduels/pass.webp" alt="" class="" width="180" height="180" loading="lazy" decoding="async"><div><h3>Sigue el Pase Víbora</h3><p>Descubre las recompensas de temporada y avanza partida a partida.</p></div></article></div></div></section>
+<section class="section rank-section" id="rangos"><div class="shell"><div class="center-heading"><p class="eyebrow">De lombriz a leyenda</p><h2>Gánate tu lugar en la selva.</h2><p>22 rangos para seguir tu evolución. Estos son algunos de los que te esperan.</p></div><ol class="rank-track"><li><img src="assets/snakeduels/rank-01.webp" alt="Emblema de Soldado Lombriz" class="" width="198" height="173" loading="lazy" decoding="async"><span>RANGO 01</span><h3>Soldado Lombriz</h3></li><li><img src="assets/snakeduels/rank-09.webp" alt="Emblema de Brigadier Víbora" class="" width="209" height="184" loading="lazy" decoding="async"><span>RANGO 09</span><h3>Brigadier Víbora</h3></li><li><img src="assets/snakeduels/rank-14.webp" alt="Emblema de Supremo Cobra" class="" width="212" height="189" loading="lazy" decoding="async"><span>RANGO 14</span><h3>Supremo Cobra</h3></li><li><img src="assets/snakeduels/rank-22.webp" alt="Emblema de Líder Titanoboa" class="" width="204" height="184" loading="lazy" decoding="async"><span>RANGO 22</span><h3>Líder Titanoboa</h3></li></ol></div></section><section class="section purchase-section" id="compras">
+            <div class="shell">
+                <div>
                     <p class="eyebrow">Compras dentro de la app</p>
                     <h2 class="title">Productos opcionales</h2>
                     <p class="subtitle">Las monedas se adquieren con dinero real a través de Google Play y se usan dentro del juego para la tienda de cosméticos. El precio final se muestra siempre en Google Play antes de confirmar el pago, en tu moneda local, y puedes revisar tus compras en <a href="https://play.google.com/store/account/orders" target="_blank" rel="noopener">play.google.com/store/account</a>.</p>
                 </div>
-                <div class="compras-card" data-reveal>
+                <div class="compras-card">
                     <table class="compras">
                         <thead>
                             <tr><th>Producto</th><th>Tipo</th><th>Qué obtienes</th></tr>
                         </thead>
                         <tbody>
-                            <tr><td>sd_monedas_600</td><td>Consumible</td><td>600 monedas</td></tr>
-                            <tr><td>sd_monedas_1500</td><td>Consumible</td><td>1.500 monedas</td></tr>
-                            <tr><td>sd_monedas_3500</td><td>Consumible</td><td>3.500 monedas</td></tr>
-                            <tr><td>sd_monedas_8500</td><td>Consumible</td><td>8.500 monedas</td></tr>
-                            <tr><td>sd_pase_vibora</td><td>No consumible (producto duradero)</td><td>Pase de temporada</td></tr>
+                            <tr><td>600 monedas</td><td>Consumible</td><td>600 monedas</td></tr>
+                            <tr><td>1.500 monedas</td><td>Consumible</td><td>1.500 monedas</td></tr>
+                            <tr><td>3.500 monedas</td><td>Consumible</td><td>3.500 monedas</td></tr>
+                            <tr><td>8.500 monedas</td><td>Consumible</td><td>8.500 monedas</td></tr>
+                            <tr><td>Pase Víbora</td><td>No consumible (producto duradero)</td><td>Pase de temporada</td></tr>
                         </tbody>
                     </table>
                 </div>
-                <p class="note" data-reveal>El oro también se gana solo jugando (puntaje × 5 por partida) y toda la tienda de cosméticos funciona con oro. El progreso y el ranking se guardan en la nube con Firebase.</p>
+                <p class="note">También puedes ganar oro jugando y usarlo en la tienda de cosméticos. Consulta las recompensas y los detalles de cada producto dentro de la app.</p>
             </div>
-        </section>
-            </div>
-        </section>
-    </main>
-
-    <footer class="contact" id="contacto">
-        <div class="wrap">
-            <p class="eyebrow">Contacto</p>
-            <h2 class="title">¿Hablamos?</h2>
-            <p class="cta-form">¿Dudas sobre Snake Duels, una incidencia o una idea? Escríbenos:</p>
-            <a class="btn btn-brass" href="mailto:astroseec@gmail.com?subject=Snake%20Duels">Escribir a AstroSeec</a>
-
-            <div class="foot">
-                <a class="brand" href="index.html">
-                    <span class="mark"><img src="LOGO_ASTROSEEC.jpeg" alt="" width="30" height="30"></span>
-                    <span class="brand-name">AstroSeec</span>
-                </a>
-                <span>&copy; <span id="year">2026</span> AstroSeec. Todos los derechos reservados.</span>
-                <nav class="foot-links" aria-label="Enlaces legales">
-                    <a href="index.html#apps">Apps</a>
-                    <a href="servicios.html">Otros Servicios</a>
-                    <a href="Politicies.html">Política de privacidad</a>
-                    <a href="delete-account.html">Eliminar cuenta</a>
-                </nav>
-            </div>
-        </div>
-    </footer>
-
-    <script src="main.js" defer></script>
-    <script src="themes/themes.js" defer></script>
-    <script src="visit.js" defer></script>
-</body>
-</html>
+        </section></main><section class="download-banner" aria-labelledby="descarga-titulo"><div class="shell download-inner">
+  <div class="download-title"><img src="assets/snakeduels.png" width="80" height="80" loading="lazy" alt="Icono de Snake Duels"><div><p class="eyebrow">Tu próxima partida te espera</p><h2 id="descarga-titulo">Entra en Snake Duels.</h2><p>Para Android · Gratis con compras opcionales</p></div></div>
+  <a class="button button-gold" href="https://play.google.com/store/apps/details?id=com.astroseec.snakeduels" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M5 3.5v17a1 1 0 0 0 1.5.86l14-8.5a1 1 0 0 0 0-1.72l-14-8.5A1 1 0 0 0 5 3.5Z"/></svg><span>Disponible en Google Play</span><span aria-hidden="true">↗</span></a>
+</div></section>
+<footer class="game-footer" id="contacto"><div class="shell">
+  <div class="footer-top"><a class="studio" href="index.html"><img src="LOGO_ASTROSEEC.jpeg" width="32" height="32" alt=""><span>AstroSeec</span></a><p>¿Una duda, una idea o una incidencia?</p><a href="mailto:astroseec@gmail.com?subject=Snake%20Duels">Escríbenos <span aria-hidden="true">↗</span></a></div>
+  <div class="footer-bottom"><span>© <span id="year">2026</span> AstroSeec</span><nav aria-label="Enlaces del sitio"><a href="fruitduels.html">Descubre Fruit Duels</a><a href="servicios.html">Otros servicios</a><a href="Politicies.html">Privacidad</a><a href="delete-account.html">Eliminar cuenta</a></nav></div>
+</div></footer>
+<script src="assets/game-pages.js" defer></script><script src="visit.js" defer></script>
+</body></html>
