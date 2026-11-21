@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="theme-color" content="#0e2622">
-    <meta name="description" content="AstroSeec diseña y desarrolla herramientas digitales independientes: simples, eficientes y seguras para tus finanzas, bienestar y organización diaria.">
-    <title>AstroSeec - Soluciones móviles que simplifican tu vida</title>
+    <meta name="description" content="AstroSeec diseña y desarrolla plataformas web, CRM, sistemas de inventario y aplicaciones conectadas para negocios.">
+    <title>AstroSeec — Plataformas digitales a la medida de tu negocio</title>
 
     <link rel="icon" type="image/jpeg" href="LOGO_ASTROSEEC.jpeg">
     <link rel="apple-touch-icon" href="LOGO_ASTROSEEC.jpeg">
     <link rel="preload" as="image" href="LOGO_ASTROSEEC.jpeg">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="AstroSeec - Soluciones móviles que simplifican tu vida">
-    <meta property="og:description" content="Equipo independiente de apps móviles: simples, eficientes y seguras.">
+    <meta property="og:title" content="AstroSeec — Plataformas digitales para negocios">
+    <meta property="og:description" content="Desarrollo personalizado de plataformas web, CRM, inventarios y apps para negocios.">
     <meta property="og:image" content="LOGO_ASTROSEEC.jpeg">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="LOGO_ASTROSEEC.jpeg">
@@ -74,6 +74,42 @@
             color: var(--soft);
         }
         .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+
+        .platform-preview {
+            position: relative;
+            justify-self: center;
+            width: min(100%, 470px);
+            padding: 18px;
+            border: 1px solid rgba(241,236,225,.18);
+            border-radius: 28px;
+            background: linear-gradient(145deg, rgba(21,54,48,.92), rgba(8,24,21,.88));
+            box-shadow: 0 35px 90px -38px rgba(0,0,0,.75), inset 0 1px rgba(255,255,255,.08);
+            transform: rotate(1deg);
+        }
+        .preview-top { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:2px 3px 18px; color:var(--soft); font-size:13px; }
+        .preview-dots { display:flex; gap:5px; }
+        .preview-dots i { width:7px; height:7px; border-radius:50%; background:rgba(241,236,225,.35); }
+        .preview-status { color:#b9dfc8; font-size:12px; }
+        .preview-panel { padding:22px; border-radius:18px; background:#f8faf8; color:#0e2622; }
+        .preview-panel small { color:#61736d; font-size:12px; }
+        .preview-panel h2 { margin:7px 0 18px; font-size:23px; }
+        .preview-metrics { display:grid; grid-template-columns:repeat(2,1fr); gap:10px; }
+        .preview-metric { padding:14px; border:1px solid #e5eae6; border-radius:13px; background:#fff; }
+        .preview-metric strong { display:block; margin-top:7px; font-size:22px; }
+        .preview-links { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-top:12px; }
+        .preview-links a { padding:12px 6px; border:1px solid rgba(241,236,225,.18); border-radius:12px; color:var(--paper); text-align:center; text-decoration:none; font-size:12px; }
+        .preview-links a:hover { border-color:var(--brass); }
+        .solution-grid { margin-top:38px; }
+        .solution-card { display:flex; flex-direction:column; min-height:240px; }
+        .solution-card p { flex:1; }
+        .solution-card .btn { align-self:flex-start; margin-top:20px; }
+        .sync-note { margin-top:28px; padding:22px 26px; border:1px solid var(--line-dark); border-radius:20px; background:rgba(255,255,255,.45); color:var(--ink-soft); font-size:16px; line-height:1.65; }
+        .sync-note strong { color:var(--ink); }
+        .template-row { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:28px; }
+        .template-link { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:18px 20px; border:1px solid var(--line-dark); border-radius:16px; background:var(--card); text-decoration:none; font-weight:600; transition:transform .2s,border-color .2s; }
+        .template-link { color:var(--ink); }
+        .template-link:hover { transform:translateY(-2px); border-color:var(--brass); }
+        .template-link span { color:var(--ink-soft); font-size:13px; font-weight:500; }
 
         /* ---- Pantalla de inicio del móvil ---- */
         .phone-wrap { justify-self: center; }
@@ -183,6 +219,8 @@
             .rings { right: -55%; top: 62%; }
             .about-grid { grid-template-columns: 1fr; gap: 24px; }
             .about-side .logo-badge { max-width: 190px; margin-top: 26px; }
+            .platform-preview { justify-self:stretch; width:100%; }
+            .template-row { grid-template-columns:1fr; }
         }
         @media (max-width: 680px) {
             .app-row { grid-template-columns: 72px 1fr; gap: 18px; align-items: start; }
@@ -192,12 +230,19 @@
             .values { margin-top: 44px; grid-template-columns: 1fr; gap: 0; }
             .hero-actions .btn { flex: 1 1 100%; }
         }
+        @media (max-width: 760px) {
+            .nav-in { gap: 8px; padding: 0 14px; }
+            .nav-links { flex: 1; max-width: calc(100vw - 130px); overflow-x: auto; justify-content: flex-start; scrollbar-width: none; }
+            .nav-links::-webkit-scrollbar { display: none; }
+            .nav-links a { padding: 9px 8px; font-size: 12.5px; }
+        }
+        .business-home .rvz-nav-btn { display: none; }
     </style>
     <script defer src="/_vercel/insights/script.js"></script>
     <meta name="google-site-verification" content="3AgqNUMNFEMQFWHNADAPRXRTiRzyWdpGQ23AVqAGW4A" />
 </head>
-<body>
-    <a class="skip" href="#apps">Saltar al contenido</a>
+<body class="business-home">
+    <a class="skip" href="#soluciones">Saltar al contenido</a>
 
     <header class="nav">
         <div class="nav-in">
@@ -206,8 +251,7 @@
                 <span class="brand-name">AstroSeec</span>
             </a>
             <nav class="nav-links" aria-label="Principal">
-                <a href="#apps">Apps</a>
-                <a href="#nosotros">Nosotros</a>
+                <a href="#aplicaciones">Apps</a>
                 <a href="servicios.html">Otros Servicios</a>
                 <a href="#contacto">Contacto</a>
             </nav>
@@ -230,80 +274,30 @@
 
             <div class="hero-in">
                 <div>
-                    <h1>Apps que se adaptan a tus necesidades</h1>
-                    <p class="lede">Diseñamos apps para todo tipo de equipos: desde apps para el control de tus finanzas y juegos móviles, hasta apps que te ayudan a crecer como persona.</p>
+                    <h1>Plataformas digitales hechas para tu negocio</h1>
+                    <p class="lede">Desarrollamos sitios web, CRM y sistemas de inventario que se adaptan a tu forma de trabajar. Si lo necesitas, conectamos tus plataformas con una app móvil para que tu equipo las use desde cualquier lugar.</p>
                     <div class="hero-actions">
-                        <a class="btn btn-brass" href="#apps">Ver apps</a>
-                        <a class="btn btn-ghost" href="#nosotros">Sobre AstroSeec</a>
-                        <button class="btn btn-ghost btn-form-open" type="button">Desarrolla tu app</button>
+                        <a class="btn btn-brass" href="#soluciones">Explorar soluciones</a>
+                        <button class="btn btn-ghost btn-form-open" type="button">Cuéntanos tu proyecto</button>
                     </div>
                 </div>
 
-                <div class="phone-wrap">
-                    <div class="device" aria-label="Apps de AstroSeec en la pantalla de inicio de un móvil">
-                        <div class="punch" aria-hidden="true"></div>
-                        <div class="status" aria-hidden="true">
-                            <span data-clock>9:41</span>
-                            <span class="icons">
-                                <svg width="13" height="11" viewBox="0 0 14 12" fill="currentColor"><path d="M7 11.5 13.5 3.2A10.4 10.4 0 0 0 .5 3.2L7 11.5z"/></svg>
-                                <svg width="12" height="11" viewBox="0 0 13 12" fill="currentColor"><path d="M11.5.5v11H9.8V.5h1.7zM7.6 3.4v8.1H5.9V3.4h1.7zM3.7 6.4v5.1H2V6.4h1.7z"/></svg>
-                                <svg width="11" height="12" viewBox="0 0 12 14" fill="none"><rect x=".6" y="2" width="10.8" height="11.4" rx="2.6" stroke="currentColor" stroke-width="1.2"/><rect x="2.1" y="4.6" width="7.8" height="7.3" rx="1.4" fill="currentColor"/><rect x="3.6" y="0" width="4.8" height="1.8" rx=".9" fill="currentColor"/></svg>
-                            </span>
+                <div class="platform-preview" aria-label="Vista conceptual de una plataforma de negocio conectada a una aplicación">
+                    <div class="preview-top"><span class="preview-dots" aria-hidden="true"><i></i><i></i><i></i></span><span>Vista de ejemplo</span><span class="preview-status">Datos ilustrativos</span></div>
+                    <div class="preview-panel">
+                        <small>RESUMEN · ESTA SEMANA</small>
+                        <h2>Todo tu negocio, más claro</h2>
+                        <div class="preview-metrics">
+                            <div class="preview-metric"><small>Clientes activos</small><strong>128</strong></div>
+                            <div class="preview-metric"><small>Productos</small><strong>346</strong></div>
                         </div>
-
-                        <iframe class="diorama-frame" src="assets/diorama.html" title="Diorama de papel" tabindex="-1" aria-hidden="true"></iframe>
-
-                        <div class="home-grid">
-                            <a class="home-app" href="cashvault.html" style="--i:0; --tint:#efe3c2">
-                                <span class="app-tile"><img src="assets/cashvault.jpeg" alt=""></span>
-                                Cash Vault
-                            </a>
-                            <a class="home-app" href="aquavida.html" style="--i:1; --tint:#cfe8ee">
-                                <span class="app-tile"><img src="assets/aquavida.png" alt=""></span>
-                                AquaVida
-                            </a>
-                            <a class="home-app" href="misnotas.html" style="--i:2; --tint:#ece6d8">
-                                <span class="app-tile"><img src="assets/misnotas.png" alt=""></span>
-                                Mis Notas
-                            </a>
-                            <a class="home-app" href="domicilios.html" style="--i:3; --tint:#f2e2c8">
-                                <span class="app-tile"><img src="assets/mapsy.png" alt=""></span>
-                                Domicilios
-                            </a>
-                            <a class="home-app" href="misturnos.html" style="--i:4; --tint:#e8e0f0">
-                                <span class="app-tile"><img src="assets/misturnos.png" alt=""></span>
-                                Mis Turnos
-                            </a>
-                            <a class="home-app" href="snakeduels.html" style="--i:5; --tint:#e3dcf3">
-                                <span class="app-tile"><img src="assets/snakeduels.png" alt=""></span>
-                                Snake Duels
-                            </a>
-                            <a class="home-app" href="fruitduels.html" style="--i:6; --tint:#f3dcd7">
-                                <span class="app-tile"><img src="assets/fruitduels.png" alt=""></span>
-                                Fruit Duels
-                            </a>
-                            <a class="home-app" href="carsduels.html" style="--i:7; --tint:#efdfbb">
-                                <span class="app-tile"><img src="assets/carsduels/icon.png" alt=""></span>
-                                Cars Duels
-                            </a>
-                            <a class="home-app" href="wifiradar.html" style="--i:8; --tint:#d5e6e2">
-                                <span class="app-tile"><img src="assets/wifiradar.png" alt=""></span>
-                                WiFi Radar
-                            </a>
-                            <a class="home-app" href="impostorduels.html" style="--i:9; --tint:#e6d9bf">
-                                <span class="app-tile"><img src="assets/impostorduels.png" alt=""></span>
-                                Impostor Duels
-                            </a>
-                            <a class="home-app" href="oraciondiaria.html" style="--i:10; --tint:#dbe4f2">
-                                <span class="app-tile"><img src="assets/oraciondiaria.png" alt=""></span>
-                                Oración Diaria
-                            </a>
-                        </div>
+                    </div>
+                    <div class="preview-links"><a href="crm.html">CRM</a><a href="inventario.html">Inventario</a><a href="plataforma-web.html">Sitio web</a></div>
 
                         <div class="device-form" id="deviceForm" hidden>
                             <div class="df-head">
-                                <strong>Cuéntanos tu idea</strong>
-                                <button type="button" class="df-close" aria-label="Volver a la pantalla de apps">&times;</button>
+                                <strong>Cuéntanos tu proyecto</strong>
+                                <button type="button" class="df-close" aria-label="Cerrar formulario">&times;</button>
                             </div>
                             <form id="formApp" novalidate>
                                 <label>
@@ -320,23 +314,54 @@
                                 </label>
                                 <label>
                                     <span>Mensaje</span>
-                                    <textarea name="mensaje" rows="4" placeholder="Cuéntanos qué app tienes en mente…" required></textarea>
+                                    <textarea name="mensaje" rows="4" placeholder="Cuéntanos qué proceso quieres mejorar…" required></textarea>
                                 </label>
                                 <button class="btn btn-brass btn-sm df-send" type="submit">Enviar</button>
                                 <p class="df-note" hidden></p>
                             </form>
                         </div>
 
-                        <div class="home-bar"></div>
-                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="section" id="apps">
+        <section class="section" id="soluciones">
             <div class="wrap">
                 <div data-reveal>
-                    <p class="eyebrow">Nuestras apps</p>
+                    <p class="eyebrow">Desarrollo para empresas</p>
+                    <h2 class="title">Herramientas que encajan con tu operación</h2>
+                    <p class="subtitle">Partimos de tus procesos para crear una solución útil, clara y preparada para crecer contigo.</p>
+                </div>
+                <div class="grid-cards solution-grid">
+                    <article class="card solution-card" data-reveal><span class="card-icon" aria-hidden="true">⌘</span><h3>Plataformas web</h3><p>Landing pages y sitios para presentar tu negocio, tus servicios y tus canales de contacto de forma profesional.</p><a class="btn btn-outline btn-sm" href="plataforma-web.html">Ver plantilla</a></article>
+                    <article class="card solution-card" data-reveal style="--d:80ms"><span class="card-icon" aria-hidden="true">◎</span><h3>CRM para negocios</h3><p>Centraliza clientes, conversaciones y oportunidades para que tu equipo pueda dar seguimiento con orden.</p><a class="btn btn-outline btn-sm" href="crm.html">Ver plantilla</a></article>
+                    <article class="card solution-card" data-reveal style="--d:160ms"><span class="card-icon" aria-hidden="true">▦</span><h3>Sistemas de inventario</h3><p>Consulta existencias, registra productos y controla movimientos desde un panel que se adapta a tu negocio.</p><a class="btn btn-outline btn-sm" href="inventario.html">Ver plantilla</a></article>
+                </div>
+                <p class="sync-note" data-reveal><strong>También pueden conectarse con aplicaciones móviles.</strong> Diseñamos soluciones web y apps que comparten información para que el equipo gestione sus tareas desde el computador o el teléfono. La sincronización se define según las necesidades y el alcance de cada proyecto.</p>
+            </div>
+        </section>
+
+        <section class="section band" id="plantillas">
+            <div class="wrap">
+                <div data-reveal>
+                    <p class="eyebrow">Explora las demostraciones</p>
+                    <h2 class="title">Tres ejemplos para empezar a imaginarlo</h2>
+                    <p class="subtitle">Estas plantillas muestran una dirección funcional y visual neutra. Cada solución se personaliza para la identidad y los procesos de tu negocio.</p>
+                </div>
+                <div class="template-row" data-reveal>
+                    <a class="template-link" href="plataforma-web.html">Landing para negocios <span>Abrir demo</span></a>
+                    <a class="template-link" href="crm.html">CRM para negocios <span>Abrir demo</span></a>
+                    <a class="template-link" href="inventario.html">Control de inventario <span>Abrir demo</span></a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="aplicaciones">
+            <div class="wrap">
+                <div data-reveal>
+                    <p class="eyebrow">Aplicaciones AstroSeec</p>
+                    <h2 class="title">Aplicaciones creadas por AstroSeec</h2>
+                    <p class="subtitle">Conoce nuestros productos móviles publicados y proyectos de entretenimiento, bienestar y organización.</p>
                 </div>
 
                 <ul class="app-list">
@@ -494,14 +519,14 @@
             <div class="wrap">
                 <div class="about-grid">
                     <div class="about-side" data-reveal>
-                        <p class="eyebrow">Sobre nosotros</p>
+                        <p class="eyebrow">Sobre AstroSeec</p>
                         <figure class="logo-badge">
                             <img src="LOGO_ASTROSEEC.jpeg" alt="Logotipo de AstroSeec: un astronauta trabajando frente a un panel de seguridad">
                         </figure>
                     </div>
                     <div data-reveal style="--d:120ms">
-                        <p class="about-text">Somos un equipo de desarrollo de apps de la ciudad de Bogotá.</p>
-                        <p class="about-more">Trabajamos codo a codo con nuestros clientes: escuchamos su idea, priorizamos lo que de verdad necesita y la convertimos en una app lista para el mundo. Nuestro compromiso es entregar un trabajo que no solo cumpla lo esperado, sino que haga felices a quienes lo usan.</p>
+                        <p class="about-text">Somos un equipo de desarrollo digital de Bogotá que crea plataformas web y aplicaciones móviles a la medida.</p>
+                        <p class="about-more">Trabajamos codo a codo con cada negocio: entendemos sus procesos, priorizamos lo que necesita y lo convertimos en una herramienta fácil de usar. Diseñamos soluciones web que también pueden conectarse con aplicaciones para acompañar al equipo en su trabajo diario.</p>
                     </div>
                 </div>
             </div>
@@ -512,10 +537,10 @@
         <div class="wrap">
             <p class="eyebrow">Contacto</p>
             <h2 class="title">¿Hablamos?</h2>
-            <p class="cta-form">¿Tienes dudas, una incidencia o una idea de app? Cuéntanosla hoy mismo:</p>
+            <p class="cta-form">Cuéntanos qué parte de tu negocio quieres organizar, digitalizar o llevar al móvil:</p>
             <button class="btn btn-brass btn-form-open" type="button">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 3.5v17a1 1 0 001.5.86l14-8.5a1 1 0 000-1.72l-14-8.5A1 1 0 006 3.5z"/></svg>
-                Quiero desarrollar mi app
+                Hablemos de mi proyecto
             </button>
 
             <div class="foot">

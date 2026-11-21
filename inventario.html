@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f7f8">
+    <meta name="description" content="Demostración de un sistema web para consultar productos y controlar existencias.">
+    <title>Plantilla de inventario para negocios · Demostración</title>
+    <link rel="stylesheet" href="plantillas.css">
+    <script defer src="plantillas.js"></script>
+</head>
+<body>
+    <div class="demo-topline">Plantilla de inventario · Datos de ejemplo, solo en esta sesión <a href="index.html#plantillas">Volver a ejemplos</a></div>
+    <div class="dashboard-layout">
+        <aside class="dashboard-side"><h1>Panel del negocio</h1><a href="#resumen">Resumen</a><a href="#productos" aria-current="page">Productos</a><a href="#productos">Movimientos</a><a href="index.html#contacto">Solicitar personalización</a></aside>
+        <main class="dashboard-main" id="resumen">
+            <div class="dashboard-heading"><div><p class="demo-kicker">Existencias y productos</p><h2>Control de inventario</h2><p>Consulta cantidades, precios y alertas de stock bajo.</p></div><button class="demo-btn primary" id="addProductButton" type="button">Añadir producto</button></div>
+            <p class="demo-notice">Demostración interactiva: los productos y cantidades son ficticios. Tus cambios se borran al recargar y no se envían a un servidor.</p>
+            <section class="metric-grid" aria-label="Resumen del inventario">
+                <article class="metric-card"><span>Productos</span><strong id="productCount">0</strong></article>
+                <article class="metric-card"><span>Unidades disponibles</span><strong id="unitCount">0</strong></article>
+                <article class="metric-card"><span>Alertas de stock bajo</span><strong id="lowStockCount">0</strong></article>
+                <article class="metric-card"><span>Consulta rápida</span><strong style="font-size:17px">Por SKU o nombre</strong></article>
+            </section>
+            <section class="demo-card form-panel" id="productPanel" hidden>
+                <h3 style="margin:0 0 15px">Nuevo producto</h3>
+                <form id="productForm">
+                    <div class="form-grid">
+                        <label class="demo-field">Código SKU<input id="productSku" name="sku" required></label>
+                        <label class="demo-field">Nombre<input id="productName" name="name" required></label>
+                        <label class="demo-field">Categoría<input name="category" required></label>
+                        <label class="demo-field">Precio<input name="price" type="number" min="0" step="100" required></label>
+                        <label class="demo-field">Cantidad inicial<input name="qty" type="number" min="0" step="1" value="0" required></label>
+                        <label class="demo-field">Mínimo para alerta<input name="min" type="number" min="0" step="1" value="5" required></label>
+                    </div>
+                    <div class="form-actions"><button class="demo-btn primary small" type="submit">Guardar en demo</button><button class="demo-btn small" id="cancelProduct" type="button">Cancelar</button></div>
+                </form>
+            </section>
+            <section class="demo-card table-card" id="productos">
+                <div class="table-heading"><h3>Productos registrados</h3><div class="table-controls"><input class="demo-search" id="productSearch" type="search" aria-label="Buscar productos" placeholder="Buscar producto o SKU"></div></div>
+                <div class="table-wrap"><table class="demo-table"><thead><tr><th>SKU</th><th>Producto</th><th>Categoría</th><th>Precio</th><th>Existencias</th><th>Estado</th></tr></thead><tbody id="productList"></tbody></table></div>
+            </section>
+            <p id="productStatus" class="demo-success" role="status" aria-live="polite"></p>
+            <footer class="demo-footer">Sistema de inventario de ejemplo · <a href="index.html#contacto">Solicitar una versión personalizada</a></footer>
+        </main>
+    </div>
+</body>
+</html>

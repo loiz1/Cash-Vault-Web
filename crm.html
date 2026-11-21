@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f7f8">
+    <meta name="description" content="Demostración de un CRM sencillo para gestionar contactos y oportunidades de negocio.">
+    <title>Plantilla CRM para negocios · Demostración</title>
+    <link rel="stylesheet" href="plantillas.css">
+    <script defer src="plantillas.js"></script>
+</head>
+<body>
+    <div class="demo-topline">Plantilla CRM · Datos de ejemplo, solo en esta sesión <a href="index.html#plantillas">Volver a ejemplos</a></div>
+    <div class="dashboard-layout">
+        <aside class="dashboard-side"><h1>Panel del negocio</h1><a href="#resumen">Resumen</a><a href="#contactos" aria-current="page">Contactos</a><a href="#contactos">Oportunidades</a><a href="index.html#contacto">Solicitar personalización</a></aside>
+        <main class="dashboard-main" id="resumen">
+            <div class="dashboard-heading"><div><p class="demo-kicker">Relaciones con clientes</p><h2>CRM para negocios</h2><p>Organiza contactos y mantén visible el siguiente paso.</p></div><button class="demo-btn primary" id="addLeadButton" type="button">Añadir contacto</button></div>
+            <p class="demo-notice">Demostración interactiva: los registros son ficticios y cualquier cambio se borra al recargar. No se envían datos a un servidor.</p>
+            <section class="metric-grid" aria-label="Resumen de contactos">
+                <article class="metric-card"><span>Contactos registrados</span><strong id="leadCount">0</strong></article>
+                <article class="metric-card"><span>En gestión</span><strong id="activeLeadCount">0</strong></article>
+                <article class="metric-card"><span>Etapas del proceso</span><strong>4</strong></article>
+                <article class="metric-card"><span>Próximo paso</span><strong style="font-size:17px">Dar seguimiento</strong></article>
+            </section>
+            <section class="demo-card form-panel" id="leadPanel" hidden>
+                <h3 style="margin:0 0 15px">Nuevo contacto</h3>
+                <form id="leadForm">
+                    <div class="form-grid">
+                        <label class="demo-field">Nombre<input id="leadName" name="name" autocomplete="name" required></label>
+                        <label class="demo-field">Negocio<input name="company" required></label>
+                        <label class="demo-field">Correo<input name="email" type="email" autocomplete="email" required></label>
+                        <label class="demo-field">Etapa<select name="stage"><option>Nuevo</option><option>En seguimiento</option><option>Propuesta</option></select></label>
+                    </div>
+                    <div class="form-actions"><button class="demo-btn primary small" type="submit">Guardar en demo</button><button class="demo-btn small" id="cancelLead" type="button">Cancelar</button></div>
+                </form>
+            </section>
+            <section class="demo-card table-card" id="contactos">
+                <div class="table-heading"><h3>Contactos recientes</h3><div class="table-controls"><input class="demo-search" id="leadSearch" type="search" aria-label="Buscar contactos" placeholder="Buscar nombre o negocio"><select id="leadFilter" class="demo-search" aria-label="Filtrar por etapa"><option>Todos</option><option>Nuevo</option><option>En seguimiento</option><option>Propuesta</option><option>Cerrado</option></select></div></div>
+                <div class="table-wrap"><table class="demo-table"><thead><tr><th>Contacto</th><th>Negocio</th><th>Correo</th><th>Etapa</th><th>Última actividad</th></tr></thead><tbody id="leadList"></tbody></table></div>
+            </section>
+            <p id="leadStatus" class="demo-success" role="status" aria-live="polite"></p>
+            <footer class="demo-footer">CRM de ejemplo · <a href="index.html#contacto">Solicitar una versión personalizada</a></footer>
+        </main>
+    </div>
+</body>
+</html>

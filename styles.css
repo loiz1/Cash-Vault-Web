@@ -595,6 +595,11 @@ h1, h2, h3 { font-family: var(--display); letter-spacing: -0.03em; line-height: 
     transition-delay: var(--d, 0ms);
 }
 [data-reveal].is-in { opacity: 1; transform: none; }
+.solution-card[data-reveal], .template-link[data-reveal], #aplicaciones li[data-reveal] {
+    transition-delay: var(--d, 0ms);
+}
+#aplicaciones li:nth-child(3n + 2) { --d: 90ms; }
+#aplicaciones li:nth-child(3n + 3) { --d: 180ms; }
 
 /* ----------------------------------------------------------
    Accesibilidad y responsive

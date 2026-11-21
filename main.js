@@ -36,7 +36,7 @@
         setInterval(tick, 30000);
     }
 
-    /* Formulario "Desarrolla tu app" dentro del móvil (solo index) */
+    /* Formulario de contacto de desarrollo (solo index) */
     var WEB3FORMS_KEY = '7375938a-c17c-4f2a-89b5-24203072b9da'; // form contacto (web3forms, astroseec@gmail.com)
     var WEB3FORMS_DELETE_KEY = 'd3f904bd-5938-4b60-93b0-66729754ab85'; // form eliminación de datos
     function w3fSend(payload, ok, fail) {
@@ -51,20 +51,20 @@
     var device = document.querySelector('.device');
     var deviceForm = document.getElementById('deviceForm');
     var formApp = document.getElementById('formApp');
-    if (device && deviceForm && formApp) {
+    if (deviceForm && formApp) {
         var noteEl = formApp.querySelector('.df-note');
-        // por defecto, el móvil muestra los iconos
-        device.classList.remove('form-mode');
+        // El formulario puede mostrarse sobre una vista de producto o dentro de la maqueta móvil.
+        if (device) device.classList.remove('form-mode');
         deviceForm.hidden = true;
         var openForm = function (scroll) {
-            device.classList.add('form-mode');
+            if (device) device.classList.add('form-mode');
             deviceForm.hidden = false;
-            if (scroll) device.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' });
+            if (scroll) (device || deviceForm.parentElement).scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' });
             var first = formApp.querySelector('input');
             if (first && !scroll) first.focus();
         };
         var closeForm = function () {
-            device.classList.remove('form-mode');
+            if (device) device.classList.remove('form-mode');
             deviceForm.hidden = true;
             if (noteEl) noteEl.hidden = true;
         };
@@ -92,7 +92,7 @@
                 if (ok) formApp.reset();
             };
             var mailtoFallback = function () {
-                var subject = encodeURIComponent('Solicitud de desarrollo de app — ' + d.nombre);
+                var subject = encodeURIComponent('Solicitud de desarrollo digital — ' + d.nombre);
                 var body = encodeURIComponent(
                     'Nombre: ' + d.nombre + '\n' +
                     'Teléfono: ' + d.telefono + '\n' +
@@ -112,7 +112,7 @@
             if (WEB3FORMS_KEY) {
                 w3fSend({
                     access_key: WEB3FORMS_KEY,
-                    subject: 'Solicitud de desarrollo de app — ' + d.nombre,
+                    subject: 'Solicitud de desarrollo digital — ' + d.nombre,
                     from_name: 'Web AstroSeec',
                     nombre: d.nombre,
                     telefono: d.telefono,
@@ -133,8 +133,8 @@
         window.addEventListener('message', function (ev) {
             if (ev.origin !== location.origin) return;
             if (ev.data === 'diorama:contacto') openForm(true);
-            else if (ev.data === 'diorama:noche') device.classList.add('diorama-night');
-            else if (ev.data === 'diorama:dia') device.classList.remove('diorama-night');
+            else if (device && ev.data === 'diorama:noche') device.classList.add('diorama-night');
+            else if (device && ev.data === 'diorama:dia') device.classList.remove('diorama-night');
         });
     }
 

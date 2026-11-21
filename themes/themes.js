@@ -227,7 +227,7 @@
 
     function buildButton() {
         var nav = document.querySelector('.nav-links');
-        if (!nav) return;
+        if (!nav || document.body.classList.contains('business-home')) return;
         btn = document.createElement('button');
         btn.type = 'button';
         btn.className = 'rvz-nav-btn';
