@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="theme-color" content="#0e2622">
-    <meta name="description" content="AstroSeec diseña y desarrolla plataformas web, CRM, sistemas de inventario y aplicaciones conectadas para negocios.">
+    <meta name="description" content="AstroSeec crea plataformas digitales para negocios y aplicaciones móviles de juegos, bienestar, finanzas y productividad.">
     <title>AstroSeec — Plataformas digitales a la medida de tu negocio</title>
 
     <link rel="icon" type="image/jpeg" href="LOGO_ASTROSEEC.jpeg">
@@ -142,25 +142,27 @@
         @keyframes pop { from { opacity: 0; transform: translateY(14px) scale(.8); } to { opacity: 1; transform: none; } }
 
         /* ---- Listado de apps ---- */
-        .app-list { margin-top: 48px; }
+        .app-list { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; margin-top:22px; }
         .app-row {
             display: grid;
-            grid-template-columns: 92px 1fr auto;
-            gap: 30px;
-            align-items: center;
-            padding: 32px 0;
-            border-top: 1px solid var(--line-dark);
+            grid-template-columns: 68px 1fr;
+            gap: 17px;
+            align-items: start;
+            min-height: 100%;
+            padding: 22px 0;
+            border: 0;
         }
+        .app-list li { min-width:0; padding:0 22px; border:1px solid var(--line-dark); border-radius:18px; background:color-mix(in srgb,var(--tint) 22%,#fff 78%); }
         .app-list li:last-child { border-bottom: 1px solid var(--line-dark); }
         .app-row .app-tile {
-            width: 92px; height: 92px;
-            border: 1px solid var(--line-dark);
+            width: 68px; height: 68px;
+            border: 1px solid rgba(20,38,33,.14);
         }
         .app-row h3 {
             font-weight: 700;
-            font-size: 28px;
+            font-size: 21px;
             letter-spacing: -0.02em;
-            margin-bottom: 8px;
+            margin-bottom: 5px;
         }
         .app-kicker {
             display: block;
@@ -171,8 +173,21 @@
             text-transform: uppercase;
             color: var(--brass);
         }
-        .app-row p { font-size: 16.5px; line-height: 1.55; color: var(--ink-soft); max-width: 58ch; }
+        .app-row p { font-size: 13px; line-height: 1.5; color: var(--ink-soft); max-width: 58ch; }
+        .app-row .app-kicker { font-size:10px; margin-bottom:4px; }
+        .app-row .actions { grid-column:2; margin-top:2px; }
         .actions { display: flex; gap: 10px; flex-wrap: wrap; }
+        .apps-spotlight { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; margin-top:34px; }
+        .apps-feature { position:relative; display:flex; align-items:center; gap:20px; min-height:150px; padding:25px 54px 25px 25px; overflow:hidden; border:1px solid rgba(255,255,255,.12); border-radius:22px; color:var(--paper); text-decoration:none; transition:transform .22s,border-color .22s,box-shadow .22s; }
+        .apps-feature:hover { transform:translateY(-4px); border-color:var(--brass); box-shadow:0 16px 36px rgba(14,38,34,.16); }
+        .apps-feature-racing { background:radial-gradient(ellipse at 90% 0%,#77439a 0,transparent 55%),linear-gradient(125deg,#171625,#29203a); }
+        .apps-feature-impostor { background:radial-gradient(ellipse at 90% 0%,#a34b2b 0,transparent 55%),linear-gradient(125deg,#29150e,#56301f); }
+        .apps-feature>img { width:76px; height:76px; flex:0 0 76px; object-fit:cover; border-radius:19px; box-shadow:0 9px 23px #0005; }
+        .apps-feature-copy { display:grid; gap:5px; }
+        .apps-feature-copy .app-kicker { margin:0; color:#efc66d; font-size:10px; }
+        .apps-feature-copy strong { font-family:var(--display); font-size:clamp(1.25rem,2.5vw,1.8rem); letter-spacing:-.025em; }
+        .apps-feature-copy>span:last-child { color:#e1ddd5; font-size:13px; line-height:1.45; }
+        .apps-feature-arrow { position:absolute; right:22px; top:21px; color:#fff; font-size:1.3rem; }
 
         /* ---- Nosotros ---- */
         .about-grid {
@@ -223,10 +238,16 @@
             .template-row { grid-template-columns:1fr; }
         }
         @media (max-width: 680px) {
-            .app-row { grid-template-columns: 72px 1fr; gap: 18px; align-items: start; }
-            .app-row .app-tile { width: 72px; height: 72px; }
-            .actions { grid-column: 1 / -1; }
-            .app-row h3 { font-size: 24px; }
+            .app-list { grid-template-columns:1fr; gap:10px; margin-top:15px; }
+            .app-list li { padding-inline:17px; border-radius:15px; }
+            .app-row { grid-template-columns:58px 1fr; gap:13px; align-items:start; padding-block:18px; }
+            .app-row .app-tile { width:58px; height:58px; }
+            .app-row .actions { grid-column:2; }
+            .app-row h3 { font-size: 21px; }
+            .apps-spotlight { grid-template-columns:1fr; gap:11px; margin-top:26px; }
+            .apps-feature { min-height:125px; padding:18px 48px 18px 18px; border-radius:17px; gap:15px; }
+            .apps-feature>img { width:62px; height:62px; flex-basis:62px; border-radius:15px; }
+            .apps-feature-copy>span:last-child { font-size:12px; }
             .values { margin-top: 44px; grid-template-columns: 1fr; gap: 0; }
             .hero-actions .btn { flex: 1 1 100%; }
         }
@@ -278,6 +299,7 @@
                     <p class="lede">Desarrollamos sitios web, CRM y sistemas de inventario que se adaptan a tu forma de trabajar. Si lo necesitas, conectamos tus plataformas con una app móvil para que tu equipo las use desde cualquier lugar.</p>
                     <div class="hero-actions">
                         <a class="btn btn-brass" href="#soluciones">Explorar soluciones</a>
+                        <a class="btn btn-ghost" href="#aplicaciones">Descubrir nuestras apps <span aria-hidden="true">↘</span></a>
                         <button class="btn btn-ghost btn-form-open" type="button">Cuéntanos tu proyecto</button>
                     </div>
                 </div>
@@ -361,7 +383,20 @@
                 <div data-reveal>
                     <p class="eyebrow">Aplicaciones AstroSeec</p>
                     <h2 class="title">Aplicaciones creadas por AstroSeec</h2>
-                    <p class="subtitle">Conoce nuestros productos móviles publicados y proyectos de entretenimiento, bienestar y organización.</p>
+                    <p class="subtitle">Juegos y herramientas móviles para jugar, organizarte, cuidar tus hábitos y gestionar tus finanzas.</p>
+                </div>
+
+                <div class="apps-spotlight" aria-label="Aplicaciones destacadas">
+                    <a class="apps-feature apps-feature-racing" href="carsduels.html" data-reveal>
+                        <img src="assets/carsduels/icon.png?v=20261125" alt="" width="76" height="76" loading="lazy">
+                        <span class="apps-feature-copy"><span class="app-kicker">Juego · Carreras arcade</span><strong>Cars Duels 3D</strong><span>28 circuitos. Tu próxima vuelta empieza aquí.</span></span>
+                        <span class="apps-feature-arrow" aria-hidden="true">↗</span>
+                    </a>
+                    <a class="apps-feature apps-feature-impostor" href="impostorduels.html" data-reveal style="--d:100ms">
+                        <img src="assets/impostorduels.png" alt="" width="76" height="76" loading="lazy">
+                        <span class="apps-feature-copy"><span class="app-kicker">Juego · Deducción y palabras</span><strong>Impostor Duels</strong><span>Lee las pistas, encuentra al impostor y gana recompensas.</span></span>
+                        <span class="apps-feature-arrow" aria-hidden="true">↗</span>
+                    </a>
                 </div>
 
                 <ul class="app-list">
@@ -435,7 +470,7 @@
                     </li>
                     <li style="--tint:#efdfbb" data-reveal>
                         <div class="app-row">
-                            <span class="app-tile"><img src="assets/carsduels/icon.png" alt="Icono de Cars Duels 3D"></span>
+                            <span class="app-tile"><img src="assets/carsduels/icon.png?v=20261125" alt="Icono de Cars Duels 3D"></span>
                             <div>
                                 <span class="app-kicker">Juego · Carreras arcade</span>
                                 <h3>Cars Duels 3D</h3>
