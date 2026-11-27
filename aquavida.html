@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="theme-color" content="#0e2622">
-    <meta name="description" content="AquaVida: recordatorios de hidratación y registro de agua diario con metas personalizadas, progreso diario y gráfico semanal.">
+    <meta name="description" content="AquaVida: registro de hidratación con un toque, metas personalizadas, vaso animado y gráfico semanal. Gana tréboles con tus hábitos y cultiva tu vivero.">
     <title>AquaVida - AstroSeec</title>
 
     <link rel="icon" type="image/jpeg" href="LOGO_ASTROSEEC.jpeg">
@@ -20,6 +20,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="themes/themes.css">
+    <style>
+        .compras-card { background: var(--paper); border-radius: 18px; border: 1px solid rgba(74, 64, 99, .14); overflow-x: auto; margin-top: 34px; box-shadow: 0 22px 44px -30px rgba(14, 38, 34, .45); }
+        table.compras { border-collapse: collapse; width: 100%; font-size: 14px; min-width: 640px; }
+        table.compras th { text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: .07em; color: #85734f; padding: 14px 16px; border-bottom: 2px solid rgba(200, 162, 74, .45); white-space: nowrap; background: rgba(200, 162, 74, .08); }
+        table.compras td { padding: 12px 16px; border-bottom: 1px solid rgba(74, 64, 99, .1); vertical-align: top; }
+        table.compras tbody tr:nth-child(even) td { background: rgba(200, 162, 74, .05); }
+        table.compras tbody tr:last-child td { border-bottom: 0; }
+        table.compras td:first-child { font-weight: 700; color: var(--ink); }
+        table.compras td:last-child { white-space: nowrap; font-weight: 600; }
+    </style>
     <script defer src="/_vercel/insights/script.js"></script>
     <meta name="google-site-verification" content="3AgqNUMNFEMQFWHNADAPRXRTiRzyWdpGQ23AVqAGW4A" />
 </head>
@@ -33,7 +43,7 @@
                 <span class="brand-name">AstroSeec</span>
             </a>
             <nav class="nav-links" aria-label="Principal">
-                <a href="index.html#aplicaciones">Apps</a>
+                <a href="index.html#apps" aria-current="page">Apps</a>
                 <a href="index.html#nosotros">Nosotros</a>
                 <a href="servicios.html">Otros Servicios</a>
                 <a href="index.html?form=1">Contacto</a>
@@ -42,153 +52,38 @@
     </header>
 
     <main>
-        <section class="app-hero">
-            <div class="rings-bg" aria-hidden="true">
-                <svg viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">
-                    <g class="rotor" id="rotor">
-                        <circle cx="500" cy="500" r="480" fill="none" stroke="#f1ece1" stroke-opacity=".1" stroke-width="14" stroke-dasharray="2 14.755"/>
-                        <circle cx="500" cy="500" r="446" fill="none" stroke="#f1ece1" stroke-opacity=".12" stroke-width="1.5"/>
-                        <circle cx="500" cy="500" r="380" fill="none" stroke="#c8a24a" stroke-opacity=".5" stroke-width="1.5"/>
-                        <circle cx="500" cy="500" r="352" fill="none" stroke="#f1ece1" stroke-opacity=".08" stroke-width="1.5"/>
-                    </g>
-                </svg>
-            </div>
-
-            <div class="wrap app-hero-in">
-                <div>
-                    <a class="crumbs" href="index.html#aplicaciones">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
-                        Todas las apps
-                    </a>
-
-                    <div class="app-id" style="--tint:#cfe8ee">
-                        <span class="app-tile"><img src="assets/aquavida.png" alt="Icono de AquaVida"></span>
-                        <div>
-                            <span class="app-kicker">Salud y bienestar</span>
-                            <h1>AquaVida</h1>
-                        </div>
-                    </div>
-
-                    <p class="app-lead">Tu recordatorio de hidratación. Registra el agua que bebes con un toque, recibe avisos a tu medida y llega cada día a tu meta.</p>
-
-                    <div class="app-actions">
-                        <a class="btn btn-brass" href="https://play.google.com/store/apps/details?id=com.aquavida.app" target="_blank" rel="noopener">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 3.5v17a1 1 0 001.5.86l14-8.5a1 1 0 000-1.72l-14-8.5A1 1 0 006 3.5z"/></svg>
-                            Descargar en Google Play
-                        </a>
-                        <a class="btn btn-ghost" href="#funciones">Ver funciones</a>
-                        <a class="btn btn-ghost" href="index.html?form=1">Desarrolla tu app</a>
-                    </div>
-
-                    <div class="chips">
-                        <span class="chip">Android</span>
-                        <span class="chip">Gratis</span>
-                        <span class="chip">Español e inglés</span>
-                        <span class="chip">Sin recopilación de datos</span>
-                    </div>
-                </div>
-
-                <div class="device" role="img" aria-label="Pantalla de AquaVida con el progreso del día y el consumo de la semana">
-                    <div class="punch" aria-hidden="true"></div>
-                    <div class="status" aria-hidden="true">
-                        <span data-clock>9:41</span>
-                        <span class="icons">
-                            <svg width="13" height="11" viewBox="0 0 14 12" fill="currentColor"><path d="M7 11.5 13.5 3.2A10.4 10.4 0 0 0 .5 3.2L7 11.5z"/></svg>
-                            <svg width="12" height="11" viewBox="0 0 13 12" fill="currentColor"><path d="M11.5.5v11H9.8V.5h1.7zM7.6 3.4v8.1H5.9V3.4h1.7zM3.7 6.4v5.1H2V6.4h1.7z"/></svg>
-                            <svg width="11" height="12" viewBox="0 0 12 14" fill="none"><rect x=".6" y="2" width="10.8" height="11.4" rx="2.6" stroke="currentColor" stroke-width="1.2"/><rect x="2.1" y="4.6" width="7.8" height="7.3" rx="1.4" fill="currentColor"/><rect x="3.6" y="0" width="4.8" height="1.8" rx=".9" fill="currentColor"/></svg>
-                        </span>
-                    </div>
-
-                    <div class="screen" aria-hidden="true">
-                        <div class="screen-head">
-                            <strong>Hoy</strong>
-                            <span>Meta: 2,4 L</span>
-                        </div>
-
-                        <div class="panel">
-                            <div class="gauge">
-                                <svg width="92" height="92" viewBox="0 0 92 92">
-                                    <circle class="track" cx="46" cy="46" r="40" fill="none" stroke-width="9"/>
-                                    <circle class="fill" cx="46" cy="46" r="40" fill="none" stroke-width="9" style="--off:75" transform="rotate(-90 46 46)"/>
-                                </svg>
-                                <div>
-                                    <div class="panel-figure">1,8 L</div>
-                                    <div class="panel-note">75 % de tu meta diaria</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="panel">
-                            <div class="panel-label">Consumo semanal</div>
-                            <div class="bars">
-                                <span style="--h:45%; --i:0"></span>
-                                <span style="--h:68%; --i:1"></span>
-                                <span style="--h:54%; --i:2"></span>
-                                <span style="--h:86%; --i:3"></span>
-                                <span style="--h:62%; --i:4"></span>
-                                <span class="hi" style="--h:94%; --i:5"></span>
-                                <span style="--h:40%; --i:6"></span>
-                            </div>
-                            <div class="days">
-                                <span>L</span><span>M</span><span>X</span><span>J</span><span>V</span><span>S</span><span>D</span>
-                            </div>
-                        </div>
-
-                        <div class="panel rows">
-                            <div class="row">
-                                <span class="row-main"><i class="dot" style="--c:#6fb7c9"></i><span>Vaso · 250 ml</span></span>
-                                <b>08:40</b>
-                            </div>
-                            <div class="row">
-                                <span class="row-main"><i class="dot" style="--c:#6fb7c9"></i><span>Botella · 500 ml</span></span>
-                                <b>11:15</b>
-                            </div>
-                            <div class="row">
-                                <span class="row-main"><i class="dot" style="--c:#6fb7c9"></i><span>Taza · 200 ml</span></span>
-                                <b>13:50</b>
-                            </div>
-                            <div class="row">
-                                <span class="row-main"><i class="dot" style="--c:#6fb7c9"></i><span>Vaso · 250 ml</span></span>
-                                <b>16:20</b>
-                            </div>
-                            <div class="row">
-                                <span class="row-main"><i class="dot" style="--c:#6fb7c9"></i><span>Botella · 600 ml</span></span>
-                                <b>18:05</b>
-                            </div>
-                        </div>
-
-                        <div class="panel">
-                            <div class="panel-label">Racha</div>
-                            <div class="panel-figure">12 días</div>
-                            <div class="panel-note">Tu mejor racha: 21 días seguidos cumpliendo la meta.</div>
-                        </div>
-
-                        <div class="panel rows">
-                            <div class="row">
-                                <span class="row-main"><i class="dot" style="--c:#c8a24a"></i><span>Consejo</span></span>
-                            </div>
-                            <div class="row">
-                                <span class="row-main"><span style="white-space:normal">Un vaso de agua al despertar ayuda a activar el metabolismo.</span></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="screen-fade" aria-hidden="true"></div>
-                    <div class="home-bar"></div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section" id="contenido">
+        <section class="page-hero">
             <div class="wrap">
-                <div class="narrow" data-reveal>
-                    <p class="eyebrow">Para qué sirve</p>
-                    <h2 class="title">Beber suficiente agua, sin pensar en ello</h2>
-                    <p class="subtitle">Mantenerse hidratado nunca fue tan fácil. Con AquaVida registras tu consumo diario, recibes recordatorios inteligentes y alcanzas tus metas de salud con un diseño simple y amigable.</p>
+                <a class="crumbs" href="index.html#apps">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+                    Todas las apps
+                </a>
+                <div class="app-id" style="--tint:#cfe8ee">
+                    <span class="app-tile"><img src="assets/aquavida.png" alt="Icono de AquaVida"></span>
+                    <div>
+                        <span class="app-kicker">Salud y bienestar</span>
+                        <h1>AquaVida</h1>
+                    </div>
+                </div>
+                <p class="lede">Tu recordatorio de hidratación con hábitos y recompensas: registra el agua que bebes con un toque, recibe avisos a tu medida, gana tréboles ☘️ con cada vaso y cultiva tu propio vivero de plantas.</p>
+                <div class="app-actions">
+                    <a class="btn btn-brass" href="https://play.google.com/store/apps/details?id=com.aquavida.app" target="_blank" rel="noopener">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 3.5v17a1 1 0 001.5.86l14-8.5a1 1 0 000-1.72l-14-8.5A1 1 0 006 3.5z"/></svg>
+                        Google Play
+                    </a>
+                    <a class="btn btn-ghost" href="#funciones">Ver funciones</a>
+                    <a class="btn btn-ghost" href="#terminos">Condiciones del Servicio</a>
+                </div>
+                <div class="chips">
+                    <span class="chip">Android</span>
+                    <span class="chip">Gratis con compras opcionales</span>
+                    <span class="chip">Español</span>
+                    <span class="chip">Vivero de plantas</span>
                 </div>
             </div>
         </section>
 
-        <section class="section" id="funciones" style="padding-top: 0">
+        <section class="section" id="funciones">
             <div class="wrap">
                 <div data-reveal>
                     <p class="eyebrow">Funciones clave</p>
@@ -201,79 +96,129 @@
                             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5s6 6.2 6 10a6 6 0 01-12 0c0-3.8 6-10 6-10z"/></svg>
                         </span>
                         <h3>Registro con un toque</h3>
-                        <p>Apunta lo que bebes con un solo gesto, sin menús ni formularios.</p>
+                        <p>Apunta lo que bebes con tus medidas rápidas (vaso, botella, taza) sin formularios.</p>
                     </article>
                     <article class="card" data-reveal style="--d:80ms">
                         <span class="card-icon" aria-hidden="true">
-                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 16v-5a6 6 0 0112 0v5l2 2H4z"/><path d="M10 21a2 2 0 004 0"/></svg>
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M12 17v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M19 5l-3 3M8 16l-3 3"/><circle cx="12" cy="12" r="4"/></svg>
                         </span>
-                        <h3>Recordatorios a tu medida</h3>
-                        <p>Configura la frecuencia y el horario de los avisos para que encajen con tu día.</p>
+                        <h3>Meta personalizada</h3>
+                        <p>Calcula tu meta diaria según tu peso y nivel de actividad física.</p>
                     </article>
                     <article class="card" data-reveal style="--d:160ms">
                         <span class="card-icon" aria-hidden="true">
-                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 2"/></svg>
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h18"/><path d="M7 20v-7M12 20V6M17 20v-10"/></svg>
                         </span>
-                        <h3>Progreso diario</h3>
-                        <p>Un vaso animado te muestra cuánto llevas y cuánto te falta para la meta del día.</p>
+                        <h3>Vaso animado y gráfico semanal</h3>
+                        <p>Un vaso que se llena con tu progreso y un gráfico de la semana de un vistazo.</p>
                     </article>
                     <article class="card" data-reveal style="--d:240ms">
                         <span class="card-icon" aria-hidden="true">
-                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h18"/><path d="M7 20v-7M12 20V6M17 20v-10"/></svg>
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3 8-8"/><path d="M20 12v6a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h9"/></svg>
                         </span>
-                        <h3>Gráfico semanal</h3>
-                        <p>Revisa de un vistazo cómo ha ido la semana y detecta los días flojos.</p>
+                        <h3>Hábitos con recompensa</h3>
+                        <p>Check-ins de hábitos saludables que pagan tréboles ☘️ para tu vivero.</p>
                     </article>
                     <article class="card" data-reveal style="--d:320ms">
                         <span class="card-icon" aria-hidden="true">
-                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h10M4 17h7"/></svg>
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c-4 0-6-2.5-6-6 0-3 2-4 2-7h8c0 3 2 4 2 7 0 3.5-2 6-6 6z"/><path d="M10 14c.7 1 3.3 1 4 0"/></svg>
                         </span>
-                        <h3>Cantidades rápidas</h3>
-                        <p>Personaliza tus medidas habituales (vaso, botella, taza) para registrar aún más rápido.</p>
+                        <h3>Vivero de plantas</h3>
+                        <p>Cambia tus tréboles por semillas y bienes para hacer crecer tus plantas.</p>
                     </article>
                     <article class="card" data-reveal style="--d:400ms">
                         <span class="card-icon" aria-hidden="true">
-                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M19.1 4.9l-1.8 1.8M6.7 17.3l-1.8 1.8"/></svg>
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 16v-5a6 6 0 0112 0v5l2 2H4z"/><path d="M10 21a2 2 0 004 0"/></svg>
                         </span>
-                        <h3>Modo claro y oscuro</h3>
-                        <p>Se adapta al tema de tu móvil y está disponible en español e inglés.</p>
+                        <h3>Recordatorios inteligentes</h3>
+                        <p>Avisos configurables a tu medida para que el hábito se sostenga solo.</p>
                     </article>
                 </div>
+
+                <div class="compras-card" data-reveal>
+                    <table class="compras">
+                        <thead>
+                            <tr><th>Producto</th><th>Tipo</th><th>Qué obtienes</th><th>Precio</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>AquaVida Pro mensual</td><td>Suscripción</td><td>Todo el contenido Pro mientras esté activa</td><td>3.500 COP</td></tr>
+                            <tr><td>AquaVida Pro anual</td><td>Suscripción</td><td>Lo mismo con 40 % de ahorro al año</td><td>25.000 COP</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="note" data-reveal><strong>Economía de tréboles ☘️, sin compras obligatorias:</strong> ganas tréboles registrando agua (1-5 por cada 100 ml), cumpliendo tu meta (+5), con tus hábitos (3-5), tu racha (×2) y el check-in diario (hasta 20). Con tréboles pruebas el Pro 3 días (250 ☘️), compras temas de color (100 ☘️), congelas rachas y compras bienes para el vivero (5-40 ☘️). Un video opcional suma 32 ☘️ (máx. 5/día). Las compras se procesan de forma segura a través de Google Play y puedes revisarlas en <a href="https://play.google.com/store/account/orders" target="_blank" rel="noopener">play.google.com/store/account</a>.</p>
             </div>
         </section>
 
-        <section class="section" style="padding-top: 0">
+        <section class="section" id="terminos" style="padding-top: 0">
             <div class="wrap">
-                <div data-reveal>
-                    <p class="eyebrow">Ficha técnica</p>
-                    <h2 class="title">Detalles</h2>
+                <div class="narrow" data-reveal>
+                    <p class="eyebrow">Legal</p>
+                    <h2 class="title">Condiciones del Servicio — AquaVida</h2>
+                    <p class="updated">Última actualización: noviembre de 2026 · Vigente para la versión publicada de la app</p>
                 </div>
-                <dl class="specs" style="margin-top: 38px" data-reveal>
-                    <div class="spec"><dt>Desarrollador</dt><dd>AstroSeec</dd></div>
-                    <div class="spec"><dt>Categoría</dt><dd>Salud y bienestar</dd></div>
-                    <div class="spec"><dt>Idiomas</dt><dd>Español e inglés</dd></div>
-                    <div class="spec"><dt>Clasificación</dt><dd>Apta desde los 3 años</dd></div>
-                    <div class="spec"><dt>Anuncios</dt><dd>Contiene anuncios</dd></div>
-                    <div class="spec"><dt>Datos</dt><dd>No se recopilan datos ni se comparten con terceros, según la ficha de Google Play.</dd></div>
-                    <div class="spec"><dt>Privacidad</dt><dd><a href="Politicies.html">Ver política de privacidad</a></dd></div>
-                    <div class="spec"><dt>Contacto</dt><dd><a href="mailto:astroseec@gmail.com">astroseec@gmail.com</a></dd></div>
-                </dl>
-            </div>
-        </section>
 
-        <section class="band section-tight">
-            <div class="wrap cta-band" data-reveal>
-                <figure class="logo-badge">
-                    <img src="LOGO_ASTROSEEC.jpeg" alt="Logotipo de AstroSeec">
-                </figure>
-                <div>
-                    <h2>Descárgala hoy</h2>
-                    <p>Registra tu agua, recibe recordatorios y alcanza tu meta diaria desde tu móvil.</p>
+                <div class="doc">
+                    <article class="doc-item" data-reveal>
+                        <span class="doc-num" aria-hidden="true">1</span>
+                        <div>
+                            <h2>Aceptación de los términos y titular</h2>
+                            <p>Estas Condiciones del Servicio ("los Términos") regulan el uso de la aplicación móvil AquaVida ("la App"), publicada por AstroSeec. Al descargar, instalar o usar AquaVida, aceptas estos Términos y la <a href="Politicies.html">Política de Privacidad</a> de AstroSeec. Si no estás de acuerdo, no uses la App.</p>
+                            <ul>
+                                <li><strong>Marca comercial:</strong> AstroSeec</li>
+                                <li><strong>Titular:</strong> Luis Ricardo López</li>
+                                <li><strong>Ubicación:</strong> Bogotá D.C., Colombia</li>
+                                <li><strong>Correo de contacto:</strong> <a href="mailto:astroseec@gmail.com">astroseec@gmail.com</a></li>
+                            </ul>
+                            <p>AstroSeec actúa como comerciante a los efectos de la distribución de la App y de sus suscripciones a través de Google Play.</p>
+                        </div>
+                    </article>
+
+                    <article class="doc-item" data-reveal>
+                        <span class="doc-num" aria-hidden="true">2</span>
+                        <div>
+                            <h2>Descripción del servicio</h2>
+                            <p>AquaVida es una aplicación de hidratación y bienestar: registro de consumo de agua con medidas rápidas, metas personalizadas según peso y actividad, vaso animado de progreso, gráfico semanal, recordatorios, hábitos con recompensas y un vivero de plantas. El servicio se presta "tal cual", en continua evolución, y puede incorporar novedades, ajustes o retiros de funcionalidades para mejorar la experiencia.</p>
+                        </div>
+                    </article>
+
+                    <article class="doc-item" data-reveal>
+                        <span class="doc-num" aria-hidden="true">3</span>
+                        <div>
+                            <h2>Suscripciones</h2>
+                            <ul>
+                                <li>La suscripción AquaVida Pro se ofrece en <strong>plan mensual (3.500 COP)</strong> y <strong>plan anual (25.000 COP)</strong>, y se procesa exclusivamente a través de <strong>Google Play Billing</strong>, que factura a tu método de pago de Google Play.</li>
+                                <li>La suscripción <strong>se renueva automáticamente</strong> salvo que la canceles antes del fin del periodo vigente. Puedes cancelarla o administrarla desde tu cuenta de Google Play en <a href="https://play.google.com/store/account/orders" target="_blank" rel="noopener">play.google.com/store/account</a>.</li>
+                                <li>Los tréboles ☘️ y bienes del vivero son <strong>contenidos virtuales de uso exclusivo en la aplicación</strong>: no se pueden canjear por dinero en efectivo ni transferirse entre usuarios. Los tréboles se ganan con el uso y no son una compra obligatoria.</li>
+                                <li>Los reembolsos se gestionan según la ley aplicable y las <a href="https://support.google.com/googleplay/answer/2479634" target="_blank" rel="noopener">políticas de reembolso de Google Play</a>. La restauración de compras está disponible en la App al iniciar sesión.</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <article class="doc-item" data-reveal>
+                        <span class="doc-num" aria-hidden="true">4</span>
+                        <div>
+                            <h2>Uso aceptable</h2>
+                            <p>Te comprometes a no alterar la App, no obtener tréboles o beneficios por medios no autorizados y no hacer ingeniería inversa, descompilar ni intentar reconstruir el código fuente, salvo lo permitido por la ley. El incumplimiento puede llevar a la restricción del acceso al servicio.</p>
+                        </div>
+                    </article>
+
+                    <article class="doc-item" data-reveal>
+                        <span class="doc-num" aria-hidden="true">5</span>
+                        <div>
+                            <h2>Propiedad intelectual y limitación de responsabilidad</h2>
+                            <p>La App y todos sus elementos son propiedad de AstroSeec o de sus licenciantes. En la máxima medida permitida por la ley, AstroSeec no será responsable por daños indirectos o consecuentes derivados del uso de la App, ni por la pérdida de progresos causada por desinstalación o cambio de dispositivo. Nada en estos Términos limita la responsabilidad que no pueda excluirse legalmente.</p>
+                        </div>
+                    </article>
+
+                    <article class="doc-item" data-reveal>
+                        <span class="doc-num" aria-hidden="true">6</span>
+                        <div>
+                            <h2>Ley aplicable, cambios y contacto</h2>
+                            <p>Estos Términos se rigen por la legislación de la República de Colombia y serán competentes los tribunales de Bogotá D.C., sin perjuicio de los derechos imperativos del consumidor en su jurisdicción de residencia. Podemos actualizarlos; publicaremos la versión vigente en esta página y el uso continuado implica su aceptación. Dudas o solicitudes: <a href="mailto:astroseec@gmail.com">astroseec@gmail.com</a> con el asunto "AquaVida". Consulta también la <a href="Politicies.html">Política de Privacidad</a> y la página <a href="delete-account.html">Eliminar cuenta</a>.</p>
+                        </div>
+                    </article>
                 </div>
-                <a class="btn btn-brass" href="https://play.google.com/store/apps/details?id=com.aquavida.app" target="_blank" rel="noopener">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 3.5v17a1 1 0 001.5.86l14-8.5a1 1 0 000-1.72l-14-8.5A1 1 0 006 3.5z"/></svg>
-                    Descargar en Google Play
-                </a>
             </div>
         </section>
     </main>
@@ -282,8 +227,8 @@
         <div class="wrap">
             <p class="eyebrow">Contacto</p>
             <h2 class="title">¿Hablamos?</h2>
-            <p class="cta-form">¿Dudas, incidencias o una idea de app? Cuéntanosla hoy mismo:</p>
-            <a class="btn btn-brass" href="index.html?form=1">Quiero desarrollar mi app</a>
+            <p class="cta-form">¿Dudas sobre AquaVida, una incidencia o una idea? Escríbenos:</p>
+            <a class="btn btn-brass" href="mailto:astroseec@gmail.com?subject=AquaVida">Escribir a AstroSeec</a>
 
             <div class="foot">
                 <a class="brand" href="index.html">
@@ -292,6 +237,8 @@
                 </a>
                 <span>&copy; <span id="year">2026</span> AstroSeec. Todos los derechos reservados.</span>
                 <nav class="foot-links" aria-label="Enlaces legales">
+                    <a href="index.html#apps">Apps</a>
+                    <a href="servicios.html">Otros Servicios</a>
                     <a href="Politicies.html">Política de privacidad</a>
                     <a href="delete-account.html">Eliminar cuenta</a>
                 </nav>
@@ -301,13 +248,6 @@
 
     <script src="main.js" defer></script>
     <script src="themes/themes.js" defer></script>
-
-    <a class="app-next" href="misnotas.html" aria-label="Ir a la siguiente app: Mis Notas">
-        <span class="arrow-circle" aria-hidden="true">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>
-        </span>
-        <span class="label"><small>Siguiente app</small><b>Mis Notas</b></span>
-    </a>
     <script src="visit.js" defer></script>
 </body>
 </html>
