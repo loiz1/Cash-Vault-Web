@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="theme-color" content="#0e2622">
+    <meta name="theme-color" content="#eee5fb">
     <meta name="description" content="Mis Notas: tu diario personal con estado de ánimo diario, calendario coloreado, fotos y protección con PIN y huella. Gana plumas y desbloquea temas.">
     <title>Mis Notas - AstroSeec</title>
 
@@ -12,18 +12,18 @@
     <meta property="og:type" content="website">
     <meta property="og:title" content="Mis Notas - AstroSeec">
     <meta property="og:description" content="Tu diario personal y registro emocional con diseño cálido de cuaderno.">
-    <meta property="og:image" content="assets/misnotas.png">
+    <meta property="og:image" content="assets/illustrations/misnotas-original.webp">
     <meta name="twitter:card" content="summary_large_image">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="themes/themes.css">
     <script defer src="/_vercel/insights/script.js"></script>
     <meta name="google-site-verification" content="3AgqNUMNFEMQFWHNADAPRXRTiRzyWdpGQ23AVqAGW4A" />
+    <link rel="stylesheet" href="assets/app-pages.css?v=20261127">
 </head>
-<body>
+<body class="product-page product-misnotas">
     <a class="skip" href="#contenido">Saltar al contenido</a>
 
     <header class="nav">
@@ -33,7 +33,7 @@
                 <span class="brand-name">AstroSeec</span>
             </a>
             <nav class="nav-links" aria-label="Principal">
-                <a href="index.html#apps" aria-current="page">Apps</a>
+                <a href="index.html#aplicaciones" aria-current="page">Apps</a>
                 <a href="index.html#nosotros">Nosotros</a>
                 <a href="servicios.html">Otros Servicios</a>
                 <a href="index.html?form=1">Contacto</a>
@@ -41,34 +41,18 @@
         </div>
     </header>
 
-    <main>
-        <section class="page-hero">
-            <div class="wrap">
-                <a class="crumbs" href="index.html#apps">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
-                    Todas las apps
-                </a>
-                <div class="app-id" style="--tint:#ece6d8">
-                    <span class="app-tile"><img src="assets/misnotas.png" alt="Icono de Mis Notas"></span>
-                    <div>
-                        <span class="app-kicker">Diario personal</span>
-                        <h1>Mis Notas</h1>
-                    </div>
+    <main id="contenido" tabindex="-1">
+        <section class="product-hero" aria-labelledby="app-title">
+            <div class="wrap product-layout">
+                <div class="product-copy">
+                    <a class="crumbs" href="index.html#aplicaciones">Todas las apps</a>
+                    <div class="product-identity"><img src="assets/misnotas.png" alt="" width="48" height="48"><div><span class="product-category">Tu diario, a tu manera</span><strong>Mis Notas</strong></div></div>
+                    <h1 class="product-title" id="app-title">Hay días que<br>merecen <em>quedarse.</em></h1>
+                    <p class="product-description">Tu diario personal y registro emocional con diseño cálido de cuaderno: registra tu estado de ánimo diario, colorea tu calendario mensual, añade fotos y protege tus memorias con PIN y huella.</p>
+                    <div class="product-actions"><a class="product-download" href="https://play.google.com/store/apps/details?id=com.misnotasdiario.app" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 3.5v17a1 1 0 001.5.86l14-8.5a1 1 0 000-1.72l-14-8.5A1 1 0 006 3.5z"/></svg>Descargar en Google Play</a><a class="product-link" href="#funciones">Explorar funciones</a></div>
+                    <div class="product-tags"><span>Android</span><span>Diario personal</span><span>PIN y huella</span></div>
                 </div>
-                <p class="lede">Tu diario personal y registro emocional con diseño cálido de cuaderno: registra tu estado de ánimo diario, colorea tu calendario mensual, añade fotos y protege tus memorias con PIN y huella.</p>
-                <div class="app-actions">
-                    <a class="btn btn-brass" href="https://play.google.com/store/apps/details?id=com.misnotasdiario.app" target="_blank" rel="noopener">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 3.5v17a1 1 0 001.5.86l14-8.5a1 1 0 000-1.72l-14-8.5A1 1 0 006 3.5z"/></svg>
-                        Google Play
-                    </a>
-                    <a class="btn btn-ghost" href="#funciones">Ver funciones</a>
-                </div>
-                <div class="chips">
-                    <span class="chip">Android</span>
-                    <span class="chip">Gratis</span>
-                    <span class="chip">Español</span>
-                    <span class="chip">PIN y huella</span>
-                </div>
+                <figure class="product-art"><img src="assets/illustrations/misnotas-original.webp" alt="Cuaderno abierto con pluma, flores y formas de colores que representan emociones" width="1536" height="1024" fetchpriority="high" decoding="async"><figcaption>Un lugar para lo que solo tú puedes contar.</figcaption></figure>
             </div>
         </section>
 
@@ -76,7 +60,7 @@
             <div class="wrap">
                 <div data-reveal>
                     <p class="eyebrow">Funciones clave</p>
-                    <h2 class="title">Lo que puedes hacer</h2>
+                    <h2 class="title">Un espacio para cada versión de ti.</h2>
                 </div>
 
                 <div class="grid-cards" style="margin-top: 42px">
@@ -143,7 +127,7 @@
                 </a>
                 <span>&copy; <span id="year">2026</span> AstroSeec. Todos los derechos reservados.</span>
                 <nav class="foot-links" aria-label="Enlaces legales">
-                    <a href="index.html#apps">Apps</a>
+                    <a href="index.html#aplicaciones">Apps</a>
                     <a href="servicios.html">Otros Servicios</a>
                     <a href="Politicies.html">Política de privacidad</a>
                     <a href="delete-account.html">Eliminar cuenta</a>
@@ -153,7 +137,6 @@
     </footer>
 
     <script src="main.js" defer></script>
-    <script src="themes/themes.js" defer></script>
     <script src="visit.js" defer></script>
 </body>
 </html>

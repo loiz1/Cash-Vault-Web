@@ -1,0 +1,80 @@
+/* Original visual worlds for the four games. Loaded after their existing styles. */
+.original-game-art{display:block;position:relative;margin:0;isolation:isolate;padding:0;min-height:0;height:auto;overflow:hidden}
+.original-game-art:after{display:none}
+.original-game-art>img{position:static;inset:auto;width:100%;height:auto;aspect-ratio:1.15;object-fit:cover;display:block}
+.original-game-art figcaption{position:absolute;bottom:0;left:0;right:0;padding:40px 22px 19px;font-size:.875rem;font-weight:800;letter-spacing:.08em;color:white;background:linear-gradient(transparent,#1a1825bd)}
+.fruit-page{--paper:#fff7f8;--panel:#fffcfc;--soft:#ffe5e8;--line:#f1ced4;--accent:#ad284a;--ink:#512433;--muted:#795563}
+.fruit-page .fruit-hero{background:#6f1739}
+.fruit-page .hero-grid{grid-template-columns:.95fr 1.05fr;gap:52px}
+.fruit-page .hero-copy h1{font-family:'Nunito Sans','Segoe UI',sans-serif;font-weight:900;letter-spacing:-.06em}
+.fruit-page .fruit-art{border:8px solid #ffb6bc;border-radius:42% 42% 22px 22px;transform:rotate(3deg);box-shadow:0 30px 70px #30051a50}
+.fruit-page .fruit-art>img{aspect-ratio:1.08}
+.fruit-page .how-grid article{border-top-color:#d84469}
+.fruit-page .pets-section{background:#ffe9ed}
+.fruit-page .pet-stage{border-color:#ebb3c2;background:radial-gradient(circle at 50% 35%,#fff8ef,#f8cfdd);border-radius:28px}
+.fruit-page .pet-stage:before{border-color:#d285a160}
+.fruit-page .pet-choice{background:#fff9fa;border-color:#eebfc9;border-radius:18px}
+.fruit-page .pet-choice[aria-pressed=true]{background:#fff;border-color:#b43156;box-shadow:0 0 0 2px #b43156}
+.snake-page .snake-hero{position:relative;background:radial-gradient(ellipse at 80% 30%,#245b31,transparent 60%),#09251a}
+.snake-page .hero-grid{grid-template-columns:.85fr 1.15fr;gap:50px}
+.snake-page .snake-art{border-radius:160px 18px 160px 18px;border:1px solid #9ace6260;box-shadow:0 30px 60px #06170d80}
+.snake-page .snake-art>img{aspect-ratio:1.05}
+.snake-page .hero-copy h1{font-size:clamp(3.1rem,5.8vw,5.5rem);line-height:1.05}
+.snake-page .hero-copy h1 em{color:#c6f173}
+.snake-page .section-heading h2{max-width:18ch}
+.snake-page .mode-card{border-radius:28px 4px 28px 4px}
+/* Impostor: violet mystery room, asymmetry and a modern typographic voice. */
+.impostor-page{--deep:#21112e;--hero-text:#fff4ff;--paper:#f5f0fb;--panel:#fdfaff;--ink:#39234b;--muted:#705c83;--line:#ddcce9;--accent:#7942a1;--soft:#ece1f4;--gold:#f5ac88}
+.impostor-page h1,.impostor-page h2,.impostor-page h3{font-family:'Space Grotesk','Segoe UI',sans-serif;font-weight:700;letter-spacing:-.05em}
+.impostor-page .game-nav{background:#21112e}
+.impostor-page .western-hero{background:radial-gradient(ellipse at 75% 30%,#502461,transparent 65%),#21112e}
+.impostor-page .western-hero-grid{grid-template-columns:.95fr 1.05fr;gap:55px;padding-block:80px}
+.impostor-page .western-copy h1{font-size:clamp(2.9rem,5vw,4.8rem);line-height:1.03}
+.impostor-page .western-copy h1 em{color:#f5ac88;font-style:normal}
+.impostor-page .western-copy>p:not(.western-kicker):not(.hero-small){color:#e2cfea;font-size:1rem}
+.impostor-page .western-hero .western-kicker{color:#e4b7ff;font-size:.875rem}
+.impostor-page .western-art{border-color:#ba82df60;border-radius:22px 120px 22px 22px;transform:rotate(-3deg)}
+.impostor-page .western-art img{aspect-ratio:1.05;object-fit:cover}
+.impostor-page .western-art>span{background:#21112ee6;border-color:#ba82df80;color:#f4daff;font-size:.875rem}
+.impostor-page .western-bottom{color:#dec3ee;border-color:#ffffff20;font-size:.875rem}
+.impostor-page .western-subnav{background:#fdfaff}
+.impostor-page .clue-grid article{background:#fdfaff;border-radius:3px 24px 24px 24px;border-color:#ddcce9}
+.impostor-page .clue-grid article>span{color:#7942a1}
+.impostor-page .western-modes{background:#ece1f4}
+.impostor-page .mode-list,.impostor-page .mode-list article{border-color:#cdb6df}
+.impostor-page .mode-number{font-family:'Space Grotesk',sans-serif;color:#7942a1}
+.impostor-page .mode-label,.impostor-page .western-kicker{color:#7942a1}
+.impostor-page .wanted-card{border:1px solid #bea2d2;outline:0;border-radius:20px;background:#e3d2ee;color:#39234b;transform:rotate(2deg)}
+.impostor-page .wanted-card>span{border-color:#bea2d2}
+.impostor-page .wanted-avatars img{background:#fdfaff;border-color:#bea2d2}
+.impostor-page .western-cta{background:#452456;color:#fff4ff}
+.impostor-page .western-footer{background:#21112e;color:#fff4ff}
+/* Cars Duels: racing orange, track markings and newly illustrated concept scenes. */
+.cars-page{--accent:#ff7849;--gold:#ff7849;--paper:#111820;--panel:#1b252e;--deep:#111820}
+.cars-page h1 em,.cars-page h2 em,.cars-page .cars-kicker,.cars-page .eyebrow,.cars-page .cars-facts strong,.cars-page .mode-number,.cars-page .mode-icon{color:#ff956f}
+.cars-page .hero-backdrop{background-image:linear-gradient(90deg,#101720f5,#101720cf 40%,#10172099),url('illustrations/carsduels-original.webp')}
+.cars-page .garage-scene{background-image:linear-gradient(90deg,#111820eb,#111820d9),url('illustrations/carsduels-garage-original.webp')}
+.cars-page .cars-final-bg{background-image:linear-gradient(90deg,#111820ec,#1118208c),url('illustrations/carsduels-original.webp')}
+.cars-page .cars-button{background:#ff7849;color:#1e1820;border-color:#ffb398;box-shadow:0 5px 0 #a13d20;font-size:.9375rem}
+.cars-page .cars-button:hover{box-shadow:0 8px 0 #a13d20,0 13px 35px #ff784933}
+.cars-page .track-ribbon,.cars-page .stat-bars b{background:#ff7849}
+.cars-page .hero-shot{border:1px solid #ff956f70;border-radius:80px 4px 4px 4px;transform:rotate(-2deg)}
+.cars-page .hero-shot img{aspect-ratio:1.15;object-position:center}
+.cars-page .track-shot img,.cars-page .garage-shot img{aspect-ratio:1.25;object-position:center}
+.cars-page .game-shot figcaption{font-size:.875rem;letter-spacing:.04em}
+.cars-page .game-shot figcaption>span+span{display:none}
+.cars-page .cars-facts span,.cars-page .mode-number{font-size:.875rem}
+.cars-page .release-label{display:inline-block;margin-top:25px;padding:8px 12px;border:1px solid #ff956f70;background:#ff784918;color:#ffb99f;font-weight:800;font-size:.875rem}
+.cars-page .cars-lede{margin-top:16px}
+.cars-page .studio-label,.cars-page .cars-quiet-link span,.cars-page .cars-text-link span{color:#ff956f}
+.cars-page .details-section .eyebrow,.cars-page .details-points article>span{color:#9b3d20}
+.cars-page .game-switch a[aria-current]{background:#ff784918;border-color:#ff784970;color:#ffb99f}
+.cars-page .track-list li>span{color:#ff956f}
+.cars-page .cars-section-nav a:hover{color:#ff956f;border-color:#ff7849}
+.cars-page .status-dot,.cars-page .scroll-cue span:after,.cars-page .podium-first .podium-rank span:first-child{background:#ff7849}
+.cars-page .game-footer a:hover{color:#ff956f}
+.cars-page .track-list li>b,.cars-page .garage-copy .stat-note,.cars-page .podium-note{font-size:.875rem!important}
+.game-page .hero-description,.game-page .how-grid p,.game-page .mode-card p,.game-page .feature-row p,.game-page .clue-grid p,.game-page .mode-list article div:nth-child(2)>p:last-child{font-size:1rem}
+.game-page .download-note,.game-page .hero-small,.game-page .hero-facts span,.game-page .game-switch a,.game-page .nav-back{font-size:.875rem}
+@media(max-width:780px){.fruit-page .hero-grid,.snake-page .hero-grid,.impostor-page .western-hero-grid{grid-template-columns:1fr;gap:35px}.fruit-page .fruit-art,.snake-page .snake-art,.impostor-page .western-art{max-width:620px;width:100%;transform:none}.original-game-art>img,.fruit-page .fruit-art>img,.snake-page .snake-art>img,.impostor-page .western-art img{aspect-ratio:1.4}.snake-page .snake-art{border-radius:80px 12px}.impostor-page .western-hero-grid{padding-block:50px}.cars-page .cars-facts{flex-wrap:wrap}.cars-page .game-shot figcaption{font-size:.875rem}.cars-page .hero-shot img{aspect-ratio:1.4}.cars-page .track-list li>b{line-height:1.6}}
+@media(max-width:520px){.game-page .game-switch a{font-size:.875rem}.game-page .game-switch a img{display:none}.impostor-page .western-copy h1{font-size:clamp(2.6rem,11vw,4rem)}.impostor-page .western-art{border-radius:18px 70px 18px 18px}.fruit-page .fruit-art{border-width:5px;border-radius:70px 70px 18px 18px}.original-game-art figcaption{font-size:.875rem;letter-spacing:.02em}.cars-page .hero-shot{border-radius:40px 4px 4px 4px}.cars-page .cars-facts span{letter-spacing:0}.cars-page .game-switch{max-width:67vw}.cars-page .cars-kicker{font-size:.875rem;letter-spacing:.1em}}

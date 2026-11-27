@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="theme-color" content="#0e2622">
+    <meta name="theme-color" content="#071320">
     <meta name="description" content="WiFi Radar: escanea tu red WiFi, descubre qué dispositivos están conectados, analiza señal y canales, audita tu seguridad y aprende a blindar tu red.">
     <title>WiFi Radar - AstroSeec</title>
 
@@ -12,13 +12,12 @@
     <meta property="og:type" content="website">
     <meta property="og:title" content="WiFi Radar - AstroSeec">
     <meta property="og:description" content="Escanea tu red WiFi, identifica dispositivos conectados, analiza tu señal y blind tu seguridad.">
-    <meta property="og:image" content="assets/wifiradar.png">
+    <meta property="og:image" content="assets/illustrations/wifiradar-original.webp">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="themes/themes.css">
     <style>
         .compras-card { background: var(--paper); border-radius: 18px; border: 1px solid rgba(74, 64, 99, .14); overflow-x: auto; margin-top: 34px; box-shadow: 0 22px 44px -30px rgba(14, 38, 34, .45); }
         table.compras { border-collapse: collapse; width: 100%; font-size: 14px; min-width: 640px; }
@@ -31,8 +30,9 @@
     </style>
     <script defer src="/_vercel/insights/script.js"></script>
     <meta name="google-site-verification" content="3AgqNUMNFEMQFWHNADAPRXRTiRzyWdpGQ23AVqAGW4A" />
+    <link rel="stylesheet" href="assets/app-pages.css?v=20261127">
 </head>
-<body>
+<body class="product-page product-wifiradar">
     <a class="skip" href="#contenido">Saltar al contenido</a>
 
     <header class="nav">
@@ -50,33 +50,18 @@
         </div>
     </header>
 
-    <main>
-        <section class="page-hero">
-            <div class="wrap">
-                <a class="crumbs" href="index.html#aplicaciones">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
-                    Todas las apps
-                </a>
-                <div class="app-id" style="--tint:#d5e6e2">
-                    <span class="app-tile"><img src="assets/wifiradar.png" alt="Icono de WiFi Radar"></span>
-                    <div>
-                        <span class="app-kicker">Utilidades · Redes</span>
-                        <h1>WiFi Radar</h1>
-                    </div>
+    <main id="contenido" tabindex="-1">
+        <section class="product-hero" aria-labelledby="app-title">
+            <div class="wrap product-layout">
+                <div class="product-copy">
+                    <a class="crumbs" href="index.html#aplicaciones">Todas las apps</a>
+                    <div class="product-identity"><img src="assets/wifiradar.png" alt="" width="48" height="48"><div><span class="product-category">Diagnóstico y análisis de tu red</span><strong>WiFi Radar</strong></div></div>
+                    <h1 class="product-title" id="app-title">Tu red.<br><em>Fuera de dudas.</em></h1>
+                    <p class="product-description">Escanea tu red WiFi y descubre qué dispositivos están conectados: identifícalos, márcalos como confianza y ubícalos en el mapa de tu casa. Incluye analizador de canales y señal, test de velocidad, herramientas de red, auditoría de seguridad y una academia para blindar tu red.</p>
+                    <div class="product-actions"><a class="product-download" href="https://play.google.com/store/apps/details?id=com.astroseec.wifiradar" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 3.5v17a1 1 0 001.5.86l14-8.5a1 1 0 000-1.72l-14-8.5A1 1 0 006 3.5z"/></svg>Descargar en Google Play</a><a class="product-link" href="#funciones">Explorar funciones</a></div>
+                    <div class="product-tags"><span>Android</span><span>Dispositivos</span><span>Señal y canales</span></div>
                 </div>
-                <p class="lede">Escanea tu red WiFi y descubre qué dispositivos están conectados: identifícalos, márcalos como confianza y ubícalos en el mapa de tu casa. Incluye analizador de canales y señal, test de velocidad, herramientas de red, auditoría de seguridad y una academia para blindar tu red.</p>
-                <div class="app-actions">
-                    <a class="btn btn-brass" href="https://play.google.com/store/apps/details?id=com.astroseec.wifiradar" target="_blank" rel="noopener">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 3.5v17a1 1 0 001.5.86l14-8.5a1 1 0 000-1.72l-14-8.5A1 1 0 006 3.5z"/></svg>
-                        Google Play
-                    </a>
-                    <a class="btn btn-ghost" href="#funciones">Ver funciones</a>
-                </div>
-                <div class="chips">
-                    <span class="chip">Android</span>
-                    <span class="chip">Gratis con compras opcionales</span>
-                    <span class="chip">Español</span>
-                </div>
+                <figure class="product-art"><img src="assets/illustrations/wifiradar-original.webp" alt="Router luminoso con anillos de radar y conexiones a los dispositivos del hogar" width="1536" height="1024" fetchpriority="high" decoding="async"><figcaption>CONEXIONES · DISPOSITIVOS · SEÑAL</figcaption></figure>
             </div>
         </section>
 
@@ -84,7 +69,7 @@
             <div class="wrap">
                 <div data-reveal>
                     <p class="eyebrow">Funciones clave</p>
-                    <h2 class="title">Lo que puedes hacer</h2>
+                    <h2 class="title">Entiende lo que pasa en tu red.</h2>
                 </div>
 
                 <div class="grid-cards" style="margin-top: 42px">
@@ -174,7 +159,6 @@
     </footer>
 
     <script src="main.js" defer></script>
-    <script src="themes/themes.js" defer></script>
     <script src="visit.js" defer></script>
 </body>
 </html>

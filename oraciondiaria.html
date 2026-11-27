@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="theme-color" content="#0e2622">
+    <meta name="theme-color" content="#121d42">
     <meta name="description" content="Oración Diaria: una oración y reflexión nuevas cada día, planes de oración, rosario, biblioteca y quiz. Gana semillas, sube de nivel y profundiza en tu fe.">
     <title>Oración Diaria - AstroSeec</title>
 
@@ -12,13 +12,12 @@
     <meta property="og:type" content="website">
     <meta property="og:title" content="Oración Diaria - AstroSeec">
     <meta property="og:description" content="Una oración y reflexión nuevas a diario, planes, rosario, biblioteca y quiz.">
-    <meta property="og:image" content="assets/oraciondiaria.png">
+    <meta property="og:image" content="assets/illustrations/oraciondiaria-original.webp">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="themes/themes.css">
     <style>
         .compras-card { background: var(--paper); border-radius: 18px; border: 1px solid rgba(74, 64, 99, .14); overflow-x: auto; margin-top: 34px; box-shadow: 0 22px 44px -30px rgba(14, 38, 34, .45); }
         table.compras { border-collapse: collapse; width: 100%; font-size: 14px; min-width: 640px; }
@@ -31,8 +30,9 @@
     </style>
     <script defer src="/_vercel/insights/script.js"></script>
     <meta name="google-site-verification" content="3AgqNUMNFEMQFWHNADAPRXRTiRzyWdpGQ23AVqAGW4A" />
+    <link rel="stylesheet" href="assets/app-pages.css?v=20261127">
 </head>
-<body>
+<body class="product-page product-oraciondiaria">
     <a class="skip" href="#contenido">Saltar al contenido</a>
 
     <header class="nav">
@@ -50,35 +50,18 @@
         </div>
     </header>
 
-    <main>
-        <section class="page-hero">
-            <div class="wrap">
-                <a class="crumbs" href="index.html#aplicaciones">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
-                    Todas las apps
-                </a>
-                <div class="app-id" style="--tint:#dbe4f2">
-                    <span class="app-tile"><img src="assets/oraciondiaria.png" alt="Icono de Oración Diaria"></span>
-                    <div>
-                        <span class="app-kicker">Espiritualidad</span>
-                        <h1>Oración Diaria</h1>
-                    </div>
+    <main id="contenido" tabindex="-1">
+        <section class="product-hero" aria-labelledby="app-title">
+            <div class="wrap product-layout">
+                <div class="product-copy">
+                    <a class="crumbs" href="index.html#aplicaciones">Todas las apps</a>
+                    <div class="product-identity"><img src="assets/oraciondiaria.png" alt="" width="48" height="48"><div><span class="product-category">Fe y un momento para ti</span><strong>Oración Diaria</strong></div></div>
+                    <h1 class="product-title" id="app-title">Una pausa.<br>Una oración.<br><em>Un nuevo día.</em></h1>
+                    <p class="product-description">Tu compañero de oración de cada día: una oración y reflexión nuevas a diario, planes de oración, rosario, biblioteca y quiz. Gana semillas al abrir la app, sube de nivel y profundiza en tu fe paso a paso.</p>
+                    <div class="product-actions"><a class="product-download" href="https://play.google.com/store/apps/details?id=com.astroseec.oraciondiaria" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 3.5v17a1 1 0 001.5.86l14-8.5a1 1 0 000-1.72l-14-8.5A1 1 0 006 3.5z"/></svg>Descargar en Google Play</a><a class="product-link" href="#funciones">Explorar funciones</a></div>
+                    <div class="product-tags"><span>Android</span><span>Oraciones y rosario</span><span>Lectura diaria</span></div>
                 </div>
-                <p class="lede">Tu compañero de oración de cada día: una oración y reflexión nuevas a diario, planes de oración, rosario, biblioteca y quiz. Gana semillas al abrir la app, sube de nivel y profundiza en tu fe paso a paso.</p>
-                <div class="app-actions">
-                    <a class="btn btn-brass" href="https://play.google.com/store/apps/details?id=com.astroseec.oraciondiaria" target="_blank" rel="noopener">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 3.5v17a1 1 0 001.5.86l14-8.5a1 1 0 000-1.72l-14-8.5A1 1 0 006 3.5z"/></svg>
-                        Google Play
-                    </a>
-                    <a class="btn btn-ghost" href="#funciones">Ver funciones</a>
-                    <a class="btn btn-ghost" href="#terminos">Condiciones del Servicio</a>
-                </div>
-                <div class="chips">
-                    <span class="chip">Android</span>
-                    <span class="chip">Gratis con compras opcionales</span>
-                    <span class="chip">Español</span>
-                    <span class="chip">Temas de lectura</span>
-                </div>
+                <figure class="product-art"><img src="assets/illustrations/oraciondiaria-original.webp" alt="Libro de oración iluminado por una ventana de arco, con una cruz, un rosario y una rama de olivo" width="1536" height="1024" fetchpriority="high" decoding="async"><figcaption>Encuentra tu momento de recogimiento.</figcaption></figure>
             </div>
         </section>
 
@@ -86,7 +69,7 @@
             <div class="wrap">
                 <div data-reveal>
                     <p class="eyebrow">Funciones clave</p>
-                    <h2 class="title">Lo que puedes hacer</h2>
+                    <h2 class="title">Acompaña tu camino de fe.</h2>
                 </div>
 
                 <div class="grid-cards" style="margin-top: 42px">
@@ -249,7 +232,6 @@
     </footer>
 
     <script src="main.js" defer></script>
-    <script src="themes/themes.js" defer></script>
     <script src="visit.js" defer></script>
 </body>
 </html>

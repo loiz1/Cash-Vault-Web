@@ -1,0 +1,112 @@
+/* Each published utility has its own visual language. No global theme overrides. */
+.product-page{--surface:#f2f6f3;--text:#16372e;--muted:#50675f;--accent:#176d50;--edge:#c9dbd1;--hero:#08251c;--hero-ink:#f3fff8;background:var(--surface);color:var(--text)}
+.product-page .nav{background:var(--hero);border-bottom:1px solid #ffffff20}
+.product-page .nav-links a{color:var(--hero-ink)}
+.product-page .nav-links a:hover{color:var(--highlight)}
+.product-page .product-hero{position:relative;overflow:hidden;background:var(--hero);color:var(--hero-ink);padding:calc(var(--nav-h) + 46px) 0 64px}
+.product-layout{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:48px}
+.product-copy{position:relative;z-index:1;min-width:0}
+.product-page .crumbs{color:inherit;opacity:.8;font-size:.875rem;margin-bottom:32px}
+.product-identity{display:flex;align-items:center;gap:13px;margin-bottom:28px}
+.product-identity>img{width:48px;height:48px;border-radius:13px;object-fit:cover;box-shadow:0 6px 18px #0002}
+.product-identity strong{display:block;font-size:1.1rem;font-family:var(--display)}
+.product-category{display:block;margin-bottom:4px;font-size:.875rem;color:var(--highlight)}
+.product-page .product-title{font-size:clamp(2.8rem,5.2vw,4.8rem);line-height:1.02;letter-spacing:-.055em;text-wrap:balance;max-width:12ch}
+.product-title em{color:var(--highlight);font-style:normal}
+.product-page .product-description{font-size:1.0625rem;line-height:1.8;max-width:49ch;margin:25px 0 30px;opacity:.86}
+.product-actions{display:flex;flex-wrap:wrap;align-items:center;gap:14px 24px}
+.product-download{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:14px 21px;border-radius:10px;background:var(--highlight);color:var(--button-ink);font-size:.9375rem;font-weight:700;text-decoration:none;transition:transform .2s,box-shadow .2s}
+.product-download:hover{transform:translateY(-2px);box-shadow:0 8px 24px #0002}
+.product-link{font-size:.9375rem;text-decoration:underline;text-underline-offset:6px}
+.product-tags{display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:27px;font-size:.875rem;opacity:.8}
+.product-tags span+span{border-left:1px solid currentColor;padding-left:16px}
+.product-art{position:relative;min-width:0;margin:0;overflow:hidden}
+.product-art img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;display:block}
+.product-art figcaption{padding:14px 0 0;font-size:.875rem;opacity:.8}
+.product-page .section{color:var(--text)}
+.product-page .section .eyebrow{color:var(--accent);font-size:.875rem}
+.product-page .title{color:var(--text);text-wrap:balance}
+.product-page .subtitle,.product-page .note{color:var(--muted)}
+.product-page .card{background:transparent;border:1px solid var(--edge);box-shadow:none}
+.product-page .card h3{color:var(--text);line-height:1.25}
+.product-page .card p{color:var(--muted);font-size:1rem;line-height:1.75}
+.product-page .card-icon{color:var(--accent);background:color-mix(in srgb,var(--accent) 10%,transparent)}
+.product-page .doc-item{border-color:var(--edge)}
+.product-page .doc-item h2{color:var(--text);font-size:1.25rem}
+.product-page .doc-item p,.product-page .doc-item li{color:var(--muted);font-size:1rem;line-height:1.8}
+.product-page .doc-num{color:var(--accent)}
+.product-page .updated{color:var(--muted);font-size:.875rem}
+.product-page .contact,.product-page .band{background:var(--hero);color:var(--hero-ink)}
+.product-page .contact .title,.product-page .band h2{color:var(--hero-ink)}
+.product-page .contact .eyebrow{color:var(--highlight)}
+.product-page .contact p,.product-page .band p{color:var(--hero-ink);opacity:.8}
+.product-page .btn-brass{background:var(--highlight);color:var(--button-ink);border-color:transparent}
+.product-page .btn-outline{border-color:var(--accent);color:var(--accent)}
+.product-page .chips .chip{color:var(--text);border-color:var(--edge)}
+.product-page .compras-card{background:var(--surface);border-color:var(--edge)}
+.product-page table.compras{font-size:1rem}
+.product-page table.compras th{color:var(--accent);background:color-mix(in srgb,var(--accent) 7%,var(--surface));font-size:.875rem}
+.product-page table.compras td:first-child{color:var(--text)}
+.product-page .app-next{display:none}
+/* Cash Vault: an architectural, editorial composition with ledger-like rows. */
+.product-cashvault{--surface:#f3f7f3;--text:#143c2c;--muted:#4b6356;--accent:#176d50;--edge:#ceddd1;--hero:#071e19;--hero-ink:#effbf3;--highlight:#c6e98b;--button-ink:#153325}
+.product-cashvault .product-hero{background:radial-gradient(ellipse at 80% 55%,#194232,transparent 55%),var(--hero)}
+.product-cashvault .product-art{margin-right:-60px;border-radius:150px 0 0 20px}
+.product-cashvault .product-art img{aspect-ratio:1.12;object-fit:cover}
+.product-cashvault #funciones .grid-cards{grid-template-columns:1fr 1fr;gap:0 48px}
+.product-cashvault #funciones .card{display:grid;grid-template-columns:45px 1fr;column-gap:18px;border:0;border-top:1px solid var(--edge);border-radius:0;padding:28px 0}
+.product-cashvault #funciones .card-icon{grid-row:1/3;margin:0}
+.product-cashvault #funciones .card p{grid-column:2}
+/* AquaVida: fresh blue, an organic pool and a nursery of rounded cards. */
+.product-aquavida{--surface:#f2fbfc;--text:#114f55;--muted:#456c70;--accent:#087e87;--edge:#c0e2e4;--hero:#def6f7;--hero-ink:#114f55;--highlight:#086e77;--button-ink:#fff}
+.product-aquavida .nav .brand{color:var(--text)}
+.product-aquavida .product-hero{padding-bottom:96px;border-radius:0 0 12vw 0;background:radial-gradient(ellipse at 75% 15%,#fff,transparent 60%),var(--hero)}
+.product-aquavida .product-art{border-radius:47% 53% 44% 56% / 43% 43% 57% 57%;box-shadow:0 28px 70px #16878a18}
+.product-aquavida .product-art img{aspect-ratio:1;object-fit:cover}
+.product-aquavida .product-art figcaption{display:none}
+.product-aquavida #funciones .grid-cards{grid-template-columns:repeat(3,1fr);gap:20px}
+.product-aquavida #funciones .card{background:#fff;border-radius:30px 30px 30px 7px;padding:32px;border-color:#cbe9e8}
+.product-aquavida #funciones .card:nth-child(2n){background:#e3f3ef;border-radius:30px 7px 30px 30px}
+/* Mis Notas: paper, expressive serif type and an asymmetric notebook rhythm. */
+.product-misnotas{--surface:#f7f3ff;--text:#37224d;--muted:#6b597c;--accent:#7742a0;--edge:#dfd0ef;--hero:#eee5fb;--hero-ink:#37224d;--highlight:#71368e;--button-ink:#fff}
+.product-misnotas .nav .brand{color:var(--text)}
+.product-misnotas .product-title{font-family:Georgia,serif;font-weight:400;letter-spacing:-.06em;font-size:clamp(3.3rem,6vw,5.5rem)}
+.product-misnotas .product-title em{font-style:italic}
+.product-misnotas .product-layout{grid-template-columns:1.05fr 1fr;gap:70px}
+.product-misnotas .product-art{border:12px solid #fff;border-bottom-width:30px;transform:rotate(3deg);box-shadow:0 25px 60px #59367918}
+.product-misnotas .product-art img{aspect-ratio:1.05}
+.product-misnotas .product-art figcaption{padding:14px 12px 0;font-family:Georgia,serif;font-style:italic;font-size:1rem}
+.product-misnotas #funciones .grid-cards{grid-template-columns:repeat(3,1fr);gap:24px}
+.product-misnotas #funciones .card{background:#fff;box-shadow:4px 5px 0 #e4d8ef;border-radius:3px;padding:32px;border-color:#e4d8ef}
+.product-misnotas #funciones .card:nth-child(3n+2){transform:translateY(24px);background:#f0e7fa}
+.product-misnotas #funciones{padding-bottom:120px}
+/* WiFi Radar: dark diagnostic lab, fine grid and electric signal lines. */
+.product-wifiradar{--surface:#091725;--text:#e2f5ff;--muted:#9ab4c7;--accent:#68e6ec;--edge:#254052;--hero:#071320;--hero-ink:#e2f5ff;--highlight:#68e6ec;--button-ink:#07232c}
+.product-wifiradar .product-hero{background-image:linear-gradient(#5acdd408 1px,transparent 1px),linear-gradient(90deg,#5acdd408 1px,transparent 1px);background-size:44px 44px;border-bottom:1px solid var(--edge)}
+.product-wifiradar .product-title{font-family:'Bricolage Grotesque','Segoe UI',sans-serif;font-size:clamp(2.8rem,5.4vw,5rem)}
+.product-wifiradar .product-art{border:1px solid #315269;border-radius:2px;background:#071320}
+.product-wifiradar .product-art img{aspect-ratio:1.1}
+.product-wifiradar .product-art figcaption{border-top:1px solid #315269;padding:15px;font-family:Consolas,monospace;color:#80d7df}
+.product-wifiradar .product-download{border-radius:3px}
+.product-wifiradar #funciones .grid-cards{grid-template-columns:repeat(2,1fr);gap:1px;background:var(--edge);border:1px solid var(--edge)}
+.product-wifiradar #funciones .card{border:0;border-radius:0;padding:34px;background:var(--surface)}
+.product-wifiradar #funciones .card-icon{border:1px solid #315269;border-radius:50%;background:#102c3c}
+/* Oración Diaria: a contemplative cover with an arched window of light. */
+.product-oraciondiaria{--surface:#f4f5fa;--text:#202d55;--muted:#5c6480;--accent:#69511e;--edge:#d8ddec;--hero:#121d42;--hero-ink:#f7f4ee;--highlight:#edcf8d;--button-ink:#272542}
+.product-oraciondiaria .product-layout{display:flex;flex-direction:column;gap:42px}
+.product-oraciondiaria .product-copy{text-align:center;max-width:800px}
+.product-oraciondiaria .product-identity,.product-oraciondiaria .product-actions,.product-oraciondiaria .product-tags{justify-content:center}
+.product-oraciondiaria .product-title{font-family:Georgia,serif;font-weight:400;font-size:clamp(3rem,6.3vw,5.7rem);max-width:15ch;margin-inline:auto;line-height:1.08}
+.product-oraciondiaria .product-title em{font-style:italic}
+.product-oraciondiaria .product-description{margin-inline:auto;max-width:59ch}
+.product-oraciondiaria .product-art{max-width:900px;width:100%;border-radius:240px 240px 8px 8px;border:1px solid #ddc89440}
+.product-oraciondiaria .product-art img{aspect-ratio:2.1;object-position:center 52%}
+.product-oraciondiaria .product-art figcaption{text-align:center;padding:16px;background:#19264b}
+.product-oraciondiaria #funciones .grid-cards{grid-template-columns:repeat(3,1fr);gap:32px}
+.product-oraciondiaria #funciones .card{text-align:center;border:0;border-radius:0;border-top:1px solid var(--edge);padding:32px 12px}
+.product-oraciondiaria #funciones .card-icon{margin:0 auto 20px;background:#e9e9f1;color:#756038}
+.product-oraciondiaria #funciones .card h3{font-family:Georgia,serif;font-size:1.5rem;font-weight:400}
+@media(min-width:1000px){.product-page .product-layout{min-height:510px}}
+@media(max-width:900px){.product-page .product-layout{gap:28px}.product-cashvault .product-art{margin-right:0}.product-misnotas .product-layout{gap:36px}.product-aquavida #funciones .grid-cards,.product-misnotas #funciones .grid-cards,.product-oraciondiaria #funciones .grid-cards{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:650px){.product-page .product-hero{padding-top:calc(var(--nav-h) + 28px);padding-bottom:44px}.product-page .product-layout{display:flex;flex-direction:column;align-items:stretch;gap:35px}.product-page .product-title{font-size:clamp(2.8rem,12vw,4rem);max-width:15ch}.product-page .product-description{font-size:1rem;margin-top:22px}.product-page .product-art{margin:0;transform:none}.product-page .product-art img{aspect-ratio:1.3}.product-page #funciones .grid-cards{grid-template-columns:1fr;gap:16px}.product-page #funciones .card{transform:none}.product-cashvault #funciones .grid-cards{gap:0}.product-cashvault .product-art{border-radius:70px 8px 8px 8px}.product-wifiradar #funciones .grid-cards{gap:1px}.product-oraciondiaria .product-art{border-radius:120px 120px 8px 8px}.product-oraciondiaria .product-art img{aspect-ratio:1.3}.product-oraciondiaria .product-title{font-size:3.2rem}.product-page .product-tags{font-size:.875rem;line-height:1.7;gap:8px 12px}.product-page .product-tags span+span{padding-left:12px}.product-page .nav-links{gap:15px}.product-page .nav-links a{font-size:.875rem}.product-misnotas #funciones{padding-bottom:70px}.product-page .product-art figcaption{font-size:.875rem}.product-page .contact .foot{padding-bottom:10px}}
+@media(prefers-reduced-motion:reduce){.product-page *{scroll-behavior:auto!important}.product-download{transition:none}}

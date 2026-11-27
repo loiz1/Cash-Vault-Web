@@ -1,0 +1,51 @@
+{
+  "date": "2026-11-27",
+  "method": "Built-in image_gen",
+  "scope": "Eight apps listed as published in the existing Google Play catalog plus Cars Duels 3D (upcoming).",
+  "assets": [
+    {
+      "file": "assets/illustrations/cashvault-original.webp",
+      "prompt": "Use case: stylized-concept. Asset type: original website hero illustration. Cash Vault, a personal and household budgeting app. An elegant architectural still life: an emerald glass house enclosing a gold coin, a few sculptural coin stacks and ascending curved pathways, symbolizing household finances, budgets and savings goals. Deep forest background #071e19, luminous jade, brushed gold. Sophisticated editorial 3D render, beautiful soft lighting, restrained composition, no numbers. Landscape 3:2. Constraints: no screenshots, no app interfaces, no phones, no branding, no logos, no letters, no words, no watermarks. Fill the frame with a polished standalone composition. All essential objects within the central 85% so responsive crops work."
+    },
+    {
+      "file": "assets/illustrations/aquavida-original.webp",
+      "prompt": "Use case: stylized-concept. Asset type: original website hero illustration. AquaVida, daily water tracking with habit rewards and a plant nursery. A beautiful translucent aqua glass filled with fresh water on a little island of lush clover, young potted plants and leaves, a droplet hovering above. Bright mist blue #eaf9fb and rich teal, sunshine, tactile clay and frosted glass 3D editorial illustration. Airy composition, landscape 3:2. Constraints: no screenshots, no app interfaces, no phones, no branding, no logos, no letters, no words, no watermarks. Fill the frame with a polished standalone composition. All essential objects within the central 85% so responsive crops work."
+    },
+    {
+      "file": "assets/illustrations/misnotas-original.webp",
+      "prompt": "Use case: stylized-concept. Asset type: original website hero illustration. Mis Notas, a private personal diary with moods, photos and writing rewards. An open lilac notebook with blank pages, a plum fountain pen, a tiny blank polaroid frame, violet and peach abstract emotion shapes and dried flowers. Artistic paper collage with subtle tactile grain, lavender #f4efff background, deep aubergine ink, peach accents, intimate and expressive. Landscape 3:2. Constraints: no screenshots, no app interfaces, no phones, no branding, no logos, no letters, no words, no watermarks. Fill the frame with a polished standalone composition. All essential objects within the central 85% so responsive crops work."
+    },
+    {
+      "file": "assets/illustrations/wifiradar-original.webp",
+      "prompt": "Use case: stylized-concept. Asset type: original website hero illustration. WiFi Radar, network diagnostic app that discovers connected devices and analyzes signal strength. A luminous central cyan router beacon, concentric radar rings connecting a laptop, a television and a smart home device, all as abstract elegant 3D sculptures floating in dark midnight navy #071320 space. Precise electric cyan and mint signal paths, premium technical editorial illustration, no UI, no charts, no text. Landscape 3:2. Constraints: no screenshots, no app interfaces, no phones, no branding, no logos, no letters, no words, no watermarks. Fill the frame with a polished standalone composition. All essential objects within the central 85% so responsive crops work."
+    },
+    {
+      "file": "assets/illustrations/oraciondiaria-original.webp",
+      "prompt": "Use case: stylized-concept. Asset type: original website hero illustration. Oracion Diaria, a daily Catholic prayer and reading app with rosary and spiritual growth. A luminous open prayer book with blank pages beneath a tall arched window, soft sunrise rays, a small wooden cross, rosary beads on a dark blue surface and a delicate growing olive sprig. Calm editorial painterly illustration with subtle paper grain, midnight indigo #121d42 and warm amber light, contemplative and welcoming. Landscape 3:2. Constraints: no screenshots, no app interfaces, no phones, no branding, no logos, no letters, no words, no watermarks. Fill the frame with a polished standalone composition. All essential objects within the central 85% so responsive crops work."
+    },
+    {
+      "file": "assets/illustrations/fruitduels-original.webp",
+      "prompt": "Use case: stylized-concept. Asset type: original website hero illustration. Fruit Duels, playful fruit merging puzzle game with duels, clans and fruit animal pets. Original whimsical clay illustration: shiny cherry pair, strawberry and orange tumbling together toward a joyful giant watermelon, colorful tiny tropical islands and lush leaves, dynamic arcs suggesting merging. Vivid coral, watermelon pink, sunny yellow and green, warm pink #ffedf0 background. High end playful 3D illustration, not in-game graphics. Landscape 3:2. Constraints: no screenshots, no app interfaces, no phones, no branding, no logos, no letters, no words, no watermarks. Fill the frame with a polished standalone composition. All essential objects within the central 85% so responsive crops work."
+    },
+    {
+      "file": "assets/illustrations/snakeduels-original.webp",
+      "prompt": "Use case: stylized-concept. Asset type: original website hero illustration. Snake Duels, competitive snake arena game with classic and capture the flag modes. Two expressive friendly long snakes, emerald green and vivid orange, curling through a lush jungle arena with small glowing collectible orbs and a little flag in the distance. Premium stylized adventure illustration, kinetic sweeping curves, layered tropical foliage, dramatic jade and lime illumination, deep jungle #09251a background. No violence. Landscape 3:2. Constraints: no screenshots, no app interfaces, no phones, no branding, no logos, no letters, no words, no watermarks. Fill the frame with a polished standalone composition. All essential objects within the central 85% so responsive crops work."
+    },
+    {
+      "file": "assets/illustrations/impostorduels-original.webp",
+      "prompt": "Use case: stylized-concept. Asset type: original website hero illustration. Impostor Duels, social word and deduction party game, share clues and find who has a different word. An atmospheric surreal editorial 3D scene: a round violet table with blank playing cards arranged for friends, several stylized colorful theatrical face masks, one mysterious orange mask subtly apart, a floating glowing question mark sculpture. Deep plum #21112e, ultraviolet, lilac and warm coral, mysterious but playful, bold cinematic light. Landscape 3:2. Constraints: no screenshots, no app interfaces, no phones, no branding, no logos, no letters, no words, no watermarks. Fill the frame with a polished standalone composition. All essential objects within the central 85% so responsive crops work."
+    },
+    {
+      "file": "assets/illustrations/carsduels-original.webp",
+      "prompt": "Use case: stylized-concept. Asset type: original website hero illustration. Cars Duels 3D, upcoming arcade racing game for Android. Original cinematic concept illustration, two unbranded compact racing coupes, red in foreground and turquoise rival, drifting around a sweeping elevated coastal race circuit, cliffside sea, distant mountains and sunlit clouds. Dynamic low camera angle, joyful stylized premium 3D art, sharp asphalt curves, vivid racing orange #ff572b, turquoise water, midnight navy shadows. Landscape 3:2. This is illustrative concept art, not a game screenshot. Constraints: no screenshots, no app interfaces, no phones, no branding, no logos, no letters, no words, no watermarks. Fill the frame with a polished standalone composition. All essential objects within the central 85% so responsive crops work."
+    },
+    {
+      "file": "assets/illustrations/carsduels-tracks-original.webp",
+      "prompt": "Use case: stylized-concept. Asset type: original website hero illustration. Cars Duels 3D upcoming arcade racer, original environmental concept art: a miniature sculpted island with a flowing asphalt racetrack winding past a turquoise lake, copper pine forest and red rocky canyon, a small red unbranded race car on the track. Premium stylized 3D diorama, precise track design, bold sunlight, petrol navy shadows, vivid orange curb markings, landscape 3:2. Constraints: no screenshots, no app interfaces, no phones, no branding, no logos, no letters, no words, no watermarks. Fill the frame with a polished standalone composition. All essential objects within the central 85% so responsive crops work."
+    },
+    {
+      "file": "assets/illustrations/carsduels-garage-original.webp",
+      "prompt": "Use case: stylized-concept. Asset type: original website hero illustration. Cars Duels 3D upcoming arcade racer, original automotive concept illustration: three unbranded stylized compact sports cars in red, electric blue and warm yellow lined up in an architectural midnight navy garage, luminous orange strips on polished concrete floor and overhead light. Dramatic low viewpoint, premium stylized 3D editorial render, mechanical details, landscape 3:2. Constraints: no screenshots, no app interfaces, no phones, no branding, no logos, no letters, no words, no watermarks. Fill the frame with a polished standalone composition. All essential objects within the central 85% so responsive crops work."
+    }
+  ]
+}
